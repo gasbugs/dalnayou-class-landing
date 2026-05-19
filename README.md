@@ -1,4 +1,4 @@
-# 달나유 4주 심화 과정 — 랜딩 페이지
+# CLOUD SECURITY LAB · 주말 4주 AI 정규 과정 — 랜딩 페이지
 
 > NotebookLM·로블록스 주말 4주 학원형 정규 과정의 공개 랜딩 페이지.
 > GitHub Pages로 호스팅됩니다.
