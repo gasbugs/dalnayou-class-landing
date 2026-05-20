@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLOUD SECURITY LAB · 주말 4주 AI 정규 과정 — 포스터</title>
+  <meta name="description" content="A4 포스터 · 부천 소사 달나유 이음센터 · 매주 토요일 4주 · 정상가 249,000원, 얼리버드 189,000원" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#FFF5EE', 100:'#FFE6D5', 200:'#FFC9A8', 300:'#FFA976', 400:'#FF8A4C', 500:'#FF7A45', 600:'#EA580C', 700:'#C2410C', 800:'#9A3412' },
+            cream:   { 50:'#FFFCF7', 100:'#FFF8E7', 200:'#FEF3C7', 300:'#FDE8B0' },
+            ink:     { 700:'#3F2D20', 800:'#2A1D14', 900:'#1F1410' },
+          },
+          fontFamily: { sans: ['Pretendard','-apple-system','BlinkMacSystemFont','system-ui','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+
+  <style>
+    /* A4 인쇄 사이즈: 210 × 297 mm */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+      background: #f5f5f5;
+    }
+    .poster {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      background: #FFFBF5;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      color: #2A1D14;
+    }
+    .poster::before {
+      content:''; position:absolute; inset:0; pointer-events:none; opacity:.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .hero-bg {
+      background: radial-gradient(at 20% 10%, #FFE6D5 0%, transparent 50%),
+                  radial-gradient(at 80% 30%, #FFF8E7 0%, transparent 55%),
+                  linear-gradient(180deg, #FFFBF5 0%, #FFF5EE 100%);
+    }
+    @media print {
+      body { background: white; }
+      .poster { box-shadow: none; margin: 0; }
+      .no-print { display: none !important; }
+    }
+    /* 화면에서 인쇄 안내 버튼 */
+    .print-cta {
+      position: fixed; right: 20px; bottom: 20px;
+      padding: 12px 20px; background: #EA580C; color: white;
+      border-radius: 999px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 100; border: none;
+    }
+    .print-cta:hover { background: #C2410C; }
+  </style>
+</head>
+<body class="antialiased">
+
+<button class="print-cta no-print" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+
+<div class="poster relative">
+  <!-- 상단 공지 바 -->
+  <div class="bg-green-700 text-white text-[10px] py-1 text-center font-bold tracking-wide">
+    📍 오프라인 정규 강의 · 부천 소사 달나유 이음센터 · 매주 토요일 4주
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-bg px-10 pt-8 pb-6 relative">
+    <div class="flex items-center justify-between mb-4">
+      <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-10" />
+      <div class="flex flex-wrap gap-1 justify-end">
+        <span class="px-2 py-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-ink-900 text-[10px] font-bold rounded-full">🏆 CVE-2026-44979 획득</span>
+        <span class="px-2 py-0.5 bg-green-100 border border-green-300 text-green-800 text-[10px] font-bold rounded-full">📍 부천 오프라인</span>
+      </div>
+    </div>
+
+    <h1 class="text-[42px] font-extrabold text-ink-900 leading-tight tracking-tight">
+      오프라인 토요 클래스 <span class="text-primary-600">4주</span><br />
+      <span class="text-primary-600 text-[56px]">189,000원</span>
+      <span class="text-base font-medium text-ink-700 align-middle ml-2"><span class="line-through opacity-60">정상가 249,000원</span> <b class="text-primary-600">-6만원</b></span>
+    </h1>
+
+    <p class="mt-3 text-lg font-bold text-ink-700 leading-snug">
+      기다리던 그 AI 교육,<br />
+      <span class="text-primary-600">IT 실무 &amp; 기업 교육 업체</span>가 직접 가르칩니다!
+    </p>
+  </div>
+
+  <!-- 한눈에 보기 -->
+  <div class="px-10 py-4 bg-white border-y border-primary-100">
+    <div class="grid grid-cols-6 gap-2 text-center">
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-lg">📅</div>
+        <div class="text-[9px] text-ink-700">개강</div>
+        <div class="text-xs font-extrabold text-primary-700">8/8 (토)</div>
+      </div>
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-lg">⏱️</div>
+        <div class="text-[9px] text-ink-700">기간</div>
+        <div class="text-xs font-extrabold text-primary-700">4주 12h</div>
+      </div>
+      <div class="p-2 bg-primary-500 text-white rounded-lg">
+        <div class="text-lg">💰</div>
+        <div class="text-[9px] opacity-90">얼리버드</div>
+        <div class="text-xs font-extrabold">189,000원</div>
+      </div>
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-lg">👥</div>
+        <div class="text-[9px] text-ink-700">케어</div>
+        <div class="text-xs font-extrabold text-primary-700">밀착 케어</div>
+      </div>
+      <div class="p-2 bg-green-50 rounded-lg border border-green-200">
+        <div class="text-lg">📍</div>
+        <div class="text-[9px] text-ink-700">장소</div>
+        <div class="text-xs font-extrabold text-green-800">부천 소사</div>
+      </div>
+      <div class="p-2 bg-orange-50 rounded-lg border border-orange-200">
+        <div class="text-lg">💻</div>
+        <div class="text-[9px] text-ink-700">노트북</div>
+        <div class="text-xs font-extrabold text-orange-700">지참 필수</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 두 강좌 -->
+  <div class="px-10 py-5 grid grid-cols-2 gap-3">
+    <!-- 로블록스 -->
+    <div class="bg-white rounded-2xl p-4 border-2 border-orange-300 shadow-sm">
+      <div class="flex items-center gap-1 mb-1">
+        <span class="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-[9px] font-bold rounded-full">강좌 ①</span>
+        <span class="text-[9px] text-ink-700">초4↑ · 학부모 추천</span>
+      </div>
+      <h3 class="text-base font-extrabold text-ink-900 leading-tight">AI로 만드는 내 게임<br /><span class="text-xs font-bold text-ink-700">— 로블록스 4주</span></h3>
+      <p class="text-[10px] text-primary-600 font-semibold mt-1">"코딩 몰라도, 게임은 만들 수 있다"</p>
+      <div class="mt-2 text-[10px] text-ink-700 space-y-0.5">
+        <div>👤 강사 <b>권승민</b> · 토 14:00~17:00</div>
+        <div>🎯 Planning Mode · Mesh Gen · Playtesting Agent</div>
+      </div>
+      <ul class="mt-2 space-y-0.5 text-[10px] text-ink-700">
+        <li>🏝️ AI 인테리어 + 자연 지형 <b>게임 월드</b></li>
+        <li>🎯 점프대·코인·리더보드 <b>미니 게임</b></li>
+        <li>🔗 친구 핸드폰 즉시 플레이 <b>퍼블리시 링크</b></li>
+      </ul>
+    </div>
+
+    <!-- NotebookLM -->
+    <div class="bg-white rounded-2xl p-4 border-2 border-blue-300 shadow-sm">
+      <div class="flex items-center gap-1 mb-1">
+        <span class="px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[9px] font-bold rounded-full">강좌 ②</span>
+        <span class="text-[9px] text-ink-700">학생·직장인 추천</span>
+      </div>
+      <h3 class="text-base font-extrabold text-ink-900 leading-tight">AI로 만드는 내 학습 비서<br /><span class="text-xs font-bold text-ink-700">— NotebookLM 4주</span></h3>
+      <p class="text-[10px] text-primary-600 font-semibold mt-1">"내 자료만 아는 AI 학습 도구"</p>
+      <div class="mt-2 text-[10px] text-ink-700 space-y-0.5">
+        <div>👤 강사 <b>이서진</b> · 토 09:00~12:00</div>
+        <div>🎯 Audio Overview · Mind Map · Flashcards · Gemini</div>
+      </div>
+      <ul class="mt-2 space-y-0.5 text-[10px] text-ink-700">
+        <li>🎙️ 내 자료로 만든 <b>한국어 AI 팟캐스트</b></li>
+        <li>🧠 본인 자료의 <b>마인드맵 + 플래시카드</b></li>
+        <li>🤖 <b>나만의 AI 학습 워크플로우</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4주 흐름 -->
+  <div class="px-10 pb-3">
+    <h3 class="text-sm font-extrabold text-ink-900 mb-2">📋 4주 동안 이렇게 진행됩니다</h3>
+    <div class="grid grid-cols-4 gap-2">
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-[10px] font-bold text-primary-700">1주차 · 8/8 (토)</div>
+        <p class="text-[9px] text-ink-700 mt-0.5 leading-tight">스튜디오·파트·AI 소품 / 입문·소스 6종 마스터</p>
+      </div>
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-[10px] font-bold text-primary-700">2주차 · 8/15 (토)</div>
+        <p class="text-[9px] text-ink-700 mt-0.5 leading-tight">야외 월드·조명 / 인용 채팅·AI 팟캐스트</p>
+      </div>
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-[10px] font-bold text-primary-700">3주차 · 8/22 (토)</div>
+        <p class="text-[9px] text-ink-700 mt-0.5 leading-tight">AI 코드·게임 시스템 / 마인드맵·학습 카드</p>
+      </div>
+      <div class="p-2 bg-cream-50 rounded-lg border border-primary-100">
+        <div class="text-[10px] font-bold text-primary-700">4주차 · 8/29 (토)</div>
+        <p class="text-[9px] text-ink-700 mt-0.5 leading-tight">게임 출시·발표 / 종합 프로젝트·수료</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 주관사 + 신뢰 -->
+  <div class="px-10 pb-3">
+    <div class="bg-gradient-to-r from-yellow-100 to-orange-100 border border-orange-300 rounded-xl p-3">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-[10px] font-bold text-orange-700">🏆 주관사</span>
+        <span class="text-sm font-extrabold text-ink-900">CLOUD SECURITY LAB</span>
+        <span class="text-[9px] text-ink-700">· 클라우드·IT 보안 전문 컨설팅·교육 기업</span>
+      </div>
+      <p class="text-[10px] text-ink-800 leading-snug">
+        <b>금융보안원 · 삼성통합보안센터 · 국방부 · SK쉴더스 · 하나금융 · LG CNS · 넥슨 · POSCO · KISA</b> 등 정기 출강 · 보안 강의 <b>10년+</b><br />
+        🏅 국내 6번째 <b>Golden Kubestronaut</b> 보유 (CNCF 쿠버네티스·클라우드 네이티브 마스터)
+      </p>
+    </div>
+  </div>
+
+  <!-- 하단 CTA -->
+  <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-primary-500 to-primary-700 text-white px-10 py-4">
+    <div class="flex items-end justify-between">
+      <div>
+        <div class="text-[10px] opacity-90 mb-1">🎉 첫 기수 오픈 기념 · 1기 한정 특가</div>
+        <h2 class="text-xl font-extrabold leading-tight">지금 신청하세요!</h2>
+        <p class="text-[10px] mt-1 opacity-90">2026년 8월 8일(토) 개강 · 얼리버드 마감 7/25</p>
+        <p class="text-[10px] mt-1">📞 문의: 카카오톡 채널 <b>@CLOUDSECURITYLAB</b></p>
+      </div>
+      <div class="text-right">
+        <!-- 카톡 QR -->
+        <div class="inline-block p-2 bg-white rounded-lg">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgasbugs.github.io%2Fdalnayou-class-landing%2F" alt="QR" class="w-[100px] h-[100px]" />
+        </div>
+        <div class="text-[9px] mt-1 font-bold">상세보기·신청</div>
+        <div class="text-[8px] opacity-80">gasbugs.github.io/dalnayou-class-landing</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
