@@ -22,4 +22,3 @@
 
 ## 문의
 - 카카오톡: http://pf.kakao.com/_xeKJxen/chat
-- 이메일: yeoneunkim@cloudsecuritylab.co.kr
