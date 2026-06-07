@@ -57,6 +57,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
 - `apply_click`: 신청서 클릭
 - `contact_click`: 카카오톡 문의 클릭
 - `section_click`: 내부 섹션 이동 클릭
+- `map_click`: 카카오맵·네이버지도 위치 클릭
 - `policy_click`: 환불 정책 클릭
 - `shorts_section_view`: 쇼츠 섹션 노출
 
