@@ -22,10 +22,13 @@
   <meta name="twitter:description" content="8월 16일 개강, 매주 일요일 4주 12시간. 부천 소사 오프라인 AI·코딩 클래스, 선착순 등록." />
   <meta name="twitter:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/hero.png" />
 
-  <!-- GA4 측정 ID가 발급되면 G-... 값을 넣으세요. 비어 있으면 수집하지 않습니다. -->
-  <script>
-    window.DALNAYOU_GA4_ID = "";
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
 
   <!-- Tailwind CSS via Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -72,6 +75,10 @@
 </head>
 
 <body class="bg-cream-50 text-ink-800 antialiased">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- 상단 공지 바 -->
   <div class="bg-green-700 text-white text-xs py-1.5 text-center">
@@ -983,30 +990,17 @@
 
   <script>
     (() => {
-      const ga4Id = (window.DALNAYOU_GA4_ID || "").trim();
-      const ga4Configured = /^G-[A-Z0-9]+$/i.test(ga4Id);
       window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
-
-      if (ga4Configured) {
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`;
-        document.head.appendChild(script);
-        window.gtag("js", new Date());
-        window.gtag("config", ga4Id, {
-          send_page_view: true,
-          page_title: document.title,
-          page_location: window.location.href,
-        });
-      }
 
       const clean = (value, fallback = "") =>
         String(value || fallback).trim().replace(/\s+/g, " ").slice(0, 120);
 
       const track = (eventName, params = {}) => {
-        if (!ga4Configured || !eventName) return;
-        window.gtag("event", eventName, params);
+        if (!eventName) return;
+        window.dataLayer.push({
+          event: eventName,
+          ...params,
+        });
       };
 
       window.dalnayouTrack = track;

@@ -50,9 +50,9 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=cardnews&utm_medium
 https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=qr&utm_campaign=dalnayou_2026_08
 ```
 
-## GA4 이벤트
+## GTM 이벤트
 
-랜딩은 GA4 측정 ID가 들어가면 아래 이벤트를 보냅니다.
+랜딩은 Google Tag Manager 컨테이너 `GTM-KVC6H3SL`로 아래 `dataLayer` 이벤트를 보냅니다.
 
 - `apply_click`: 신청서 클릭
 - `contact_click`: 카카오톡 문의 클릭
@@ -60,4 +60,4 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
 - `policy_click`: 환불 정책 클릭
 - `shorts_section_view`: 쇼츠 섹션 노출
 
-`index.html` 상단의 `window.DALNAYOU_GA4_ID = "";`에 `G-...` 측정 ID를 넣으면 수집이 시작됩니다.
+실제 GA4 보고서 수집은 GTM 컨테이너에서 GA4 태그와 위 이벤트명 기준의 맞춤 이벤트 트리거를 연결해야 시작됩니다.
