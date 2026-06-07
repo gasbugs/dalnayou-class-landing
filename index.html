@@ -22,6 +22,11 @@
   <meta name="twitter:description" content="8월 16일 개강, 매주 일요일 4주 12시간. 부천 소사 오프라인 AI·코딩 클래스, 선착순 등록." />
   <meta name="twitter:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/hero.png" />
 
+  <!-- GA4 측정 ID가 발급되면 G-... 값을 넣으세요. 비어 있으면 수집하지 않습니다. -->
+  <script>
+    window.DALNAYOU_GA4_ID = "";
+  </script>
+
   <!-- Tailwind CSS via Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -87,7 +92,7 @@
         <a href="#pricing" class="hover:text-primary-600">가격</a>
         <a href="#faq" class="hover:text-primary-600">FAQ</a>
       </div>
-      <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold rounded-full transition shadow-sm">지금 신청</a>
+      <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="nav_apply" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold rounded-full transition shadow-sm">지금 신청</a>
     </div>
   </nav>
 
@@ -115,8 +120,8 @@
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition">▶ 신청서 작성</a>
-          <a href="#courses" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-bold rounded-full border border-primary-200 transition">강좌 살펴보기</a>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="hero_apply" class="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition">▶ 신청서 작성</a>
+          <a href="#courses" data-track-event="section_click" data-track-label="hero_courses" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-bold rounded-full border border-primary-200 transition">강좌 살펴보기</a>
         </div>
 
         <div class="mt-12 w-full max-w-4xl grid md:grid-cols-2 gap-4">
@@ -809,8 +814,8 @@
       <p class="mt-6 text-lg opacity-90">2026년 8월 16일(일) 개강 · 매주 일요일 4주 12시간 · 얼리버드 ~8/2(일) · 선착순 등록</p>
 
       <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg transition">📝 신청서 작성</a>
-        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg transition">💬 카톡 1:1 상담</a>
+        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="final_apply" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg transition">📝 신청서 작성</a>
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="final_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg transition">💬 카톡 1:1 상담</a>
       </div>
 
       <p class="mt-8 text-sm opacity-80">💸 입금 안내</p>
@@ -951,7 +956,7 @@
       </div>
       <div>
         <div class="font-bold text-white mb-2">📞 강좌 문의</div>
-        <p>💬 <a href="http://pf.kakao.com/_xeKJxen/chat" class="underline">카카오톡 채널</a></p>
+        <p>💬 <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" class="underline" data-track-event="contact_click" data-track-label="footer_kakao">카카오톡 채널</a></p>
         <p>📷 인스타그램 (준비 중)</p>
         <p class="mt-3 text-xs opacity-70">📍 장소 문의 전용 (달나유 이음센터): 032-346-3777</p>
       </div>
@@ -970,11 +975,77 @@
           <div>사업장: 경기도 부천시 소사구 경인옛로 37 B107</div>
         </div>
         <div class="flex gap-4">
-          <a href="./refund.html" class="hover:text-white underline">환불 정책</a>
+          <a href="./refund.html" class="hover:text-white underline" data-track-event="policy_click" data-track-label="footer_refund">환불 정책</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script>
+    (() => {
+      const ga4Id = (window.DALNAYOU_GA4_ID || "").trim();
+      const ga4Configured = /^G-[A-Z0-9]+$/i.test(ga4Id);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+
+      if (ga4Configured) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`;
+        document.head.appendChild(script);
+        window.gtag("js", new Date());
+        window.gtag("config", ga4Id, {
+          send_page_view: true,
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      }
+
+      const clean = (value, fallback = "") =>
+        String(value || fallback).trim().replace(/\s+/g, " ").slice(0, 120);
+
+      const track = (eventName, params = {}) => {
+        if (!ga4Configured || !eventName) return;
+        window.gtag("event", eventName, params);
+      };
+
+      window.dalnayouTrack = track;
+
+      document.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-track-event]");
+        if (!target) return;
+
+        const targetUrl = target.href || "";
+        let outbound = false;
+        try {
+          outbound = targetUrl ? new URL(targetUrl, window.location.href).hostname !== window.location.hostname : false;
+        } catch (_) {
+          outbound = false;
+        }
+
+        track(target.dataset.trackEvent, {
+          link_position: target.dataset.trackLabel || "unknown",
+          link_text: clean(target.textContent, target.getAttribute("aria-label")),
+          link_url: targetUrl,
+          outbound,
+        });
+      });
+
+      const shortsSection = document.querySelector("#shorts");
+      if (shortsSection && "IntersectionObserver" in window) {
+        let sent = false;
+        const observer = new IntersectionObserver((entries) => {
+          if (sent || !entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.45)) return;
+          sent = true;
+          track("shorts_section_view", {
+            section_id: "shorts",
+            video_id: "yQYwMZ2udaw",
+          });
+          observer.disconnect();
+        }, { threshold: [0, 0.45, 0.75] });
+        observer.observe(shortsSection);
+      }
+    })();
+  </script>
 </body>
 </html>
