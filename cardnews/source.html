@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>달나유 카드뉴스 원본</title>
+  <style>
+    :root {
+      --bg: #fffcf7;
+      --paper: #ffffff;
+      --ink: #1f1410;
+      --muted: #6f5a49;
+      --orange: #c2410c;
+      --orange-2: #ff7a45;
+      --blue: #2563eb;
+      --green: #15803d;
+      --line: #f3d9c5;
+      --blue-soft: #eef5ff;
+      --orange-soft: #fff4ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Pretendard, "Apple SD Gothic Neo", "Noto Sans CJK KR", "Malgun Gothic", sans-serif;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      display: none;
+      width: 1080px;
+      background: linear-gradient(135deg, #fffcf7 0%, #fff5ee 64%, #ffe7d4 100%);
+      padding: 72px;
+    }
+    .card.active { display: block; }
+    .instagram { height: 1350px; }
+    .daangn { height: 1080px; }
+    .orb {
+      position: absolute;
+      display: none;
+      right: -68px;
+      top: -54px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255, 122, 69, 0.11);
+    }
+    .sun {
+      position: absolute;
+      display: none;
+      left: -110px;
+      bottom: -120px;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: rgba(253, 232, 176, 0.58);
+    }
+    h1 {
+      margin: 0;
+      font-size: 72px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+    h2 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+    .brand {
+      position: absolute;
+      left: 72px;
+      bottom: 42px;
+      color: var(--muted);
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .page {
+      position: absolute;
+      right: 72px;
+      bottom: 42px;
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      min-height: 58px;
+      padding: 0 34px;
+      color: #fff;
+      background: var(--orange-2);
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .badge.green { background: var(--green); }
+    .badge.blue { background: var(--blue); }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .pill.blue { background: #e7f0ff; color: var(--blue); }
+    .pill.orange { background: #fff0e7; color: var(--orange); }
+    .pill.green { background: #e8f7ee; color: var(--green); }
+    .box {
+      border: 2px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 16px 34px -24px rgba(60, 30, 10, .35);
+    }
+    .course {
+      border-radius: 30px;
+      padding: 48px;
+      box-shadow: 0 20px 38px -28px rgba(60, 30, 10, .35);
+    }
+    .course.blue {
+      background: var(--blue-soft);
+      border: 2px solid #93c5fd;
+    }
+    .course.orange {
+      background: var(--orange-soft);
+      border: 2px solid #ffc4aa;
+    }
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 2px solid rgba(255,255,255,.7);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+    .footer-note {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      bottom: 104px;
+      color: var(--green);
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .list {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+      font-size: 31px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .dot {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .dot::before {
+      content: "";
+      width: 26px;
+      height: 26px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .blue-text { color: var(--blue); }
+    .orange-text { color: var(--orange); }
+    .green-text { color: var(--green); }
+    .muted { color: var(--muted); }
+    .large-price {
+      color: var(--orange);
+      font-size: 68px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .small-title {
+      color: var(--orange);
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+  </style>
+</head>
+<body>
+  <section id="instagram-01-cover" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <div class="badge green" style="position:absolute;right:72px;top:72px">오프라인</div>
+    <h1 style="margin-top:46px">AI로 만드는<br />내 학습 비서<br />내 게임</h1>
+    <div class="large-price" style="margin-top:56px">4주 189,000원</div>
+    <p style="font-size:31px;margin-top:30px">정상가 249,000원 · 얼리버드 8/2 마감 · 선착순 등록</p>
+    <div class="split" style="margin-top:72px">
+      <img class="hero-img" src="../images/notebooklm_mindmap.png" alt="" />
+      <img class="hero-img" src="../images/roblox_screen.png" alt="" />
+    </div>
+    <div class="box" style="position:absolute;left:72px;right:72px;bottom:138px;padding:34px 38px">
+      <h2 style="font-size:44px">8/16부터 매주 일요일 4주간</h2>
+      <p style="font-size:28px;margin-top:22px">NotebookLM 09:00~12:00 | 로블록스 AI 14:00~17:00</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">1/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-02-problem" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>아직 늦지<br />않았습니다</h1>
+    <p style="font-size:38px;margin-top:54px;color:var(--orange)">AI를 잘 쓰면, 누구나 자기 일의 전문가가 될 수 있습니다.</p>
+    <div class="box" style="margin-top:86px;padding:48px">
+      <h2 style="font-size:46px">AI를 보기만 하는 시대에서<br />직접 쓰는 시대로</h2>
+      <p style="font-size:31px;margin-top:28px">내 자료로 공부 자료를 만들고,<br />내 아이디어로 게임 월드를 완성합니다.</p>
+    </div>
+    <div class="box" style="margin-top:36px;padding:44px">
+      <h2 style="font-size:40px;color:var(--orange)">4주 동안 손에 남는 결과물</h2>
+      <p style="font-size:31px;margin-top:18px">AI 팟캐스트 · 마인드맵 · 플래시카드 · Roblox 공개 링크</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">2/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-03-courses" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>두 가지 강좌 중<br />하나를 선택하세요</h1>
+    <div class="course blue" style="margin-top:92px">
+      <p class="blue-text" style="font-size:30px">오전 09:00~12:00</p>
+      <h2 style="font-size:58px;margin-top:30px">AI로 만드는<br />내 학습 비서<br />NotebookLM 4주</h2>
+      <p style="font-size:31px;margin-top:22px">팟캐스트 · 마인드맵 · 자동 퀴즈</p>
+    </div>
+    <div class="course orange" style="margin-top:38px">
+      <p class="orange-text" style="font-size:30px">오후 14:00~17:00</p>
+      <h2 style="font-size:56px;margin-top:30px">AI로 만드는<br />내 게임<br />로블록스 AI 4주</h2>
+      <p style="font-size:31px;margin-top:22px">AI 월드 · 미니게임 · 공개 링크</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">3/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-04-notebooklm" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <div class="badge blue" style="position:absolute;right:72px;top:72px">NotebookLM 4주</div>
+    <h1>내 자료만 아는<br />AI 학습 비서</h1>
+    <p style="font-size:32px;margin-top:48px">ChatGPT는 똑똑하지만, 내 자료는 모릅니다.</p>
+    <img class="hero-img" src="../images/notebooklm_mindmap.png" style="height:430px;margin-top:60px" alt="" />
+    <div class="box" style="margin-top:44px;padding:38px 48px">
+      <h2 class="blue-text" style="font-size:42px">4주 후 손에 남는 것</h2>
+      <div class="list blue-text">
+        <div class="dot"><span class="muted">내 자료로 만든 AI 팟캐스트</span></div>
+        <div class="dot"><span class="muted">마인드맵 + 플래시카드 + 자동 퀴즈</span></div>
+        <div class="dot"><span class="muted">인용 포함 분석 노트</span></div>
+      </div>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">4/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-05-roblox" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <div class="badge" style="position:absolute;right:72px;top:72px">로블록스 AI 4주</div>
+    <h1>코딩 몰라도,<br />게임은 만들 수 있다</h1>
+    <p style="font-size:32px;margin-top:48px">자연어 한 문장으로 AI가 월드와 시스템을 돕습니다.</p>
+    <img class="hero-img" src="../images/roblox_screen.png" style="height:430px;margin-top:60px" alt="" />
+    <div class="box" style="margin-top:44px;padding:38px 48px">
+      <h2 class="orange-text" style="font-size:42px">4주 후 손에 남는 것</h2>
+      <div class="list orange-text">
+        <div class="dot"><span class="muted">AI 인테리어 + 자연 지형 게임 월드</span></div>
+        <div class="dot"><span class="muted">점프대·코인·리더보드 미니게임</span></div>
+        <div class="dot"><span class="muted">친구와 공유 가능한 Roblox 공개 링크</span></div>
+      </div>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">5/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-06-difference" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>단순 체험이 아닌<br />4주 정규 과정</h1>
+    <div class="box" style="margin-top:88px;padding:48px">
+      <h2 style="font-size:44px;color:var(--orange)">매주 일요일마다 3시간씩</h2>
+      <p style="font-size:29px;margin-top:20px">1교시 이론·실습 → 2교시 심화 → 3교시 산출물 정리·Q&amp;A</p>
+    </div>
+    <div class="box" style="margin-top:36px;padding:48px">
+      <h2 style="font-size:44px;color:var(--green)">오프라인 밀착 케어</h2>
+      <p style="font-size:31px;margin-top:20px">막히는 부분은 현장에서 바로 잡고, 카카오 단톡방으로 이어갑니다.</p>
+    </div>
+    <div class="box" style="margin-top:36px;padding:48px">
+      <h2 style="font-size:44px;color:var(--blue)">자기 자료와 자기 아이디어</h2>
+      <p style="font-size:31px;margin-top:20px">AI 도구를 남의 예제가 아니라 내 일과 공부에 연결합니다.</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">6/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-07-info" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>신청 전<br />꼭 볼 정보</h1>
+    <div class="box" style="margin-top:86px;padding:42px 48px">
+      <div class="small-title">일정</div>
+      <h2 style="font-size:40px">2026. 8. 16부터 매주 일요일 4주간</h2>
+    </div>
+    <div class="box" style="margin-top:40px;padding:42px 48px">
+      <div class="small-title">시간</div>
+      <h2 style="font-size:33px;line-height:1.65">매주 일요일 NotebookLM 09:00~12:00<br />매주 일요일 로블록스 AI 14:00~17:00</h2>
+    </div>
+    <div class="box" style="margin-top:40px;padding:42px 48px">
+      <div class="small-title green-text">장소</div>
+      <h2 style="font-size:36px">달나유 이음센터 · 힐스테이트소사역 상가 B1층</h2>
+    </div>
+    <div class="box" style="margin-top:40px;padding:42px 48px">
+      <div class="small-title">가격</div>
+      <h2 style="font-size:36px">정상가 249,000원 → 얼리버드 189,000원</h2>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">7/8 INSTAGRAM</div>
+  </section>
+
+  <section id="instagram-08-cta" class="card instagram">
+    <div class="orb"></div><div class="sun"></div>
+    <div class="badge" style="position:absolute;right:72px;top:72px">선착순 등록</div>
+    <h1>8월 2일까지<br />189,000원</h1>
+    <p style="font-size:34px;margin-top:76px;color:var(--orange)">정상가 249,000원에서 6만원 할인</p>
+    <img class="hero-img" src="../images/classroom.jpg" style="height:360px;margin-top:72px" alt="" />
+    <div class="pill green" style="position:absolute;left:118px;right:118px;top:832px;font-size:27px;z-index:2">소사역 4번 출구 힐스에비뉴 B1층</div>
+    <div class="box" style="position:absolute;left:72px;right:72px;bottom:168px;padding:42px 48px">
+      <h2 style="font-size:42px">선착순 등록 문의</h2>
+      <h2 class="green-text" style="font-size:42px;margin-top:24px">카카오톡 채널 1:1 상담</h2>
+      <p style="font-size:34px;margin-top:18px;color:var(--orange)">pf.kakao.com/_xeKJxen/chat</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">8/8 INSTAGRAM</div>
+  </section>
+
+  <section id="daangn-01-local" class="card daangn">
+    <div class="orb"></div><div class="sun"></div>
+    <div class="badge green" style="position:absolute;right:54px;top:54px">오프라인</div>
+    <h1>달나유<br />일요 AI 클래스</h1>
+    <p style="font-size:36px;margin-top:58px;color:var(--orange)">아직 늦지 않았습니다<br />AI 따라잡기 4주 프로젝트</p>
+    <img class="hero-img" src="../images/classroom.jpg" style="height:365px;margin-top:72px" alt="" />
+    <div class="footer-note" style="bottom:120px">힐스테이트소사역 상가 B1층 · 달나유 이음센터</div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">1/3 DAANGN</div>
+  </section>
+
+  <section id="daangn-02-courses" class="card daangn">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>오전은 학습,<br />오후는 게임</h1>
+    <div class="split" style="margin-top:84px">
+      <div class="course blue" style="height:500px;padding:38px">
+        <h2 class="blue-text" style="font-size:44px">NotebookLM</h2>
+        <h2 style="font-size:34px;margin-top:28px">09:00~12:00</h2>
+        <p style="font-size:30px;margin-top:58px">내 자료로<br />팟캐스트·마인드맵<br />자동 퀴즈 만들기</p>
+      </div>
+      <div class="course orange" style="height:500px;padding:38px">
+        <h2 class="orange-text" style="font-size:44px">로블록스 AI</h2>
+        <h2 style="font-size:34px;margin-top:28px">14:00~17:00</h2>
+        <p style="font-size:30px;margin-top:58px">코딩 몰라도<br />AI로 월드·미니게임<br />공개 링크 만들기</p>
+      </div>
+    </div>
+    <div class="footer-note">초등 4학년 이상 로블록스 단독 수강 가능</div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">2/3 DAANGN</div>
+  </section>
+
+  <section id="daangn-03-cta" class="card daangn">
+    <div class="orb"></div><div class="sun"></div>
+    <h1>8월 16일부터<br />시작합니다</h1>
+    <div class="box" style="margin-top:66px;padding:38px 42px">
+      <div class="small-title">일정</div>
+      <h2 style="font-size:42px">2026. 8. 16부터 매주 일요일 4주간</h2>
+    </div>
+    <div class="box" style="margin-top:28px;padding:38px 42px">
+      <div class="small-title">가격</div>
+      <h2 class="orange-text" style="font-size:42px">얼리버드 189,000원 · 8/2 마감 · 선착순 등록</h2>
+    </div>
+    <div class="box" style="margin-top:28px;padding:38px 42px">
+      <div class="small-title green-text">문의</div>
+      <h2 class="green-text" style="font-size:42px">카카오톡 채널 1:1 상담</h2>
+      <p style="font-size:27px;margin-top:10px">장소: 소사역 4번 출구 힐스에비뉴 B1층</p>
+      <p style="font-size:31px;color:var(--orange);margin-top:16px">pf.kakao.com/_xeKJxen/chat</p>
+    </div>
+    <div class="brand">CLOUD SECURITY LAB × 달나유 이음센터</div><div class="page">3/3 DAANGN</div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const cardId = params.get("card") || "instagram-01-cover";
+    document.querySelectorAll(".card").forEach((card) => {
+      card.classList.toggle("active", card.id === cardId);
+    });
+  </script>
+</body>
+</html>

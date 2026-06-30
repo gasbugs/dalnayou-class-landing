@@ -7,7 +7,10 @@
 
 ## 파일 구조
 - `index.html` — 메인 랜딩 페이지 (Hero · 강좌 · 가격 · FAQ · CTA)
+- `poster.html` — A4 인쇄용 포스터 페이지
 - `refund.html` — 환불 정책 페이지
+- `cardnews/` — 카드뉴스 미리보기, PNG, ZIP, 원본 HTML
+- `scripts/render-cardnews.sh` — `cardnews/source.html`에서 카드뉴스 PNG/ZIP 재생성
 - `tracking-links.md` — 인스타·당근·유튜브·카카오용 UTM 추적 링크
 - `images/` — 페이지 이미지 자산
 
@@ -24,8 +27,9 @@
 
 ## 수정 방법
 1. `index.html` 또는 `refund.html` 직접 편집
-2. 커밋 후 푸시
-3. GitHub Pages가 자동 배포 (1~2분)
+2. 카드뉴스 문구는 `cardnews/source.html` 수정 후 `./scripts/render-cardnews.sh` 실행
+3. 커밋 후 푸시
+4. GitHub Pages가 자동 배포 (1~2분)
 
 ## 문의
 - 카카오톡: http://pf.kakao.com/_xeKJxen/chat
