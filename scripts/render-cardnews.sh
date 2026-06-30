@@ -30,9 +30,24 @@ render_card "instagram-06-difference" 1080 1350 "cardnews/png/instagram-06-diffe
 render_card "instagram-07-info" 1080 1350 "cardnews/png/instagram-07-info.png"
 render_card "instagram-08-cta" 1080 1350 "cardnews/png/instagram-08-cta.png"
 
-render_card "daangn-01-local" 1080 1080 "cardnews/png/daangn-01-local.png"
-render_card "daangn-02-courses" 1080 1080 "cardnews/png/daangn-02-courses.png"
-render_card "daangn-03-cta" 1080 1080 "cardnews/png/daangn-03-cta.png"
+render_card "daangn-01-cover" 1080 1080 "cardnews/png/daangn-01-cover.png"
+render_card "daangn-02-problem" 1080 1080 "cardnews/png/daangn-02-problem.png"
+render_card "daangn-03-courses" 1080 1080 "cardnews/png/daangn-03-courses.png"
+render_card "daangn-04-notebooklm" 1080 1080 "cardnews/png/daangn-04-notebooklm.png"
+render_card "daangn-05-roblox" 1080 1080 "cardnews/png/daangn-05-roblox.png"
+render_card "daangn-06-difference" 1080 1080 "cardnews/png/daangn-06-difference.png"
+render_card "daangn-07-info" 1080 1080 "cardnews/png/daangn-07-info.png"
+render_card "daangn-08-cta" 1080 1080 "cardnews/png/daangn-08-cta.png"
+
+rm -f "${ROOT}/cardnews/instagram-cardnews-png.zip" "${ROOT}/cardnews/daangn-cardnews-png.zip"
 
 (cd "${ROOT}/cardnews/png" && zip -q -j ../instagram-cardnews-png.zip instagram-*.png)
-(cd "${ROOT}/cardnews/png" && zip -q -j ../daangn-cardnews-png.zip daangn-*.png)
+(cd "${ROOT}/cardnews/png" && zip -q -j ../daangn-cardnews-png.zip \
+  daangn-01-cover.png \
+  daangn-02-problem.png \
+  daangn-03-courses.png \
+  daangn-04-notebooklm.png \
+  daangn-05-roblox.png \
+  daangn-06-difference.png \
+  daangn-07-info.png \
+  daangn-08-cta.png)
