@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>달나유 AI 클래스 시간표 미리보기</title>
+  <meta name="robots" content="noindex" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#FFF5EE', 100:'#FFE6D5', 200:'#FFC9A8', 300:'#FFA976', 400:'#FF8A4C', 500:'#FF7A45', 600:'#EA580C', 700:'#C2410C', 800:'#9A3412' },
+            cream:   { 50:'#FFFCF7', 100:'#FFF8E7', 200:'#FEF3C7', 300:'#FDE8B0' },
+            ink:     { 700:'#3F2D20', 800:'#2A1D14', 900:'#1F1410' },
+          },
+          fontFamily: {
+            sans: ['Pretendard','-apple-system','BlinkMacSystemFont','system-ui','Roboto','Helvetica Neue','sans-serif'],
+          },
+          boxShadow: {
+            card: '0 8px 24px -8px rgba(60, 30, 10, 0.15)',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <style>
+    body { font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif; }
+    .timetable th,
+    .timetable td { vertical-align: top; }
+  </style>
+</head>
+<body class="bg-cream-50 text-ink-800 antialiased">
+  <div class="bg-green-700 text-white text-xs py-1.5 text-center">
+    테스트 페이지 · 랜딩 본문에는 아직 병합하지 않은 시간표 미리보기입니다
+  </div>
+
+  <nav class="sticky top-0 z-50 bg-cream-50/85 backdrop-blur border-b border-primary-100">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
+      <a href="./" class="font-extrabold text-ink-900">달나유 AI·코딩 클래스</a>
+      <a href="./" class="px-3 py-1.5 bg-white border border-primary-100 rounded-full text-sm font-bold text-ink-700 hover:border-primary-300">랜딩으로 돌아가기</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-5 text-center">
+        <h1 class="text-3xl md:text-5xl font-extrabold text-ink-900 leading-tight">사진 없이 한눈에 보는<br /><span class="text-primary-600">4주 시간표</span></h1>
+        <p class="mt-5 text-ink-700 leading-relaxed">기존 주차별 상세 카드 앞에 넣을 수 있는 깔끔한 요약형 버전입니다.<br />날짜, 시간, 각 주차의 핵심 흐름만 빠르게 비교할 수 있게 구성했습니다.</p>
+        <div class="mt-7 flex flex-wrap justify-center gap-2 text-sm font-bold">
+          <span class="px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-100 rounded-full">NotebookLM 오전 9~12시</span>
+          <span class="px-3 py-1.5 bg-orange-50 text-orange-700 border border-orange-100 rounded-full">로블록스 AI 오후 2~5시</span>
+          <span class="px-3 py-1.5 bg-green-50 text-green-800 border border-green-100 rounded-full">8/16부터 매주 일요일 4주</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-cream-50 border-y border-primary-100">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-ink-900">4주 동안 이렇게 진행됩니다</h2>
+          <p class="mt-3 text-ink-700">이미지 없이 시간표만 먼저 보여주는 버전</p>
+        </div>
+
+        <div class="mt-10 overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+          <div class="hidden md:block overflow-x-auto">
+            <table class="timetable w-full border-collapse text-sm">
+              <thead class="bg-cream-100 text-ink-900">
+                <tr>
+                  <th class="w-[13%] p-4 text-left font-extrabold border-b border-primary-100">주차</th>
+                  <th class="w-[15%] p-4 text-left font-extrabold border-b border-primary-100">날짜</th>
+                  <th class="w-[31%] p-4 text-left font-extrabold border-b border-primary-100">강좌 ① NotebookLM<br /><span class="text-xs text-blue-700">오전 9~12시</span></th>
+                  <th class="w-[31%] p-4 text-left font-extrabold border-b border-primary-100">강좌 ② 로블록스 AI<br /><span class="text-xs text-orange-700">오후 2~5시</span></th>
+                  <th class="w-[10%] p-4 text-left font-extrabold border-b border-primary-100">핵심</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-primary-100">
+                <tr>
+                  <td class="p-4 font-extrabold text-ink-900">1주차</td>
+                  <td class="p-4 font-bold text-ink-700">8/16(일)</td>
+                  <td class="p-4"><b class="text-blue-700">입문 + 내 자료 올리고 첫 노트북 완성</b><br /><span class="text-ink-700">NotebookLM 첫 만남, 자료 업로드, 스튜디오 기능 체험</span></td>
+                  <td class="p-4"><b class="text-orange-700">게임 만들기 입문 + AI로 방 꾸미기</b><br /><span class="text-ink-700">Roblox Studio 기본 조작, AI 가구·벽지·조명 생성</span></td>
+                  <td class="p-4 text-primary-700 font-bold">첫 결과물</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-extrabold text-ink-900">2주차</td>
+                  <td class="p-4 font-bold text-ink-700">8/23(일)</td>
+                  <td class="p-4"><b class="text-blue-700">내 자료로 고퀄 공부 자료 제작</b><br /><span class="text-ink-700">팟캐스트, 마인드맵, 플래시카드, 퀴즈 만들기</span></td>
+                  <td class="p-4"><b class="text-orange-700">야외 월드 만들기</b><br /><span class="text-ink-700">산·강·호수 지형, 낮·밤·노을 분위기와 효과 입히기</span></td>
+                  <td class="p-4 text-primary-700 font-bold">확장</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-extrabold text-ink-900">3주차</td>
+                  <td class="p-4 font-bold text-ink-700">8/30(일)</td>
+                  <td class="p-4"><b class="text-blue-700">질문으로 개념 정복하기</b><br /><span class="text-ink-700">추천 질문, 눈높이 설명, 개념 노트와 이해도 점검</span></td>
+                  <td class="p-4"><b class="text-orange-700">AI에게 코드 부탁하기 + 게임 시스템</b><br /><span class="text-ink-700">점프대, 함정, 코인, 저장 지점, 리더보드 설치</span></td>
+                  <td class="p-4 text-primary-700 font-bold">시스템</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-extrabold text-ink-900">4주차</td>
+                  <td class="p-4 font-bold text-ink-700">9/6(일)</td>
+                  <td class="p-4"><b class="text-blue-700">자동화 + 최종 정리 + 수료</b><br /><span class="text-ink-700">자료 자동 투입, 반복 작업 프리셋, 결과물 정리</span></td>
+                  <td class="p-4"><b class="text-orange-700">게임 출시 + 최종 점검</b><br /><span class="text-ink-700">AI 플레이 테스트, 아이콘·설명, Roblox 공개 링크 생성</span></td>
+                  <td class="p-4 text-primary-700 font-bold">완성</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="md:hidden divide-y divide-primary-100">
+            <article class="p-5">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">1주차</h3><span class="text-sm font-bold text-ink-700">8/16(일)</span></div>
+              <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />입문 + 내 자료 올리고 첫 노트북 완성</p>
+              <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />게임 만들기 입문 + AI로 방 꾸미기</p>
+            </article>
+            <article class="p-5">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">2주차</h3><span class="text-sm font-bold text-ink-700">8/23(일)</span></div>
+              <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />내 자료로 고퀄 공부 자료 제작</p>
+              <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />야외 월드 만들기</p>
+            </article>
+            <article class="p-5">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">3주차</h3><span class="text-sm font-bold text-ink-700">8/30(일)</span></div>
+              <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />질문으로 개념 정복하기</p>
+              <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />AI에게 코드 부탁하기 + 게임 시스템</p>
+            </article>
+            <article class="p-5">
+              <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">4주차</h3><span class="text-sm font-bold text-ink-700">9/6(일)</span></div>
+              <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />자동화 + 최종 정리 + 수료</p>
+              <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />게임 출시 + 최종 점검</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-4 text-sm">
+          <div class="p-5 rounded-2xl bg-white border border-primary-100 shadow-card">
+            <div class="font-extrabold text-ink-900">수업 시간</div>
+            <p class="mt-2 text-ink-700">NotebookLM 09:00~12:00<br />로블록스 AI 14:00~17:00</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-primary-100 shadow-card">
+            <div class="font-extrabold text-ink-900">진행 기간</div>
+            <p class="mt-2 text-ink-700">2026. 8. 16 ~ 9. 6<br />매주 일요일 4주간</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-primary-100 shadow-card">
+            <div class="font-extrabold text-ink-900">장소</div>
+            <p class="mt-2 text-ink-700">달나유 이음센터<br />소사역 4번 출구 힐스에비뉴 B1층</p>
+          </div>
+        </div>
+
+        <p class="mt-5 text-center text-xs text-ink-700 opacity-70">※ 원활한 강의 진행을 위해 과정 목차는 일부 변경될 수 있습니다.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
