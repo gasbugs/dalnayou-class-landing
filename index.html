@@ -518,18 +518,70 @@
         </div>
       </div>
 
-      <div class="mt-6 bg-white rounded-3xl p-8 border border-primary-100 shadow-card">
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 class="font-bold text-ink-900 mb-3">📩 신청 후 안내</h3>
-            <p class="text-sm text-ink-700">신청서 제출 후 수업 확정, 준비물, 세부 안내를 <b>개별 문자</b>로 보내드립니다.</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-ink-900 mb-3">🧾 영수증</h3>
-            <p class="text-sm text-ink-700">현금영수증·세금계산서 발행 가능 (요청 시)</p>
-          </div>
+      <div class="mt-8 overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <thead class="bg-cream-100 text-ink-900">
+              <tr>
+                <th class="w-[14%] p-4 text-left font-extrabold border-b border-primary-100">주차</th>
+                <th class="w-[16%] p-4 text-left font-extrabold border-b border-primary-100">날짜</th>
+                <th class="w-[35%] p-4 text-left font-extrabold border-b border-primary-100">강좌 ① NotebookLM<br /><span class="text-xs text-blue-700">오전 9~12시</span></th>
+                <th class="w-[35%] p-4 text-left font-extrabold border-b border-primary-100">강좌 ② 로블록스 AI<br /><span class="text-xs text-orange-700">오후 2~5시</span></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-primary-100">
+              <tr>
+                <td class="p-4 font-extrabold text-ink-900">1주차</td>
+                <td class="p-4 font-bold text-ink-700">8/16(일)</td>
+                <td class="p-4"><b class="text-blue-700">입문 + 내 자료 올리고 첫 노트북 완성</b><br /><span class="text-ink-700">NotebookLM 첫 만남, 자료 업로드, 스튜디오 기능 체험</span></td>
+                <td class="p-4"><b class="text-orange-700">게임 만들기 입문 + AI로 방 꾸미기</b><br /><span class="text-ink-700">Roblox Studio 기본 조작, AI 가구·벽지·조명 생성</span></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-extrabold text-ink-900">2주차</td>
+                <td class="p-4 font-bold text-ink-700">8/23(일)</td>
+                <td class="p-4"><b class="text-blue-700">내 자료로 고퀄 공부 자료 제작</b><br /><span class="text-ink-700">팟캐스트, 마인드맵, 플래시카드, 퀴즈 만들기</span></td>
+                <td class="p-4"><b class="text-orange-700">야외 월드 만들기</b><br /><span class="text-ink-700">산·강·호수 지형, 낮·밤·노을 분위기와 효과 입히기</span></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-extrabold text-ink-900">3주차</td>
+                <td class="p-4 font-bold text-ink-700">8/30(일)</td>
+                <td class="p-4"><b class="text-blue-700">질문으로 개념 정복하기</b><br /><span class="text-ink-700">추천 질문, 눈높이 설명, 개념 노트와 이해도 점검</span></td>
+                <td class="p-4"><b class="text-orange-700">AI에게 코드 부탁하기 + 게임 시스템</b><br /><span class="text-ink-700">점프대, 함정, 코인, 저장 지점, 리더보드 설치</span></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-extrabold text-ink-900">4주차</td>
+                <td class="p-4 font-bold text-ink-700">9/6(일)</td>
+                <td class="p-4"><b class="text-blue-700">자동화 + 최종 정리 + 수료</b><br /><span class="text-ink-700">자료 자동 투입, 반복 작업 프리셋, 결과물 정리</span></td>
+                <td class="p-4"><b class="text-orange-700">게임 출시 + 최종 점검</b><br /><span class="text-ink-700">AI 플레이 테스트, 아이콘·설명, Roblox 공개 링크 생성</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="md:hidden divide-y divide-primary-100">
+          <article class="p-5">
+            <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">1주차</h3><span class="text-sm font-bold text-ink-700">8/16(일)</span></div>
+            <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />입문 + 내 자료 올리고 첫 노트북 완성</p>
+            <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />게임 만들기 입문 + AI로 방 꾸미기</p>
+          </article>
+          <article class="p-5">
+            <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">2주차</h3><span class="text-sm font-bold text-ink-700">8/23(일)</span></div>
+            <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />내 자료로 고퀄 공부 자료 제작</p>
+            <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />야외 월드 만들기</p>
+          </article>
+          <article class="p-5">
+            <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">3주차</h3><span class="text-sm font-bold text-ink-700">8/30(일)</span></div>
+            <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />질문으로 개념 정복하기</p>
+            <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />AI에게 코드 부탁하기 + 게임 시스템</p>
+          </article>
+          <article class="p-5">
+            <div class="flex items-center justify-between gap-3"><h3 class="font-extrabold text-ink-900">4주차</h3><span class="text-sm font-bold text-ink-700">9/6(일)</span></div>
+            <p class="mt-3 text-sm"><b class="text-blue-700">오전 NotebookLM</b><br />자동화 + 최종 정리 + 수료</p>
+            <p class="mt-3 text-sm"><b class="text-orange-700">오후 로블록스 AI</b><br />게임 출시 + 최종 점검</p>
+          </article>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -854,6 +906,19 @@
           <div class="p-5 bg-white rounded-xl border border-orange-200">
             <div class="font-bold text-base md:text-lg">옵션 ② 맥북 대여 (+10,000원/회)</div>
             <p class="text-sm text-ink-700 mt-2">4주 묶음 40,000원<br />개강 1주일 전 사전 신청 (선착순)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-white rounded-3xl p-8 border border-primary-100 shadow-card">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold text-ink-900 mb-3">📩 신청 후 안내</h3>
+            <p class="text-sm text-ink-700">신청서 제출 후 수업 확정, 준비물, 세부 안내를 <b>개별 문자</b>로 보내드립니다.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-ink-900 mb-3">🧾 영수증</h3>
+            <p class="text-sm text-ink-700">현금영수증·세금계산서 발행 가능 (요청 시)</p>
           </div>
         </div>
       </div>
