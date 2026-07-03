@@ -6,6 +6,14 @@
   <title>CLOUD SECURITY LAB · 주말 4주 AI 정규 과정 — 포스터</title>
   <meta name="description" content="A4 포스터 · 부천 소사 달나유 이음센터 · 2026년 8월 16일부터 매주 일요일 4주간 · 정상가 249,000원, 얼리버드 189,000원" />
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -70,8 +78,12 @@
   </style>
 </head>
 <body class="antialiased">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<button class="print-cta no-print" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+<button class="print-cta no-print" onclick="window.print()" data-track-event="print_click" data-track-label="poster_print">🖨️ 인쇄 / PDF 저장</button>
 
 <div class="poster relative">
   <!-- 상단 공지 바 -->
@@ -219,5 +231,26 @@
   </div>
 </div>
 
+<script>
+  (() => {
+    window.dataLayer = window.dataLayer || [];
+    const clean = (value, fallback = "") =>
+      String(value || fallback).trim().replace(/\s+/g, " ").slice(0, 120);
+    const track = (eventName, params = {}) => {
+      if (!eventName) return;
+      window.dataLayer.push({ event: eventName, ...params });
+    };
+    window.dalnayouTrack = track;
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("[data-track-event]");
+      if (!target) return;
+      track(target.dataset.trackEvent, {
+        link_position: target.dataset.trackLabel || "unknown",
+        link_text: clean(target.textContent, target.getAttribute("aria-label")),
+        link_url: target.href || "",
+      });
+    });
+  })();
+</script>
 </body>
 </html>

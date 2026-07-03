@@ -60,5 +60,39 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
 - `map_click`: 카카오맵·네이버지도 위치 클릭
 - `policy_click`: 환불 정책 클릭
 - `shorts_section_view`: 쇼츠 섹션 노출
+- `print_click`: A4 포스터 인쇄/PDF 저장 클릭
+- `download_click`: 카드뉴스 ZIP·PNG 다운로드
+- `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
 
 실제 GA4 보고서 수집은 GTM 컨테이너에서 GA4 태그와 위 이벤트명 기준의 맞춤 이벤트 트리거를 연결해야 시작됩니다.
+
+## GTM에서 추가로 연결할 태그·트리거
+
+1. GA4 기본 태그
+   - 태그 유형: Google Analytics / Google tag 또는 GA4 Configuration
+   - Measurement ID: GA4 웹 스트림의 `G-XXXXXXXXXX`
+   - 트리거: All Pages 또는 Initialization - All Pages
+
+2. 맞춤 이벤트 트리거
+   - `apply_click`
+   - `contact_click`
+   - `section_click`
+   - `map_click`
+   - `policy_click`
+   - `shorts_section_view`
+   - `print_click`
+   - `download_click`
+   - `copy_click`
+
+3. GA4 이벤트 태그
+   - 위 맞춤 이벤트 트리거마다 같은 이름의 GA4 이벤트 태그를 만듭니다.
+   - `apply_click`, `contact_click`은 GA4에서 Key event로 지정하는 것을 권장합니다.
+
+4. 권장 Data Layer Variable
+   - `link_position`
+   - `link_text`
+   - `link_url`
+   - `outbound`
+   - `section_id`
+   - `video_id`
+   - `file_name`

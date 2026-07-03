@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>달나유 카드뉴스 미리보기</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
   <style>
     :root {
       color-scheme: light;
@@ -218,19 +225,23 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <main>
     <h1>달나유 홍보 카드뉴스</h1>
     <p class="lead">인스타그램과 당근 게시용 카드뉴스를 바로 확인하고 다운로드할 수 있습니다. 인스타그램은 1080×1350, 당근은 1080×1080 PNG로 제작했습니다.</p>
     <div class="actions">
       <a class="button orange" href="instagram-cardnews-png.zip" download>인스타 8장 ZIP 다운로드</a>
       <a class="button green" href="daangn-cardnews-png.zip" download>당근 8장 ZIP 다운로드</a>
-      <a class="button orange" href="../poster.html">A4 홍보물 보기</a>
-      <a class="button green" href="#confirmation-copy">확정 메시지 복사</a>
-      <a class="button orange" href="#refund-copy">취소·환불 메시지 복사</a>
-      <a class="button" href="source.html">원본 HTML 보기</a>
-      <a class="button green" href="https://kko.to/w-prbfnEld" target="_blank" rel="noopener">카카오지도 위치</a>
-      <a class="button" href="https://naver.me/5t7cTZjX" target="_blank" rel="noopener">네이버지도 위치</a>
-      <a class="button" href="../">랜딩페이지로 돌아가기</a>
+      <a class="button orange" href="../poster.html" data-track-event="section_click" data-track-label="cardnews_poster">A4 홍보물 보기</a>
+      <a class="button green" href="#confirmation-copy" data-track-event="section_click" data-track-label="cardnews_confirmation_copy_section">확정 메시지 복사</a>
+      <a class="button orange" href="#refund-copy" data-track-event="section_click" data-track-label="cardnews_refund_copy_section">취소·환불 메시지 복사</a>
+      <a class="button" href="source.html" data-track-event="section_click" data-track-label="cardnews_source_html">원본 HTML 보기</a>
+      <a class="button green" href="https://kko.to/w-prbfnEld" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="cardnews_kakao_map">카카오지도 위치</a>
+      <a class="button" href="https://naver.me/5t7cTZjX" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="cardnews_naver_map">네이버지도 위치</a>
+      <a class="button" href="../" data-track-event="section_click" data-track-label="cardnews_back_landing">랜딩페이지로 돌아가기</a>
     </div>
     <section class="copy-panel" aria-labelledby="ad-copy-title">
       <div class="copy-header">
@@ -586,6 +597,40 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
     <p class="note">문구 기준: 달나유 랜딩 페이지. 강의 장소는 소사역 4번 출구 힐스에비뉴 B1층의 달나유 이음센터입니다. 외부 노출용 카드뉴스라 인원 숫자는 표시하지 않았습니다.</p>
   </main>
   <script>
+    (() => {
+      window.dataLayer = window.dataLayer || [];
+      const clean = (value, fallback = "") =>
+        String(value || fallback).trim().replace(/\s+/g, " ").slice(0, 120);
+      const track = (eventName, params = {}) => {
+        if (!eventName) return;
+        window.dataLayer.push({ event: eventName, ...params });
+      };
+      window.dalnayouTrack = track;
+      document.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-track-event], a[download], [data-copy], [data-copy-target]");
+        if (!target) return;
+
+        const isDownload = target.matches("a[download]");
+        const isCopy = target.matches("[data-copy], [data-copy-target]");
+        const eventName = target.dataset.trackEvent || (isDownload ? "download_click" : isCopy ? "copy_click" : "");
+        const targetUrl = target.href || "";
+        let outbound = false;
+        try {
+          outbound = targetUrl ? new URL(targetUrl, window.location.href).hostname !== window.location.hostname : false;
+        } catch (_) {
+          outbound = false;
+        }
+
+        track(eventName, {
+          link_position: target.dataset.trackLabel || target.getAttribute("download") || target.getAttribute("href") || "cardnews_action",
+          link_text: clean(target.textContent, target.getAttribute("aria-label")),
+          link_url: targetUrl,
+          file_name: isDownload ? (target.getAttribute("download") || target.getAttribute("href") || "") : "",
+          outbound,
+        });
+      });
+    })();
+
     const status = document.getElementById("copy-status");
     const writeClipboard = async (text) => {
       const trimmed = text.trim();
