@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>구글 AI - NotebookLM 4주 클래스 | 공부 자료를 AI로 정리합니다</title>
+  <meta name="description" content="부천 소사 달나유 이음센터 오프라인 구글 AI - NotebookLM 4주 클래스. 매주 일요일 오전 9~12시. 내 자료로 요약·퀴즈·마인드맵·학습 워크플로우를 만듭니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="공부 자료를 AI로 정리하고, 내 말로 설명하는 힘을 기릅니다" />
+  <meta property="og:description" content="대기업·공공기관 교육 노하우를 학생과 비전공자 눈높이에 맞춘 구글 AI - NotebookLM 결과물 수업으로." />
+  <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/notebooklm.png" />
+  <meta property="og:url" content="https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#EFF6FF', 100:'#DBEAFE', 200:'#BFDBFE', 500:'#2563EB', 600:'#1D4ED8', 700:'#1E40AF' },
+            cream: { 50:'#FFFCF7', 100:'#FFF8E7' },
+            ink: { 700:'#3F2D20', 800:'#2A1D14', 900:'#1F1410' }
+          },
+          fontFamily: { sans: ['Pretendard','-apple-system','BlinkMacSystemFont','system-ui','sans-serif'] },
+          boxShadow: { card: '0 10px 28px -14px rgba(20, 40, 90, .22)' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(180deg, #F8FBFF 0%, #EFF6FF 100%); }
+    .mobile-bottom-cta { display: none; }
+    @media (max-width: 640px) {
+      body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+      .mobile-bottom-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        gap: 8px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(248, 251, 255, .96);
+        border-top: 1px solid #BFDBFE;
+        box-shadow: 0 -12px 28px -20px rgba(20, 40, 90, .35);
+      }
+      .mobile-bottom-cta a {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body class="bg-cream-50 text-ink-800 antialiased">
+  <div class="bg-blue-700 text-white text-xs py-2 text-center">
+    구글 AI - NotebookLM 4주 · 8/16 개강 · 매주 일요일 오전 9~12시 · 부천 소사 오프라인
+  </div>
+
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="./" class="flex items-center min-w-0">
+        <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-8 w-auto" />
+      </a>
+      <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_nav_kakao" class="px-4 py-2 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-sm font-extrabold rounded-full shadow-sm">카톡 문의</a>
+    </div>
+  </nav>
+
+  <header class="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 pt-10 pb-14 sm:pt-16 sm:pb-20 text-center">
+      <div class="flex flex-wrap justify-center gap-1.5 mb-5">
+        <span class="px-3 py-1 bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold rounded-full">학생·비전공자</span>
+        <span class="px-3 py-1 bg-primary-100 border border-primary-200 text-primary-800 text-xs font-bold rounded-full">구글 AI 학습 도구</span>
+        <span class="px-3 py-1 bg-green-100 border border-green-200 text-green-800 text-xs font-bold rounded-full">소사역 오프라인</span>
+      </div>
+
+      <h1 class="text-[2.25rem] sm:text-5xl md:text-6xl font-extrabold text-ink-900 leading-[1.08]">
+        공부 자료를 AI로 정리하고,<br /><span class="text-primary-600">내 말로 설명하는 힘</span>을<br />기릅니다
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-ink-700 leading-relaxed">
+        기업 실무자가 배우는 AI 활용법을 학생과 비전공자 눈높이에 맞춰,<br class="hidden sm:block" />
+        내 자료 기반 요약·퀴즈·마인드맵·학습 워크플로우로 완성합니다.
+      </p>
+      <div class="mt-7 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_hero_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡으로 1분 문의</a>
+        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_hero_form" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">잔여석 확인하기</a>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-ink-700">문의나 신청서 작성만으로 결제가 확정되지 않습니다. 가능 여부 안내 후 결정하셔도 됩니다.</p>
+
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        <img src="images/notebooklm.png" alt="NotebookLM 마인드맵 결과물" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+        <img src="images/classroom.jpg" alt="달나유 이음센터 실제 강의장" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="py-12 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">이런 학생에게 맞습니다</h2>
+        <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-2xl mb-2">📚</div><p class="font-bold text-sm">프린트·필기·자료는 많은데 정리가 어려운 학생</p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-2xl mb-2">🤖</div><p class="font-bold text-sm">AI를 써봤지만 공부에 제대로 활용하지 못하는 학생</p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-2xl mb-2">📝</div><p class="font-bold text-sm">수행평가·탐구보고서·발표 준비가 필요한 학생</p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-2xl mb-2">💼</div><p class="font-bold text-sm">AI 학습 도구를 처음부터 차근차근 배우고 싶은 비전공자</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">4주 후 손에 남는 것</h2>
+        <div class="mt-8 grid gap-4">
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w1.png" alt="NotebookLM 1주차 첫 노트북 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">1주차 · 내 자료를 아는 첫 AI 노트북</h3>
+            <p class="mt-1 text-sm text-ink-700">자료를 올리고, 인용 기반으로 답하는 나만의 학습 공간을 만듭니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <video class="w-full aspect-[8/5] object-contain bg-black rounded-xl border border-blue-100" controls preload="metadata" poster="images/notebooklm-w2-poster.jpg">
+              <source src="images/notebooklm-w2.mp4" type="video/mp4" />
+            </video>
+            <h3 class="mt-4 font-extrabold text-lg">2주차 · 팟캐스트·마인드맵·퀴즈</h3>
+            <p class="mt-1 text-sm text-ink-700">내 자료를 고퀄 공부 자료로 바꾸고 비교하며 완성합니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w3.png" alt="NotebookLM 3주차 개념 노트 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">3주차 · 질문으로 개념 정복</h3>
+            <p class="mt-1 text-sm text-ink-700">AI에게 질문하고, 이해한 내용을 내 말로 정리하는 개념 노트를 만듭니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w4.png" alt="NotebookLM 4주차 학습 자동화 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">4주차 · 자동화된 학습 워크플로우</h3>
+            <p class="mt-1 text-sm text-ink-700">자료를 넣으면 요약·마인드맵·모의문제가 나오는 흐름을 정리합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">수업 정보</h2>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">일정</div><div class="mt-1 font-extrabold">8/16~9/6 매주 일</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">시간</div><div class="mt-1 font-extrabold">09:00~12:00</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">장소</div><div class="mt-1 font-extrabold">달나유 이음센터</div></div>
+          <div class="p-5 bg-blue-50 border border-blue-200 rounded-2xl"><div class="text-xs text-ink-700">얼리버드</div><div class="mt-1 font-extrabold text-primary-700">189,000원</div></div>
+        </div>
+        <p class="mt-5 text-center text-sm text-ink-700">학생·직장인·비전공자 추천 · 노트북 지참 또는 사전 대여</p>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">왜 믿고 배울 수 있나요?</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">기업·공공기관 강의 노하우</h3><p class="mt-2 text-sm text-ink-700">대기업과 공공기관에서 검증된 AI 활용 교육 방식을 학생 눈높이에 맞췄습니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">내 자료 기반 학습</h3><p class="mt-2 text-sm text-ink-700">인터넷에서 아무 답이나 찾는 수업이 아니라, 내 자료를 근거로 정리합니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">매주 결과물</h3><p class="mt-2 text-sm text-ink-700">수업이 끝날 때마다 요약·퀴즈·마인드맵·노트가 실제로 남습니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="py-16 bg-primary-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">AI 공부 도구가 맞을지<br />먼저 물어보세요</h2>
+        <p class="mt-4 text-sm sm:text-base opacity-90">신청 전 상담 가능합니다. 수강 가능 여부와 준비물을 안내받은 뒤 결정하셔도 됩니다.</p>
+        <div class="mt-8 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+          <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_final_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡 문의</a>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_final_form" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg">잔여석 확인</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 bg-ink-900 text-cream-100 text-sm">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col gap-2">
+      <div class="font-extrabold text-white">CLOUD SECURITY LAB</div>
+      <div>부천 소사 달나유 이음센터 · 소사역 4번 출구 힐스에비뉴 B1층</div>
+      <div><a href="./" class="underline">통합 페이지 보기</a> · <a href="./refund.html" class="underline">환불 정책</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-bottom-cta" aria-label="모바일 빠른 문의">
+    <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_mobile_kakao" class="bg-yellow-300 text-ink-900">카톡 문의</a>
+    <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_mobile_form" class="bg-primary-600 text-white">잔여석 확인</a>
+  </div>
+</body>
+</html>
