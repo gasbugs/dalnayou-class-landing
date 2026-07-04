@@ -33,13 +33,24 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.24), rgba(0,0,0,.68));
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.78)),
+        linear-gradient(90deg, rgba(0,0,0,.18), rgba(0,0,0,.08));
       transition: background .25s ease;
       z-index: 0;
     }
-    .choice-panel:hover::before { background: linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.58)); }
+    .choice-panel:hover::before {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.32), rgba(0,0,0,.72)),
+        linear-gradient(90deg, rgba(0,0,0,.14), rgba(0,0,0,.06));
+    }
+    .choice-copy { text-shadow: 0 2px 18px rgba(0,0,0,.8); }
     @media (max-width: 767px) {
-      .choice-panel::before { background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.64)); }
+      .choice-panel::before {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,.34), rgba(0,0,0,.82)),
+          linear-gradient(90deg, rgba(0,0,0,.14), rgba(0,0,0,.08));
+      }
     }
   </style>
 </head>
@@ -55,7 +66,7 @@
     <section class="grid min-h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1">
       <a href="./roblox.html" data-track-event="course_click" data-track-label="main_split_roblox" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
         <img src="images/roblox_screen.png" alt="로블록스 AI 클래스" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="relative z-10 max-w-xl">
+        <div class="choice-copy relative z-10 max-w-xl">
           <div class="mb-4 inline-flex rounded-full bg-orangeBrand-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">초4 이상 · 일 14:00~17:00</div>
           <h1 class="text-[2.3rem] font-extrabold leading-[1.05] md:text-6xl">
             로블록스 AI<br />4주 클래스
@@ -71,7 +82,7 @@
 
       <a href="./notebooklm.html" data-track-event="course_click" data-track-label="main_split_notebooklm" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
         <img src="images/notebooklm.png" alt="구글 AI - NotebookLM 클래스" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="relative z-10 max-w-xl">
+        <div class="choice-copy relative z-10 max-w-xl">
           <div class="mb-4 inline-flex rounded-full bg-blueBrand-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">학생·비전공자 · 일 09:00~12:00</div>
           <h2 class="text-[2.3rem] font-extrabold leading-[1.05] md:text-6xl">
             구글 AI<br />NotebookLM
@@ -86,9 +97,6 @@
       </a>
     </section>
 
-    <div class="pointer-events-none absolute inset-x-4 bottom-3 z-20 rounded-2xl border border-white/20 px-4 py-3 text-center text-xs font-bold text-white/90 backdrop-blur md:inset-x-8 md:bottom-6 md:text-sm">
-      8/16 개강 · 매주 일요일 4주 · 부천 소사 달나유 이음센터
-    </div>
   </main>
 </body>
 </html>
