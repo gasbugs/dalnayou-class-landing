@@ -60,7 +60,10 @@
       <a href="./" aria-label="CLOUD SECURITY LAB 통합 페이지">
         <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-8 w-auto brightness-0 invert" />
       </a>
-      <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="main_split_kakao" class="rounded-full bg-yellow-300 px-4 py-2 text-sm font-extrabold text-ink-900 shadow-lg">카톡 문의</a>
+      <div class="flex items-center gap-2">
+        <button type="button" data-share-button data-track-event="share_click" data-track-label="main_split_share" class="rounded-full bg-white/95 px-4 py-2 text-sm font-extrabold text-ink-900 shadow-lg">공유</button>
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="main_split_kakao" class="rounded-full bg-yellow-300 px-4 py-2 text-sm font-extrabold text-ink-900 shadow-lg">카톡 문의</a>
+      </div>
     </div>
 
     <section class="grid min-h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1">
@@ -98,5 +101,23 @@
     </section>
 
   </main>
+  <script>
+    const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
+    const shareData = {
+      title: '달나유 AI·코딩 4주 클래스',
+      text: '로블록스 AI와 구글 AI - NotebookLM 중 맞는 수업을 선택해보세요.',
+      url: shareUrl
+    };
+    document.querySelectorAll('[data-share-button]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(shareUrl);
+        alert('공유 링크를 복사했습니다.');
+      });
+    });
+  </script>
 </body>
 </html>

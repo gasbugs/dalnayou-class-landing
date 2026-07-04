@@ -36,7 +36,7 @@
       body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
       .mobile-bottom-cta {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         position: fixed;
         left: 0;
         right: 0;
@@ -48,7 +48,8 @@
         border-top: 1px solid #FFE6D5;
         box-shadow: 0 -12px 28px -20px rgba(60, 30, 10, .35);
       }
-      .mobile-bottom-cta a {
+      .mobile-bottom-cta a,
+      .mobile-bottom-cta button {
         min-height: 48px;
         display: inline-flex;
         align-items: center;
@@ -71,7 +72,10 @@
       <a href="./" class="flex items-center min-w-0">
         <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-8 w-auto" />
       </a>
-      <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_nav_kakao" class="px-4 py-2 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-sm font-extrabold rounded-full shadow-sm">카톡 문의</a>
+      <div class="flex items-center gap-2">
+        <button type="button" data-share-button data-track-event="share_click" data-track-label="roblox_nav_share" class="px-4 py-2 bg-white hover:bg-cream-100 text-ink-900 text-sm font-extrabold rounded-full border border-primary-100 shadow-sm">공유</button>
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_nav_kakao" class="px-4 py-2 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-sm font-extrabold rounded-full shadow-sm">카톡 문의</a>
+      </div>
     </div>
   </nav>
 
@@ -374,8 +378,27 @@
   </footer>
 
   <div class="mobile-bottom-cta" aria-label="모바일 빠른 문의">
+    <button type="button" data-share-button data-track-event="share_click" data-track-label="roblox_mobile_share" class="bg-white text-primary-700 border border-primary-200">공유하기</button>
     <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_mobile_kakao" class="bg-yellow-300 text-ink-900">카톡 문의</a>
     <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_mobile_form" class="bg-primary-600 text-white">잔여석 확인</a>
   </div>
+  <script>
+    const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
+    const shareData = {
+      title: '달나유 AI·코딩 4주 클래스',
+      text: '로블록스 AI와 구글 AI - NotebookLM 중 맞는 수업을 선택해보세요.',
+      url: shareUrl
+    };
+    document.querySelectorAll('[data-share-button]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(shareUrl);
+        alert('공유 링크를 복사했습니다.');
+      });
+    });
+  </script>
 </body>
 </html>
