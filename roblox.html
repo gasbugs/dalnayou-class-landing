@@ -32,6 +32,29 @@
     body { font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif; }
     .hero-bg { background: linear-gradient(180deg, #FFFCF7 0%, #FFF5EE 100%); }
     .mobile-bottom-cta { display: none; }
+    .deadline-chip {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.75), 0 0 26px rgba(250,204,21,.58);
+      animation: deadlinePulse 1.4s ease-in-out infinite;
+    }
+    .deadline-chip::after {
+      content: "";
+      position: absolute;
+      inset: -45% auto -45% -45%;
+      width: 42%;
+      transform: rotate(18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent);
+      animation: deadlineShine 2.2s ease-in-out infinite;
+    }
+    @keyframes deadlinePulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.03); }
+    }
+    @keyframes deadlineShine {
+      0% { left: -50%; }
+      55%, 100% { left: 120%; }
+    }
     @media (max-width: 640px) {
       body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
       .mobile-bottom-cta {
@@ -96,9 +119,12 @@
         기업 실무자가 배우는 AI 활용법을 아이 눈높이에 맞춰,<br class="hidden sm:block" />
         방 만들기부터 게임 시스템·공개 링크까지 직접 완성합니다.
       </p>
-      <div class="mt-7 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+      <div class="mt-7">
+        <div class="deadline-chip mx-auto mb-3 inline-flex rounded-full bg-yellow-300 px-4 py-2 text-sm font-black text-ink-900">선착순 5명 마감임박 · 마감 후 대기 등록</div>
+      </div>
+      <div class="grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
         <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_hero_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡으로 1분 문의</a>
-        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_hero_form" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">잔여석 확인하기</a>
+        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_hero_form" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">신청하기</a>
       </div>
       <p class="mt-3 text-xs sm:text-sm text-ink-700">문의나 신청서 작성만으로 결제가 확정되지 않습니다. 가능 여부 안내 후 결정하셔도 됩니다.</p>
 
@@ -365,7 +391,7 @@
         <p class="mt-4 text-sm sm:text-base opacity-90">신청 전 상담 가능합니다. 수강 가능 여부와 준비물을 안내받은 뒤 결정하셔도 됩니다.</p>
         <div class="mt-8 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
           <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_final_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡 문의</a>
-          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_final_form" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg">잔여석 확인</a>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_final_form" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg">신청하기</a>
         </div>
       </div>
     </section>
@@ -384,7 +410,7 @@
       <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2" /><path d="M8.6 13.2 15.4 17.8" /></svg>
     </button>
     <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="roblox_mobile_kakao" class="bg-yellow-300 text-ink-900">카톡 문의</a>
-    <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_mobile_form" class="bg-primary-600 text-white">잔여석 확인</a>
+    <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="roblox_mobile_form" class="bg-primary-600 text-white">신청하기</a>
   </div>
   <script>
     const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
