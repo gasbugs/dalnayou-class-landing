@@ -10,6 +10,13 @@
   <meta property="og:description" content="게임을 만드는 로블록스 AI, 공부 자료를 정리하는 구글 AI - NotebookLM. 부천 소사 오프라인 4주 실습 클래스." />
   <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/classroom.jpg" />
   <meta property="og:url" content="https://gasbugs.github.io/dalnayou-class-landing/main.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -78,6 +85,10 @@
   </style>
 </head>
 <body class="bg-ink-900 text-white antialiased">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <main class="relative min-h-screen overflow-hidden">
     <div class="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-5 py-4 md:px-8">
       <a href="./" aria-label="CLOUD SECURITY LAB 통합 페이지">
@@ -137,6 +148,43 @@
     </div>
   </footer>
   <script>
+    (() => {
+      window.dataLayer = window.dataLayer || [];
+
+      const clean = (value, fallback = '') =>
+        String(value || fallback).trim().replace(/\s+/g, ' ').slice(0, 120);
+
+      const track = (eventName, params = {}) => {
+        if (!eventName) return;
+        window.dataLayer.push({
+          event: eventName,
+          ...params,
+        });
+      };
+
+      window.dalnayouTrack = track;
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-track-event]');
+        if (!target) return;
+
+        const targetUrl = target.href || '';
+        let outbound = false;
+        try {
+          outbound = targetUrl ? new URL(targetUrl, window.location.href).hostname !== window.location.hostname : false;
+        } catch (_) {
+          outbound = false;
+        }
+
+        track(target.dataset.trackEvent, {
+          link_position: target.dataset.trackLabel || 'unknown',
+          link_text: clean(target.textContent, target.getAttribute('aria-label')),
+          link_url: targetUrl,
+          outbound,
+        });
+      });
+    })();
+
     const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
     const shareData = {
       title: '달나유 AI·코딩 4주 클래스',
