@@ -63,8 +63,11 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
 - `print_click`: A4 포스터 인쇄/PDF 저장 클릭
 - `download_click`: 카드뉴스 ZIP·PNG 다운로드
 - `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
+- `landing_source_detected`: URL 파라미터가 있는 랜딩 진입 감지
 
-실제 GA4 보고서 수집은 GTM 컨테이너에서 GA4 태그와 위 이벤트명 기준의 맞춤 이벤트 트리거를 연결해야 시작됩니다.
+현재 메인 랜딩(`index.html`, `main.html`)은 URL의 `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `source`, `src`, `ref`, `channel`, `campaign` 값을 읽어 `landing_source_detected`와 이후 클릭 이벤트에 함께 보냅니다. `roblox.html`, `notebooklm.html` 상세 페이지에서도 전달된 파라미터를 `apply_click`, `contact_click`, `share_click`, `map_click` 이벤트에 함께 보냅니다.
+
+실제 GA4 보고서 수집은 GTM 컨테이너에서 GA4 태그와 위 이벤트명 기준의 맞춤 이벤트 트리거를 연결해야 시작됩니다. 이벤트 파라미터를 GA4 표/탐색 보고서에서 컬럼으로 보려면 GA4 관리자 화면에서 커스텀 정의도 등록해야 합니다.
 
 ## GTM에서 추가로 연결할 태그·트리거
 
@@ -83,6 +86,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
    - `print_click`
    - `download_click`
    - `copy_click`
+   - `landing_source_detected`
 
 3. GA4 이벤트 태그
    - 위 맞춤 이벤트 트리거마다 같은 이름의 GA4 이벤트 태그를 만듭니다.
@@ -96,3 +100,35 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
    - `section_id`
    - `video_id`
    - `file_name`
+   - `utm_source`
+   - `utm_medium`
+   - `utm_campaign`
+   - `utm_content`
+   - `utm_term`
+   - `source`
+   - `src`
+   - `ref`
+   - `channel`
+   - `campaign`
+   - `landing_path`
+   - `landing_query`
+   - `landing_referrer`
+   - `source_param_count`
+
+5. GA4 커스텀 정의 권장 등록
+   - 관리자 → 데이터 표시 → 맞춤 정의 → 맞춤 측정기준 만들기
+   - 범위: 이벤트
+   - 이벤트 매개변수:
+     - `utm_source`
+     - `utm_medium`
+     - `utm_campaign`
+     - `utm_content`
+     - `utm_term`
+     - `source`
+     - `src`
+     - `ref`
+     - `channel`
+     - `campaign`
+     - `landing_path`
+     - `landing_query`
+     - `landing_referrer`
