@@ -12,6 +12,9 @@
   })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
   <!-- End Google Tag Manager -->
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     :root {
       color-scheme: light;
       --bg: #fffcf7;
@@ -39,6 +42,45 @@
       margin: 0;
       letter-spacing: 0;
     }
+    .hero-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 24px;
+      align-items: start;
+    }
+    .qr-card {
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 14px 36px -22px rgba(60, 30, 10, 0.28);
+      text-align: center;
+    }
+    .qr-card img {
+      width: 148px;
+      height: 148px;
+      margin: 0 auto;
+      border-radius: 8px;
+      border: 1px solid #f4dfcf;
+      background: #fff;
+    }
+    .qr-card strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .qr-card p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+    .qr-card .copy-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
     .lead {
       margin: 18px 0 0;
       max-width: 740px;
@@ -46,6 +88,9 @@
       font-size: 18px;
       line-height: 1.6;
       font-weight: 700;
+    }
+    .mobile-lead {
+      display: none;
     }
     .actions {
       display: flex;
@@ -222,6 +267,77 @@
       line-height: 1.6;
       font-weight: 700;
     }
+    @media (max-width: 720px) {
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      main {
+        padding: 28px 20px 56px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      .desktop-lead {
+        display: none;
+      }
+      .mobile-lead {
+        display: block;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .hero-intro {
+        grid-template-columns: 1fr;
+      }
+      .hero-intro > div,
+      .qr-card > div {
+        min-width: 0;
+      }
+      .lead {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+      .qr-card {
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        text-align: left;
+      }
+      .qr-card img {
+        width: 112px;
+        height: 112px;
+      }
+      .qr-card strong,
+      .qr-card p {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+      .qr-card .copy-btn {
+        width: auto;
+        padding: 0 16px;
+      }
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .button {
+        min-width: 0;
+        min-height: 46px;
+        padding: 8px 12px;
+        border-radius: 18px;
+        font-size: 13px;
+        line-height: 1.25;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .copy-panel {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -230,8 +346,21 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <main>
-    <h1>달나유 홍보 카드뉴스</h1>
-    <p class="lead">인스타그램과 당근 게시용 카드뉴스를 바로 확인하고 다운로드할 수 있습니다. 인스타그램은 1080×1350, 당근은 1080×1080 PNG로 제작했습니다.</p>
+    <div class="hero-intro">
+      <div>
+        <h1>달나유 홍보 카드뉴스</h1>
+        <p class="lead desktop-lead">인스타그램과 당근 게시용 카드뉴스를 바로 확인하고 다운로드할 수 있습니다. 인스타그램은 1080×1350, 당근은 1080×1080 PNG로 제작했습니다.</p>
+        <p class="lead mobile-lead">QR로 휴대폰에서 바로 열고,<br />카드뉴스 PNG와 복사용 문구를 확인하세요.</p>
+      </div>
+      <aside class="qr-card" aria-label="카드뉴스 미리보기 QR">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;margin=12&amp;data=https%3A%2F%2Fgasbugs.github.io%2Fdalnayou-class-landing%2Fcardnews%2F" alt="카드뉴스 미리보기 페이지 QR 코드" />
+        <div>
+          <strong>휴대폰으로 바로 보기</strong>
+          <p>카메라로 스캔하면<br />이 페이지가 열립니다.</p>
+          <button class="copy-btn green" type="button" data-copy="https://gasbugs.github.io/dalnayou-class-landing/cardnews/">링크 복사</button>
+        </div>
+      </aside>
+    </div>
     <div class="actions">
       <a class="button orange" href="instagram-cardnews-png.zip" download>인스타 8장 ZIP 다운로드</a>
       <a class="button green" href="daangn-cardnews-png.zip" download>당근 8장 ZIP 다운로드</a>
