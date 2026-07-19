@@ -11,6 +11,7 @@
 - `refund.html` — 환불 정책 페이지
 - `cardnews/` — 카드뉴스 미리보기, PNG, ZIP, 원본 HTML
 - `scripts/render-cardnews.sh` — `cardnews/source.html`에서 카드뉴스 PNG/ZIP 재생성
+- `skills/dalnayou-landing-ops/` — 문구·A4·카드뉴스·UTM·GA4·배포를 반복 운영하는 Codex 스킬
 - `tracking-links.md` — 인스타·당근·유튜브·카카오용 UTM 추적 링크
 - `images/` — 페이지 이미지 자산
 
@@ -30,6 +31,14 @@
 2. 카드뉴스 문구는 `cardnews/source.html` 수정 후 `./scripts/render-cardnews.sh` 실행
 3. 커밋 후 푸시
 4. GitHub Pages가 자동 배포 (1~2분)
+
+## 운영 자동 점검
+
+```bash
+skills/dalnayou-landing-ops/scripts/audit-site.sh .
+```
+
+개인 Codex에 `dalnayou-landing-ops` 스킬을 설치하면 랜딩 수정 범위 확인부터 모바일·A4 검증, UTM·GA4 점검, GitHub Pages 실배포 확인까지 같은 운영 루프로 반복할 수 있습니다.
 
 ## 문의
 - 카카오톡: http://pf.kakao.com/_xeKJxen/chat
