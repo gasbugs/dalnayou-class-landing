@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[미리보기] 구글 AI - NotebookLM 4주 클래스 | 공부·업무 자료를 AI로 정리합니다</title>
+  <meta name="description" content="부천 소사 달나유 이음센터 오프라인 구글 AI - NotebookLM 4주 클래스. 매주 일요일 오전 9~12시. 내 자료로 요약·퀴즈·마인드맵·학습 워크플로우를 만듭니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="공부·업무 자료를 AI로 정리하고, 내 말로 설명하는 힘을 기릅니다" />
+  <meta property="og:description" content="대기업·공공기관 교육 노하우를 학생·비전공자·직장인 눈높이에 맞춘 구글 AI - NotebookLM 결과물 수업으로." />
+  <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/notebooklm.png" />
+  <meta property="og:url" content="https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W058PFM90"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6W058PFM90');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#EFF6FF', 100:'#DBEAFE', 200:'#BFDBFE', 500:'#2563EB', 600:'#1D4ED8', 700:'#1E40AF' },
+            cream: { 50:'#FFFCF7', 100:'#FFF8E7' },
+            ink: { 700:'#3F2D20', 800:'#2A1D14', 900:'#1F1410' }
+          },
+          fontFamily: { sans: ['Pretendard','-apple-system','BlinkMacSystemFont','system-ui','sans-serif'] },
+          boxShadow: { card: '0 10px 28px -14px rgba(20, 40, 90, .22)' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(180deg, #F8FBFF 0%, #EFF6FF 100%); }
+    .mobile-bottom-cta { display: none; }
+    .deadline-chip {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.75), 0 0 26px rgba(250,204,21,.58);
+      animation: deadlinePulse 1.4s ease-in-out infinite;
+    }
+    .deadline-chip::after {
+      content: "";
+      position: absolute;
+      inset: -45% auto -45% -45%;
+      width: 42%;
+      transform: rotate(18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent);
+      animation: deadlineShine 2.2s ease-in-out infinite;
+    }
+    @keyframes deadlinePulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.03); }
+    }
+    @keyframes deadlineShine {
+      0% { left: -50%; }
+      55%, 100% { left: 120%; }
+    }
+    .countdown-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(29, 78, 216, .22);
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 16px 36px -24px rgba(20, 40, 90, .4);
+    }
+    .countdown-unit {
+      min-width: 68px;
+      border: 1px solid rgba(29, 78, 216, .16);
+      background: linear-gradient(180deg, #fff 0%, #eff6ff 100%);
+    }
+    .countdown-number {
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+    }
+    @media (max-width: 640px) {
+      body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+      .mobile-bottom-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        gap: 8px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(248, 251, 255, .96);
+        border-top: 1px solid #BFDBFE;
+        box-shadow: 0 -12px 28px -20px rgba(20, 40, 90, .35);
+      }
+      .mobile-bottom-cta a,
+      .mobile-bottom-cta button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+      .countdown-unit { min-width: 0; }
+    }
+  </style>
+</head>
+<body class="bg-cream-50 text-ink-800 antialiased">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="bg-blue-700 text-white text-xs py-2 text-center">
+    구글 AI - NotebookLM 4주 · 8/16 개강<br />매주 일요일 오전 9~12시 · 부천 소사 오프라인
+  </div>
+
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="./" class="flex items-center min-w-0">
+        <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-8 w-auto" />
+      </a>
+      <div class="flex items-center gap-2">
+        <button type="button" data-share-button data-track-event="share_click" data-track-label="notebooklm_nav_share" aria-label="친구에게 공유하기" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink-900 border border-primary-100 shadow-sm hover:bg-primary-50">
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2" /><path d="M8.6 13.2 15.4 17.8" /></svg>
+        </button>
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_nav_kakao" class="px-4 py-2 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-sm font-extrabold rounded-full shadow-sm">카톡 문의</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 pt-10 pb-14 sm:pt-16 sm:pb-20 text-center">
+      <div class="flex flex-wrap justify-center gap-1.5 mb-5">
+        <span class="px-3 py-1 bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold rounded-full">학생·비전공자·직장인</span>
+        <span class="px-3 py-1 bg-primary-100 border border-primary-200 text-primary-800 text-xs font-bold rounded-full">구글 AI 학습 도구</span>
+        <span class="px-3 py-1 bg-green-100 border border-green-200 text-green-800 text-xs font-bold rounded-full">소사역 오프라인</span>
+      </div>
+
+      <h1 class="text-[2.25rem] sm:text-5xl md:text-6xl font-extrabold text-ink-900 leading-[1.08]">
+        공부·업무 자료를<br />AI로 정리하고,<br /><span class="text-primary-600">내 말로 설명하는 힘</span>을<br />기릅니다
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-ink-700 leading-relaxed">
+        기업 실무자가 배우는 AI 활용법을 학생·비전공자·직장인 눈높이에 맞춰,<br class="hidden sm:block" />
+        내 자료 기반 요약·퀴즈·마인드맵·학습 워크플로우로 완성합니다.
+      </p>
+      <div class="mt-7">
+        <div class="deadline-chip mx-auto mb-3 inline-flex rounded-full bg-yellow-300 px-4 py-2 text-sm font-black text-ink-900">선착순 5명 마감임박 · 마감 후 대기 등록</div>
+      </div>
+      <section class="countdown-panel mx-auto mb-5 max-w-2xl rounded-3xl p-4 sm:p-5" aria-label="얼리버드 마감 카운트다운">
+        <div class="text-sm font-extrabold text-primary-700">얼리버드 189,000원 마감까지</div>
+        <div class="mt-3 grid grid-cols-4 gap-2 sm:gap-3" data-countdown data-deadline="2026-08-02T23:59:59+09:00">
+          <div class="countdown-unit rounded-2xl px-2 py-3">
+            <div class="countdown-number text-2xl sm:text-4xl font-black text-ink-900" data-countdown-days>00</div>
+            <div class="mt-1 text-[11px] sm:text-xs font-bold text-ink-700">일</div>
+          </div>
+          <div class="countdown-unit rounded-2xl px-2 py-3">
+            <div class="countdown-number text-2xl sm:text-4xl font-black text-ink-900" data-countdown-hours>00</div>
+            <div class="mt-1 text-[11px] sm:text-xs font-bold text-ink-700">시간</div>
+          </div>
+          <div class="countdown-unit rounded-2xl px-2 py-3">
+            <div class="countdown-number text-2xl sm:text-4xl font-black text-ink-900" data-countdown-minutes>00</div>
+            <div class="mt-1 text-[11px] sm:text-xs font-bold text-ink-700">분</div>
+          </div>
+          <div class="countdown-unit rounded-2xl px-2 py-3">
+            <div class="countdown-number text-2xl sm:text-4xl font-black text-primary-700" data-countdown-seconds>00</div>
+            <div class="mt-1 text-[11px] sm:text-xs font-bold text-ink-700">초</div>
+          </div>
+        </div>
+        <p class="mt-3 text-xs sm:text-sm font-bold text-ink-700" data-countdown-status>8/2(일)까지 선착순 얼리버드 혜택이 적용됩니다.</p>
+      </section>
+      <div class="grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_hero_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡으로 1분 문의</a>
+        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_hero_form" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">신청하기</a>
+      </div>
+      <p class="mt-3 text-xs sm:text-sm text-ink-700">문의나 신청서 작성만으로 결제가 확정되지 않습니다. 가능 여부 안내 후 결정하셔도 됩니다.</p>
+      <div class="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-extrabold text-primary-700 border border-primary-200 shadow-card">
+        1기 한정 · 첫 수업 불만족 시 환불
+      </div>
+
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+        <img src="images/notebooklm.png" alt="NotebookLM 마인드맵 결과물" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+        <figure>
+          <img src="images/classroom.jpg" alt="달나유 이음센터 실제 강의장" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+          <figcaption class="mt-2 text-xs text-ink-700/70">실제 강의장 사진입니다.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="py-12 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">이런 사람들에게 추천합니다</h2>
+        <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">📚</span><span>프린트·필기·자료는 많은데 정리가 어려운 학생·비전공자</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">🤖</span><span>AI를 써봤지만 공부에 제대로 활용하지 못하는 학생·비전공자</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">📝</span><span>수행평가·탐구보고서·발표 준비가 필요한 학생·비전공자</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">💼</span><span>AI 학습 도구를 처음부터 차근차근 배우고 싶은 비전공자</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">4주 후 실제 결과물!</h2>
+        <div class="mt-8 grid gap-4">
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w1.png" alt="NotebookLM 1주차 첫 노트북 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">1주차 · 내 자료를 아는 첫 AI 노트북</h3>
+            <p class="mt-1 text-sm text-ink-700">자료를 올리고, 인용 기반으로 답하는 나만의 학습 공간을 만듭니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <video class="w-full aspect-[8/5] object-contain bg-black rounded-xl border border-blue-100" controls preload="metadata" poster="images/notebooklm-w2-poster.jpg">
+              <source src="images/notebooklm-w2.mp4" type="video/mp4" />
+            </video>
+            <h3 class="mt-4 font-extrabold text-lg">2주차 · 팟캐스트·마인드맵·퀴즈</h3>
+            <p class="mt-1 text-sm text-ink-700">내 자료를 고퀄 공부 자료로 바꾸고 비교하며 완성합니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w3.png" alt="NotebookLM 3주차 개념 노트 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">3주차 · 질문으로 개념 정복</h3>
+            <p class="mt-1 text-sm text-ink-700">AI에게 질문하고, 이해한 내용을 내 말로 정리하는 개념 노트를 만듭니다.</p>
+          </article>
+          <article class="bg-white border border-primary-100 rounded-3xl p-5 shadow-card">
+            <img src="images/notebooklm-w4.png" alt="NotebookLM 4주차 학습 자동화 결과물" class="w-full aspect-[8/5] object-contain bg-white rounded-xl border border-blue-100" />
+            <h3 class="mt-4 font-extrabold text-lg">4주차 · 자동화된 학습 워크플로우</h3>
+            <p class="mt-1 text-sm text-ink-700">자료를 넣으면 요약·마인드맵·모의문제가 나오는 흐름을 정리합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">수업 정보</h2>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">일정</div><div class="mt-1 font-extrabold">8/16~9/6 매주 일</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">시간</div><div class="mt-1 font-extrabold">09:00~12:00</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">장소</div><div class="mt-1 font-extrabold">달나유 이음센터</div></div>
+          <div class="p-5 bg-blue-50 border border-blue-200 rounded-2xl">
+            <div class="text-xs text-ink-700">얼리버드</div>
+            <div class="mt-1 font-extrabold text-primary-700">189,000원</div>
+            <div class="mt-1 text-xs text-ink-600"><span class="line-through">정상가 249,000원</span></div>
+            <div class="mt-1 text-xs font-extrabold text-primary-700">6만원 할인 · 약 24% OFF</div>
+          </div>
+        </div>
+        <p class="mt-5 text-center text-sm text-ink-700">학생·직장인·비전공자 추천 · 노트북 지참 또는 사전 대여</p>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">왜 믿고 배울 수 있나요?</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">기업·공공기관 강의 노하우</h3><p class="mt-2 text-sm text-ink-700">대기업과 공공기관에서 검증된 AI 활용 교육 방식을 학생 눈높이에 맞췄습니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">내 자료 기반 학습</h3><p class="mt-2 text-sm text-ink-700">인터넷에서 아무 답이나 찾는 수업이 아니라, 내 자료를 근거로 정리합니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">매주 결과물</h3><p class="mt-2 text-sm text-ink-700">수업이 끝날 때마다 요약·퀴즈·마인드맵·노트가 실제로 남습니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">왜 CLOUD SECURITY LAB 강의인가요?</h2>
+        <p class="mt-3 text-center text-sm text-ink-700">기업 실무에서 쓰는 AI 활용법을 학생과 비전공자도 따라올 수 있는 결과물 수업으로 바꿨습니다.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl">
+            <div class="text-3xl">📚</div>
+            <h3 class="mt-3 font-extrabold">내 자료 기반 학습</h3>
+            <p class="mt-2 text-sm text-ink-700">인터넷에서 아무 답이나 찾는 수업이 아니라, 내 자료를 근거로 요약하고 질문합니다.</p>
+          </div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl">
+            <div class="text-3xl">🎁</div>
+            <h3 class="mt-3 font-extrabold">매주 공부 결과물</h3>
+            <p class="mt-2 text-sm text-ink-700">요약, 퀴즈, 마인드맵, 개념 노트, 학습 자동화 흐름이 실제로 남습니다.</p>
+          </div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl">
+            <div class="text-3xl">💬</div>
+            <h3 class="mt-3 font-extrabold">질문하는 힘 훈련</h3>
+            <p class="mt-2 text-sm text-ink-700">AI에게 무엇을 어떻게 물어야 하는지, 답을 어떻게 검토해야 하는지 배웁니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">4주 일정표</h2>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+          <div class="hidden sm:block overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-primary-50 text-ink-900">
+                <tr>
+                  <th class="p-4 text-left font-extrabold">주차</th>
+                  <th class="p-4 text-left font-extrabold">날짜</th>
+                  <th class="p-4 text-left font-extrabold">주제</th>
+                  <th class="p-4 text-left font-extrabold">완성 결과물</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-primary-100">
+                <tr><td class="p-4 font-bold">1주차</td><td class="p-4">8/16(일)</td><td class="p-4">입문 + 내 자료 올리고 첫 노트북 완성</td><td class="p-4 font-bold text-primary-700">내 자료를 아는 첫 AI 노트북</td></tr>
+                <tr><td class="p-4 font-bold">2주차</td><td class="p-4">8/23(일)</td><td class="p-4">내 자료를 활용한 고퀄 공부 자료 제작</td><td class="p-4 font-bold text-primary-700">팟캐스트·마인드맵·퀴즈</td></tr>
+                <tr><td class="p-4 font-bold">3주차</td><td class="p-4">8/30(일)</td><td class="p-4">질문으로 개념 정복하기</td><td class="p-4 font-bold text-primary-700">개념 노트와 이해도 점검</td></tr>
+                <tr><td class="p-4 font-bold">4주차</td><td class="p-4">9/6(일)</td><td class="p-4">자동화 + 최종 정리 + 수료</td><td class="p-4 font-bold text-primary-700">학습 자동화 워크플로우</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sm:hidden divide-y divide-primary-100">
+            <div class="p-5"><b>1주차 8/16</b><p class="mt-2 text-sm">첫 AI 노트북 만들기</p></div>
+            <div class="p-5"><b>2주차 8/23</b><p class="mt-2 text-sm">팟캐스트·마인드맵·퀴즈 만들기</p></div>
+            <div class="p-5"><b>3주차 8/30</b><p class="mt-2 text-sm">질문으로 개념 노트 완성</p></div>
+            <div class="p-5"><b>4주차 9/6</b><p class="mt-2 text-sm">자동화된 학습 워크플로우 정리</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="py-14 bg-green-50 border-y border-green-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center">
+          <span class="inline-block px-3 py-1 bg-green-700 text-white text-xs font-bold rounded-full mb-4">오시는 길</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-900">소사역 4번 출구<br /><span class="text-green-800">힐스에비뉴 B1층입니다</span></h2>
+          <p class="mt-4 text-sm sm:text-base text-ink-700 leading-relaxed">
+            강의는 <b>달나유 이음센터</b>에서 진행됩니다. 소사역 4번 출구 힐스에비뉴 B1층 내부 통로를 따라 이동하면 됩니다.
+          </p>
+        </div>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">강의장</div><p class="mt-1 text-ink-700">달나유 이음센터</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">위치</div><p class="mt-1 text-ink-700">소사역 4번 출구 힐스에비뉴 B1층</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">주소</div><p class="mt-1 text-ink-700">경기도 부천시 소사구 경인옛로 37 B107</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">주차</div><p class="mt-1 text-ink-700">지하 3층 상가 주차장<br />2시간 무료 (이후 유료)</p></div>
+        </div>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-5 items-start">
+          <article class="bg-white rounded-3xl p-5 border border-green-200 shadow-card">
+            <div class="text-sm font-bold text-green-800">외부 위치 안내</div>
+            <h3 class="mt-2 text-xl font-extrabold text-ink-900">소사역 주변 위치</h3>
+            <img src="images/sosa-station-location.svg" alt="소사역 주변 달나유 이음센터 위치 안내도" class="mt-5 w-full rounded-2xl border border-green-100 bg-cream-50" />
+            <div class="mt-5 grid sm:grid-cols-2 gap-3">
+              <a href="https://kko.to/w-prbfnEld" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="notebooklm_location_kakao_map" class="w-full px-5 py-3 bg-green-700 hover:bg-green-800 text-white text-center font-extrabold rounded-full transition">카카오지도로 위치 보기</a>
+              <a href="https://naver.me/5t7cTZjX" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="notebooklm_location_naver_map" class="w-full px-5 py-3 bg-white hover:bg-green-50 text-green-800 text-center font-extrabold rounded-full border border-green-300 transition">네이버지도에서 보기</a>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-3xl p-5 border border-green-200 shadow-card">
+            <div class="text-sm font-bold text-green-800">내부 이동 약도</div>
+            <h3 class="mt-2 text-xl font-extrabold text-ink-900">4번 출구에서 센터 입구까지</h3>
+            <img src="images/dalnayou-b1-route.png" alt="소사역 4번 출구에서 달나유 이음센터 입구까지 내부 이동 약도" class="mt-5 w-full rounded-2xl border border-green-100 bg-white" />
+            <p class="mt-4 text-sm text-ink-700 leading-relaxed">힐스에비뉴 B1층 내부 통로를 따라 이동하면 센터 입구에 도착합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">NotebookLM 강사</h2>
+        <article class="mt-8 bg-primary-50 border border-primary-100 rounded-3xl p-6 shadow-card">
+          <div class="text-sm font-extrabold text-primary-700">이서진 · 클라우드시큐리티랩 책임연구원</div>
+          <h3 class="mt-2 text-2xl font-extrabold text-ink-900">클라우드 보안과 AI 활용을 연결해 가르치는 강사</h3>
+          <div class="mt-5 grid gap-5 sm:grid-cols-2 text-sm text-ink-700">
+            <div>
+              <h4 class="font-bold text-ink-900">경력</h4>
+              <ul class="mt-2 space-y-1.5">
+                <li>· 클라우드시큐리티랩 책임연구원 (2026~)</li>
+                <li>· 공군 제10전투비행단 사이버/보안체계 통제실 보안체계관리병 (2024~2026)</li>
+                <li>· 보안프로젝트 보안팀 연구원 (2022~2024)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-ink-900">협력강사 출강</h4>
+              <ul class="mt-2 space-y-1.5">
+                <li>· SK 쉴더스 클라우드/AI 보안 활용 과정 보조강사 (2026~현재)</li>
+                <li>· 현대자동차 Azure 인프라 보안 협력강사 (2026)</li>
+                <li>· 금융보안원 AWS 클라우드 보안·엘라스틱서치 보안 로그 수집·분석 (2022~2023)</li>
+                <li>· 삼성SDS 도커와 쿠버네티스 (2022~2023)</li>
+                <li>· 멀티캠퍼스 DevOps를 위한 도커와 쿠버네티스 (2022~2023)</li>
+                <li>· 오픈이지 SK쉴더스 루키즈 클라우드 기반 스마트 융합보안 양성과정 보조강사 (2024)</li>
+                <li>· 경북소프트웨어고등학교 사이버 보안 전국 대회 멘토 (2023)</li>
+              </ul>
+            </div>
+            <div class="sm:col-span-2">
+              <h4 class="font-bold text-ink-900">강의 전문 분야</h4>
+              <p class="mt-2">클라우드 보안 (AWS·Azure) · 도커·쿠버네티스 · 엘라스틱서치 기반 보안 로그 분석 · 사이버 보안 경진대회 코칭 · AI를 활용한 자료 정리와 학습 워크플로우</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="py-14 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">주관사 소개</h2>
+        <div class="mt-8 grid gap-5 lg:grid-cols-[1fr_1.5fr]">
+          <div class="bg-white border border-primary-100 rounded-3xl p-6 shadow-card">
+            <img src="https://i.imgur.com/NOmCfwO.png" alt="CLOUD SECURITY LAB" class="h-14 w-auto mb-4" />
+            <h3 class="text-2xl font-extrabold">CLOUD SECURITY LAB</h3>
+            <p class="mt-3 text-sm text-ink-700">클라우드 보안·DevOps·AI/빅데이터 활용 보안 교육을 진행하는 전문 교육 기관입니다.</p>
+            <p class="mt-4 text-sm font-bold text-primary-700">"기술을 나누다, 세상을 바꾸다."</p>
+            <div class="mt-4 p-4 rounded-2xl bg-primary-50 border border-primary-100 text-sm text-ink-800">
+              <b>재즐보프 유튜브 채널</b><br />
+              <span>구독자 1.4만 명 규모의 교육·기술 콘텐츠 운영 경험</span>
+            </div>
+          </div>
+          <div class="bg-white border border-primary-100 rounded-3xl p-6 shadow-card">
+            <h3 class="font-extrabold text-ink-900">대기업·공공기관 출강 이력</h3>
+            <p class="mt-3 text-sm text-ink-700 leading-relaxed">현대자동차, 금융보안원, 삼성SDS, LG CNS, 경찰청, 하나금융, KISIA, 코스콤, 우리FIS, 넥슨 등 기업·공공기관 대상 IT·AI·보안 교육 경험을 바탕으로 수업을 설계했습니다.</p>
+            <ul class="mt-4 space-y-1.5 text-sm text-ink-700">
+              <li>· 클라우드시큐리티랩 보안·AI 교육 운영 (2024~)</li>
+              <li>· 금융보안원 외부 전문 강의 (2020~)</li>
+              <li>· 멀티캠퍼스 외부 전문 강의 (2017~)</li>
+              <li>· 인프런 회사 명의 온라인 강의 3종 운영</li>
+              <li>· SK루키즈 애플리케이션 보안 + 생성형 AI 활용 악성코드 분석 교육 완료 (2026)</li>
+            </ul>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2 text-sm">
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>Golden Kubestronaut</b><br /><span class="text-ink-700">CNCF 클라우드 네이티브 전 인증 보유 마스터 등급</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>AI 기반 보안 연구</b><br /><span class="text-ink-700">실제 CVE 3건 인정·책임 공시 경험</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>저서 4권</b><br /><span class="text-ink-700">마인크래프트와 함께 파이썬 등 IT 실습 도서 집필</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>보유 자격 20여 종</b><br /><span class="text-ink-700">CNCF·AWS·Azure·보안·네트워크 분야 인증</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="py-16 bg-primary-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">AI 공부 도구가 맞을지<br />먼저 물어보세요</h2>
+        <p class="mt-4 text-sm sm:text-base opacity-90">신청 전 상담 가능합니다. 수강 가능 여부와 준비물을 안내받은 뒤 결정하셔도 됩니다.</p>
+        <p class="mt-3 text-sm sm:text-base font-extrabold text-yellow-200">1기 한정 · 첫 수업을 들어보고 맞지 않으면 환불 가능합니다.</p>
+        <div class="mt-8 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+          <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_final_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡 문의</a>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_final_form" class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg">신청하기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 bg-ink-900 text-cream-100 text-sm">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col gap-2">
+      <div class="font-extrabold text-white">CLOUD SECURITY LAB</div>
+      <div>부천 소사 달나유 이음센터 · 소사역 4번 출구 힐스에비뉴 B1층</div>
+      <div class="text-xs text-cream-100/70">© 2026 클라우드시큐리티랩 · 대표 최일선</div>
+      <div class="text-xs text-cream-100/70">사업자등록번호: 181-31-01637</div>
+      <div class="text-xs text-cream-100/70">사업장: 경기도 부천시 소사구 경인옛로 37 B107</div>
+      <div><a href="./" class="underline">통합 페이지 보기</a> · <a href="./refund.html" class="underline">환불 정책</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-bottom-cta" aria-label="모바일 빠른 문의">
+    <button type="button" data-share-button data-track-event="share_click" data-track-label="notebooklm_mobile_share" aria-label="친구에게 공유하기" class="bg-white text-primary-700 border border-primary-200">
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2" /><path d="M8.6 13.2 15.4 17.8" /></svg>
+    </button>
+    <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_mobile_kakao" class="bg-yellow-300 text-ink-900">카톡 문의</a>
+    <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_mobile_form" class="bg-primary-600 text-white">신청하기</a>
+  </div>
+  <script>
+    (() => {
+      window.dataLayer = window.dataLayer || [];
+
+      const clean = (value, fallback = '') =>
+        String(value || fallback).trim().replace(/\s+/g, ' ').slice(0, 120);
+
+      const searchParams = new URLSearchParams(window.location.search);
+      const sourceKeys = [
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'source',
+        'src',
+        'ref',
+        'channel',
+        'campaign',
+      ];
+
+      const readStoredSource = () => {
+        try {
+          return JSON.parse(window.sessionStorage.getItem('dalnayou_landing_source') || '{}');
+        } catch (_) {
+          return {};
+        }
+      };
+
+      const sourceContext = sourceKeys.reduce((acc, key) => {
+        const value = searchParams.get(key);
+        if (value) acc[key] = clean(value, value);
+        return acc;
+      }, {
+        ...readStoredSource(),
+        landing_path: window.location.pathname,
+        landing_query: window.location.search.replace(/^\?/, ''),
+        landing_referrer: clean(document.referrer, 'direct'),
+      });
+
+      const track = (eventName, params = {}) => {
+        if (!eventName) return;
+        const eventParams = {
+          ...sourceContext,
+          ...params,
+        };
+        window.dataLayer.push({
+          event: eventName,
+          ...eventParams,
+        });
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, eventParams);
+        }
+      };
+
+      window.dalnayouSource = sourceContext;
+      window.dalnayouTrack = track;
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-track-event]');
+        if (!target) return;
+
+        const targetUrl = target.href || '';
+        let outbound = false;
+        try {
+          outbound = targetUrl ? new URL(targetUrl, window.location.href).hostname !== window.location.hostname : false;
+        } catch (_) {
+          outbound = false;
+        }
+
+        track(target.dataset.trackEvent, {
+          link_position: target.dataset.trackLabel || 'unknown',
+          link_text: clean(target.textContent, target.getAttribute('aria-label')),
+          link_url: targetUrl,
+          outbound,
+        });
+      });
+    })();
+
+    const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
+    const shareData = {
+      title: '달나유 AI·코딩 4주 클래스',
+      text: '로블록스 AI와 구글 AI - NotebookLM 중 맞는 수업을 선택해보세요.',
+      url: shareUrl
+    };
+    document.querySelectorAll('[data-share-button]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(shareUrl);
+        alert('공유 링크를 복사했습니다.');
+      });
+    });
+
+    document.querySelectorAll('[data-countdown]').forEach((root) => {
+      const deadline = new Date(root.dataset.deadline).getTime();
+      const days = root.querySelector('[data-countdown-days]');
+      const hours = root.querySelector('[data-countdown-hours]');
+      const minutes = root.querySelector('[data-countdown-minutes]');
+      const seconds = root.querySelector('[data-countdown-seconds]');
+      const status = root.parentElement.querySelector('[data-countdown-status]');
+      const pad = (value) => String(value).padStart(2, '0');
+
+      const render = () => {
+        const remaining = deadline - Date.now();
+        if (remaining <= 0) {
+          days.textContent = '00';
+          hours.textContent = '00';
+          minutes.textContent = '00';
+          seconds.textContent = '00';
+          status.textContent = '얼리버드 마감 이후에는 대기 등록 상담으로 안내됩니다.';
+          return;
+        }
+        const totalSeconds = Math.floor(remaining / 1000);
+        days.textContent = pad(Math.floor(totalSeconds / 86400));
+        hours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+        minutes.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+        seconds.textContent = pad(totalSeconds % 60);
+      };
+
+      render();
+      window.setInterval(render, 1000);
+    });
+  </script>
+</body>
+</html>
