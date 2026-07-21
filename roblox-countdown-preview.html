@@ -151,19 +151,36 @@
       letter-spacing: 0;
     }
     .countdown-progress {
-      height: 6px;
+      position: relative;
+      height: 14px;
       overflow: hidden;
       border-radius: 999px;
-      background: rgba(234, 88, 12, .12);
+      border: 1px solid rgba(15, 23, 42, .16);
+      background: linear-gradient(180deg, rgba(15,23,42,.22), rgba(15,23,42,.1));
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.18), 0 8px 18px -16px rgba(15,23,42,.7);
     }
     .countdown-progress span {
+      position: relative;
       display: block;
       height: 100%;
       width: 100%;
       transform-origin: left center;
       border-radius: inherit;
-      background: linear-gradient(90deg, #ea580c, #facc15);
+      background: linear-gradient(90deg, #ef4444 0%, #f97316 48%, #facc15 100%);
+      box-shadow: 0 0 16px rgba(249,115,22,.42);
       transition: transform .4s ease;
+    }
+    .countdown-progress span::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(120deg, rgba(255,255,255,.32) 0 8px, transparent 8px 16px);
+      opacity: .45;
+      animation: progressRush 1s linear infinite;
+    }
+    @keyframes progressRush {
+      from { transform: translateX(-18px); }
+      to { transform: translateX(18px); }
     }
     @media (max-width: 640px) {
       body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
@@ -259,7 +276,8 @@
             <div class="countdown-number font-black" data-countdown-seconds>00</div>
           </div>
         </div>
-        <div class="countdown-progress mt-4" aria-hidden="true"><span data-countdown-progress></span></div>
+        <div class="mt-4 flex items-center justify-between text-[11px] font-black text-ink-700/75"><span>30일 모집 기준</span><span>남은 시간</span></div>
+        <div class="countdown-progress mt-2" aria-hidden="true"><span data-countdown-progress></span></div>
         <p class="mt-3 text-xs sm:text-sm font-bold text-ink-700" data-countdown-status>8/2(일)까지 선착순 얼리버드 혜택이 적용됩니다.</p>
       </section>
       <div class="grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
@@ -668,7 +686,7 @@
       const seconds = root.querySelector('[data-countdown-seconds]');
       const status = root.parentElement.querySelector('[data-countdown-status]');
       const progress = root.parentElement.querySelector('[data-countdown-progress]');
-      const start = new Date('2026-07-21T00:00:00+09:00').getTime();
+      const campaignDurationMs = 30 * 24 * 60 * 60 * 1000;
       const pad = (value) => String(value).padStart(2, '0');
       const updateUnit = (element, value) => {
         if (element.textContent === value) return;
@@ -696,7 +714,7 @@
         updateUnit(minutes, pad(Math.floor((totalSeconds % 3600) / 60)));
         updateUnit(seconds, pad(totalSeconds % 60));
         if (progress) {
-          const ratio = Math.max(0, Math.min(1, remaining / (deadline - start)));
+          const ratio = Math.max(0, Math.min(1, remaining / campaignDurationMs));
           progress.style.transform = `scaleX(${ratio})`;
         }
       };
