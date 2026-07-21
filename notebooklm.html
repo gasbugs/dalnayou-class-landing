@@ -70,6 +70,101 @@
       0% { left: -50%; }
       55%, 100% { left: 120%; }
     }
+    .countdown-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(29, 78, 216, .18);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(239,246,255,.86)),
+        radial-gradient(circle at top right, rgba(250,204,21,.18), transparent 44%);
+      box-shadow: 0 18px 46px -28px rgba(20, 40, 90, .42);
+      backdrop-filter: blur(14px);
+    }
+    .countdown-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #facc15, #22c55e);
+    }
+    .countdown-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(29, 78, 216, .14);
+      background: rgba(255,255,255,.78);
+      color: #1d4ed8;
+    }
+    .countdown-unit {
+      min-width: 74px;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      perspective: 420px;
+    }
+    .countdown-number {
+      position: relative;
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.72);
+      background: linear-gradient(180deg, #050505 0%, #050505 49%, #242424 50%, #171717 100%);
+      color: #fff;
+      font-size: clamp(2.35rem, 8vw, 4.3rem);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+      text-shadow: 0 2px 0 rgba(0,0,0,.45);
+      box-shadow: 0 14px 24px -18px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.08);
+      transition: transform .16s ease, filter .16s ease;
+    }
+    .countdown-number::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 -1px 0 rgba(0,0,0,.82), 0 1px 0 rgba(0,0,0,.65);
+    }
+    .countdown-number::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), transparent 36%, rgba(0,0,0,.18) 50%, transparent 52%);
+      pointer-events: none;
+    }
+    .countdown-number.is-ticking {
+      transform: rotateX(-8deg);
+      filter: brightness(1.15);
+    }
+    .countdown-label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 11px;
+      font-weight: 900;
+      color: rgba(42, 29, 20, .7);
+      letter-spacing: 0;
+    }
+    .countdown-progress {
+      height: 6px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(29, 78, 216, .1);
+    }
+    .countdown-progress span {
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #2563eb, #facc15);
+      transition: transform .4s ease;
+    }
     @media (max-width: 640px) {
       body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
       .mobile-bottom-cta {
@@ -97,6 +192,8 @@
         font-weight: 900;
         white-space: nowrap;
       }
+      .countdown-unit { min-width: 0; }
+      .countdown-number { min-height: 62px; border-radius: 8px; }
     }
   </style>
 </head>
@@ -141,6 +238,30 @@
       <div class="mt-7">
         <div class="deadline-chip mx-auto mb-3 inline-flex rounded-full bg-yellow-300 px-4 py-2 text-sm font-black text-ink-900">선착순 5명 마감임박 · 마감 후 대기 등록</div>
       </div>
+      <section class="countdown-panel mx-auto mb-5 max-w-2xl rounded-3xl p-4 sm:p-5" aria-label="얼리버드 마감 카운트다운">
+        <div class="countdown-kicker rounded-full px-3 py-1 text-xs font-black">잔여석 마감 임박 · 얼리버드 종료 카운트다운</div>
+        <div class="mt-3 text-xl sm:text-2xl font-black text-ink-900">189,000원 혜택 마감까지</div>
+        <div class="mt-4 grid grid-cols-4 gap-2 sm:gap-3" data-countdown data-deadline="2026-08-02T23:59:59+09:00">
+          <div class="countdown-unit">
+            <div class="countdown-label">DAYS</div>
+            <div class="countdown-number font-black" data-countdown-days>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">HOURS</div>
+            <div class="countdown-number font-black" data-countdown-hours>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">MINUTES</div>
+            <div class="countdown-number font-black" data-countdown-minutes>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">SECONDS</div>
+            <div class="countdown-number font-black" data-countdown-seconds>00</div>
+          </div>
+        </div>
+        <div class="countdown-progress mt-4" aria-hidden="true"><span data-countdown-progress></span></div>
+        <p class="mt-3 text-xs sm:text-sm font-bold text-ink-700" data-countdown-status>8/2(일)까지 선착순 얼리버드 혜택이 적용됩니다.</p>
+      </section>
       <div class="grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
         <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_hero_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡으로 1분 문의</a>
         <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_hero_form" class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">신청하기</a>
@@ -522,6 +643,51 @@
         await navigator.clipboard.writeText(shareUrl);
         alert('공유 링크를 복사했습니다.');
       });
+    });
+
+    document.querySelectorAll('[data-countdown]').forEach((root) => {
+      const deadline = new Date(root.dataset.deadline).getTime();
+      const days = root.querySelector('[data-countdown-days]');
+      const hours = root.querySelector('[data-countdown-hours]');
+      const minutes = root.querySelector('[data-countdown-minutes]');
+      const seconds = root.querySelector('[data-countdown-seconds]');
+      const status = root.parentElement.querySelector('[data-countdown-status]');
+      const progress = root.parentElement.querySelector('[data-countdown-progress]');
+      const start = new Date('2026-07-21T00:00:00+09:00').getTime();
+      const pad = (value) => String(value).padStart(2, '0');
+      const updateUnit = (element, value) => {
+        if (element.textContent === value) return;
+        element.textContent = value;
+        element.classList.remove('is-ticking');
+        void element.offsetWidth;
+        element.classList.add('is-ticking');
+        window.setTimeout(() => element.classList.remove('is-ticking'), 170);
+      };
+
+      const render = () => {
+        const remaining = deadline - Date.now();
+        if (remaining <= 0) {
+          updateUnit(days, '00');
+          updateUnit(hours, '00');
+          updateUnit(minutes, '00');
+          updateUnit(seconds, '00');
+          status.textContent = '얼리버드 마감 이후에는 대기 등록 상담으로 안내됩니다.';
+          if (progress) progress.style.transform = 'scaleX(0)';
+          return;
+        }
+        const totalSeconds = Math.floor(remaining / 1000);
+        updateUnit(days, pad(Math.floor(totalSeconds / 86400)));
+        updateUnit(hours, pad(Math.floor((totalSeconds % 86400) / 3600)));
+        updateUnit(minutes, pad(Math.floor((totalSeconds % 3600) / 60)));
+        updateUnit(seconds, pad(totalSeconds % 60));
+        if (progress) {
+          const ratio = Math.max(0, Math.min(1, remaining / (deadline - start)));
+          progress.style.transform = `scaleX(${ratio})`;
+        }
+      };
+
+      render();
+      window.setInterval(render, 1000);
     });
   </script>
 </body>
