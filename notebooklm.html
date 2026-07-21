@@ -8,7 +8,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="공부·업무 자료를 AI로 정리하고, 내 말로 설명하는 힘을 기릅니다" />
   <meta property="og:description" content="대기업·공공기관 교육 노하우를 학생·비전공자·직장인 눈높이에 맞춘 구글 AI - NotebookLM 결과물 수업으로." />
-  <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/notebooklm.png" />
+  <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/notebooklm.png?v=20260721-work" />
   <meta property="og:url" content="https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html" />
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -286,7 +286,7 @@
       </div>
 
       <div class="mt-12 grid gap-3 sm:grid-cols-2">
-        <img src="images/notebooklm.png" alt="NotebookLM 마인드맵 결과물" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+        <img src="images/notebooklm.png?v=20260721-work" alt="NotebookLM 업무 프로젝트 마인드맵 결과물" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
         <figure>
           <img src="images/classroom.jpg" alt="소사역 힐스에비뉴 달나유 B1 실제 강의장" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
           <figcaption class="mt-2 text-xs text-ink-700/70">실제 강의장 사진입니다.</figcaption>
@@ -423,7 +423,7 @@
       </div>
     </section>
 
-    <section class="bg-ink-900 px-6 py-16 text-center text-white sm:py-24">
+    <section id="ai-page-reveal" class="scroll-mt-20 bg-ink-900 px-6 py-16 text-center text-white sm:py-24">
       <div class="mx-auto max-w-4xl">
         <p class="text-sm font-extrabold text-primary-300">그것 아시나요?</p>
         <h2 class="mt-5 text-3xl font-extrabold leading-tight sm:text-5xl">
@@ -714,6 +714,13 @@
 
       render();
       window.setInterval(render, 1000);
+    });
+
+    window.addEventListener('load', () => {
+      if (window.location.hash !== '#ai-page-reveal') return;
+      window.setTimeout(() => {
+        document.querySelector('#ai-page-reveal')?.scrollIntoView({ block: 'start' });
+      }, 1000);
     });
   </script>
 </body>

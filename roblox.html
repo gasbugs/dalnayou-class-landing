@@ -425,7 +425,7 @@
       </div>
     </section>
 
-    <section class="bg-ink-900 px-6 py-16 text-center text-white sm:py-24">
+    <section id="ai-page-reveal" class="scroll-mt-20 bg-ink-900 px-6 py-16 text-center text-white sm:py-24">
       <div class="mx-auto max-w-4xl">
         <p class="text-sm font-extrabold text-primary-300">그것 아시나요?</p>
         <h2 class="mt-5 text-3xl font-extrabold leading-tight sm:text-5xl">
@@ -729,6 +729,13 @@
 
       render();
       window.setInterval(render, 1000);
+    });
+
+    window.addEventListener('load', () => {
+      if (window.location.hash !== '#ai-page-reveal') return;
+      window.setTimeout(() => {
+        document.querySelector('#ai-page-reveal')?.scrollIntoView({ block: 'start' });
+      }, 1000);
     });
   </script>
 </body>
