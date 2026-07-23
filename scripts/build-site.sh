@@ -41,6 +41,7 @@ cp \
   "${ROOT}/images/notebooklm_mindmap.webp" \
   "${ROOT}/images/park-v2.webp" \
   "${ROOT}/images/publish-v2.webp" \
+  "${ROOT}/images/roblox-creator-cole-tucker.webp" \
   "${ROOT}/images/roblox_screen-v2.png" \
   "${ROOT}/images/roblox_screen-v2.webp" \
   "${ROOT}/images/sosa-station-location.svg" \
