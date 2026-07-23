@@ -31,7 +31,7 @@ required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html cardnews/index.html cardnews/source.html
   tracking-links.md campaign-pricing.js robots.txt sitemap.xml 404.html
-  .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
+  marketing-events.js .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
 )
 for file in "${required_files[@]}"; do require_file "$file"; done
 
@@ -51,6 +51,11 @@ contains campaign-pricing.js 'label: "파이널 등록"' 'Final registration pha
 contains campaign-pricing.js 'price: 189000' 'First phase price is 189,000 won'
 contains campaign-pricing.js 'price: 199000' 'Second phase price is 199,000 won'
 contains campaign-pricing.js 'price: 209000' 'Final phase price is 209,000 won'
+contains marketing-events.js '2173864043186723' 'Meta Pixel uses the Cloud Security Lab data set'
+contains marketing-events.js '"ApplyClick"' 'Meta Pixel distinguishes application clicks from completions'
+for file in index.html main.html roblox.html notebooklm.html poster.html refund.html cardnews/index.html 404.html; do
+  contains "$file" 'marketing-events\.js' "$file includes the Meta Pixel loader"
+done
 
 printf '\nA4 poster invariants\n'
 not_contains poster.html '189,000|249,000|24% OFF|6만원' 'A4 poster does not disclose price'

@@ -14,6 +14,7 @@
 - `skills/dalnayou-landing-ops/` — 문구·A4·카드뉴스·UTM·GA4·배포를 반복 운영하는 Codex 스킬
 - `tracking-links.md` — 인스타·당근·유튜브·카카오용 UTM 추적 링크
 - `campaign-pricing.js` — 날짜에 따라 1차·2차 얼리버드와 파이널 등록 가격을 자동 전환
+- `marketing-events.js` — Meta Pixel 공통 로더와 개인정보 없는 웹 행동 이벤트 연결
 - `scripts/build-site.sh` — 승인된 공개 페이지와 실제 사용 자산만 `dist/`에 구성
 - `images/` — 페이지 이미지 자산
 
@@ -26,6 +27,7 @@
 - Google 태그 `G-6W058PFM90`이 GA4 측정 정본이며, GTM 컨테이너 `GTM-KVC6H3SL`은 향후 전환용으로 유지합니다.
 - 신청서 클릭, 실제 신청 완료, 카카오톡 문의, 지도, 포스터 인쇄, 카드뉴스 다운로드·복사 이벤트를 수집합니다.
 - 기존 Google 신청 폼은 유입 정보를 자동으로 받아 Apps Script에서 `application_submit` 이벤트로 전달합니다. 이름과 전화번호는 GA4로 보내지 않습니다.
+- Meta Pixel은 `PageView`, `ViewContent`, `CourseSelect`, `ApplyClick`, `Contact`를 수집합니다. `ApplyClick`은 신청서 이동이며 실제 신청 완료를 의미하지 않습니다.
 - 채널별 홍보 링크는 `tracking-links.md`를 사용하세요.
 
 ## 수정 방법

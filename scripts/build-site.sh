@@ -16,6 +16,7 @@ cp \
   "${ROOT}/refund.html" \
   "${ROOT}/404.html" \
   "${ROOT}/campaign-pricing.js" \
+  "${ROOT}/marketing-events.js" \
   "${ROOT}/robots.txt" \
   "${ROOT}/sitemap.xml" \
   "${ROOT}/.nojekyll" \

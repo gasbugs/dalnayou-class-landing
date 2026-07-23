@@ -155,7 +155,18 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 
 2026년 7월 23일 실제 Google Form 테스트 응답 1건을 제출해 접수 완료 화면, 폼 응답 증가, GA4 실시간 보고서의 `application_submit` 1건을 모두 확인했습니다. GA4 탐색에는 `랜딩 페이지 조회 → 강좌 상세 선택 → 신청서 이동` 보고서도 구성했습니다.
 
-Meta 전환 추적은 Events Manager 로그인 후 Pixel 데이터 소스가 필요합니다. 현재 브라우저가 Meta Business에 로그인되지 않아 Pixel ID 생성과 설치는 보류 상태입니다. 네이버 검색광고는 운영 대상에서 제외했습니다.
+Meta 비즈니스 포트폴리오 `클라우드시큐리티랩`(비즈니스 ID `1732980947720408`)과 웹 데이터 세트 `클씨랩 AI 클래스 웹 전환`을 생성했습니다. Meta Pixel ID는 `2173864043186723`이며, 공통 `marketing-events.js`에서 개인정보 없이 다음 이벤트를 전송합니다.
+
+- `PageView`: 공개 페이지 조회
+- `ViewContent`: NotebookLM·로블록스 강좌 상세 조회
+- `CourseSelect`: 메인 화면에서 강좌 선택
+- `ApplyClick`: 신청서 이동 클릭. 실제 신청 완료가 아님
+- `Contact`: 카카오톡 문의 클릭
+- `MapClick`, `PrintPoster`: 지도 및 A4 인쇄 행동
+
+실제 신청 완료는 기존 Google Form Apps Script의 GA4 `application_submit`으로 확인합니다. 네이버 검색광고는 운영 대상에서 제외했습니다.
+
+Meta가 업무용 이메일로 보낸 비즈니스 계정 확인 메일의 링크를 눌러야 전체 권한이 활성화됩니다.
 
 ## Google Search Console
 

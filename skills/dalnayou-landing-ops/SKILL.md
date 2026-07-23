@@ -63,6 +63,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Give each physical QR source a distinct UTM identity. Encode the full destination URL in the QR and verify the decoded destination, not only the image appearance.
 - Explain clearly that `apply_click` measures a click to the form, not a completed form submission.
 - Treat `application_submit` as the completed-form event. Never send applicant name, phone number, or other personal data to GA4.
+- Keep Meta Pixel initialization in `marketing-events.js`. `ApplyClick` means the visitor opened the application form; do not report it as a completed application.
 
 ### 4. Protect mobile and print layouts
 
