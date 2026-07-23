@@ -8,34 +8,46 @@ https://gasbugs.github.io/dalnayou-class-landing/
 
 ## 채널별 링크
 
+Facebook 로블록스 광고:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_creative_a
+```
+
+Facebook NotebookLM 광고:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_creative_a
+```
+
 유튜브 쇼츠 본문:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=youtube&utm_medium=shorts&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=youtube&utm_medium=social&utm_campaign=dalnayou_2026_08&utm_content=shorts_description
 ```
 
 유튜브 고정 댓글:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=youtube&utm_medium=pinned_comment&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=youtube&utm_medium=social&utm_campaign=dalnayou_2026_08&utm_content=pinned_comment
 ```
 
 인스타그램 프로필/스토리:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=instagram&utm_medium=social&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=instagram&utm_medium=social&utm_campaign=dalnayou_2026_08&utm_content=profile_link
 ```
 
 당근 게시글:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=daangn&utm_medium=local&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=danggeun&utm_medium=community&utm_campaign=dalnayou_2026_08&utm_content=local_post
 ```
 
 카카오톡 공유:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=kakao&utm_medium=chat&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=kakaotalk&utm_medium=community&utm_campaign=dalnayou_2026_08&utm_content=shared_message
 ```
 
 카드뉴스 QR:
@@ -47,12 +59,12 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=cardnews&utm_medium
 포스터 QR:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=qr&utm_campaign=dalnayou_2026_08
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_medium=offline&utm_campaign=dalnayou_2026_08&utm_content=print_qr
 ```
 
-## GTM 이벤트
+## GA4 이벤트 수집 구조
 
-랜딩은 Google Tag Manager 컨테이너 `GTM-KVC6H3SL`로 아래 `dataLayer` 이벤트를 보냅니다.
+랜딩은 Google 태그 `G-6W058PFM90`의 `gtag.js`로 GA4 이벤트를 직접 전송합니다. Google Tag Manager 컨테이너 `GTM-KVC6H3SL`도 페이지에 포함되어 있지만, 2026년 7월 23일 공개 컨테이너 점검 결과 태그가 없는 상태이므로 현재 측정 정본은 `gtag.js`입니다. GTM에 GA4 태그를 추가할 때에는 직접 수집 코드를 함께 유지하지 말고 한쪽만 측정 정본으로 선택합니다.
 
 - `apply_click`: 신청서 클릭
 - `contact_click`: 카카오톡 문의 클릭
@@ -67,11 +79,13 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
 
 현재 메인 랜딩(`index.html`, `main.html`)은 URL의 `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `source`, `src`, `ref`, `channel`, `campaign` 값을 읽어 `landing_source_detected`와 이후 클릭 이벤트에 함께 보냅니다. `roblox.html`, `notebooklm.html` 상세 페이지에서도 전달된 파라미터를 `apply_click`, `contact_click`, `share_click`, `map_click` 이벤트에 함께 보냅니다.
 
-실제 GA4 보고서 수집은 GTM 컨테이너에서 GA4 태그와 위 이벤트명 기준의 맞춤 이벤트 트리거를 연결해야 시작됩니다. 이벤트 파라미터를 GA4 표/탐색 보고서에서 컬럼으로 보려면 GA4 관리자 화면에서 커스텀 정의도 등록해야 합니다.
+이벤트 파라미터를 GA4 표와 탐색 보고서에서 측정기준으로 사용하려면 GA4 관리자 화면에서 맞춤 정의를 등록해야 합니다.
 
-## GTM에서 추가로 연결할 태그·트리거
+## 향후 GTM으로 전환할 때의 태그·트리거
 
-1. GA4 기본 태그
+다음 설정은 현재 필수 작업이 아니라, 직접 `gtag.js` 수집을 GTM으로 이전할 때 사용하는 전환 절차입니다.
+
+1. GA4 기본 태그를 GTM에 추가
    - 태그 유형: Google Analytics / Google tag 또는 GA4 Configuration
    - Measurement ID: GA4 웹 스트림의 `G-XXXXXXXXXX`
    - 트리거: All Pages 또는 Initialization - All Pages
@@ -88,7 +102,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
    - `copy_click`
    - `landing_source_detected`
 
-3. GA4 이벤트 태그
+3. GA4 이벤트 태그 추가
    - 위 맞춤 이벤트 트리거마다 같은 이름의 GA4 이벤트 태그를 만듭니다.
    - `apply_click`, `contact_click`은 GA4에서 Key event로 지정하는 것을 권장합니다.
 
@@ -115,7 +129,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
    - `landing_referrer`
    - `source_param_count`
 
-5. GA4 커스텀 정의 권장 등록
+5. GA4 맞춤 정의 등록
    - 관리자 → 데이터 표시 → 맞춤 정의 → 맞춤 측정기준 만들기
    - 범위: 이벤트
    - 이벤트 매개변수:
@@ -132,3 +146,9 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=poster&utm_medium=q
      - `landing_path`
      - `landing_query`
      - `landing_referrer`
+
+2026년 7월 23일 기준 GA4에는 `apply_click`이 주요 이벤트로 지정되어 있습니다. 맞춤 측정기준은 별도로 등록해야 하며, 우선순위는 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`입니다.
+
+## 내부 운영자 트래픽
+
+Direct 유입에는 운영자와 직원의 점검 방문이 포함될 수 있으므로 실제 고객 전환과 분리합니다. 고정 IP를 사용하는 환경에서는 GA4 데이터 스트림의 내부 트래픽 규칙과 데이터 필터를 사용합니다. 유동 IP 환경에서는 운영자 전용 테스트 링크와 DebugView를 사용하고, Direct의 주요 이벤트를 광고 성과로 해석하지 않습니다.
