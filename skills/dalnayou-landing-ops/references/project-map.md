@@ -14,6 +14,8 @@
 | `cardnews/index.html` | Card-news hub and copy tools | Ad copy, payment/confirmation/refund messages, resource links |
 | `cardnews/source.html` | Render source for social cards | Text or design printed into PNG assets |
 | `tracking-links.md` | Campaign URL registry and GA/GTM notes | New channels, UTM naming, event inventory |
+| `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
+| `scripts/build-site.sh` | Public deployment allowlist | Public pages or required runtime assets change |
 
 ## Derived assets
 
@@ -32,13 +34,16 @@
 - The A4 poster intentionally omits price and sends QR traffic with a print-specific UTM.
 - `cardnews/index.html` keeps two payment-request and two confirmation templates, one per course.
 - Important resource URLs appear inside copied text, not only as clickable UI.
+- Course prices advance automatically: 189,000원 through 8/1, 199,000원 from 8/2 through 8/8, and 209,000원 from 8/9 through 8/15.
+- Preview, legacy, source, and skill files remain in the repository but are excluded from the `dist/` deployment artifact.
 
 ## Existing commands
 
 ```bash
 ./scripts/render-cardnews.sh
+bash scripts/build-site.sh
 skills/dalnayou-landing-ops/scripts/audit-site.sh .
 git diff --check
 ```
 
-GitHub Pages deploys the repository root on pushes to `main` through `.github/workflows/pages.yml`.
+GitHub Pages builds and deploys `dist/` on pushes to `main` through `.github/workflows/pages.yml`.

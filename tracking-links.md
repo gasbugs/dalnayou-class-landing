@@ -77,6 +77,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 - `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
 - `landing_source_detected`: URL 파라미터가 있는 랜딩 진입 감지
 - `application_submit`: 기존 Google 신청서가 실제 제출된 경우
+- `campaign_phase_view`: 방문 시 적용된 1차·2차 얼리버드 또는 파이널 등록 단계
 
 현재 메인 랜딩(`index.html`, `main.html`)은 URL의 `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `source`, `src`, `ref`, `channel`, `campaign` 값을 읽어 `landing_source_detected`와 이후 클릭 이벤트에 함께 보냅니다. `roblox.html`, `notebooklm.html` 상세 페이지에서도 전달된 파라미터를 `apply_click`, `contact_click`, `share_click`, `map_click` 이벤트에 함께 보냅니다.
 
@@ -148,9 +149,13 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
      - `landing_query`
      - `landing_referrer`
 
-2026년 7월 23일 기준 GA4에는 `apply_click`과 `application_submit`이 주요 이벤트로 지정되어 있습니다. 같은 날 이벤트 범위의 맞춤 측정기준 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`, `course_selection`, `source_system`도 등록했습니다. 맞춤 측정기준은 등록 이후 수집되는 이벤트부터 보고서에서 사용할 수 있습니다.
+2026년 7월 23일 기준 GA4에는 `apply_click`과 `application_submit`이 주요 이벤트로 지정되어 있습니다. 같은 날 이벤트 범위의 맞춤 측정기준 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`, `course_selection`, `source_system`, `campaign_phase`도 등록했습니다. 맞춤 측정기준은 등록 이후 수집되는 이벤트부터 보고서에서 사용할 수 있습니다.
 
-`application_submit`은 기존 Google 신청서와 연결된 응답 스프레드시트의 Apps Script 설치형 트리거로 전송합니다. 트리거는 `trackApplicationSubmit` 함수를 `스프레드시트에서 → 양식 제출 시` 조건으로 실행하며, 신청서 문항이나 응답 흐름은 변경하지 않습니다. 이름·전화번호 등 개인정보는 GA4로 보내지 않고 `source_system`, `campaign_name`, `course_selection`만 전송합니다. 2026년 7월 23일 테스트 실행이 Apps Script에서 정상 완료됐고, GA4 실시간 보고서에서 `application_submit` 1건 수집을 확인했습니다.
+`application_submit`은 기존 Google 신청서와 연결된 응답 스프레드시트의 Apps Script 설치형 트리거로 전송합니다. 트리거는 `trackApplicationSubmit` 함수를 `스프레드시트에서 → 양식 제출 시` 조건으로 실행합니다. 강좌 페이지는 신청 링크의 `유입 정보 (자동 입력)` 항목에 UTM·랜딩 경로·모집 단계·현재 가격을 미리 채우고, Apps Script는 이를 허용 목록으로 제한해 GA4에 전달합니다. 이름·전화번호 등 개인정보는 GA4로 보내지 않습니다.
+
+2026년 7월 23일 실제 Google Form 테스트 응답 1건을 제출해 접수 완료 화면, 폼 응답 증가, GA4 실시간 보고서의 `application_submit` 1건을 모두 확인했습니다. GA4 탐색에는 `랜딩 페이지 조회 → 강좌 상세 선택 → 신청서 이동` 보고서도 구성했습니다.
+
+Meta 전환 추적은 Events Manager 로그인 후 Pixel 데이터 소스가 필요합니다. 현재 브라우저가 Meta Business에 로그인되지 않아 Pixel ID 생성과 설치는 보류 상태입니다. 네이버 검색광고는 운영 대상에서 제외했습니다.
 
 ## 내부 운영자 트래픽
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gasbugs.github.io/dalnayou-class-landing/sitemap.xml

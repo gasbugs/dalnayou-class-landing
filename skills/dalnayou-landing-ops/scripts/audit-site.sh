@@ -30,7 +30,8 @@ printf 'Dalnayou landing audit: %s\n\n' "$ROOT"
 required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html cardnews/index.html cardnews/source.html
-  tracking-links.md .github/workflows/pages.yml scripts/render-cardnews.sh
+  tracking-links.md campaign-pricing.js robots.txt sitemap.xml 404.html
+  .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
 )
 for file in "${required_files[@]}"; do require_file "$file"; done
 
@@ -43,6 +44,13 @@ contains notebooklm.html 'data-track-event="apply_click"' 'NotebookLM applicatio
 contains index.html 'landing_source_detected' 'Main landing detects source parameters'
 contains roblox.html 'dalnayou_landing_source' 'Roblox page preserves landing source context'
 contains notebooklm.html 'dalnayou_landing_source' 'NotebookLM page preserves landing source context'
+contains campaign-pricing.js 'entry\.1074868867' 'Application links prefill the Google Form attribution field'
+contains campaign-pricing.js 'earlybird_1' 'First early-bird phase exists'
+contains campaign-pricing.js 'earlybird_2' 'Second early-bird phase exists'
+contains campaign-pricing.js 'label: "파이널 등록"' 'Final registration phase exists'
+contains campaign-pricing.js 'price: 189000' 'First phase price is 189,000 won'
+contains campaign-pricing.js 'price: 199000' 'Second phase price is 199,000 won'
+contains campaign-pricing.js 'price: 209000' 'Final phase price is 209,000 won'
 
 printf '\nA4 poster invariants\n'
 not_contains poster.html '189,000|249,000|24% OFF|6만원' 'A4 poster does not disclose price'
@@ -61,9 +69,12 @@ not_contains cardnews/index.html 'mupersei\.notion\.site' 'Old Roblox signup gui
 
 printf '\nMirrored page consistency\n'
 if diff -q \
-  <(sed 's#https://gasbugs.github.io/dalnayou-class-landing/main.html#https://gasbugs.github.io/dalnayou-class-landing/#' "$ROOT/main.html") \
+  <(sed \
+    -e 's#https://gasbugs.github.io/dalnayou-class-landing/main.html#https://gasbugs.github.io/dalnayou-class-landing/#' \
+    -e '/<meta name="robots" content="noindex,follow" \/>/d' \
+    "$ROOT/main.html") \
   "$ROOT/index.html" >/dev/null; then
-  pass 'index.html and main.html differ only by their intentional OG URL'
+  pass 'index.html and main.html differ only by intentional metadata'
 else
   warn 'index.html and main.html have behavioral differences; inspect their diff'
 fi
@@ -75,6 +86,19 @@ if [[ "$instagram_count" == "8" ]]; then pass 'Eight Instagram cards exist'; els
 if [[ "$daangn_count" == "8" ]]; then pass 'Eight Daangn cards exist'; else fail "Expected 8 Daangn cards, found $daangn_count"; fi
 require_file cardnews/instagram-cardnews-png.zip
 require_file cardnews/daangn-cardnews-png.zip
+
+printf '\nPublic deployment artifact\n'
+contains .github/workflows/pages.yml 'bash scripts/build-site\.sh' 'Pages workflow builds the public allowlist'
+contains .github/workflows/pages.yml "path: 'dist'" 'Pages workflow deploys dist'
+if [[ -d "$ROOT/dist" ]]; then
+  if find "$ROOT/dist" -type f \( -name '*preview*' -o -name 'index-legacy.html' -o -name 'source.html' \) | grep -q .; then
+    fail 'Public artifact contains a preview, legacy, or source page'
+  else
+    pass 'Public artifact excludes preview, legacy, and source pages'
+  fi
+else
+  warn 'dist is absent; run bash scripts/build-site.sh before publishing'
+fi
 
 printf '\nGit hygiene\n'
 if git -C "$ROOT" diff --check >/dev/null; then pass 'Working-tree diff has no whitespace errors'; else fail 'Working-tree diff contains whitespace errors'; fi
