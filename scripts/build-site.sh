@@ -38,6 +38,7 @@ cp \
   "${ROOT}/images/notebooklm-w4.png" \
   "${ROOT}/images/notebooklm.png" \
   "${ROOT}/images/notebooklm.webp" \
+  "${ROOT}/images/notebooklm-docusign-workplace.webp" \
   "${ROOT}/images/notebooklm_mindmap.webp" \
   "${ROOT}/images/park-v2.webp" \
   "${ROOT}/images/publish-v2.webp" \

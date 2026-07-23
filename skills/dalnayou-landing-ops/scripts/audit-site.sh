@@ -32,6 +32,7 @@ required_files=(
   poster.html refund.html cardnews/index.html cardnews/source.html
   tracking-links.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing-events.js images/roblox-creator-cole-tucker.webp
+  images/notebooklm-docusign-workplace.webp
   .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
 )
 for file in "${required_files[@]}"; do require_file "$file"; done
