@@ -76,6 +76,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 - `download_click`: 카드뉴스 ZIP·PNG 다운로드
 - `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
 - `landing_source_detected`: URL 파라미터가 있는 랜딩 진입 감지
+- `application_submit`: 기존 Google 신청서가 실제 제출된 경우
 
 현재 메인 랜딩(`index.html`, `main.html`)은 URL의 `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `source`, `src`, `ref`, `channel`, `campaign` 값을 읽어 `landing_source_detected`와 이후 클릭 이벤트에 함께 보냅니다. `roblox.html`, `notebooklm.html` 상세 페이지에서도 전달된 파라미터를 `apply_click`, `contact_click`, `share_click`, `map_click` 이벤트에 함께 보냅니다.
 
@@ -147,7 +148,9 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
      - `landing_query`
      - `landing_referrer`
 
-2026년 7월 23일 기준 GA4에는 `apply_click`이 주요 이벤트로 지정되어 있습니다. 같은 날 이벤트 범위의 맞춤 측정기준 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`도 등록했습니다. 맞춤 측정기준은 등록 이후 수집되는 이벤트부터 보고서에서 사용할 수 있습니다.
+2026년 7월 23일 기준 GA4에는 `apply_click`과 `application_submit`이 주요 이벤트로 지정되어 있습니다. 같은 날 이벤트 범위의 맞춤 측정기준 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`, `course_selection`, `source_system`도 등록했습니다. 맞춤 측정기준은 등록 이후 수집되는 이벤트부터 보고서에서 사용할 수 있습니다.
+
+`application_submit`은 기존 Google 신청서와 연결된 응답 스프레드시트의 Apps Script 설치형 트리거로 전송합니다. 트리거는 `trackApplicationSubmit` 함수를 `스프레드시트에서 → 양식 제출 시` 조건으로 실행하며, 신청서 문항이나 응답 흐름은 변경하지 않습니다. 이름·전화번호 등 개인정보는 GA4로 보내지 않고 `source_system`, `campaign_name`, `course_selection`만 전송합니다. 2026년 7월 23일 테스트 실행이 Apps Script에서 정상 완료됐고, GA4 실시간 보고서에서 `application_submit` 1건 수집을 확인했습니다.
 
 ## 내부 운영자 트래픽
 
