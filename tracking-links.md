@@ -157,6 +157,17 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 
 Meta 전환 추적은 Events Manager 로그인 후 Pixel 데이터 소스가 필요합니다. 현재 브라우저가 Meta Business에 로그인되지 않아 Pixel ID 생성과 설치는 보류 상태입니다. 네이버 검색광고는 운영 대상에서 제외했습니다.
 
+## Google Search Console
+
+2026년 7월 23일 URL 접두어 속성
+`https://gasbugs.github.io/dalnayou-class-landing/`을 등록했고, Google 애널리틱스·Google 태그 관리자로 소유권을 자동 확인했습니다.
+
+- 메인 페이지: Google 색인 생성 완료 상태 확인
+- `notebooklm.html`: 색인 생성 요청 완료
+- `roblox.html`: 색인 생성 요청 완료
+- `refund.html`: 색인 생성 요청 완료
+- `sitemap.xml`: 전체 URL로 제출 완료. 공개 파일은 `HTTP 200`, `application/xml`로 확인했지만 Search Console 상태는 제출 직후 `가져올 수 없음`으로 남아 있어 Google 재처리 결과를 추후 확인해야 합니다.
+
 ## 내부 운영자 트래픽
 
 Direct 유입에는 운영자와 직원의 점검 방문이 포함될 수 있으므로 실제 고객 전환과 분리합니다. 고정 IP를 사용하는 환경에서는 GA4 데이터 스트림의 내부 트래픽 규칙과 데이터 필터를 사용합니다. 유동 IP 환경에서는 운영자 전용 테스트 링크와 DebugView를 사용하고, Direct의 주요 이벤트를 광고 성과로 해석하지 않습니다.
