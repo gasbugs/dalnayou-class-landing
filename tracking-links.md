@@ -147,7 +147,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
      - `landing_query`
      - `landing_referrer`
 
-2026년 7월 23일 기준 GA4에는 `apply_click`이 주요 이벤트로 지정되어 있습니다. 맞춤 측정기준은 별도로 등록해야 하며, 우선순위는 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`입니다.
+2026년 7월 23일 기준 GA4에는 `apply_click`이 주요 이벤트로 지정되어 있습니다. 같은 날 이벤트 범위의 맞춤 측정기준 `link_position`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`도 등록했습니다. 맞춤 측정기준은 등록 이후 수집되는 이벤트부터 보고서에서 사용할 수 있습니다.
 
 ## 내부 운영자 트래픽
 
