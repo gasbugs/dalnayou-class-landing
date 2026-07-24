@@ -86,7 +86,7 @@ contains notebooklm.html '내 자료' 'Gemini success equation starts with learn
 contains notebooklm.html '근거 확인' 'Gemini success equation includes evidence checking'
 
 printf '\nPromotional video\n'
-for file in index.html main.html; do
+for file in index.html main.html roblox.html notebooklm.html; do
   contains "$file" 'id="shorts"' "$file exposes the promotional video section"
   contains "$file" 'youtube\.com/shorts/yQYwMZ2udaw' "$file links the prepared promotional video"
   contains "$file" 'images/shorts-cover\.jpg' "$file displays the promotional video cover"

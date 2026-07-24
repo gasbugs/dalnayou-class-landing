@@ -32,7 +32,7 @@
 - `index.html` and `main.html` should differ only where metadata intentionally points to their own URL.
 - The morning course public name is `Gemini 노트북`, while `Google NotebookLM` remains the factual tool name in supporting copy.
 - The legacy `notebooklm.html` URL, analytics labels, internal course key, and exact Google Form option stay stable for compatibility.
-- Both main chooser mirrors expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
+- Both main chooser mirrors and both course detail pages expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
 - Course detail pages retain `apply_click` on every application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
 - Current pages use GTM container `GTM-KVC6H3SL`.
