@@ -56,7 +56,7 @@ Meta 광고 관리자에서 13~17세 직접 타게팅이 비활성화되어 허�
 18세부터 설정했습니다. 연령은 광고 문구에 전면 표기하지 않습니다. 로블록스를
 플레이하는 사람이 직접 만드는 사람으로 전환한다는 목표를 앞세웁니다.
 
-## 광고
+## 이미지 광고
 
 - 광고 이름: `플레이어에서크리에이터로_단일소재`
 - 연결 URL:
@@ -65,7 +65,7 @@ Meta 광고 관리자에서 13~17세 직접 타게팅이 비활성화되어 허�
 https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_youth
 ```
 
-- CTA: `더 알아보기`
+- CTA: `자세히 보기 (LEARN_MORE)`
 - 이미지: `images/roblox.png`
 - 자동 개선: 음악 추가, 애니메이션 추가, 다이내믹 미디어 사용
 - 생성형 AI 이미지 대안: 사용하지 않음
@@ -87,6 +87,43 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook
 - 제목: `AI로 직접 만드는 나만의 로블록스 게임`
 - 설명: `8/16 개강 · 매주 일요일 4주 · 소사역 오프라인`
 
+## 쇼츠 광고
+
+이미지 광고 게시가 완료된 뒤 새 캠페인이나 광고 세트를 만들지 않고, 동일한
+`2026-08_로블록스AI_소사역_유입` 캠페인의
+`소사역통학권_18-24_광범위` 광고 세트 안에 아래 광고만 추가합니다.
+
+- 광고 이름: `플레이어에서크리에이터로_쇼츠`
+- 광고 형식: 세로형 단일 동영상
+- 소재 우선순위: 김연은 계정에 이미 게시된 로블록스 쇼츠가 광고 소재로 적합하면 기존 게시물을 사용
+- 대체 소재: 준비된 로블록스 쇼츠 원본 영상
+- 자동 생성 동영상·AI 대체 이미지: 사용하지 않음
+- 제목·기본 문구·설명·CTA: 이미지 광고와 동일
+- 연결 URL:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_shorts
+```
+
+피드·릴스·스토리 미리보기에서 첫 3초, 세로 자막 가독성, 상하단 UI 가림,
+영상 잘림을 각각 확인한 뒤 게시합니다. 기존 게시물을 사용할 때도 광고의 연결
+페이지와 URL 매개변수가 위 주소로 적용되는지 확인합니다.
+
+두 광고는 같은 광고 세트의 일 예산 `20,000원` 안에서 경쟁시킵니다. 광고를
+추가하더라도 광고 세트 예산과 계정 총 지출 한도 `140,000원`은 증액하지 않습니다.
+
+## 소재 비교 측정
+
+- 이미지 광고: `utm_content=roblox_youth`
+- 쇼츠 광고: `utm_content=roblox_shorts`
+- Meta 광고 관리자: 광고별 랜딩 페이지 조회와 `ApplyClick` 비교
+- GA4: `utm_content`별 랜딩 페이지 조회와 `apply_click` 비교
+- 신청 완료: Google Form의 유입 정보와 GA4 `application_submit`을 `utm_content`별로 비교
+
+`ApplyClick`은 신청서 이동이며 신청 완료가 아닙니다. 이미지 광고와 쇼츠 광고의
+성과는 같은 기간과 같은 광고 세트에서 비교하되, 실제 신청 완료는
+`application_submit`으로 판단합니다.
+
 ## 집행 전 확인
 
 - 광고 미리보기에서 모바일 피드의 제목과 이미지가 잘리지 않는지 확인합니다.
@@ -96,6 +133,8 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook
 - 최대 계획 지출이 `140,000원`인지 다시 확인한 뒤 게시합니다.
 - 계정 지출 한도가 직접 재설정 방식의 `140,000원`인지 확인합니다.
 - 신규 광고 계정의 전화번호 SMS 인증을 완료합니다.
+- 기존 이미지 광고가 게시된 상태인지 확인한 뒤 같은 광고 세트에 쇼츠 광고를 추가합니다.
+- 쇼츠 광고의 피드·릴스·스토리 미리보기를 각각 확인합니다.
 
 ## 일일 점검
 
