@@ -94,18 +94,38 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook
 `2026-08_로블록스AI_소사역_유입` 캠페인의
 `소사역통학권_18-24_광범위` 광고 세트 안에 아래 광고만 추가합니다.
 
-- 광고 이름: `플레이어에서크리에이터로_쇼츠`
+- 광고 이름: `클씨랩_AI두과정_쇼츠`
 - 광고 ID: `120245540496670292`
 - 광고 형식: 세로형 단일 동영상
-- 소재: 기존 로블록스 쇼츠를 광고 안전영역에 맞춰 재배치한 9:16 영상
+- 소재: Gemini Notebook과 로블록스 AI 두 과정을 함께 소개하는 쇼츠를 광고
+  안전영역에 맞춰 재배치한 9:16 영상
 - 영상 규격: `720×1280`, 약 28초, H.264/AAC
 - 자동 생성 동영상·AI 대체 이미지: 사용하지 않음
 - 자동 동영상 보정·문구 개선·CTA 개선·레이아웃 자동 개선: 사용하지 않음
-- 제목·기본 문구·설명·CTA: 이미지 광고와 동일
+- 제목: `나에게 맞는 AI 클래스를 선택하세요`
+- 설명: `8/16 개강 · 매주 일요일 4주 · 소사역 오프라인`
+- CTA: `자세히 보기`
+- 기본 문구:
+
+```text
+AI를 배우는 두 가지 방법, 내 자료를 더 똑똑하게 활용하거나 내가 상상한 게임을 직접 만들어보세요.
+
+① Gemini Notebook
+내 자료로 요약·마인드맵·플래시카드·AI 팟캐스트를 만드는 실전 과정
+
+② 로블록스 AI
+코딩 경험이 없어도 AI와 함께 직접 플레이할 수 있는 게임 월드를 완성하는 과정
+
+학생·비전공자·직장인과 게임을 좋아하는 입문자까지, 나에게 맞는 AI 클래스를 선택하세요.
+
+8/16 개강 · 매주 일요일 4주
+소사역 4번 출구 힐스에비뉴 달나유 B1
+```
+
 - 연결 URL:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_shorts
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=combined_courses_shorts
 ```
 
 Facebook 피드, Instagram 릴스·스토리 미리보기에서 첫 3초의 주목도, 세로 자막
@@ -119,21 +139,22 @@ Facebook 피드, Instagram 릴스·스토리 미리보기에서 첫 3초의 주�
 ## 소재 비교 측정
 
 - 이미지 광고: `utm_content=roblox_youth`
-- 쇼츠 광고: `utm_content=roblox_shorts`
+- 통합 쇼츠 광고: `utm_content=combined_courses_shorts`
 - Meta 광고 관리자: 광고별 랜딩 페이지 조회와 `ApplyClick` 비교
 - GA4: `utm_content`별 랜딩 페이지 조회와 `apply_click` 비교
 - 신청 완료: Google Form의 유입 정보와 GA4 `application_submit`을 `utm_content`별로 비교
 
-`ApplyClick`은 신청서 이동이며 신청 완료가 아닙니다. 이미지 광고와 쇼츠 광고의
-성과는 같은 기간과 같은 광고 세트에서 비교하되, 실제 신청 완료는
-`application_submit`으로 판단합니다.
+`ApplyClick`은 신청서 이동이며 신청 완료가 아닙니다. 이미지 광고는 로블록스
+상세 페이지, 통합 쇼츠는 두 과정 선택 페이지로 연결되므로 순수한 이미지·영상
+A/B 테스트가 아닙니다. 각 광고가 맡은 역할별 랜딩 페이지 조회와 신청 성과를
+비교하고, 실제 신청 완료는 `application_submit`으로 판단합니다.
 
 ## 게시 완료 확인
 
 - [x] 이미지 광고 `플레이어에서크리에이터로_단일소재`가 `활동 중`인지 확인
-- [x] 쇼츠 광고 `플레이어에서크리에이터로_쇼츠`가 `활동 중`인지 확인
+- [x] 통합 쇼츠 광고 `클씨랩_AI두과정_쇼츠` 게시 및 재처리 확인
 - [x] 두 광고가 같은 캠페인·광고 세트에서 경쟁하는지 확인
-- [x] Roblox 상세 페이지 연결과 광고별 `utm_content` 구분 확인
+- [x] 로블록스 상세 페이지와 두 과정 선택 페이지의 `utm_content` 구분 확인
 - [x] 모바일 피드·릴스·스토리 미리보기와 첫 3초 확인
 - [x] 쇼츠 광고의 AI 생성 소재 및 자동 개선 미사용 확인
 - [x] GA4 `apply_click`, Meta `ApplyClick`, GA4 `application_submit` 구분 확인

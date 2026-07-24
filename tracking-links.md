@@ -8,16 +8,22 @@ https://gasbugs.github.io/dalnayou-class-landing/
 
 ## 채널별 링크
 
-Facebook 로블록스 광고(통합 소재·단일 링크):
+Facebook 로블록스 이미지 광고:
 
 ```text
 https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_youth
 ```
 
-초기 집행은 소재와 링크를 세분화하지 않습니다. 광고 메시지는 연령 대신
-`플레이어에서 크리에이터로`라는 목표를 중심으로 통일하고, Meta에서는
-부천 소사역 통학권의 14~24세를 중심으로 운영합니다. 초등학생 수강 문의는
-당근·아파트 채팅방 등 보호자가 주로 보는 지역 채널로 연결합니다.
+Facebook 두 과정 통합 쇼츠 광고:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=combined_courses_shorts
+```
+
+로블록스 이미지는 로블록스 상세 페이지, Gemini Notebook과 로블록스를 함께
+소개하는 쇼츠는 두 과정 선택 페이지로 연결합니다. Meta에서는 부천 소사역
+통학권의 18~24세를 중심으로 운영합니다. 초등학생 수강 문의는 당근·아파트
+채팅방 등 보호자가 주로 보는 지역 채널로 연결합니다.
 
 Facebook Gemini 노트북 광고:
 
@@ -175,19 +181,18 @@ Meta 비즈니스 포트폴리오 `클라우드시큐리티랩`(비즈니스 ID 
 프로필 연락처로 연결되어 있습니다. Meta 비즈니스 인증 상태는 별도 항목이며
 2026년 7월 24일 확인 기준 `인증되지 않음`입니다.
 
-2026년 7월 24일 비즈니스 포트폴리오 접속과 데이터 세트 수신 상태를 다시
-확인했습니다. `클씨랩 AI 클래스 웹 전환` 데이터 세트에는 최근 28일 기준
-45개 이벤트가 수신됐습니다. 다만 비즈니스 포트폴리오에 추가된 광고 계정은
-아직 없습니다. 실제 광고 집행 전에는 광고 계정의 통화·시간대와 결제 수단,
-일 예산을 확정해야 합니다.
+2026년 7월 24일 광고 계정 `클씨랩 AI 클래스 광고`
+(`1661899158952556`)을 비즈니스 포트폴리오에 연결하고 결제수단과 SMS 인증을
+완료했습니다. 같은 날 광고 세트 일 예산 `20,000원`, 계정 지출 한도
+`140,000원`을 확인했습니다.
 
-초기 Roblox 광고 권장 설정:
+현재 Meta 광고 설정:
 
-- 캠페인과 소재는 각각 1개만 사용
-- 지역은 소사역 통학 가능 범위
-- Meta 직접 노출 연령은 14~24세 중심
-- 문구는 연령보다 `플레이어에서 크리에이터로`에 집중
-- 연결 URL은 위의 `roblox_youth` 단일 링크 사용
+- 동일 캠페인과 광고 세트 안에서 광고 2개 운영
+- 지역은 소사역 중심 약 8km 통학 가능 범위
+- Meta 직접 노출 연령은 18~24세
+- 로블록스 이미지 광고는 `roblox_youth` 링크 사용
+- 두 과정 통합 쇼츠 광고는 `combined_courses_shorts` 링크 사용
 - 실제 신청 완료는 GA4 `application_submit`으로 판단
 
 ## Google Search Console
