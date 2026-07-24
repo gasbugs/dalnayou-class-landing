@@ -7,7 +7,7 @@
 | `index.html` | Primary two-course chooser | Course positioning, shared price badges, navigation, tracking |
 | `main.html` | Alternate chooser mirror | Mirror `index.html` behavior; preserve `main.html` OG URL |
 | `roblox.html` | Roblox AI detail page | Roblox audience, curriculum, schedule, CTA, location |
-| `notebooklm.html` | NotebookLM detail page | NotebookLM audience, curriculum, schedule, CTA, location |
+| `notebooklm.html` | Gemini 노트북 detail page | Gemini 노트북 audience, curriculum, schedule, CTA, location |
 | `index-legacy.html` | Long-form legacy landing | User explicitly references sections that only exist here |
 | `poster.html` | A4 print handout | Print copy, QR, print button, A4 spacing |
 | `refund.html` | Public refund policy | Refund rules or policy links |
@@ -30,6 +30,9 @@
 ## Shared invariants
 
 - `index.html` and `main.html` should differ only where metadata intentionally points to their own URL.
+- The morning course public name is `Gemini 노트북`, while `Google NotebookLM` remains the factual tool name in supporting copy.
+- The legacy `notebooklm.html` URL, analytics labels, internal course key, and exact Google Form option stay stable for compatibility.
+- Both main chooser mirrors expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
 - Course detail pages retain `apply_click` on every application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
 - Current pages use GTM container `GTM-KVC6H3SL`.

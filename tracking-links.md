@@ -19,7 +19,7 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook
 부천 소사역 통학권의 14~24세를 중심으로 운영합니다. 초등학생 수강 문의는
 당근·아파트 채팅방 등 보호자가 주로 보는 지역 채널로 연결합니다.
 
-Facebook NotebookLM 광고:
+Facebook Gemini 노트북 광고:
 
 ```text
 https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_creative_a
@@ -163,7 +163,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 Meta 비즈니스 포트폴리오 `클라우드시큐리티랩`(비즈니스 ID `1732980947720408`)과 웹 데이터 세트 `클씨랩 AI 클래스 웹 전환`을 생성했습니다. Meta Pixel ID는 `2173864043186723`이며, 공통 `marketing-events.js`에서 개인정보 없이 다음 이벤트를 전송합니다.
 
 - `PageView`: 공개 페이지 조회
-- `ViewContent`: NotebookLM·로블록스 강좌 상세 조회
+- `ViewContent`: Gemini 노트북·로블록스 강좌 상세 조회
 - `CourseSelect`: 메인 화면에서 강좌 선택
 - `ApplyClick`: 신청서 이동 클릭. 실제 신청 완료가 아님
 - `Contact`: 카카오톡 문의 클릭

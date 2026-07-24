@@ -73,6 +73,20 @@
         "The maximum planned spend and stop rules are documented.",
         "No irreversible account creation, policy acceptance, payment entry, or ad publication occurs without explicit approval."
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "NotebookLM 강좌 이름을 Gemini 노트북으로 바꾸고 공식 Gemini 아이콘과 성공 방정식 문구를 넣어줘. 준비한 쇼츠도 메인에 다시 보여줘.",
+      "expected_output": "Current public and operator-facing surfaces use Gemini 노트북 with Google NotebookLM retained as the factual tool label, the official icon is deployed with attribution, the main mirrors show and track the prepared short, and the live Google Form option remains compatible.",
+      "files": [],
+      "expectations": [
+        "index.html and main.html remain mirrored and both display Gemini 노트북 with the Gemini icon.",
+        "notebooklm.html includes a clear success equation based on learner materials, good questions, and evidence checking.",
+        "poster and current card-news copy use the new marketing name.",
+        "The exact live Google Form option and the notebooklm URL/course key are not renamed.",
+        "The promotional video emits shorts_section_view and shorts_click.",
+        "Mobile and desktop public pages are visually verified after deployment."
+      ]
     }
   ]
 }

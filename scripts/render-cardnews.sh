@@ -10,15 +10,51 @@ render_card() {
   local width="$2"
   local height="$3"
   local output="$4"
+  local output_path="${ROOT}/${output}"
+  local profile_dir
+  local chrome_pid
+
+  profile_dir="$(mktemp -d "${TMPDIR:-/tmp}/dalnayou-cardnews.XXXXXX")"
+  rm -f "${output_path}"
 
   "${CHROME}" \
     --headless \
     --disable-gpu \
+    --disable-background-networking \
+    --disable-component-update \
+    --disable-default-apps \
+    --disable-sync \
+    --metrics-recording-only \
+    --no-default-browser-check \
+    --no-first-run \
+    --user-data-dir="${profile_dir}" \
     --hide-scrollbars \
     --force-device-scale-factor=1 \
-    --screenshot="${ROOT}/${output}" \
+    --screenshot="${output_path}" \
     --window-size="${width},${height}" \
-    "${SOURCE}?card=${id}"
+    "${SOURCE}?card=${id}" \
+    >/dev/null 2>&1 &
+  chrome_pid=$!
+
+  for _ in {1..300}; do
+    if [[ -s "${output_path}" ]]; then
+      break
+    fi
+    if ! kill -0 "${chrome_pid}" 2>/dev/null; then
+      break
+    fi
+    sleep 0.1
+  done
+
+  kill "${chrome_pid}" 2>/dev/null || true
+  wait "${chrome_pid}" 2>/dev/null || true
+  rm -rf "${profile_dir}"
+
+  if [[ ! -s "${output_path}" ]]; then
+    printf 'Failed to render %s\n' "${id}" >&2
+    return 1
+  fi
+  printf 'Rendered %s\n' "${output}"
 }
 
 render_card "instagram-01-cover" 1080 1350 "cardnews/png/instagram-01-cover.png"

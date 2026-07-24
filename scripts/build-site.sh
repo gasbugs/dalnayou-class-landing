@@ -29,6 +29,7 @@ cp \
   "${ROOT}/images/classroom.webp" \
   "${ROOT}/images/cloud-security-lab-logo.png" \
   "${ROOT}/images/dalnayou-b1-route.webp" \
+  "${ROOT}/images/gemini-spark.webp" \
   "${ROOT}/images/house1-v2.webp" \
   "${ROOT}/images/house2-v3.webp" \
   "${ROOT}/images/notebooklm-w1.png" \
@@ -46,6 +47,7 @@ cp \
   "${ROOT}/images/roblox_screen-v2.png" \
   "${ROOT}/images/roblox_screen-v2.webp" \
   "${ROOT}/images/sosa-station-location.svg" \
+  "${ROOT}/images/shorts-cover.jpg" \
   "${OUT}/images/"
 
 cp "${ROOT}/cardnews/index.html" "${OUT}/cardnews/"

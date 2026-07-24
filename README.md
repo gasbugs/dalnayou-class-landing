@@ -1,6 +1,6 @@
 # CLOUD SECURITY LAB · 주말 4주 AI 정규 과정 — 랜딩 페이지
 
-> NotebookLM·로블록스 주말 4주 학원형 정규 과정의 공개 랜딩 페이지.
+> Gemini 노트북(Google NotebookLM)·로블록스 AI 주말 4주 정규 과정의 공개 랜딩 페이지.
 > GitHub Pages로 호스팅됩니다.
 
 🌐 **라이브 URL**: https://gasbugs.github.io/dalnayou-class-landing/

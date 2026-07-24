@@ -32,6 +32,8 @@ required_files=(
   poster.html refund.html cardnews/index.html cardnews/source.html
   tracking-links.md meta-ad-plan.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing-events.js images/roblox-creator-cole-tucker.webp
+  images/gemini-spark.webp
+  images/shorts-cover.jpg
   images/notebooklm-docusign-workplace.webp
   .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
 )
@@ -65,13 +67,32 @@ done
 printf '\nMeta campaign readiness\n'
 contains meta-ad-plan.md 'Asia/Seoul' 'Meta ad account uses the Seoul time zone'
 contains meta-ad-plan.md '통화: `KRW`' 'Meta ad account uses Korean won'
-contains meta-ad-plan.md 'Facebook 페이지: `클씨랩 \| Cloud Security Lab`' 'Meta ad identity is documented'
+contains meta-ad-plan.md 'Facebook 페이지: `클씨랩 Cloud Security Lab`' 'Meta ad identity is documented'
+contains meta-ad-plan.md '광고 계정 ID: `1661899158952556`' 'Meta ad account ID is documented'
 contains meta-ad-plan.md 'Facebook 페이지 카테고리: `교육 컨설턴트`' 'Meta Page category is documented'
 contains meta-ad-plan.md '일 예산: `15,000원`' 'Meta pilot daily budget is documented'
 contains meta-ad-plan.md '최대 계획 지출: `105,000원`' 'Meta pilot maximum planned spend is documented'
 contains meta-ad-plan.md 'utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_youth' 'Meta ad uses the canonical tracked URL'
 contains meta-ad-plan.md 'GA4의 `application_submit`' 'Meta plan distinguishes completed applications'
-contains meta-ad-plan.md '결제수단 등록, 약관 동의, 광고 계정 생성, 광고 게시와 예산 증액은 담당자가 최종 확인' 'Meta plan preserves approval boundaries'
+contains meta-ad-plan.md '결제수단 등록, 광고 게시와 예산 증액은 담당자가 최종 확인' 'Meta plan preserves approval boundaries'
+
+printf '\nGemini Notebook branding\n'
+for file in index.html main.html notebooklm.html poster.html; do
+  contains "$file" 'Gemini 노트북' "$file uses the Gemini Notebook course name"
+  contains "$file" 'images/gemini-spark\.webp' "$file includes the official Gemini Spark asset"
+done
+contains notebooklm.html 'Gemini 성공 방정식' 'Notebook detail includes the Gemini success equation'
+contains notebooklm.html '내 자료' 'Gemini success equation starts with learner materials'
+contains notebooklm.html '근거 확인' 'Gemini success equation includes evidence checking'
+
+printf '\nPromotional video\n'
+for file in index.html main.html; do
+  contains "$file" 'id="shorts"' "$file exposes the promotional video section"
+  contains "$file" 'youtube\.com/shorts/yQYwMZ2udaw' "$file links the prepared promotional video"
+  contains "$file" 'images/shorts-cover\.jpg' "$file displays the promotional video cover"
+  contains "$file" 'shorts_section_view' "$file tracks promotional video visibility"
+  contains "$file" 'shorts_click' "$file tracks promotional video clicks"
+done
 
 printf '\nA4 poster invariants\n'
 not_contains poster.html '189,000|249,000|24% OFF|6만원' 'A4 poster does not disclose price'

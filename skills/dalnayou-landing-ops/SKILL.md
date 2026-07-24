@@ -54,6 +54,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - For test or preview requests, create or update a preview page and do not merge it into the live landing until the user accepts it.
 - Keep the campaign phase names and prices consistent: `1차 얼리버드` 189,000원, `2차 얼리버드` 199,000원, and `파이널 등록` 209,000원.
 - Use `campaign-pricing.js` as the runtime source of truth for course-page price, deadline, countdown, and application-form prefill behavior.
+- Market the morning course as `Gemini 노트북` and identify the actual tool as `Google NotebookLM` in supporting copy. Keep the `notebooklm.html` URL, analytics labels, course key, and exact live Google Form option unchanged unless those systems are deliberately migrated and verified together.
 
 ### 3. Preserve analytics
 
@@ -66,6 +67,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Explain clearly that `apply_click` measures a click to the form, not a completed form submission.
 - Treat `application_submit` as the completed-form event. Never send applicant name, phone number, or other personal data to GA4.
 - Keep Meta Pixel initialization in `marketing-events.js`. `ApplyClick` means the visitor opened the application form; do not report it as a completed application.
+- Keep the prepared promotional short on both main chooser mirrors, with `shorts_section_view` for one-time visibility and `shorts_click` for the explicit YouTube link.
 - Keep the initial Meta campaign simple: one campaign, one broad local ad set, one creative, and the canonical tracked URL in `meta-ad-plan.md`.
 - Confirm that the business portfolio has a Facebook Page to use as the ad identity. Instagram is optional for the initial campaign.
 - Treat account creation, business-policy acceptance, payment-method entry, publishing, and spend increases as explicit approval actions. Prepare all reversible fields first and stop at the final confirmation.
