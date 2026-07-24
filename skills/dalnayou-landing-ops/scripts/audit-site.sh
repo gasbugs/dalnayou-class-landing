@@ -30,7 +30,7 @@ printf 'Dalnayou landing audit: %s\n\n' "$ROOT"
 required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html cardnews/index.html cardnews/source.html
-  tracking-links.md campaign-pricing.js robots.txt sitemap.xml 404.html
+  tracking-links.md meta-ad-plan.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing-events.js images/roblox-creator-cole-tucker.webp
   images/notebooklm-docusign-workplace.webp
   .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
@@ -61,6 +61,17 @@ contains marketing-events.js '"ApplyClick"' 'Meta Pixel distinguishes applicatio
 for file in index.html main.html roblox.html notebooklm.html poster.html refund.html cardnews/index.html 404.html; do
   contains "$file" 'marketing-events\.js' "$file includes the Meta Pixel loader"
 done
+
+printf '\nMeta campaign readiness\n'
+contains meta-ad-plan.md 'Asia/Seoul' 'Meta ad account uses the Seoul time zone'
+contains meta-ad-plan.md '통화: `KRW`' 'Meta ad account uses Korean won'
+contains meta-ad-plan.md 'Facebook 페이지: `클씨랩 \| Cloud Security Lab`' 'Meta ad identity is documented'
+contains meta-ad-plan.md 'Facebook 페이지 카테고리: `교육 컨설턴트`' 'Meta Page category is documented'
+contains meta-ad-plan.md '일 예산: `15,000원`' 'Meta pilot daily budget is documented'
+contains meta-ad-plan.md '최대 계획 지출: `105,000원`' 'Meta pilot maximum planned spend is documented'
+contains meta-ad-plan.md 'utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_youth' 'Meta ad uses the canonical tracked URL'
+contains meta-ad-plan.md 'GA4의 `application_submit`' 'Meta plan distinguishes completed applications'
+contains meta-ad-plan.md '결제수단 등록, 약관 동의, 광고 계정 생성, 광고 게시와 예산 증액은 담당자가 최종 확인' 'Meta plan preserves approval boundaries'
 
 printf '\nA4 poster invariants\n'
 not_contains poster.html '189,000|249,000|24% OFF|6만원' 'A4 poster does not disclose price'

@@ -29,6 +29,7 @@ Choose the smallest applicable surface:
 - Marketing and operator copy: `cardnews/index.html`.
 - Refund rules: `refund.html` and matching message copy when explicitly requested.
 - Channel links and analytics guidance: `tracking-links.md` plus the destination page if tracking behavior changes.
+- Meta campaign operations: `meta-ad-plan.md` for account defaults, audience, budget ceiling, creative, stop rules, and approval boundaries.
 - Campaign pricing and application attribution: `campaign-pricing.js`, course-page `data-campaign-apply` links, and the existing Google Form attribution field.
 - Course-page application links also preselect their matching Google Form course through `entry.240966579`; keep the option text synchronized with the live form.
 
@@ -65,6 +66,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Explain clearly that `apply_click` measures a click to the form, not a completed form submission.
 - Treat `application_submit` as the completed-form event. Never send applicant name, phone number, or other personal data to GA4.
 - Keep Meta Pixel initialization in `marketing-events.js`. `ApplyClick` means the visitor opened the application form; do not report it as a completed application.
+- Keep the initial Meta campaign simple: one campaign, one broad local ad set, one creative, and the canonical tracked URL in `meta-ad-plan.md`.
+- Confirm that the business portfolio has a Facebook Page to use as the ad identity. Instagram is optional for the initial campaign.
+- Treat account creation, business-policy acceptance, payment-method entry, publishing, and spend increases as explicit approval actions. Prepare all reversible fields first and stop at the final confirmation.
 
 ### 4. Protect mobile and print layouts
 
