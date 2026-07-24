@@ -47,6 +47,18 @@
         "The existing entry.1074868867 attribution field remains populated.",
         "Both course links are verified against the live public Google Form without submitting a response."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "NotebookLM 결과물 영상이 모바일에서 너무 무거운지 확인하고 화질을 유지하면서 최적화해줘.",
+      "expected_output": "The video remains a broadly compatible fast-start MP4 with legible text, preload stays metadata-only, the poster remains present, and the optimized asset fits the mobile budget.",
+      "files": [],
+      "expectations": [
+        "The optimized video is visually compared with the original at a representative frame.",
+        "The MP4 remains H.264/AAC and keeps the original aspect ratio.",
+        "The page uses preload=metadata and retains its poster image.",
+        "The optimized video is no larger than 3 MiB and the audit enforces that budget."
+      ]
     }
   ]
 }

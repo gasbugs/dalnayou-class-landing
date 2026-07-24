@@ -71,6 +71,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Check narrow mobile widths first because most visitors arrive on phones.
 - Keep each course's heading, schedule, curriculum, and CTA visually grouped; do not interleave course content on mobile.
 - Prevent fixed controls, sticky CTAs, long Korean words, or copied URLs from overlapping content.
+- Keep optional below-the-fold videos mobile-friendly: use `preload="metadata"`, a poster image, fast-start MP4 encoding, and a 3 MiB target when the visual content remains legible.
 - For `poster.html`, preserve A4 portrait dimensions (`210mm × 297mm`), `@page`, print colors, and the visible screen-only print button.
 - Ensure `.no-print` controls disappear only in print, not on narrow screens.
 - When removing a block from the poster, deliberately redistribute the released space instead of leaving a large gap.

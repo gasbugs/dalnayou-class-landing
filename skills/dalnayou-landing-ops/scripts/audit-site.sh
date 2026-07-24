@@ -97,6 +97,14 @@ if [[ "$daangn_count" == "8" ]]; then pass 'Eight Daangn cards exist'; else fail
 require_file cardnews/instagram-cardnews-png.zip
 require_file cardnews/daangn-cardnews-png.zip
 
+printf '\nMobile asset budget\n'
+notebooklm_video_bytes="$(wc -c < "$ROOT/images/notebooklm-w2.mp4" | tr -d ' ')"
+if (( notebooklm_video_bytes <= 3145728 )); then
+  pass 'NotebookLM result video stays within the 3 MiB mobile budget'
+else
+  warn "NotebookLM result video exceeds the 3 MiB mobile budget (${notebooklm_video_bytes} bytes)"
+fi
+
 printf '\nPublic deployment artifact\n'
 contains .github/workflows/pages.yml 'bash scripts/build-site\.sh' 'Pages workflow builds the public allowlist'
 contains .github/workflows/pages.yml "path: 'dist'" 'Pages workflow deploys dist'
