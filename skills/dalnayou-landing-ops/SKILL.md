@@ -30,6 +30,7 @@ Choose the smallest applicable surface:
 - Refund rules: `refund.html` and matching message copy when explicitly requested.
 - Channel links and analytics guidance: `tracking-links.md` plus the destination page if tracking behavior changes.
 - Campaign pricing and application attribution: `campaign-pricing.js`, course-page `data-campaign-apply` links, and the existing Google Form attribution field.
+- Course-page application links also preselect their matching Google Form course through `entry.240966579`; keep the option text synchronized with the live form.
 
 Search for the exact old phrase across the repository before editing. If it occurs more than once, decide whether those copies represent the same business fact. Update every true duplicate, but do not mechanically replace unrelated historical or format-specific text.
 

@@ -35,6 +35,18 @@
         "The guidance uses apply_click and states that it does not prove form submission.",
         "The reusable channel link is added to tracking-links.md when a repository change is requested."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "각 과정 상세 페이지에서 신청하기를 누르면 Google Form에서 해당 강좌가 자동 선택되게 해줘. 기존 유입 정보도 그대로 들어가야 해.",
+      "expected_output": "The shared campaign runtime preselects the matching live Google Form course option while retaining UTM, landing path, campaign phase, price, and course attribution.",
+      "files": [],
+      "expectations": [
+        "Roblox application links preselect only the Roblox option.",
+        "NotebookLM application links preselect only the NotebookLM option.",
+        "The existing entry.1074868867 attribution field remains populated.",
+        "Both course links are verified against the live public Google Form without submitting a response."
+      ]
     }
   ]
 }

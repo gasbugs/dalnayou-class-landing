@@ -8,11 +8,16 @@ https://gasbugs.github.io/dalnayou-class-landing/
 
 ## 채널별 링크
 
-Facebook 로블록스 광고:
+Facebook 로블록스 광고(통합 소재·단일 링크):
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_creative_a
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_youth
 ```
+
+초기 집행은 소재와 링크를 세분화하지 않습니다. 광고 메시지는 연령 대신
+`플레이어에서 크리에이터로`라는 목표를 중심으로 통일하고, Meta에서는
+부천 소사역 통학권의 14~24세를 중심으로 운영합니다. 초등학생 수강 문의는
+당근·아파트 채팅방 등 보호자가 주로 보는 지역 채널로 연결합니다.
 
 Facebook NotebookLM 광고:
 
@@ -166,7 +171,24 @@ Meta 비즈니스 포트폴리오 `클라우드시큐리티랩`(비즈니스 ID 
 
 실제 신청 완료는 기존 Google Form Apps Script의 GA4 `application_submit`으로 확인합니다. 네이버 검색광고는 운영 대상에서 제외했습니다.
 
-Meta가 업무용 이메일로 보낸 비즈니스 계정 확인 메일의 링크를 눌러야 전체 권한이 활성화됩니다.
+업무용 이메일 `yeoneunkim@cloudsecuritylab.co.kr`이 비즈니스 포트폴리오의
+프로필 연락처로 연결되어 있습니다. Meta 비즈니스 인증 상태는 별도 항목이며
+2026년 7월 24일 확인 기준 `인증되지 않음`입니다.
+
+2026년 7월 24일 비즈니스 포트폴리오 접속과 데이터 세트 수신 상태를 다시
+확인했습니다. `클씨랩 AI 클래스 웹 전환` 데이터 세트에는 최근 28일 기준
+45개 이벤트가 수신됐습니다. 다만 비즈니스 포트폴리오에 추가된 광고 계정은
+아직 없습니다. 실제 광고 집행 전에는 광고 계정의 통화·시간대와 결제 수단,
+일 예산을 확정해야 합니다.
+
+초기 Roblox 광고 권장 설정:
+
+- 캠페인과 소재는 각각 1개만 사용
+- 지역은 소사역 통학 가능 범위
+- Meta 직접 노출 연령은 14~24세 중심
+- 문구는 연령보다 `플레이어에서 크리에이터로`에 집중
+- 연결 URL은 위의 `roblox_youth` 단일 링크 사용
+- 실제 신청 완료는 GA4 `application_submit`으로 판단
 
 ## Google Search Console
 
@@ -177,7 +199,7 @@ Meta가 업무용 이메일로 보낸 비즈니스 계정 확인 메일의 링�
 - `notebooklm.html`: 색인 생성 요청 완료
 - `roblox.html`: 색인 생성 요청 완료
 - `refund.html`: 색인 생성 요청 완료
-- `sitemap.xml`: 전체 URL로 제출 완료. 공개 파일은 `HTTP 200`, `application/xml`로 확인했지만 Search Console 상태는 제출 직후 `가져올 수 없음`으로 남아 있어 Google 재처리 결과를 추후 확인해야 합니다.
+- `sitemap.xml`: 기존 제출이 `가져올 수 없음` 상태라 2026년 7월 24일 `sitemap.xml` 경로로 다시 제출했습니다. Search Console이 제출 완료를 확인했으며 Google 재처리 결과는 추후 확인해야 합니다.
 
 ## 내부 운영자 트래픽
 

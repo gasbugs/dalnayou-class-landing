@@ -7,6 +7,13 @@
   const APPLICATION_FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSdS8kivBEPbVNBuH6hbRzIdjuMw4JosEhD3l-82A85eFRULJQ/viewform";
   const ATTRIBUTION_ENTRY = "entry.1074868867";
+  const COURSE_ENTRY = "entry.240966579";
+  const COURSE_OPTIONS = {
+    notebooklm:
+      "🟦 AI로 만드는 내 학습 비서 — NotebookLM 4주(매주 일요일 09:00~12:00)",
+    roblox:
+      "🟧 AI로 만드는 내 게임 — 로블록스 4주 (매주 일요일 14:00~17:00)",
+  };
 
   const phases = [
     {
@@ -82,6 +89,9 @@
     const url = new URL(APPLICATION_FORM_URL);
     url.searchParams.set("usp", "pp_url");
     url.searchParams.set(ATTRIBUTION_ENTRY, attribution.toString());
+    if (COURSE_OPTIONS[course]) {
+      url.searchParams.set(COURSE_ENTRY, COURSE_OPTIONS[course]);
+    }
     return url.toString();
   };
 

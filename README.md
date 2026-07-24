@@ -13,6 +13,7 @@
 - `scripts/render-cardnews.sh` — `cardnews/source.html`에서 카드뉴스 PNG/ZIP 재생성
 - `skills/dalnayou-landing-ops/` — 문구·A4·카드뉴스·UTM·GA4·배포를 반복 운영하는 Codex 스킬
 - `tracking-links.md` — 인스타·당근·유튜브·카카오용 UTM 추적 링크
+- `course-operations.md` — 신청·입금·정원·미성년 수강생 확인용 내부 운영 체크리스트
 - `campaign-pricing.js` — 날짜에 따라 1차·2차 얼리버드와 파이널 등록 가격을 자동 전환
 - `marketing-events.js` — Meta Pixel 공통 로더와 개인정보 없는 웹 행동 이벤트 연결
 - `scripts/build-site.sh` — 승인된 공개 페이지와 실제 사용 자산만 `dist/`에 구성
