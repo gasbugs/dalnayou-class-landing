@@ -236,6 +236,21 @@
         "The measurement rule, privacy boundary, and non-retroactive limitation are recorded and audited.",
         "No live copy, CTA layout, ad audience, creative, destination, or budget changes as part of the measurement fix."
       ]
+    },
+    {
+      "id": 18,
+      "prompt": "모바일 고정 바의 공유 버튼을 빼고 신청 버튼을 넓히는 안을 먼저 비교해서 보고 싶어. 진행 중인 광고 실험에는 섞지 마.",
+      "expected_output": "A reviewable internal current-versus-candidate preview is prepared for both courses, with only the queued mobile CTA variable changed, while the dependency gate and live pages remain untouched.",
+      "files": [],
+      "expectations": [
+        "The preview shows the existing three-action bar and the candidate two-action bar side by side.",
+        "The candidate removes only sharing and allocates 40% to Kakao inquiry and 60% to application.",
+        "Roblox and NotebookLM color and message contexts can both be reviewed.",
+        "Existing destinations, labels, landing copy, application form, audience, and budget remain stable.",
+        "The experiment queue references the preview and still depends on E-005.",
+        "The internal preview is excluded from the public dist artifact.",
+        "No live Roblox or NotebookLM CTA layout is changed before the dependency gate."
+      ]
     }
   ]
 }

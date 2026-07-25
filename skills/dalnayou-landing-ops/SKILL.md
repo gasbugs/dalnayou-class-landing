@@ -130,6 +130,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Keep queued experiments and their sample/time gates in `marketing/experiments.json`.
   Regenerate the report before launching the next candidate, and do not bypass a `대기`
   gate merely because a plausible new optimization was discovered.
+- A queued layout candidate may have an internal preview under `experiments/`. Keep the
+  preview out of `dist/`, preserve the candidate's dependency and stable variables, and do
+  not merge it into live pages until its gate is eligible.
 - Record failed hypotheses, contaminated data, and invalid comparisons. Do not delete or rewrite them after a later success.
 - Follow `references/conversion-optimization.md` for the reusable experiment format and decision rules.
 

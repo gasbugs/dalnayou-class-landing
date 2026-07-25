@@ -44,7 +44,7 @@ required_files=(
   ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
-  marketing/experiments.json
+  marketing/experiments.json experiments/e-007-mobile-cta-preview.html
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
@@ -120,6 +120,8 @@ contains marketing-report.md '자료 부족' 'Generated report enforces sample-r
 contains marketing-report.md '실험 실행 게이트' 'Generated report shows queued experiment gates'
 contains marketing-report.md '강좌 상세 직접 유입은 `course_click`을 요구하지 않고 `course_landing_view → apply_click`' 'Generated report separates direct-course measurement'
 contains marketing-report.md 'apply_cta_view → apply_click' 'Generated report defines CTA position conversion'
+contains marketing/experiments.json 'experiments/e-007-mobile-cta-preview\.html' 'E-007 references its internal preview'
+contains marketing-report.md 'experiments/e-007-mobile-cta-preview\.html' 'Generated report exposes the E-007 preview path'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

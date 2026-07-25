@@ -249,6 +249,9 @@ for (const experiment of experiments) {
   lines.push(`### ${experiment.id} · ${experiment.name}`, "");
   lines.push(`- 준비 상태: \`${experiment.status}\``);
   lines.push(`- 단일 변경: ${experiment.change}`);
+  if (experiment.preview_file) {
+    lines.push(`- 미리보기: \`${experiment.preview_file}\``);
+  }
   if (experiment.depends_on) {
     lines.push(`- 실행 순서: ${experiment.depends_on} 판정 이후에만 검토`);
     lines.push("- 현재 판정: **대기**");

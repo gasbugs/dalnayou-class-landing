@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-007 모바일 신청 CTA 미리보기</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #211914;
+      background: #f4f5f7;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    button { font: inherit; }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 24px;
+      border-bottom: 1px solid #d9dde3;
+      background: rgba(255, 255, 255, .96);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand img { width: 98px; height: auto; }
+    .brand strong { font-size: 16px; }
+    .segment {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 3px;
+      border: 1px solid #cfd5dd;
+      border-radius: 7px;
+      background: #eef1f4;
+    }
+    .segment button {
+      min-height: 38px;
+      padding: 0 15px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: #5c6470;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .segment button[aria-pressed="true"] {
+      background: #fff;
+      color: #171a1f;
+      box-shadow: 0 1px 3px rgba(22, 28, 38, .15);
+    }
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+    .intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.2; }
+    .intro p { max-width: 570px; margin: 10px 0 0; color: #5d6672; line-height: 1.65; }
+    .status {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border: 1px solid #d7a300;
+      border-radius: 6px;
+      color: #725600;
+      background: #fff7d6;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 390px));
+      justify-content: center;
+      gap: 32px;
+    }
+    .variant h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+    .variant h2 span { color: #69717c; font-size: 12px; font-weight: 700; }
+    .phone {
+      position: relative;
+      height: 720px;
+      overflow: hidden;
+      border: 1px solid #aeb6c2;
+      border-radius: 8px;
+      background: #fffaf5;
+      box-shadow: 0 18px 50px rgba(37, 44, 55, .14);
+    }
+    .top-strip {
+      padding: 8px 18px;
+      color: #fff;
+      background: #cf430a;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid #f0e5dc;
+      background: #fff;
+    }
+    .nav img { width: 82px; }
+    .nav-badge {
+      padding: 6px 9px;
+      border-radius: 6px;
+      background: #ffe34e;
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .hero { padding: 48px 22px 30px; text-align: center; }
+    .chips { display: flex; justify-content: center; gap: 6px; margin-bottom: 18px; }
+    .chip {
+      padding: 6px 8px;
+      border: 1px solid #ffd4b6;
+      border-radius: 6px;
+      color: #a53c0d;
+      background: #fff3e9;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .hero h3 { margin: 0; font-size: 32px; line-height: 1.22; }
+    .hero h3 em { color: #eb4d0b; font-style: normal; }
+    .hero p { margin: 18px auto 0; color: #5d5149; font-size: 14px; line-height: 1.65; }
+    .proof {
+      margin: 0 18px;
+      padding: 20px;
+      border-top: 3px solid #eb4d0b;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(74, 43, 23, .08);
+      text-align: center;
+    }
+    .proof strong { display: block; font-size: 18px; }
+    .proof p { margin: 8px 0 0; color: #6c625c; font-size: 12px; line-height: 1.55; }
+    .mobile-bar {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: grid;
+      gap: 8px;
+      padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+      border-top: 1px solid #eadfd6;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 -12px 30px rgba(43, 27, 18, .13);
+    }
+    .mobile-bar button {
+      min-width: 0;
+      min-height: 52px;
+      border: 0;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .current { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .candidate { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+    .share {
+      display: grid;
+      place-items: center;
+      border: 1px solid #f0cdb9 !important;
+      color: #ad3e10;
+      background: #fff;
+    }
+    .share svg { width: 19px; height: 19px; }
+    .kakao { color: #211914; background: #ffe13f; }
+    .apply { color: #fff; background: #ef4e0b; }
+    .candidate .apply {
+      font-size: 14px;
+      box-shadow: 0 5px 14px rgba(239, 78, 11, .28);
+    }
+    [data-course="notebooklm"] .top-strip { background: #174eaa; }
+    [data-course="notebooklm"] .chip { border-color: #bed7ff; color: #174eaa; background: #eff6ff; }
+    [data-course="notebooklm"] .hero h3 em { color: #1d5ed0; }
+    [data-course="notebooklm"] .proof { border-top-color: #1d5ed0; }
+    [data-course="notebooklm"] .apply { background: #1d5ed0; }
+    [data-course="notebooklm"] .candidate .apply { box-shadow: 0 5px 14px rgba(29, 94, 208, .28); }
+    [data-course="notebooklm"] .share { border-color: #bed7ff !important; color: #174eaa; }
+    @media (max-width: 860px) {
+      .toolbar, .intro { align-items: flex-start; flex-direction: column; }
+      .toolbar { position: static; }
+      .compare { grid-template-columns: minmax(0, 390px); }
+      main { padding-top: 34px; }
+      h1 { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <div class="brand">
+      <img src="../images/cloud-security-lab-logo.png" alt="CLOUD SECURITY LAB" />
+      <strong>E-007 모바일 CTA 실험 후보</strong>
+    </div>
+    <div class="segment" aria-label="강좌 선택">
+      <button type="button" data-course-button="roblox" aria-pressed="true">로블록스 AI</button>
+      <button type="button" data-course-button="notebooklm" aria-pressed="false">Gemini 노트북</button>
+    </div>
+  </header>
+  <main data-course="roblox">
+    <div class="intro">
+      <div>
+        <h1>현재형과 신청 집중형 비교</h1>
+        <p>공유 버튼만 제거하고 신청 버튼 비중을 60%로 넓힙니다. 광고, 랜딩 본문, 카카오 문의, 신청서와 예산은 그대로 유지합니다.</p>
+      </div>
+      <div class="status">E-005 판정 이후에만 실행</div>
+    </div>
+    <section class="compare" aria-label="모바일 고정 CTA 비교">
+      <article class="variant">
+        <h2>현재형 <span>공유 · 문의 · 신청</span></h2>
+        <div class="phone">
+          <div class="top-strip" data-copy="strip">로블록스 AI 4주 · 매주 일요일 오후</div>
+          <div class="nav">
+            <img src="../images/cloud-security-lab-logo.png" alt="" />
+            <span class="nav-badge">잔여석 마감 임박</span>
+          </div>
+          <div class="hero">
+            <div class="chips"><span class="chip" data-copy="chip">AI로 게임 제작</span><span class="chip">소사역 오프라인</span></div>
+            <h3 data-copy="heading">게임만 하던 내가,<br /><em>직접 게임을 만듭니다</em></h3>
+            <p data-copy="summary">기업 실무자가 배우는 AI 활용법을 눈높이에 맞춰 배우고, 4주 뒤 직접 만든 결과물을 완성합니다.</p>
+          </div>
+          <div class="proof">
+            <strong>기업교육 10년+ 강사진</strong>
+            <p>현대자동차·삼성SDS·금융보안원 등<br />기업과 공공기관의 실무 교육 경험</p>
+          </div>
+          <div class="mobile-bar current">
+            <button class="share" type="button" aria-label="공유">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2M8.6 13.2 15.4 17.8" /></svg>
+            </button>
+            <button class="kakao" type="button">카톡 문의</button>
+            <button class="apply" type="button">잔여석 확인</button>
+          </div>
+        </div>
+      </article>
+      <article class="variant">
+        <h2>신청 집중형 <span>문의 40% · 신청 60%</span></h2>
+        <div class="phone">
+          <div class="top-strip" data-copy="strip">로블록스 AI 4주 · 매주 일요일 오후</div>
+          <div class="nav">
+            <img src="../images/cloud-security-lab-logo.png" alt="" />
+            <span class="nav-badge">잔여석 마감 임박</span>
+          </div>
+          <div class="hero">
+            <div class="chips"><span class="chip" data-copy="chip">AI로 게임 제작</span><span class="chip">소사역 오프라인</span></div>
+            <h3 data-copy="heading">게임만 하던 내가,<br /><em>직접 게임을 만듭니다</em></h3>
+            <p data-copy="summary">기업 실무자가 배우는 AI 활용법을 눈높이에 맞춰 배우고, 4주 뒤 직접 만든 결과물을 완성합니다.</p>
+          </div>
+          <div class="proof">
+            <strong>기업교육 10년+ 강사진</strong>
+            <p>현대자동차·삼성SDS·금융보안원 등<br />기업과 공공기관의 실무 교육 경험</p>
+          </div>
+          <div class="mobile-bar candidate">
+            <button class="kakao" type="button">카톡 문의</button>
+            <button class="apply" type="button">잔여석 확인</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script>
+    const copy = {
+      roblox: {
+        strip: '로블록스 AI 4주 · 매주 일요일 오후',
+        chip: 'AI로 게임 제작',
+        heading: '게임만 하던 내가,<br /><em>직접 게임을 만듭니다</em>',
+        summary: '기업 실무자가 배우는 AI 활용법을 눈높이에 맞춰 배우고, 4주 뒤 직접 만든 결과물을 완성합니다.',
+      },
+      notebooklm: {
+        strip: 'Gemini 노트북 4주 · 매주 일요일 오전',
+        chip: 'Google NotebookLM',
+        heading: '흩어진 내 자료가,<br /><em>쓸 수 있는 결과물이 됩니다</em>',
+        summary: '내 자료를 근거로 요약·마인드맵·팟캐스트를 만들며 업무와 학습의 흐름을 직접 완성합니다.',
+      },
+    };
+
+    const setCourse = (course) => {
+      const selectedButton = document.querySelector(`[data-course-button="${course}"]`);
+      if (!selectedButton || !copy[course]) return;
+      document.querySelector('main').dataset.course = course;
+      document.querySelectorAll('[data-course-button]').forEach((item) => {
+        item.setAttribute('aria-pressed', String(item === selectedButton));
+      });
+      document.querySelectorAll('[data-copy]').forEach((target) => {
+        target.innerHTML = copy[course][target.dataset.copy];
+      });
+    };
+
+    document.querySelectorAll('[data-course-button]').forEach((button) => {
+      button.addEventListener('click', () => {
+        setCourse(button.dataset.courseButton);
+      });
+    });
+
+    setCourse(new URLSearchParams(window.location.search).get('course') || 'roblox');
+  </script>
+</body>
+</html>

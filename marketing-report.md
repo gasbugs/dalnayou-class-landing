@@ -94,6 +94,7 @@
 
 - 준비 상태: `candidate`
 - 단일 변경: 모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대
+- 미리보기: `experiments/e-007-mobile-cta-preview.html`
 - 실행 순서: E-005 판정 이후에만 검토
 - 현재 판정: **대기**
 - 유지 변수: ad_audience, creative, destination, budget, hero_copy, application_form

@@ -20,6 +20,8 @@
 | `marketing-history.md` | Append-only conversion baseline, experiments, failures, and decisions | Advertisement, CTA, form, or conversion work |
 | `marketing/snapshots.jsonl` | Append-only raw funnel counts with source-system limitations | A new Meta, GA4, form, or payment observation is available |
 | `marketing-report.md` | Generated funnel rates and sample-readiness assessment | Regenerate after appending a snapshot |
+| `marketing/experiments.json` | Structured experiment queue, dependencies, and execution gates | Experiment order, sample gate, or stable variables change |
+| `experiments/e-007-mobile-cta-preview.html` | Internal current-versus-candidate mobile CTA comparison | E-007 candidate layout changes; keep it out of the public artifact |
 | `course-operations.md` | Internal application, payment, seat, and learner operations checklist | Registration operations or staffing rules change |
 | `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
 | `ga4-events.js` | Shared direct GA4 loader and custom-event sender | Measurement ID or GA4 delivery behavior changes |

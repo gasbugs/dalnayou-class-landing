@@ -26,6 +26,7 @@
       "status": "candidate",
       "name": "모바일 고정 CTA 신청 집중형",
       "change": "모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대",
+      "preview_file": "experiments/e-007-mobile-cta-preview.html",
       "depends_on": "E-005",
       "keep_stable": [
         "ad_audience",
