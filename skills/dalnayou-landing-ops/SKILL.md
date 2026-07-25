@@ -15,8 +15,10 @@ Run this campaign as a controlled content-and-deployment loop. Small wording cha
 4. Read `references/tracking-taxonomy.md` for any QR, UTM, GA4, or channel-link task.
 5. Read `references/conversion-optimization.md` and the repository's
    `marketing-history.md` for any application, advertisement, CTA, or conversion task.
-6. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
-7. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
+6. For a new performance observation, append `marketing/snapshots.jsonl` and run
+   `node scripts/analyze-marketing-funnel.mjs --write` before deciding what to change.
+7. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
+8. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
 
 ## Classify the request
 

@@ -16,6 +16,8 @@
 | `cardnews/source.html` | Render source for social cards | Text or design printed into PNG assets |
 | `tracking-links.md` | Campaign URL registry and GA/GTM notes | New channels, UTM naming, event inventory |
 | `marketing-history.md` | Append-only conversion baseline, experiments, failures, and decisions | Advertisement, CTA, form, or conversion work |
+| `marketing/snapshots.jsonl` | Append-only raw funnel counts with source-system limitations | A new Meta, GA4, form, or payment observation is available |
+| `marketing-report.md` | Generated funnel rates and sample-readiness assessment | Regenerate after appending a snapshot |
 | `course-operations.md` | Internal application, payment, seat, and learner operations checklist | Registration operations or staffing rules change |
 | `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
 | `marketing-events.js` | Shared Meta Pixel loader and web behavior events | Pixel ID or Meta event mapping changes |

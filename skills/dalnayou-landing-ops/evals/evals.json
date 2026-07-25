@@ -98,6 +98,7 @@
         "Operator, foreign, and unqualified Direct traffic are not treated as paid-campaign conversions.",
         "The implemented page change has one stated primary hypothesis and unique tracking labels for meaningful CTA positions.",
         "Advertising budget, publication, or payment settings are not changed without action-time approval.",
+        "The raw funnel counts are appended to marketing/snapshots.jsonl and the deterministic marketing report is regenerated.",
         "marketing-history.md preserves the baseline, experiment status, sample threshold, and failed or invalid comparisons.",
         "The result is not called a success or failure before the documented minimum sample and observation window."
       ]

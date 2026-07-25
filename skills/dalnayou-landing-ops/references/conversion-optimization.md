@@ -22,6 +22,8 @@ submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
 
 1. Choose an exact date range and traffic source.
 2. Record spend, impressions, clicks, landing views, CTA clicks, submissions, and payments.
+   Append the immutable quantitative snapshot to `marketing/snapshots.jsonl`, then run
+   `node scripts/analyze-marketing-funnel.mjs --write`.
 3. Exclude operator tests, debug traffic, foreign traffic, and unqualified Direct traffic.
 4. Identify the earliest stage with material loss. Fix that bottleneck first.
 5. Write one falsifiable hypothesis in `marketing-history.md`.
@@ -67,3 +69,9 @@ Append each experiment to `marketing-history.md` with:
 
 Do not delete failed experiments or rewrite their original hypothesis. Add a later correction
 when new information changes the interpretation.
+
+Keep quantitative observations separate from interpretation:
+
+- `marketing/snapshots.jsonl`: append-only raw counts and source-system limitations
+- `marketing-report.md`: deterministic generated rates and sample-readiness checks
+- `marketing-history.md`: hypotheses, changes, qualitative evidence, decisions, and lessons

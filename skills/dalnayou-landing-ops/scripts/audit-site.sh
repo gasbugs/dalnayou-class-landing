@@ -31,6 +31,7 @@ required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html privacy.html cardnews/index.html cardnews/source.html
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
+  marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
   marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
   images/shorts-cover.jpg
@@ -49,6 +50,13 @@ contains roblox.html 'data-track-label="roblox_enterprise_trust_form"' 'Roblox t
 contains notebooklm.html 'data-track-label="notebooklm_enterprise_trust_form"' 'NotebookLM trust proof has a distinct application CTA'
 contains marketing-history.md 'payment_confirmed' 'Marketing history tracks confirmed payments as the final conversion'
 contains marketing-history.md '자료 부족' 'Marketing history distinguishes insufficient data from failure'
+contains marketing-report.md '클씨랩 AI 클래스 퍼널 보고서' 'Generated marketing funnel report exists'
+contains marketing-report.md '자료 부족' 'Generated report enforces sample-readiness language'
+if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
+  pass 'Marketing snapshot data passes deterministic analysis'
+else
+  fail 'Marketing snapshot data or analyzer is invalid'
+fi
 contains index.html 'landing_source_detected' 'Main landing detects source parameters'
 contains roblox.html 'dalnayou_landing_source' 'Roblox page preserves landing source context'
 contains notebooklm.html 'dalnayou_landing_source' 'NotebookLM page preserves landing source context'
