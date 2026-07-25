@@ -101,6 +101,20 @@
         "marketing-history.md preserves the baseline, experiment status, sample threshold, and failed or invalid comparisons.",
         "The result is not called a success or failure before the documented minimum sample and observation window."
       ]
+    },
+    {
+      "id": 9,
+      "prompt": "신청서 첫 화면이 너무 길어서 이탈할 것 같아. 개인정보 동의는 문제없이 유지하면서 모바일 신청 완료율을 높여줘.",
+      "expected_output": "The public consent detail is separated from a concise Google Form summary while all required notice categories and the under-14 guardian rule remain visible, the course and attribution prefill contracts stay unchanged, and the live mobile form is verified without submitting a response.",
+      "files": [],
+      "expectations": [
+        "The form summary still states collection purpose, fields, retention period, and refusal rights.",
+        "A live privacy.html page contains the detailed notice and is linked from the form.",
+        "Applicants under 14 are instructed to have a legal guardian complete and consent to the form.",
+        "The exact Google Form course options and entry IDs used by campaign-pricing.js are not changed.",
+        "The public form is checked at a mobile viewport without sending a response or exposing applicant data.",
+        "The form experiment and its apply_click-to-application_submit decision threshold are appended to marketing-history.md."
+      ]
     }
   ]
 }
