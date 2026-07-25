@@ -27,21 +27,7 @@
     gtag('js', new Date());
     gtag('config', 'G-6W058PFM90');
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: { 900:'#14100D' },
-            orangeBrand: { 500:'#FF7A45', 600:'#EA580C' },
-            blueBrand: { 500:'#2563EB', 700:'#1E40AF' }
-          },
-          fontFamily: { sans: ['Pretendard','-apple-system','BlinkMacSystemFont','system-ui','sans-serif'] }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="./styles/main.css?v=20260725-static-v1" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
   <style>
     html, body { min-height: 100%; }
@@ -128,7 +114,7 @@
       </a>
 
       <a href="./notebooklm.html" data-track-event="course_click" data-track-label="main_split_notebooklm" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
-        <img src="images/notebooklm.webp?v=20260723-webp-v1" alt="Gemini 노트북 클래스" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <img src="images/notebooklm.webp?v=20260723-webp-v1" alt="Gemini 노트북 클래스" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
         <div class="choice-content relative z-10 max-w-xl">
           <div class="mb-4 inline-flex rounded-full bg-blueBrand-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">학생·비전공자·직장인 · 일 09:00~12:00</div>
           <div class="deadline-chip mb-3 inline-flex rounded-full bg-yellow-300 px-3 py-1 text-xs font-black text-ink-900">선착순 5명 마감임박</div>

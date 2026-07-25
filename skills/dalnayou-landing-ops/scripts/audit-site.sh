@@ -48,7 +48,9 @@ required_files=(
   images/gemini-spark.webp
   images/shorts-cover.jpg
   images/notebooklm-docusign-workplace.webp
-  .github/workflows/pages.yml scripts/render-cardnews.sh scripts/build-site.sh
+  package.json package-lock.json styles/main.css styles/roblox.css styles/notebooklm.css
+  .github/workflows/pages.yml scripts/render-cardnews.sh scripts/render-meta-ads.sh
+  scripts/build-tailwind-css.sh scripts/build-site.sh
 )
 for file in "${required_files[@]}"; do require_file "$file"; done
 
@@ -75,6 +77,15 @@ contains roblox.html 'data-track-event="apply_click"' 'Roblox application CTAs a
 contains notebooklm.html 'data-track-event="apply_click"' 'NotebookLM application CTAs are tracked'
 contains roblox.html 'data-track-label="roblox_enterprise_trust_form"' 'Roblox trust proof has a distinct application CTA'
 contains notebooklm.html 'data-track-label="notebooklm_enterprise_trust_form"' 'NotebookLM trust proof has a distinct application CTA'
+for file in index.html main.html roblox.html notebooklm.html; do
+  not_contains "$file" 'cdn\.tailwindcss\.com' "$file does not depend on Tailwind Play CDN"
+done
+contains index.html 'styles/main\.css' 'Main landing loads compiled Tailwind CSS'
+contains main.html 'styles/main\.css' 'Main mirror loads compiled Tailwind CSS'
+contains roblox.html 'styles/roblox\.css' 'Roblox page loads compiled Tailwind CSS'
+contains notebooklm.html 'styles/notebooklm\.css' 'Notebook page loads compiled Tailwind CSS'
+contains index.html 'loading="eager" fetchpriority="high".*notebooklm|notebooklm[^>]*loading="eager" fetchpriority="high"' 'Main landing prioritizes the Notebook hero image'
+contains main.html 'loading="eager" fetchpriority="high".*notebooklm|notebooklm[^>]*loading="eager" fetchpriority="high"' 'Main mirror prioritizes the Notebook hero image'
 contains marketing-history.md 'payment_confirmed' 'Marketing history tracks confirmed payments as the final conversion'
 contains marketing-history.md '자료 부족' 'Marketing history distinguishes insufficient data from failure'
 contains marketing-report.md '클씨랩 AI 클래스 퍼널 보고서' 'Generated marketing funnel report exists'
@@ -183,6 +194,8 @@ fi
 
 printf '\nPublic deployment artifact\n'
 contains .github/workflows/pages.yml 'bash scripts/build-site\.sh' 'Pages workflow builds the public allowlist'
+contains .github/workflows/pages.yml 'run: npm ci' 'Pages workflow installs the pinned CSS build dependency'
+contains .github/workflows/pages.yml 'run: npm run build:css' 'Pages workflow rebuilds static landing CSS'
 contains .github/workflows/pages.yml "path: 'dist'" 'Pages workflow deploys dist'
 if [[ -d "$ROOT/dist" ]]; then
   if find "$ROOT/dist" -type f \( -name '*preview*' -o -name 'index-legacy.html' -o -name 'source.html' \) | grep -q .; then
@@ -199,6 +212,11 @@ if [[ -d "$ROOT/dist" ]]; then
     fail 'Public artifact exposes the Meta render source'
   else
     pass 'Public artifact excludes the Meta render source'
+  fi
+  if [[ -f "$ROOT/dist/styles/main.css" ]] && [[ -f "$ROOT/dist/styles/roblox.css" ]] && [[ -f "$ROOT/dist/styles/notebooklm.css" ]]; then
+    pass 'Public artifact includes all compiled landing styles'
+  else
+    fail 'Public artifact is missing one or more compiled landing styles'
   fi
 else
   warn 'dist is absent; run bash scripts/build-site.sh before publishing'

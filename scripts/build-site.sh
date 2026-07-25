@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT="${1:-${ROOT}/dist}"
 
 rm -rf "${OUT}"
-mkdir -p "${OUT}/images" "${OUT}/cardnews/png" "${OUT}/ads/png"
+mkdir -p "${OUT}/images" "${OUT}/styles" "${OUT}/cardnews/png" "${OUT}/ads/png"
 
 cp \
   "${ROOT}/index.html" \
@@ -22,6 +22,12 @@ cp \
   "${ROOT}/sitemap.xml" \
   "${ROOT}/.nojekyll" \
   "${OUT}/"
+
+cp \
+  "${ROOT}/styles/main.css" \
+  "${ROOT}/styles/roblox.css" \
+  "${ROOT}/styles/notebooklm.css" \
+  "${OUT}/styles/"
 
 cp \
   "${ROOT}/images/a4-poster-apply-qr.png" \

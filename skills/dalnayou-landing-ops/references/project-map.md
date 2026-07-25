@@ -23,6 +23,10 @@
 | `course-operations.md` | Internal application, payment, seat, and learner operations checklist | Registration operations or staffing rules change |
 | `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
 | `marketing-events.js` | Shared Meta Pixel loader and web behavior events | Pixel ID or Meta event mapping changes |
+| `styles/main.css` | Compiled Tailwind CSS for the two-course chooser | Rebuild after chooser utility-class changes |
+| `styles/roblox.css` | Compiled Tailwind CSS for Roblox detail | Rebuild after Roblox utility-class changes |
+| `styles/notebooklm.css` | Compiled Tailwind CSS for Gemini Notebook detail | Rebuild after Notebook utility-class changes |
+| `scripts/build-tailwind-css.sh` | Deterministic static Tailwind compiler | Tailwind config, page scope, or CSS output changes |
 | `scripts/build-site.sh` | Public deployment allowlist | Public pages or required runtime assets change |
 
 ## Derived assets
@@ -43,6 +47,8 @@
 - The morning course public name is `Gemini 노트북`, while `Google NotebookLM` remains the factual tool name in supporting copy.
 - The legacy `notebooklm.html` URL, analytics labels, internal course key, and exact Google Form option stay stable for compatibility.
 - Both main chooser mirrors and both course detail pages expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
+- The main chooser and both detail pages load committed static Tailwind CSS and must not depend on Tailwind Play CDN at runtime.
+- Both chooser hero images are eager because both are visible in the first mobile and desktop viewport.
 - Course detail pages retain `apply_click` on every application CTA.
 - Enterprise teaching proof appears near the first CTA and in a dedicated trust section with a uniquely labelled application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
@@ -61,6 +67,8 @@
 ```bash
 ./scripts/render-cardnews.sh
 ./scripts/render-meta-ads.sh
+npm ci
+npm run build:css
 bash scripts/build-site.sh
 skills/dalnayou-landing-ops/scripts/audit-site.sh .
 git diff --check

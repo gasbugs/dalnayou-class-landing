@@ -22,6 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install CSS build dependency
+        run: npm ci
+      - name: Build static landing CSS
+        run: npm run build:css
       - name: Build public artifact
         run: bash scripts/build-site.sh
       - uses: actions/configure-pages@v6

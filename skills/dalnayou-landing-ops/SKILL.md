@@ -101,6 +101,8 @@ Search for the exact old phrase across the repository before editing. If it occu
 - For `poster.html`, preserve A4 portrait dimensions (`210mm × 297mm`), `@page`, print colors, and the visible screen-only print button.
 - Ensure `.no-print` controls disappear only in print, not on narrow screens.
 - When removing a block from the poster, deliberately redistribute the released space instead of leaving a large gap.
+- Keep the main chooser and both course pages on committed static Tailwind CSS. Rebuild with `npm run build:css`; do not restore `cdn.tailwindcss.com` to conversion-critical pages.
+- Both chooser hero images are above the fold on mobile and desktop, so keep them eager and high priority. Below-the-fold result images remain lazy.
 
 ### 6. Regenerate derived assets
 
@@ -119,6 +121,9 @@ Do not regenerate card images for changes limited to `cardnews/index.html` opera
 Run:
 
 ```bash
+node --version
+npm ci
+npm run build:css
 skills/dalnayou-landing-ops/scripts/audit-site.sh "$(git rev-parse --show-toplevel)"
 bash scripts/build-site.sh
 git diff --check

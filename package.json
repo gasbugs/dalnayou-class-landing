@@ -1,0 +1,10 @@
+{
+  "name": "dalnayou-class-landing",
+  "private": true,
+  "scripts": {
+    "build:css": "bash scripts/build-tailwind-css.sh"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
