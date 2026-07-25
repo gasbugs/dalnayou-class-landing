@@ -491,6 +491,27 @@ E-005의 Meta 유료 랜딩 게이트는 여전히 `19/30`으로 11회 부족하
 - 다음 행동: 7월 27일 22:45 KST 이후이면서 Meta 유료 랜딩 30회에 도달했을 때
   E-005 연령 상한 실험의 실행 여부를 다시 검토합니다.
 
+## 운영 개선 M-010: GA4 과정별 상세 랜딩 이벤트
+
+- 상태: 운영 중
+- 발견: Meta Pixel은 상세 페이지 진입 시 과정별 `ViewContent`를 보냈지만, GA4는
+  일반 `page_view`의 URL을 다시 필터링해야 직접 강좌 유입을 구분할 수 있었습니다.
+- 변경:
+  - 로블록스 상세에서 `course_landing_view`와 `course_selection=roblox` 전송
+  - Gemini 노트북 상세에서 `course_landing_view`와
+    `course_selection=notebooklm` 전송
+  - 두 이벤트 모두 기존 UTM, 최초 랜딩 경로, 쿼리, 리퍼러 문맥을 함께 사용
+  - 자동 감사와 재사용 규칙에서 과정별 이벤트를 필수로 검사
+- 개인정보: 이름, 전화번호, 폼 응답은 전송하지 않음
+- 실험 영향: 화면, 광고, 타게팅, 목적지, 예산, CTA는 변경하지 않아 E-005의
+  전환 가설을 오염시키지 않음
+- 활용:
+  - 과정 선택 경로: `page_view → course_click → course_landing_view → apply_click`
+  - 상세 직접 경로: `course_landing_view → apply_click`
+  - 공통 검증: 절대 `apply_click`과 `application_submit`
+- 데이터 한계: 이벤트 배포 전 방문에는 소급 적용되지 않으며, 배포 후 데이터부터
+  경로별 판단에 사용합니다.
+
 ## 다음 기록 양식
 
 ```text

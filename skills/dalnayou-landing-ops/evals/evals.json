@@ -210,7 +210,8 @@
       "expected_output": "Chooser and direct-course traffic are evaluated as separate GA4 paths, absolute application events and aggregate form responses are cross-checked without PII, the latest processed date is stated accurately, and no live conversion change is launched before the active experiment gate.",
       "files": [],
       "expectations": [
-        "The chooser path requires course_click but the direct-course path does not.",
+        "The chooser path requires course_click but the direct-course path uses course_landing_view instead.",
+        "Each detail page sends course_landing_view with an explicit roblox or notebooklm course_selection.",
         "Absolute apply_click and application_submit counts are checked outside the closed sequential funnel.",
         "The latest fully processed GA4 date is recorded instead of being mislabeled as today's data.",
         "Google Form aggregate response count and course totals are recorded without applicant PII.",

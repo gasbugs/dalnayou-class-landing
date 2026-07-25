@@ -736,6 +736,11 @@
       window.dalnayouSource = sourceContext;
       window.dalnayouTrack = track;
 
+      track('course_landing_view', {
+        course_selection: 'roblox',
+        page_type: 'course_detail',
+      });
+
       document.addEventListener('click', (event) => {
         const target = event.target.closest('[data-track-event]');
         if (!target) return;

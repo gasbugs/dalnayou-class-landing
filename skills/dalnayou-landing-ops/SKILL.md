@@ -97,8 +97,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Keep the prepared promotional short on both main chooser mirrors and both course detail pages, with `shorts_section_view` for one-time visibility and `shorts_click` for the explicit YouTube link.
 - Do not force direct-to-course advertising traffic through a closed GA4 funnel that requires
   `course_click`. Maintain a chooser path (`page_view → course_click → apply_click`) and a
-  direct-course path (course-page `page_view → apply_click`), and always inspect absolute
-  `apply_click` and `application_submit` counts as a cross-check.
+  direct-course path (`course_landing_view → apply_click`). Both course detail pages must send
+  `course_landing_view` with an explicit `course_selection`, and absolute `apply_click` and
+  `application_submit` counts remain the cross-check.
 - Record the latest fully processed GA4 date explicitly. Do not describe an earlier processed
   day as today's result merely because the report was inspected today.
 - Keep the initial Meta campaign simple: one campaign, one broad local ad set, one creative, and the canonical tracked URL in `meta-ad-plan.md`.
