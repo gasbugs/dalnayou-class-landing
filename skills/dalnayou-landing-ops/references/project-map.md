@@ -11,6 +11,7 @@
 | `index-legacy.html` | Long-form legacy landing | User explicitly references sections that only exist here |
 | `poster.html` | A4 print handout | Print copy, QR, print button, A4 spacing |
 | `refund.html` | Public refund policy | Refund rules or policy links |
+| `privacy.html` | Public application privacy notice | Consent summary, collected fields, retention, refusal rights, child applicant rules |
 | `cardnews/index.html` | Card-news hub and copy tools | Ad copy, payment/confirmation/refund messages, resource links |
 | `cardnews/source.html` | Render source for social cards | Text or design printed into PNG assets |
 | `tracking-links.md` | Campaign URL registry and GA/GTM notes | New channels, UTM naming, event inventory |

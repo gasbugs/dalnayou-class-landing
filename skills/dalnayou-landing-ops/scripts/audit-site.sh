@@ -29,7 +29,7 @@ printf 'Dalnayou landing audit: %s\n\n' "$ROOT"
 
 required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
-  poster.html refund.html cardnews/index.html cardnews/source.html
+  poster.html refund.html privacy.html cardnews/index.html cardnews/source.html
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
@@ -40,7 +40,7 @@ required_files=(
 for file in "${required_files[@]}"; do require_file "$file"; done
 
 printf '\nTracking structure\n'
-for file in index.html main.html roblox.html notebooklm.html poster.html refund.html cardnews/index.html; do
+for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html; do
   contains "$file" 'GTM-KVC6H3SL' "$file includes the GTM container"
 done
 contains roblox.html 'data-track-event="apply_click"' 'Roblox application CTAs are tracked'
@@ -64,9 +64,14 @@ contains campaign-pricing.js 'price: 199000' 'Second phase price is 199,000 won'
 contains campaign-pricing.js 'price: 209000' 'Final phase price is 209,000 won'
 contains marketing-events.js '2173864043186723' 'Meta Pixel uses the Cloud Security Lab data set'
 contains marketing-events.js '"ApplyClick"' 'Meta Pixel distinguishes application clicks from completions'
-for file in index.html main.html roblox.html notebooklm.html poster.html refund.html cardnews/index.html 404.html; do
+for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html 404.html; do
   contains "$file" 'marketing-events\.js' "$file includes the Meta Pixel loader"
 done
+contains privacy.html '수집·이용 목적' 'Privacy notice states the collection purpose'
+contains privacy.html '수집 항목' 'Privacy notice states the collected fields'
+contains privacy.html '보유 및 이용 기간' 'Privacy notice states the retention period'
+contains privacy.html '동의 거부' 'Privacy notice states refusal rights'
+contains privacy.html '만 14세 미만' 'Privacy notice addresses child applicants'
 
 printf '\nMeta campaign readiness\n'
 contains meta-ad-plan.md 'Asia/Seoul' 'Meta ad account uses the Seoul time zone'

@@ -29,6 +29,7 @@ Choose the smallest applicable surface:
 - Card-news images: `cardnews/source.html`, then regenerate PNG and ZIP outputs.
 - Marketing and operator copy: `cardnews/index.html`.
 - Refund rules: `refund.html` and matching message copy when explicitly requested.
+- Application privacy notice: `privacy.html` and the live Google Form consent summary.
 - Channel links and analytics guidance: `tracking-links.md` plus the destination page if tracking behavior changes.
 - Meta campaign operations: `meta-ad-plan.md` for account defaults, audience, budget ceiling, creative, stop rules, and approval boundaries.
 - Conversion experiments and failure learning: `marketing-history.md`; append observations and decisions instead of rewriting old results.
@@ -53,6 +54,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Keep `index.html` and `main.html` behaviorally identical except for intentional metadata differences.
 - Keep operator copy warm, specific, and ready to paste. Preserve the exact number of course-specific templates requested by the user.
 - Put required URLs inside the copied `textarea`; if a long textarea hides an important resource, also expose it as a visible link outside the textarea.
+- Keep the Google Form consent summary readable while retaining collection purpose, fields, retention period, refusal rights, and the public `privacy.html` link. For applicants under 14, require a legal guardian to complete the form and consent.
 - For test or preview requests, create or update a preview page and do not merge it into the live landing until the user accepts it.
 - Keep the campaign phase names and prices consistent: `1차 얼리버드` 189,000원, `2차 얼리버드` 199,000원, and `파이널 등록` 209,000원.
 - Use `campaign-pricing.js` as the runtime source of truth for course-page price, deadline, countdown, and application-form prefill behavior.

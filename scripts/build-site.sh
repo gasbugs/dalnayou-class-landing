@@ -14,6 +14,7 @@ cp \
   "${ROOT}/notebooklm.html" \
   "${ROOT}/poster.html" \
   "${ROOT}/refund.html" \
+  "${ROOT}/privacy.html" \
   "${ROOT}/404.html" \
   "${ROOT}/campaign-pricing.js" \
   "${ROOT}/marketing-events.js" \
