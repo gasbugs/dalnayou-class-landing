@@ -117,10 +117,16 @@
   결과물을 말한 광고를 해당 상세 페이지로 직접 연결하면 이탈이 줄어든다.
 - 준비된 URL:
   - Roblox:
-    `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise`
+    `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_v1`
   - Gemini 노트북:
-    `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise`
+    `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise_v1`
 - 광고 핵심 근거: 2015년 첫 강의, 기업·기관 B2B 교육 10년+, 첫 B2C 소수정예 과정
+- 준비된 소재:
+  - Roblox·Gemini 노트북 과정별 피드 4:5와 스토리·릴스 9:16 총 4장
+  - 기존 생성형 인물 이미지 대신 실제 4주 결과물 예시 사용
+  - 메시지 순서: 기업교육 10년+ → 4주 결과물 → 일정·가격 → 잔여석 확인
+  - 운영 미리보기: `https://gasbugs.github.io/dalnayou-class-landing/ads/`
+- 상태 메모: 소재와 URL만 준비했으며 Meta에는 게시하지 않음
 - 실행 조건: 기존 광고의 최소 관찰량을 확보한 뒤 같은 예산 안에서 소재를 교체
 - 게시·예산 변경: 담당자의 최종 확인 후 실행
 

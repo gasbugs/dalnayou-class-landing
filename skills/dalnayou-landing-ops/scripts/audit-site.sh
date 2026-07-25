@@ -15,6 +15,17 @@ require_file() {
   if [[ -f "$ROOT/$file" ]]; then pass "$file exists"; else fail "$file is missing"; fi
 }
 
+require_png_dimensions() {
+  local file="$1" dimensions="$2"
+  local description
+  description="$(file "$ROOT/$file" 2>/dev/null || true)"
+  if [[ "$description" == *"$dimensions"* ]]; then
+    pass "$file is $dimensions"
+  else
+    fail "$file is not $dimensions"
+  fi
+}
+
 contains() {
   local file="$1" pattern="$2" label="$3"
   if rg -q -- "$pattern" "$ROOT/$file"; then pass "$label"; else fail "$label"; fi
@@ -30,6 +41,7 @@ printf 'Dalnayou landing audit: %s\n\n' "$ROOT"
 required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html privacy.html cardnews/index.html cardnews/source.html
+  ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
   marketing-events.js images/roblox-creator-cole-tucker.webp
@@ -44,6 +56,21 @@ printf '\nTracking structure\n'
 for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html; do
   contains "$file" 'GTM-KVC6H3SL' "$file includes the GTM container"
 done
+contains ads/index.html 'GTM-KVC6H3SL' 'Meta candidate page includes the GTM container'
+contains ads/index.html 'marketing-events\.js' 'Meta candidate page includes the Meta Pixel loader'
+contains ads/index.html 'roblox_enterprise_v1' 'Roblox candidate has a unique tracked URL'
+contains ads/index.html 'notebooklm_enterprise_v1' 'Notebook candidate has a unique tracked URL'
+for file in \
+  ads/png/meta-roblox-enterprise-feed.png \
+  ads/png/meta-roblox-enterprise-story.png \
+  ads/png/meta-notebooklm-enterprise-feed.png \
+  ads/png/meta-notebooklm-enterprise-story.png; do
+  require_file "$file"
+done
+require_png_dimensions ads/png/meta-roblox-enterprise-feed.png '1080 x 1350'
+require_png_dimensions ads/png/meta-roblox-enterprise-story.png '1080 x 1920'
+require_png_dimensions ads/png/meta-notebooklm-enterprise-feed.png '1080 x 1350'
+require_png_dimensions ads/png/meta-notebooklm-enterprise-story.png '1080 x 1920'
 contains roblox.html 'data-track-event="apply_click"' 'Roblox application CTAs are tracked'
 contains notebooklm.html 'data-track-event="apply_click"' 'NotebookLM application CTAs are tracked'
 contains roblox.html 'data-track-label="roblox_enterprise_trust_form"' 'Roblox trust proof has a distinct application CTA'
@@ -162,6 +189,16 @@ if [[ -d "$ROOT/dist" ]]; then
     fail 'Public artifact contains a preview, legacy, or source page'
   else
     pass 'Public artifact excludes preview, legacy, and source pages'
+  fi
+  if [[ -f "$ROOT/dist/ads/index.html" ]] && [[ -f "$ROOT/dist/ads/meta-enterprise-candidates.zip" ]]; then
+    pass 'Public artifact includes the Meta candidate operator page and ZIP'
+  else
+    fail 'Public artifact is missing the Meta candidate operator page or ZIP'
+  fi
+  if [[ -f "$ROOT/dist/ads/source.html" ]]; then
+    fail 'Public artifact exposes the Meta render source'
+  else
+    pass 'Public artifact excludes the Meta render source'
   fi
 else
   warn 'dist is absent; run bash scripts/build-site.sh before publishing'

@@ -14,6 +14,8 @@
 | `privacy.html` | Public application privacy notice | Consent summary, collected fields, retention, refusal rights, child applicant rules |
 | `cardnews/index.html` | Card-news hub and copy tools | Ad copy, payment/confirmation/refund messages, resource links |
 | `cardnews/source.html` | Render source for social cards | Text or design printed into PNG assets |
+| `ads/index.html` | Noindex operator preview for Meta replacement candidates | Candidate PNG downloads, paste-ready copy, tracked URLs |
+| `ads/source.html` | Local render source for Meta feed and story candidates | Candidate creative text or design changes |
 | `tracking-links.md` | Campaign URL registry and GA/GTM notes | New channels, UTM naming, event inventory |
 | `marketing-history.md` | Append-only conversion baseline, experiments, failures, and decisions | Advertisement, CTA, form, or conversion work |
 | `marketing/snapshots.jsonl` | Append-only raw funnel counts with source-system limitations | A new Meta, GA4, form, or payment observation is available |
@@ -30,6 +32,10 @@
 - `cardnews/instagram-cardnews-png.zip`.
 - `cardnews/daangn-cardnews-png.zip`.
 - Regenerate with `scripts/render-cardnews.sh` after editing `cardnews/source.html`.
+- `ads/png/meta-*-enterprise-feed.png`: 1080×1350 Meta feed candidates.
+- `ads/png/meta-*-enterprise-story.png`: 1080×1920 Meta story and Reels candidates.
+- `ads/meta-enterprise-candidates.zip`.
+- Regenerate with `scripts/render-meta-ads.sh` after editing `ads/source.html`.
 
 ## Shared invariants
 
@@ -47,12 +53,14 @@
 - `cardnews/index.html` keeps two payment-request and two confirmation templates, one per course.
 - Important resource URLs appear inside copied text, not only as clickable UI.
 - Course prices advance automatically: 189,000원 through 8/1, 199,000원 from 8/2 through 8/8, and 209,000원 from 8/9 through 8/15.
+- Meta replacement candidates use a unique `utm_content` and may be prepared during an active observation window, but must not be published until the documented sample, time, and approval conditions are met.
 - Preview, legacy, source, and skill files remain in the repository but are excluded from the `dist/` deployment artifact.
 
 ## Existing commands
 
 ```bash
 ./scripts/render-cardnews.sh
+./scripts/render-meta-ads.sh
 bash scripts/build-site.sh
 skills/dalnayou-landing-ops/scripts/audit-site.sh .
 git diff --check

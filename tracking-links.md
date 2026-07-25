@@ -34,11 +34,11 @@ https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=face
 기업교육 이력 직접 랜딩 실험:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_v1
 ```
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise_v1
 ```
 
 위 두 링크는 광고 메시지와 상세 페이지를 과정별로 일치시키는 다음 실험용입니다.
@@ -107,6 +107,15 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 
 - `roblox_enterprise_trust_form`
 - `notebooklm_enterprise_trust_form`
+
+다음 Meta 교체 후보는 현재 광고 관찰 조건을 충족한 뒤 기존 소재 하나와 교체할
+때만 사용합니다. 두 링크는 기업교육 신뢰형 소재와 과정 상세 페이지를 직접
+연결하며, 현재 라이브 광고에는 아직 적용하지 않았습니다.
+
+- Roblox 기업교육 신뢰형:
+  `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_v1`
+- Gemini 노트북 기업교육 신뢰형:
+  `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise_v1`
 
 전환 실험의 기준선과 결과는 `marketing-history.md`에 누적합니다.
 - `application_submit`: 기존 Google 신청서가 실제 제출된 경우

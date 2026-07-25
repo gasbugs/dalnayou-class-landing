@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT="${1:-${ROOT}/dist}"
 
 rm -rf "${OUT}"
-mkdir -p "${OUT}/images" "${OUT}/cardnews/png"
+mkdir -p "${OUT}/images" "${OUT}/cardnews/png" "${OUT}/ads/png"
 
 cp \
   "${ROOT}/index.html" \
@@ -54,5 +54,9 @@ cp \
 cp "${ROOT}/cardnews/index.html" "${OUT}/cardnews/"
 cp "${ROOT}/cardnews/"*.zip "${OUT}/cardnews/"
 cp "${ROOT}/cardnews/png/"*.png "${OUT}/cardnews/png/"
+
+cp "${ROOT}/ads/index.html" "${OUT}/ads/"
+cp "${ROOT}/ads/meta-enterprise-candidates.zip" "${OUT}/ads/"
+cp "${ROOT}/ads/png/"*.png "${OUT}/ads/png/"
 
 echo "Built public site at ${OUT}"

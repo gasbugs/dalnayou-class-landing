@@ -166,16 +166,26 @@ A/B 테스트가 아닙니다. 각 광고가 맡은 역할별 랜딩 페이지 �
 다음 교체 후보 URL:
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_v1
 ```
 
 ```text
-https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise_v1
 ```
 
 두 후보 모두 `현대자동차·삼성SDS·금융보안원 등 기업·기관 교육 경험 10년+`을
 핵심 근거로 사용합니다. 기존 광고를 실제로 교체하거나 새 소재를 게시하는 행위는
 예산을 늘리지 않더라도 담당자의 최종 확인 후 진행합니다.
+
+준비된 운영 자산:
+
+- 운영 미리보기: `https://gasbugs.github.io/dalnayou-class-landing/ads/`
+- 피드 4:5: Roblox·Gemini 노트북 각 1080×1350
+- 스토리·릴스 9:16: Roblox·Gemini 노트북 각 1080×1920
+- 교체 방식: 광고를 추가해 예산을 분산하지 않고 기존 광고 하나만 교체
+- 유지 항목: 광고 세트, 통학권, 일 예산 20,000원, 계정 지출 한도 140,000원
+- 금지: 관찰 기간 중 게시, 예산 증액, 두 후보 동시 추가
+- 게시 직전 확인: 과정, 일정, 가격 단계, 목적지 URL, 미리보기, 담당자 최종 승인
 
 ## 게시 완료 확인
 

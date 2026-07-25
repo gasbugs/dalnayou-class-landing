@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>클씨랩 Meta 광고 렌더 소스</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #ddd; }
+    body {
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+    .creative {
+      --accent: #ea580c;
+      --accent-soft: #fff0e7;
+      display: none;
+      position: relative;
+      width: 1080px;
+      overflow: hidden;
+      background: #f8f7f4;
+      color: #171717;
+    }
+    .creative.active { display: flex; flex-direction: column; }
+    .creative.notebook {
+      --accent: #155eef;
+      --accent-soft: #eaf1ff;
+    }
+    .feed { height: 1350px; }
+    .story { height: 1920px; }
+    .proof {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 92px;
+      padding: 0 70px;
+      background: #171717;
+      color: #fff;
+      font-size: 27px;
+      font-weight: 800;
+    }
+    .proof strong { color: #ffd64a; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .brand img {
+      width: 196px;
+      height: 64px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    .brand span { white-space: nowrap; }
+    .copy {
+      padding: 54px 70px 42px;
+    }
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 17px 0 0;
+      font-size: 76px;
+      line-height: 1.13;
+      font-weight: 900;
+    }
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .subcopy {
+      margin: 24px 0 0;
+      font-size: 31px;
+      line-height: 1.45;
+      font-weight: 700;
+      color: #454545;
+    }
+    .result {
+      position: relative;
+      height: 474px;
+      overflow: hidden;
+      background: #222;
+    }
+    .result img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .result::after {
+      content: "4주 후 직접 완성하는 결과물 예시";
+      position: absolute;
+      left: 46px;
+      bottom: 38px;
+      padding: 15px 22px;
+      background: rgba(17, 17, 17, 0.9);
+      color: #fff;
+      font-size: 25px;
+      font-weight: 800;
+    }
+    .details {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 36px 70px 42px;
+      background: #fff;
+    }
+    .facts {
+      display: grid;
+      gap: 10px;
+      font-size: 27px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .facts .price {
+      color: var(--accent);
+      font-size: 30px;
+    }
+    .cta {
+      display: flex;
+      min-width: 250px;
+      min-height: 96px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      border: 4px solid #171717;
+      background: var(--accent);
+      color: #fff;
+      font-size: 31px;
+      font-weight: 900;
+    }
+    .story .proof {
+      min-height: 126px;
+      padding: 0 64px;
+    }
+    .story .copy {
+      padding: 94px 70px 64px;
+    }
+    .story .eyebrow { font-size: 34px; }
+    .story h1 {
+      margin-top: 24px;
+      font-size: 94px;
+      line-height: 1.12;
+    }
+    .story .subcopy {
+      margin-top: 34px;
+      font-size: 36px;
+    }
+    .story .result { height: 730px; }
+    .story .result::after {
+      left: 52px;
+      bottom: 46px;
+      font-size: 29px;
+    }
+    .story .details {
+      flex: 1;
+      grid-template-columns: 1fr;
+      align-content: center;
+      padding: 56px 70px 180px;
+    }
+    .story .facts {
+      gap: 15px;
+      font-size: 34px;
+    }
+    .story .facts .price { font-size: 37px; }
+    .story .cta {
+      width: 100%;
+      min-height: 112px;
+      margin-top: 25px;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <section id="meta-roblox-enterprise-feed" class="creative feed roblox">
+    <div class="proof">
+      <div class="brand"><img src="../images/cloud-security-lab-logo.png" alt="" /><span>클씨랩 오프라인 AI 클래스</span></div>
+      <strong>기업교육 10년+</strong>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">플레이어에서 크리에이터로</p>
+      <h1>플레이만 하던 로블록스,<br /><em>4주 뒤 직접 만듭니다</em></h1>
+      <p class="subcopy">코딩 경험이 없어도 AI와 함께<br />게임 월드·점수판·공개 링크까지 완성</p>
+    </div>
+    <div class="result">
+      <img src="../images/roblox_screen-v2.webp" alt="" />
+    </div>
+    <div class="details">
+      <div class="facts">
+        <div>8/16 개강 · 매주 일요일 오후 2~5시</div>
+        <div>소사역 힐스에비뉴 · 소수정예 5명</div>
+        <div class="price">정상가 249,000원 · 8/1까지 189,000원</div>
+      </div>
+      <div class="cta">잔여석 확인</div>
+    </div>
+  </section>
+
+  <section id="meta-roblox-enterprise-story" class="creative story roblox">
+    <div class="proof">
+      <div class="brand"><img src="../images/cloud-security-lab-logo.png" alt="" /><span>클씨랩</span></div>
+      <strong>기업교육 10년+</strong>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">플레이어에서 크리에이터로</p>
+      <h1>플레이만 하던<br />로블록스,<br /><em>4주 뒤 직접<br />만듭니다</em></h1>
+      <p class="subcopy">코딩 경험이 없어도 AI와 함께<br />플레이 가능한 게임을 완성합니다.</p>
+    </div>
+    <div class="result">
+      <img src="../images/roblox_screen-v2.webp" alt="" />
+    </div>
+    <div class="details">
+      <div class="facts">
+        <div>8/16 개강 · 일요일 오후 2~5시</div>
+        <div>소사역 힐스에비뉴 · 소수정예 5명</div>
+        <div class="price">정상가 249,000원 · 8/1까지 189,000원</div>
+      </div>
+      <div class="cta">자세히 보기 · 잔여석 확인</div>
+    </div>
+  </section>
+
+  <section id="meta-notebooklm-enterprise-feed" class="creative feed notebook">
+    <div class="proof">
+      <div class="brand"><img src="../images/cloud-security-lab-logo.png" alt="" /><span>클씨랩 오프라인 AI 클래스</span></div>
+      <strong>기업교육 10년+</strong>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">Google NotebookLM 실전 4주</p>
+      <h1>회의자료·PDF를<br /><em>내 업무 결과물로</em></h1>
+      <p class="subcopy">내 자료에 근거한 요약·보고서·마인드맵·<br />오디오 브리핑을 직접 완성합니다.</p>
+    </div>
+    <div class="result">
+      <img src="../images/notebooklm.webp" alt="" />
+    </div>
+    <div class="details">
+      <div class="facts">
+        <div>8/16 개강 · 매주 일요일 오전 9~12시</div>
+        <div>소사역 힐스에비뉴 · 소수정예 5명</div>
+        <div class="price">정상가 249,000원 · 8/1까지 189,000원</div>
+      </div>
+      <div class="cta">잔여석 확인</div>
+    </div>
+  </section>
+
+  <section id="meta-notebooklm-enterprise-story" class="creative story notebook">
+    <div class="proof">
+      <div class="brand"><img src="../images/cloud-security-lab-logo.png" alt="" /><span>클씨랩</span></div>
+      <strong>기업교육 10년+</strong>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">Google NotebookLM 실전 4주</p>
+      <h1>회의자료·PDF를<br /><em>내 업무<br />결과물로</em></h1>
+      <p class="subcopy">내 자료에 근거한 요약·보고서·마인드맵·<br />오디오 브리핑을 직접 완성합니다.</p>
+    </div>
+    <div class="result">
+      <img src="../images/notebooklm.webp" alt="" />
+    </div>
+    <div class="details">
+      <div class="facts">
+        <div>8/16 개강 · 일요일 오전 9~12시</div>
+        <div>소사역 힐스에비뉴 · 소수정예 5명</div>
+        <div class="price">정상가 249,000원 · 8/1까지 189,000원</div>
+      </div>
+      <div class="cta">자세히 보기 · 잔여석 확인</div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const creativeId = params.get("creative") || "meta-roblox-enterprise-feed";
+    document.querySelectorAll(".creative").forEach((creative) => {
+      creative.classList.toggle("active", creative.id === creativeId);
+    });
+  </script>
+</body>
+</html>

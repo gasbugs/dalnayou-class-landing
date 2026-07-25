@@ -30,6 +30,7 @@ Choose the smallest applicable surface:
 - A4 print handout: `poster.html`.
 - Card-news images: `cardnews/source.html`, then regenerate PNG and ZIP outputs.
 - Marketing and operator copy: `cardnews/index.html`.
+- Meta replacement candidates: `ads/source.html`, then regenerate the four PNGs and ZIP with `scripts/render-meta-ads.sh`; expose downloads and copy from `ads/index.html`.
 - Refund rules: `refund.html` and matching message copy when explicitly requested.
 - Application privacy notice: `privacy.html` and the live Google Form consent summary.
 - Channel links and analytics guidance: `tracking-links.md` plus the destination page if tracking behavior changes.
@@ -75,6 +76,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Keep Meta Pixel initialization in `marketing-events.js`. `ApplyClick` means the visitor opened the application form; do not report it as a completed application.
 - Keep the prepared promotional short on both main chooser mirrors and both course detail pages, with `shorts_section_view` for one-time visibility and `shorts_click` for the explicit YouTube link.
 - Keep the initial Meta campaign simple: one campaign, one broad local ad set, one creative, and the canonical tracked URL in `meta-ad-plan.md`.
+- Candidate Meta assets may be prepared while an experiment is running, but do not publish them or split the live budget before the documented observation threshold and action-time approval.
 - Confirm that the business portfolio has a Facebook Page to use as the ad identity. Instagram is optional for the initial campaign.
 - Treat account creation, business-policy acceptance, payment-method entry, publishing, and spend increases as explicit approval actions. Prepare all reversible fields first and stop at the final confirmation.
 
