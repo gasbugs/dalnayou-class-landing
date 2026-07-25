@@ -194,6 +194,8 @@ fi
 
 printf '\nPublic deployment artifact\n'
 contains .github/workflows/pages.yml 'bash scripts/build-site\.sh' 'Pages workflow builds the public allowlist'
+contains .github/workflows/pages.yml 'actions/setup-node@v6' 'Pages workflow uses the Node 24-compatible setup action'
+contains .github/workflows/pages.yml 'node-version: 24' 'Pages workflow pins Node 24'
 contains .github/workflows/pages.yml 'run: npm ci' 'Pages workflow installs the pinned CSS build dependency'
 contains .github/workflows/pages.yml 'run: npm run build:css' 'Pages workflow rebuilds static landing CSS'
 contains .github/workflows/pages.yml "path: 'dist'" 'Pages workflow deploys dist'
