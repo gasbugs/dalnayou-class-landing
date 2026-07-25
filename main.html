@@ -19,7 +19,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
   <!-- End Google Tag Manager -->
-  <script defer src="./marketing-events.js?v=20260723-v1"></script>
+  <script defer src="./marketing-events.js?v=20260725-course-v2"></script>
   <script src="./ga4-events.js?v=20260725-v1"></script>
   <link rel="stylesheet" href="./styles/main.css?v=20260725-static-v1" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
@@ -90,7 +90,7 @@
     </div>
 
     <section class="grid min-h-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1">
-      <a href="./roblox.html" data-track-event="course_click" data-track-label="main_split_roblox" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
+      <a href="./roblox.html" data-track-event="course_click" data-track-label="main_split_roblox" data-course-selection="roblox" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
         <img src="images/roblox_screen-v2.webp?v=20260723-webp-v1" alt="플레이어 캐릭터가 달리고 점프하는 로블록스 AI 클래스 게임 월드" fetchpriority="high" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
         <div class="choice-content relative z-10 max-w-xl">
           <div class="mb-4 inline-flex rounded-full bg-orangeBrand-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">AI로 게임 제작 · 일 14:00~17:00</div>
@@ -107,7 +107,7 @@
         </div>
       </a>
 
-      <a href="./notebooklm.html" data-track-event="course_click" data-track-label="main_split_notebooklm" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
+      <a href="./notebooklm.html" data-track-event="course_click" data-track-label="main_split_notebooklm" data-course-selection="notebooklm" class="choice-panel group relative flex min-h-[50vh] items-end overflow-hidden bg-ink-900 p-6 pb-16 md:min-h-screen md:p-10">
         <img src="images/notebooklm.webp?v=20260723-webp-v1" alt="Gemini 노트북 클래스" loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
         <div class="choice-content relative z-10 max-w-xl">
           <div class="mb-4 inline-flex rounded-full bg-blueBrand-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">학생·비전공자·직장인 · 일 09:00~12:00</div>
@@ -150,8 +150,8 @@
         <div><strong class="text-xl font-extrabold">2020~현재</strong><p class="mt-2 text-sm leading-relaxed text-white/70">금융보안원 정기 교육</p></div>
       </div>
       <div class="mx-auto mt-9 grid max-w-xl gap-3 sm:grid-cols-2">
-        <a href="./notebooklm.html" data-track-event="course_click" data-track-label="enterprise_trust_notebooklm" class="inline-flex items-center justify-center rounded-full bg-blueBrand-500 px-6 py-4 text-base font-extrabold text-white">Gemini 노트북 보기</a>
-        <a href="./roblox.html" data-track-event="course_click" data-track-label="enterprise_trust_roblox" class="inline-flex items-center justify-center rounded-full bg-orangeBrand-500 px-6 py-4 text-base font-extrabold text-white">로블록스 AI 보기</a>
+        <a href="./notebooklm.html" data-track-event="course_click" data-track-label="enterprise_trust_notebooklm" data-course-selection="notebooklm" class="inline-flex items-center justify-center rounded-full bg-blueBrand-500 px-6 py-4 text-base font-extrabold text-white">Gemini 노트북 보기</a>
+        <a href="./roblox.html" data-track-event="course_click" data-track-label="enterprise_trust_roblox" data-course-selection="roblox" class="inline-flex items-center justify-center rounded-full bg-orangeBrand-500 px-6 py-4 text-base font-extrabold text-white">로블록스 AI 보기</a>
       </div>
       <p class="mt-8 text-center text-xs leading-relaxed text-white/45">
         기관명은 클씨랩 또는 강사진의 출강·프로젝트 이력이며, 본 B2C 과정의 직접 수강 기관을 뜻하지 않습니다.
@@ -305,6 +305,7 @@
 
         track(target.dataset.trackEvent, {
           link_position: target.dataset.trackLabel || 'unknown',
+          course_selection: target.dataset.courseSelection || undefined,
           link_text: clean(target.textContent, target.getAttribute('aria-label')),
           link_url: targetUrl,
           outbound,

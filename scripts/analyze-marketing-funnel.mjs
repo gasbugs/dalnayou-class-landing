@@ -63,6 +63,13 @@ if (records.length === 0) {
   throw new Error("No marketing snapshots found");
 }
 
+const latestBySegment = new Map();
+for (const record of records) {
+  const key = [record.channel, record.medium, record.campaign, record.content].join("\u0000");
+  latestBySegment.set(key, record);
+}
+const latestRecords = Array.from(latestBySegment.values());
+
 const ratio = (numerator, denominator) =>
   Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
     ? numerator / denominator
@@ -162,13 +169,13 @@ const lines = [
   "서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.",
   "판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.",
   "",
-  "## 스냅샷",
+  "## 최신 스냅샷",
   "",
   "| 기간 | 소재 | 지출 | 노출 | 링크 클릭 | CTR | 랜딩 | 클릭→랜딩 | 신청 이동 | 제출 | 입금 |",
   "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
 ];
 
-for (const record of records) {
+for (const record of latestRecords) {
   const ctr = stageRatio(record, "link_clicks", "impressions");
   const clickToLanding = stageRatio(record, "landing_views", "link_clicks");
   lines.push(
@@ -176,8 +183,21 @@ for (const record of records) {
   );
 }
 
-lines.push("", "## 병목 판정", "");
+lines.push(
+  "",
+  "## 관찰 이력",
+  "",
+  "| 기록 시각 | 소재 | 지출 | 노출 | 링크 클릭 | 랜딩 | 출처 |",
+  "| --- | --- | ---: | ---: | ---: | ---: | --- |",
+);
 for (const record of records) {
+  lines.push(
+    `| ${record.recorded_at} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${count(record.landing_views)} | ${record.source_systems.join(" + ")} |`
+  );
+}
+
+lines.push("", "## 최신 병목 판정", "");
+for (const record of latestRecords) {
   lines.push(`### ${record.content}`, "");
   const assessments = assess(record);
   for (const item of assessments) {

@@ -75,6 +75,8 @@ Search for the exact old phrase across the repository before editing. If it occu
   `dataLayer.push({ event: ... })` does not reach GA4 when the published GTM container has no
   matching tag and trigger.
 - Application-form links use `apply_click`; inquiry links use `contact_click`; maps use `map_click`.
+- Every main-page `course_click` must carry an explicit `data-course-selection` value so
+  GA4 and Meta identify Notebook and Roblox consistently at every CTA position.
 - Preserve UTM parameters through internal navigation and include source context on click events.
 - Preserve `data-campaign-apply` on every application CTA so the existing Google Form receives UTM, landing path, course, campaign phase, and campaign price through `entry.1074868867`.
 - Generate channel URLs according to `references/tracking-taxonomy.md` and record reusable links in `tracking-links.md`.

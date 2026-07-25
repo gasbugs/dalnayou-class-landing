@@ -145,6 +145,21 @@
         "No live audience, budget, creative, or publication change occurs before the observation threshold and action-time approval.",
         "The exact snapshots, data limitations, correction, and next decision point are appended to the learning record."
       ]
+    },
+    {
+      "id": 12,
+      "prompt": "메인 페이지에서 두 과정 중 무엇을 선택했는지 GA4와 Meta에서 정확히 구분되는지 점검하고 잘못된 분류를 고쳐줘.",
+      "expected_output": "Every course-selection CTA carries an explicit structured course value, GA4 and Meta receive the same Notebook or Roblox identity regardless of CTA position, and the correction is guarded by an audit and learning record.",
+      "files": [],
+      "expectations": [
+        "All main and mirror course-selection CTAs declare notebooklm or roblox independently of their position label.",
+        "GA4 course_click includes course_selection.",
+        "Meta CourseSelect derives content_name and course_selection from the explicit course value with a destination fallback.",
+        "A Notebook CTA outside the split hero is not classified as Roblox.",
+        "The public script URL is cache-busted where the corrected behavior is used.",
+        "The audit detects missing structured course values or Meta propagation.",
+        "The historical misclassification and non-retroactive data limitation are recorded."
+      ]
     }
   ]
 }

@@ -50,6 +50,16 @@
     return params;
   }
 
+  function getTargetCourse(target) {
+    var explicit = target.getAttribute("data-course-selection");
+    if (explicit === "notebooklm" || explicit === "roblox") return explicit;
+
+    var href = target.getAttribute("href") || "";
+    if (href.indexOf("notebooklm") !== -1) return "notebooklm";
+    if (href.indexOf("roblox") !== -1) return "roblox";
+    return getCourse();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var course = getCourse();
     if (course !== "course_selector") {
@@ -74,10 +84,8 @@
         } else if (eventName === "contact_click") {
           window.fbq("track", "Contact", params);
         } else if (eventName === "course_click") {
-          params.content_name =
-            target.getAttribute("data-track-label") === "main_split_notebooklm"
-              ? "notebooklm"
-              : "roblox";
+          params.content_name = getTargetCourse(target);
+          params.course_selection = params.content_name;
           window.fbq("trackCustom", "CourseSelect", params);
         } else if (eventName === "map_click") {
           window.fbq("trackCustom", "MapClick", params);
