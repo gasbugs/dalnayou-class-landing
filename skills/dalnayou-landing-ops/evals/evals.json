@@ -266,6 +266,22 @@
         "No synthetic zero is appended before GA4 fully processes the post-deployment period.",
         "The schema rule and current limitation are added to the operating skill and marketing history."
       ]
+    },
+    {
+      "id": 20,
+      "prompt": "Meta 클릭은 있는데 랜딩 페이지 조회로 덜 이어져. 모바일 첫 화면 리소스를 조사하고, 시각 변화 없이 줄일 수 있는 용량을 최적화해줘.",
+      "expected_output": "Above-the-fold resources are measured before editing, an oversized repeated asset is resized and converted without visible degradation, intrinsic dimensions and deployment allowlists are updated, and the active observation window is reset because landing performance changed.",
+      "files": [],
+      "expectations": [
+        "The original and optimized byte sizes and rendered dimensions are recorded.",
+        "The public logo preserves transparency and remains visually legible at the largest rendered size.",
+        "Public chooser, course, and poster pages reference the optimized WebP with width and height.",
+        "The public artifact excludes the oversized PNG while non-public render sources may retain it.",
+        "An audit enforces a 16 KiB public logo budget and the optimized allowlist.",
+        "No ad, copy, CTA, form, audience, budget, or analytics event changes with the asset optimization.",
+        "The experiment not-before gate is reset to 48 hours after the performance deployment.",
+        "The before/after measurement and non-premature success rule are appended to the learning history."
+      ]
     }
   ]
 }

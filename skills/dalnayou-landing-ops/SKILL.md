@@ -150,6 +150,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - When removing a block from the poster, deliberately redistribute the released space instead of leaving a large gap.
 - Keep the main chooser and both course pages on committed static Tailwind CSS. Rebuild with `npm run build:css`; do not restore `cdn.tailwindcss.com` to conversion-critical pages.
 - Both chooser hero images are above the fold on mobile and desktop, so keep them eager and high priority. Below-the-fold result images remain lazy.
+- Keep repeated above-the-fold brand assets appropriately sized for their rendered dimensions.
+  Prefer a transparent WebP with explicit intrinsic width and height; the current Cloud
+  Security Lab logo must remain under 16 KiB in the public artifact.
 
 ### 6. Regenerate derived assets
 

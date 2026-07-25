@@ -48,6 +48,7 @@ required_files=(
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
+  images/cloud-security-lab-logo.webp
   images/shorts-cover.jpg
   images/notebooklm-docusign-workplace.webp
   package.json package-lock.json styles/main.css styles/roblox.css styles/notebooklm.css
@@ -111,6 +112,16 @@ contains index.html 'styles/main\.css' 'Main landing loads compiled Tailwind CSS
 contains main.html 'styles/main\.css' 'Main mirror loads compiled Tailwind CSS'
 contains roblox.html 'styles/roblox\.css' 'Roblox page loads compiled Tailwind CSS'
 contains notebooklm.html 'styles/notebooklm\.css' 'Notebook page loads compiled Tailwind CSS'
+for file in index.html main.html roblox.html notebooklm.html poster.html; do
+  contains "$file" 'cloud-security-lab-logo\.webp' "$file uses the optimized logo"
+  not_contains "$file" 'cloud-security-lab-logo\.png' "$file does not load the oversized logo"
+done
+optimized_logo_bytes="$(wc -c < "$ROOT/images/cloud-security-lab-logo.webp" | tr -d ' ')"
+if (( optimized_logo_bytes <= 16384 )); then
+  pass 'Optimized public logo stays within the 16 KiB budget'
+else
+  fail "Optimized public logo exceeds the 16 KiB budget (${optimized_logo_bytes} bytes)"
+fi
 contains index.html 'loading="eager" fetchpriority="high".*notebooklm|notebooklm[^>]*loading="eager" fetchpriority="high"' 'Main landing prioritizes the Notebook hero image'
 contains main.html 'loading="eager" fetchpriority="high".*notebooklm|notebooklm[^>]*loading="eager" fetchpriority="high"' 'Main mirror prioritizes the Notebook hero image'
 contains marketing-history.md 'payment_confirmed' 'Marketing history tracks confirmed payments as the final conversion'
@@ -264,6 +275,11 @@ if [[ -d "$ROOT/dist" ]]; then
     pass 'Public artifact includes the direct GA4 loader'
   else
     fail 'Public artifact is missing the direct GA4 loader'
+  fi
+  if [[ -f "$ROOT/dist/images/cloud-security-lab-logo.webp" ]] && [[ ! -f "$ROOT/dist/images/cloud-security-lab-logo.png" ]]; then
+    pass 'Public artifact ships only the optimized logo'
+  else
+    fail 'Public artifact logo allowlist is not optimized'
   fi
 else
   warn 'dist is absent; run bash scripts/build-site.sh before publishing'

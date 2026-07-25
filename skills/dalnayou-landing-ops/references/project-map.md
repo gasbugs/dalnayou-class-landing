@@ -53,6 +53,8 @@
 - Both main chooser mirrors and both course detail pages expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
 - The main chooser and both detail pages load committed static Tailwind CSS and must not depend on Tailwind Play CDN at runtime.
 - Both chooser hero images are eager because both are visible in the first mobile and desktop viewport.
+- Public chooser, course, and poster pages use the 400×148 transparent WebP logo with
+  explicit intrinsic dimensions; the full-size PNG remains only for non-public source use.
 - Course detail pages retain `apply_click` on every application CTA.
 - Course detail pages emit one `apply_cta_view` per visibly reached application CTA, using
   the same `link_position` as the click event.

@@ -35,7 +35,7 @@ cp \
   "${ROOT}/images/cardnews-page-qr.png" \
   "${ROOT}/images/classroom.jpg" \
   "${ROOT}/images/classroom.webp" \
-  "${ROOT}/images/cloud-security-lab-logo.png" \
+  "${ROOT}/images/cloud-security-lab-logo.webp" \
   "${ROOT}/images/dalnayou-b1-route.webp" \
   "${ROOT}/images/gemini-spark.webp" \
   "${ROOT}/images/house1-v2.webp" \

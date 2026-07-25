@@ -91,7 +91,7 @@
 - 준비 상태: `prepared`
 - 단일 변경: Meta 광고 세트 연령을 18~24세에서 18~44세로 확장
 - 표본 게이트: 19 / 30 (11회 부족)
-- 시간 게이트: 2026-07-27T22:45:00+09:00 (대기)
+- 시간 게이트: 2026-07-28T01:10:00+09:00 (대기)
 - 현재 판정: **대기**
 - 유지 변수: campaign, ad_set, creative, destination, region, daily_budget, account_spend_limit
 
