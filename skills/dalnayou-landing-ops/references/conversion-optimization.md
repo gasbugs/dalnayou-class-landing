@@ -28,6 +28,11 @@ submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
 4. Identify the earliest stage with material loss. Fix that bottleneck first.
 5. Write one falsifiable hypothesis in `marketing-history.md`.
 
+Keep measurement systems separate. Meta landing-page views and GA4 sessions are not the
+same cohort even when their date and UTM labels match. Calculate CTR and click-to-landing
+inside Meta, and calculate web-event progress inside GA4. Use a cross-system discrepancy
+only as a tracking diagnostic, never as a conversion rate.
+
 ## Experiment design
 
 - Change one primary variable at a time.
@@ -37,9 +42,14 @@ submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
 - Keep destination and audience stable when comparing creative whenever possible.
 - Match advertisement promise, landing headline, proof, outcome, schedule, price, and CTA.
 - For youth courses, distinguish the learner from the payer in both copy and targeting.
+- If the live age ceiling excludes parents or working-adult prospects, test widening that
+  ceiling as one variable while creative, destination, region, and budget stay fixed.
 - Put trust proof before the decision CTA: concise proof near the hero, concrete institutions
   and dates in a dedicated section, then a tracked CTA.
 - Reduce perceived commitment by stating the real application and payment process accurately.
+- Before changing a form, verify its control types, required fields, branching, and aggregate
+  response count in the live editor as well as the public view. Truncated HTML is not enough
+  to distinguish checkboxes from a single-choice question.
 
 ## Decision rules
 
@@ -52,6 +62,8 @@ submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
   price justification, schedule fit, and CTA placement.
 - If `apply_click` exists but `application_submit` is weak, inspect form length, first-screen
   legal copy, optional fields, course preselection, and mobile usability.
+- Do not optimize the form when `apply_click` volume is still below the form-stage threshold;
+  there is not enough evidence that the form is the earliest bottleneck.
 - If submissions exist but payments do not, inspect payment timing, trust, reminders, and policy
   clarity.
 - Use `성공`, `실패`, or `자료 부족`. Never call insufficient data a failure.

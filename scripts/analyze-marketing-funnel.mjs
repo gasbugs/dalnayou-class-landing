@@ -73,45 +73,66 @@ const won = (value, estimated = false) =>
   Number.isFinite(value)
     ? `${estimated ? "약 " : ""}${Math.round(value).toLocaleString("ko-KR")}원`
     : "—";
+const metricSource = (record, field) => {
+  const explicit = record.metric_sources?.[field];
+  if (typeof explicit === "string" && explicit.trim()) {
+    return explicit;
+  }
+  return record.source_systems.length === 1 ? record.source_systems[0] : null;
+};
+const cohortCompatible = (record, numerator, denominator) => {
+  const numeratorSource = metricSource(record, numerator);
+  const denominatorSource = metricSource(record, denominator);
+  return numeratorSource !== null && numeratorSource === denominatorSource;
+};
+const stageRatio = (record, numerator, denominator) =>
+  cohortCompatible(record, numerator, denominator)
+    ? ratio(record[numerator], record[denominator])
+    : null;
 
 const assess = (record) => {
   const checks = [
     {
       stage: "광고 클릭",
+      numerator: "link_clicks",
+      denominator: "impressions",
       ready: record.impressions >= 1000,
-      value: ratio(record.link_clicks, record.impressions),
       weak: (value) => value < 0.01,
       action: "광고의 첫 문장·대표 이미지·대상 문제를 우선 점검",
       sample: "노출 1,000회",
     },
     {
       stage: "랜딩 완료",
+      numerator: "landing_views",
+      denominator: "link_clicks",
       ready: record.link_clicks >= 20,
-      value: ratio(record.landing_views, record.link_clicks),
       weak: (value) => value < 0.6,
       action: "페이지 속도, accidental click, 광고-랜딩 메시지 일치를 점검",
       sample: "링크 클릭 20회",
     },
     {
       stage: "신청서 이동",
+      numerator: "apply_clicks",
+      denominator: "landing_views",
       ready: record.landing_views >= 30,
-      value: ratio(record.apply_clicks, record.landing_views),
       weak: (value) => value < 0.05,
       action: "결과물·신뢰·가격 근거·일정 적합성과 CTA 위치를 점검",
       sample: "유료 랜딩 30회",
     },
     {
       stage: "신청서 제출",
+      numerator: "application_submits",
+      denominator: "apply_clicks",
       ready: record.apply_clicks >= 10,
-      value: ratio(record.application_submits, record.apply_clicks),
       weak: (value) => value < 0.5,
       action: "모바일 폼 길이, 필수 문항, 동의 화면과 자동 선택을 점검",
       sample: "신청서 이동 10회",
     },
     {
       stage: "입금 확정",
+      numerator: "payment_confirmed",
+      denominator: "application_submits",
       ready: record.application_submits >= 3,
-      value: ratio(record.payment_confirmed, record.application_submits),
       weak: (value) => value < 0.5,
       action: "입금 안내 속도, 신뢰 근거, 환불 정책과 리마인드를 점검",
       sample: "신청서 제출 3회",
@@ -119,10 +140,17 @@ const assess = (record) => {
   ];
 
   return checks.map((check) => {
-    if (!check.ready || check.value === null) {
-      return { ...check, status: "자료 부족" };
+    const compatible = cohortCompatible(record, check.numerator, check.denominator);
+    const value = compatible
+      ? ratio(record[check.numerator], record[check.denominator])
+      : null;
+    if (!compatible) {
+      return { ...check, value, status: "비교 금지" };
     }
-    return { ...check, status: check.weak(check.value) ? "개선 필요" : "관찰 양호" };
+    if (!check.ready || value === null) {
+      return { ...check, value, status: "자료 부족" };
+    }
+    return { ...check, value, status: check.weak(value) ? "개선 필요" : "관찰 양호" };
   });
 };
 
@@ -131,7 +159,7 @@ const lines = [
   "",
   `원본: \`marketing/snapshots.jsonl\` · 최신 기록: ${records.at(-1).recorded_at}`,
   "",
-  "이 보고서는 서로 다른 분석 시스템을 섞은 경우 방향성 지표로만 사용합니다.",
+  "서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.",
   "판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.",
   "",
   "## 스냅샷",
@@ -141,8 +169,10 @@ const lines = [
 ];
 
 for (const record of records) {
+  const ctr = stageRatio(record, "link_clicks", "impressions");
+  const clickToLanding = stageRatio(record, "landing_views", "link_clicks");
   lines.push(
-    `| ${record.period_start}~${record.period_end} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${percent(ratio(record.link_clicks, record.impressions))} | ${count(record.landing_views)} | ${percent(ratio(record.landing_views, record.link_clicks))} | ${count(record.apply_clicks)} | ${count(record.application_submits)} | ${count(record.payment_confirmed)} |`
+    `| ${record.period_start}~${record.period_end} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${cohortCompatible(record, "link_clicks", "impressions") ? percent(ctr) : "비교 금지"} | ${count(record.landing_views)} | ${cohortCompatible(record, "landing_views", "link_clicks") ? percent(clickToLanding) : "비교 금지"} | ${count(record.apply_clicks)} | ${count(record.application_submits)} | ${count(record.payment_confirmed)} |`
   );
 }
 
@@ -151,7 +181,11 @@ for (const record of records) {
   lines.push(`### ${record.content}`, "");
   const assessments = assess(record);
   for (const item of assessments) {
-    const detail = item.status === "자료 부족" ? item.sample : percent(item.value);
+    const detail = item.status === "자료 부족"
+      ? item.sample
+      : item.status === "비교 금지"
+        ? "서로 다른 집계 시스템 또는 출처 불명"
+        : percent(item.value);
     lines.push(`- ${item.stage}: **${item.status}** (${detail})`);
   }
   const firstWeak = assessments.find((item) => item.status === "개선 필요");
@@ -176,6 +210,8 @@ lines.push(
   "## 운영 규칙",
   "",
   "- 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.",
+  "- Meta 수치와 GA4 수치를 서로 나눠 전환율을 계산하지 않습니다.",
+  "- 복수 시스템 기록은 `metric_sources`로 분자와 분모의 출처가 명시된 비율만 계산합니다.",
   "- 광고·랜딩·신청서 변경 시각과 실험 ID는 `marketing-history.md`에 기록합니다.",
   "- `자료 부족`을 실패로 부르지 않습니다.",
   "- 광고비 증액과 랜딩 구조 변경을 동시에 진행하지 않습니다.",

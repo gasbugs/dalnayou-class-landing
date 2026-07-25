@@ -81,6 +81,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Give each physical QR source a distinct UTM identity. Encode the full destination URL in the QR and verify the decoded destination, not only the image appearance.
 - Explain clearly that `apply_click` measures a click to the form, not a completed form submission.
 - Treat `application_submit` as the completed-form event. Never send applicant name, phone number, or other personal data to GA4.
+- Never divide Meta counts by GA4 counts to create a funnel conversion rate. Meta landing
+  views and GA4 sessions have different definitions, attribution, consent loss, and deduplication.
+  Compare stages within one system unless every metric has an explicit same-cohort source.
 - Keep Meta Pixel initialization in `marketing-events.js`. `ApplyClick` means the visitor opened the application form; do not report it as a completed application.
 - Keep the prepared promotional short on both main chooser mirrors and both course detail pages, with `shorts_section_view` for one-time visibility and `shorts_click` for the explicit YouTube link.
 - Keep the initial Meta campaign simple: one campaign, one broad local ad set, one creative, and the canonical tracked URL in `meta-ad-plan.md`.
@@ -96,6 +99,14 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Treat enterprise teaching history as proof, not decoration. Show a concise claim near the first CTA, specific institutions and dates in a dedicated trust section, and a tracked CTA immediately after the proof.
 - Give each meaningful CTA position a unique `data-track-label`; do not infer which CTA worked from aggregate `apply_click`.
 - Separate learner interest from payer intent, especially for youth courses. Write the page for both the person using the course and the person approving payment.
+- Check whether a youth-course ad set excludes the payer. When the age ceiling excludes
+  parents or working-adult prospects, test an age-ceiling expansion as one variable while
+  keeping creative, destination, region, and budget stable.
+- Before changing a live Google Form, inspect both the public form and editor for question
+  type, required state, branching, and current response count. Do not infer checkbox versus
+  single-select behavior from truncated HTML.
+- Optimize the earliest supported bottleneck. If application-form clicks are still too few
+  to evaluate completion, keep the form stable and improve the ad or landing stage first.
 - Do not call a result successful or failed before the documented minimum sample and observation window. Mark it `자료 부족` when the sample is insufficient.
 - Record failed hypotheses, contaminated data, and invalid comparisons. Do not delete or rewrite them after a later success.
 - Follow `references/conversion-optimization.md` for the reusable experiment format and decision rules.
@@ -169,6 +180,8 @@ Report the user-visible change, live URL, tracking identity when relevant, and a
 
 - Never expose bank details, phone numbers, or applicant data beyond content the user explicitly placed on the public page.
 - Do not infer that a form was submitted from `apply_click`.
+- Do not publish applicant names, phone numbers, or response rows in marketing history;
+  record only aggregate response counts and attribution completeness.
 - Do not silently change price, refund, deadline, or schedule facts while editing design.
 - Do not let a cache hit masquerade as a successful deployment; add a unique query parameter when checking live HTML.
 - Do not use destructive git commands.

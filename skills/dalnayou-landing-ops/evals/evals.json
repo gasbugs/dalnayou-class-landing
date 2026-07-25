@@ -130,6 +130,21 @@
         "The audit fails when the shared GA4 loader or sender is missing.",
         "The measurement finding, historical limitation, and duplicate-prevention rule are appended to the operating record."
       ]
+    },
+    {
+      "id": 11,
+      "prompt": "Meta는 랜딩 조회 19회인데 GA4에는 Facebook 세션이 74회이고 신청 버튼 클릭은 1회야. 신청서를 줄일지 광고 타게팅을 바꿀지 판단해서 다음 실험을 준비해줘.",
+      "expected_output": "Meta and GA4 remain separate measurement cohorts, the live form structure and aggregate response count are verified before editing, the earliest supported bottleneck is chosen, and any payer-audience correction changes only the age ceiling without silently publishing or changing spend.",
+      "files": [],
+      "expectations": [
+        "No conversion rate is calculated by dividing a Meta metric by a GA4 metric.",
+        "The public Google Form and editor are both checked for checkbox versus single-choice behavior, required fields, and aggregate response count without exposing applicant PII.",
+        "The form remains unchanged when apply_click volume is below the documented form-stage threshold.",
+        "A youth-course learner-versus-payer mismatch is considered in audience design.",
+        "An age expansion keeps creative, destination, region, and budget stable as a one-variable experiment.",
+        "No live audience, budget, creative, or publication change occurs before the observation threshold and action-time approval.",
+        "The exact snapshots, data limitations, correction, and next decision point are appended to the learning record."
+      ]
     }
   ]
 }
