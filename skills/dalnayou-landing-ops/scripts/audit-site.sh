@@ -108,6 +108,7 @@ contains marketing-history.md '자료 부족' 'Marketing history distinguishes i
 contains marketing-report.md '클씨랩 AI 클래스 퍼널 보고서' 'Generated marketing funnel report exists'
 contains marketing-report.md '자료 부족' 'Generated report enforces sample-readiness language'
 contains marketing-report.md '실험 실행 게이트' 'Generated report shows queued experiment gates'
+contains marketing-report.md '강좌 상세 직접 유입은 `course_click`을 요구하지 않고' 'Generated report separates direct-course measurement'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

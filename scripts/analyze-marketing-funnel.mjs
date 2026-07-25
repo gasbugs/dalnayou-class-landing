@@ -205,6 +205,17 @@ for (const record of records) {
 lines.push("", "## 최신 병목 판정", "");
 for (const record of latestRecords) {
   lines.push(`### ${record.content}`, "");
+  if (record.source_systems.includes("google_forms")) {
+    lines.push(
+      `- 누적 신청서 제출: **${count(record.application_submits)}건**`,
+      "- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)",
+    );
+    if (record.notes) {
+      lines.push(`- 기록: ${record.notes}`);
+    }
+    lines.push("");
+    continue;
+  }
   const assessments = assess(record);
   for (const item of assessments) {
     const detail = item.status === "자료 부족"
@@ -273,6 +284,10 @@ lines.push(
   "- 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.",
   "- Meta 수치와 GA4 수치를 서로 나눠 전환율을 계산하지 않습니다.",
   "- 복수 시스템 기록은 `metric_sources`로 분자와 분모의 출처가 명시된 비율만 계산합니다.",
+  "- 과정 선택 페이지 유입은 `page_view → course_click → apply_click` 경로로 봅니다.",
+  "- 강좌 상세 직접 유입은 `course_click`을 요구하지 않고 강좌 페이지 `page_view → apply_click` 경로로 봅니다.",
+  "- 절대 `apply_click`과 `application_submit` 수를 함께 확인해 닫힌 퍼널의 거짓 0을 방지합니다.",
+  "- GA4는 보고서를 확인한 날이 아니라 최신 완전 처리일을 명시합니다.",
   "- 광고·랜딩·신청서 변경 시각과 실험 ID는 `marketing-history.md`에 기록합니다.",
   "- `자료 부족`을 실패로 부르지 않습니다.",
   "- 광고비 증액과 랜딩 구조 변경을 동시에 진행하지 않습니다.",

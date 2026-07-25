@@ -9,11 +9,20 @@ Measure the campaign in this order:
 
 1. Advertisement impression and link click
 2. Landing-page view
-3. Course selection when the visitor lands on the chooser
+3. Course selection only when the visitor lands on the chooser
 4. Trust-section view
 5. Application-form click
 6. Completed application
 7. Confirmed payment
+
+Use two web paths rather than forcing all traffic through one closed sequential funnel:
+
+- Chooser path: chooser `page_view` → `course_click` → course-page `apply_click`
+- Direct-course path: course-page `page_view` → `apply_click`
+
+Also report absolute `apply_click` and `application_submit` counts independently. An ad that
+lands on `roblox.html` or `notebooklm.html` cannot emit the chooser's `course_click`, so a
+closed funnel that requires that event produces a false zero for valid direct-course traffic.
 
 `apply_click` is intent, not a completed application. `application_submit` is a form
 submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
@@ -27,6 +36,9 @@ submission, not revenue. Only `payment_confirmed` is a confirmed enrolment.
 3. Exclude operator tests, debug traffic, foreign traffic, and unqualified Direct traffic.
 4. Identify the earliest stage with material loss. Fix that bottleneck first.
 5. Write one falsifiable hypothesis in `marketing-history.md`.
+
+Record the latest date that GA4 has fully processed. Do not label the newest visible report
+as "today" when GA4 only allows an earlier processed date.
 
 Keep measurement systems separate. Meta landing-page views and GA4 sessions are not the
 same cohort even when their date and UTM labels match. Calculate CTR and click-to-landing

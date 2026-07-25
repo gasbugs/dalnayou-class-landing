@@ -203,6 +203,22 @@
         "No live Meta creative, audience, budget, URL, or publication state is changed.",
         "The candidate-only refinement is appended to marketing-history.md."
       ]
+    },
+    {
+      "id": 16,
+      "prompt": "광고가 과정 선택 페이지와 강좌 상세 페이지로 각각 연결되는데 GA4의 닫힌 퍼널에서는 신청이 0으로 보여. 실제 신청 여부를 다시 판단하고 측정 구조를 바로잡아줘.",
+      "expected_output": "Chooser and direct-course traffic are evaluated as separate GA4 paths, absolute application events and aggregate form responses are cross-checked without PII, the latest processed date is stated accurately, and no live conversion change is launched before the active experiment gate.",
+      "files": [],
+      "expectations": [
+        "The chooser path requires course_click but the direct-course path does not.",
+        "Absolute apply_click and application_submit counts are checked outside the closed sequential funnel.",
+        "The latest fully processed GA4 date is recorded instead of being mislabeled as today's data.",
+        "Google Form aggregate response count and course totals are recorded without applicant PII.",
+        "Responses with empty attribution are not assigned to the paid campaign.",
+        "Meta and GA4 metrics remain separate cohorts.",
+        "The measurement failure and corrected rule are appended to the reusable skill and marketing history.",
+        "No live audience, budget, creative, or landing change occurs while the current experiment gate remains waiting."
+      ]
     }
   ]
 }
