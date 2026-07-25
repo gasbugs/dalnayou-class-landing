@@ -103,3 +103,19 @@ Keep quantitative observations separate from interpretation:
 - `marketing/snapshots.jsonl`: append-only raw counts and source-system limitations
 - `marketing-report.md`: deterministic generated rates and sample-readiness checks
 - `marketing-history.md`: hypotheses, changes, qualitative evidence, decisions, and lessons
+
+For a CTA-position observation, append a normal snapshot record and add:
+
+```json
+{
+  "content": "roblox_mobile_form",
+  "course": "roblox",
+  "link_position": "roblox_mobile_form",
+  "apply_cta_views": 42,
+  "apply_clicks": 3,
+  "source_systems": ["ga4"]
+}
+```
+
+Use only a fully processed GA4 period. An absent metric means pending data; it must not be
+silently converted to zero.

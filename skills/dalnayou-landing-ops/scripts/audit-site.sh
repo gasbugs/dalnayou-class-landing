@@ -120,6 +120,9 @@ contains marketing-report.md '자료 부족' 'Generated report enforces sample-r
 contains marketing-report.md '실험 실행 게이트' 'Generated report shows queued experiment gates'
 contains marketing-report.md '강좌 상세 직접 유입은 `course_click`을 요구하지 않고 `course_landing_view → apply_click`' 'Generated report separates direct-course measurement'
 contains marketing-report.md 'apply_cta_view → apply_click' 'Generated report defines CTA position conversion'
+contains marketing-report.md 'CTA 위치별 성과' 'Generated report includes CTA position performance'
+contains marketing-report.md '아직 수집된 CTA 위치 스냅샷이 없습니다' 'Generated report does not invent CTA data'
+contains scripts/analyze-marketing-funnel.mjs '"apply_cta_views"' 'Marketing analyzer accepts CTA view counts'
 contains marketing/experiments.json 'experiments/e-007-mobile-cta-preview\.html' 'E-007 references its internal preview'
 contains marketing-report.md 'experiments/e-007-mobile-cta-preview\.html' 'Generated report exposes the E-007 preview path'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then

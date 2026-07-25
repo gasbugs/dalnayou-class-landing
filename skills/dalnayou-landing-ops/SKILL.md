@@ -117,6 +117,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Each course-page application CTA must emit `apply_cta_view` once when at least 60% visible,
   using the same `link_position` as its `apply_click`. Compare clicks with views from the same
   page, course, source, and date range before changing CTA placement.
+- Store CTA-position observations in `marketing/snapshots.jsonl` with
+  `apply_cta_views`, `apply_clicks`, `course`, and `link_position`. Never write a synthetic zero
+  before GA4 has processed the period; leave the metric absent and report that data is pending.
 - Separate learner interest from payer intent, especially for youth courses. Write the page for both the person using the course and the person approving payment.
 - Check whether a youth-course ad set excludes the payer. When the age ceiling excludes
   parents or working-adult prospects, test an age-ceiling expansion as one variable while

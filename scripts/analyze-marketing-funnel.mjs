@@ -26,6 +26,7 @@ const numericFields = [
   "landing_views",
   "course_clicks",
   "trust_views",
+  "apply_cta_views",
   "apply_clicks",
   "application_submits",
   "payment_confirmed",
@@ -187,6 +188,31 @@ for (const record of latestRecords) {
   lines.push(
     `| ${record.period_start}~${record.period_end} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${cohortCompatible(record, "link_clicks", "impressions") ? percent(ctr) : "비교 금지"} | ${count(record.landing_views)} | ${cohortCompatible(record, "landing_views", "link_clicks") ? percent(clickToLanding) : "비교 금지"} | ${count(record.apply_clicks)} | ${count(record.application_submits)} | ${count(record.payment_confirmed)} |`
   );
+}
+
+const latestCtaRecords = latestRecords.filter(
+  (record) => Number.isFinite(record.apply_cta_views),
+);
+lines.push("", "## CTA 위치별 성과", "");
+if (latestCtaRecords.length === 0) {
+  lines.push(
+    "아직 수집된 CTA 위치 스냅샷이 없습니다. 배포 후 같은 GA4 기간·과정·유입 안에서 집계합니다.",
+    "",
+  );
+} else {
+  lines.push(
+    "| 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |",
+    "| --- | --- | ---: | ---: | ---: | --- |",
+  );
+  for (const record of latestCtaRecords) {
+    const ctaToApply = stageRatio(record, "apply_clicks", "apply_cta_views");
+    const position = record.link_position || record.content;
+    const course = record.course ? `${record.course} · ` : "";
+    lines.push(
+      `| ${record.period_start}~${record.period_end} | \`${course}${position}\` | ${count(record.apply_cta_views)} | ${count(record.apply_clicks)} | ${cohortCompatible(record, "apply_clicks", "apply_cta_views") ? percent(ctaToApply) : "비교 금지"} | ${record.source_systems.join(" + ")} |`,
+    );
+  }
+  lines.push("");
 }
 
 lines.push(

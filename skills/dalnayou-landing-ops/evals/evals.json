@@ -251,6 +251,21 @@
         "The internal preview is excluded from the public dist artifact.",
         "No live Roblox or NotebookLM CTA layout is changed before the dependency gate."
       ]
+    },
+    {
+      "id": 19,
+      "prompt": "apply_cta_view를 추가했으니 나중에 위치별 신청률을 자동 보고서에서 비교할 수 있게 해줘. 아직 데이터가 없으면 0으로 쓰지는 마.",
+      "expected_output": "The immutable snapshot schema accepts CTA view counts and position identity, the generated report computes same-source view-to-application rates when available, and missing post-deployment data remains explicitly pending rather than becoming a fabricated zero.",
+      "files": [],
+      "expectations": [
+        "The analyzer validates optional apply_cta_views as a non-negative numeric metric.",
+        "CTA observations can identify course and link_position without rewriting historical records.",
+        "The report calculates apply_clicks divided by apply_cta_views only when both metrics have the same source.",
+        "Cross-system CTA rates are labeled 비교 금지.",
+        "No-data output states that a CTA position snapshot has not yet been collected.",
+        "No synthetic zero is appended before GA4 fully processes the post-deployment period.",
+        "The schema rule and current limitation are added to the operating skill and marketing history."
+      ]
     }
   ]
 }
