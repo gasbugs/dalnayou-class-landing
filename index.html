@@ -144,6 +144,33 @@
     </section>
 
   </main>
+  <section id="enterprise-trust" class="border-y border-white/10 bg-[#111827] px-5 py-16 text-white md:py-20" data-trust-section data-trust-course="course_selector">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-center text-sm font-extrabold text-yellow-300">2015년부터 이어진 기업 교육 경험</p>
+      <h2 class="mx-auto mt-3 max-w-4xl text-center text-3xl font-extrabold leading-tight md:text-5xl">
+        대기업·금융권·공공기관이<br class="md:hidden" /> 먼저 선택한 교육
+      </h2>
+      <p class="mx-auto mt-5 max-w-3xl text-center text-base font-medium leading-relaxed text-white/75 md:text-lg">
+        클씨랩은 기업 현장에서 검증한 클라우드·보안·DevOps·AI 실습 교육 경험을
+        일반인과 학생도 끝까지 따라올 수 있는 4주 과정으로 설계했습니다.
+      </p>
+      <div class="mt-10 border-y border-white/15 py-7">
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-4 text-center text-base font-extrabold text-white/90 md:text-lg">
+          <span>현대자동차</span><span>삼성SDS</span><span>LG CNS</span><span>금융보안원</span>
+          <span>경찰청</span><span>하나금융</span><span>KISA</span><span>코스콤</span>
+          <span>우리FIS</span><span>넥슨</span>
+        </div>
+      </div>
+      <div class="mt-8 grid gap-7 text-center md:grid-cols-3 md:divide-x md:divide-white/15">
+        <div><strong class="text-3xl font-extrabold text-yellow-300">10년+</strong><p class="mt-2 text-sm leading-relaxed text-white/70">기업·기관 대상 B2B 교육 경험</p></div>
+        <div><strong class="text-xl font-extrabold">2019~현재</strong><p class="mt-2 text-sm leading-relaxed text-white/70">멀티캠퍼스·삼성통합보안센터 정기 교육</p></div>
+        <div><strong class="text-xl font-extrabold">2020~현재</strong><p class="mt-2 text-sm leading-relaxed text-white/70">금융보안원 정기 교육</p></div>
+      </div>
+      <p class="mt-8 text-center text-xs leading-relaxed text-white/45">
+        기관명은 클씨랩 또는 강사진의 출강·프로젝트 이력이며, 본 B2C 과정의 직접 수강 기관을 뜻하지 않습니다.
+      </p>
+    </div>
+  </section>
   <section id="shorts" class="bg-white px-5 py-20 text-ink-900 md:py-28" data-shorts-section>
     <div class="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_360px] md:gap-16">
       <div>
@@ -264,6 +291,19 @@
           shortsObserver.disconnect();
         }, { threshold: 0.35 });
         shortsObserver.observe(shortsSection);
+      }
+
+      const trustSection = document.querySelector('[data-trust-section]');
+      if (trustSection && 'IntersectionObserver' in window) {
+        const trustObserver = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          track('enterprise_trust_view', {
+            section_id: trustSection.id,
+            course: trustSection.dataset.trustCourse || 'unknown',
+          });
+          trustObserver.disconnect();
+        }, { threshold: 0.35 });
+        trustObserver.observe(trustSection);
       }
 
       document.addEventListener('click', (event) => {

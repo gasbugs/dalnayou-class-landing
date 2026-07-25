@@ -83,6 +83,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 - `map_click`: 카카오맵·네이버지도 위치 클릭
 - `policy_click`: 환불 정책 클릭
 - `shorts_section_view`: 쇼츠 섹션 노출
+- `enterprise_trust_view`: 대기업·금융권·공공기관 출강 신뢰 섹션 노출
 - `print_click`: A4 포스터 인쇄/PDF 저장 클릭
 - `download_click`: 카드뉴스 ZIP·PNG 다운로드
 - `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
@@ -110,6 +111,7 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
    - `map_click`
    - `policy_click`
    - `shorts_section_view`
+   - `enterprise_trust_view`
    - `print_click`
    - `download_click`
    - `copy_click`
