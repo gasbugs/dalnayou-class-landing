@@ -220,6 +220,22 @@
         "The measurement failure and corrected rule are appended to the reusable skill and marketing history.",
         "No live audience, budget, creative, or landing change occurs while the current experiment gate remains waiting."
       ]
+    },
+    {
+      "id": 17,
+      "prompt": "히어로·기업 이력·마지막·모바일 신청 버튼 중 어디가 좋은지 클릭 수로 비교하려는데, 버튼마다 본 사람 수가 달라. 다음 랜딩 개선을 정확히 고를 수 있게 측정을 보완해줘.",
+      "expected_output": "Every course-page application CTA emits a one-time visibility event with the same position identity as its click, allowing same-cohort view-to-click comparison without changing the live offer, layout, audience, or budget.",
+      "files": [],
+      "expectations": [
+        "All Roblox and NotebookLM application CTAs retain unique data-track-label values.",
+        "Visible application CTAs emit apply_cta_view with the same link_position used by apply_click.",
+        "The visibility event includes the explicit course_selection.",
+        "Each CTA is unobserved after its first qualifying view so scrolling does not duplicate impressions.",
+        "A stable visibility threshold prevents a single edge pixel from counting as a view.",
+        "CTA click rates are compared only within the same page, course, source, and date range.",
+        "The measurement rule, privacy boundary, and non-retroactive limitation are recorded and audited.",
+        "No live copy, CTA layout, ad audience, creative, destination, or budget changes as part of the measurement fix."
+      ]
     }
   ]
 }

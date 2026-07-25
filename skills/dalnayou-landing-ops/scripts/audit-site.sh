@@ -89,6 +89,12 @@ contains roblox.html "track\\('course_landing_view'" 'Roblox sends a GA4 course 
 contains roblox.html "course_selection: 'roblox'" 'Roblox course landing identifies its course'
 contains notebooklm.html "track\\('course_landing_view'" 'NotebookLM sends a GA4 course landing event'
 contains notebooklm.html "course_selection: 'notebooklm'" 'NotebookLM course landing identifies its course'
+contains roblox.html "track\\('apply_cta_view'" 'Roblox measures application CTA visibility'
+contains notebooklm.html "track\\('apply_cta_view'" 'NotebookLM measures application CTA visibility'
+contains roblox.html 'applyCtaObserver\.unobserve\(target\)' 'Roblox application CTA views are one-time'
+contains notebooklm.html 'applyCtaObserver\.unobserve\(target\)' 'NotebookLM application CTA views are one-time'
+contains roblox.html 'threshold: 0\.6' 'Roblox application CTA visibility uses a stable threshold'
+contains notebooklm.html 'threshold: 0\.6' 'NotebookLM application CTA visibility uses a stable threshold'
 contains index.html 'data-course-selection="notebooklm"' 'Main landing identifies Notebook course selections'
 contains index.html 'data-course-selection="roblox"' 'Main landing identifies Roblox course selections'
 contains main.html 'data-course-selection="notebooklm"' 'Main mirror identifies Notebook course selections'
@@ -113,6 +119,7 @@ contains marketing-report.md '클씨랩 AI 클래스 퍼널 보고서' 'Generate
 contains marketing-report.md '자료 부족' 'Generated report enforces sample-readiness language'
 contains marketing-report.md '실험 실행 게이트' 'Generated report shows queued experiment gates'
 contains marketing-report.md '강좌 상세 직접 유입은 `course_click`을 요구하지 않고 `course_landing_view → apply_click`' 'Generated report separates direct-course measurement'
+contains marketing-report.md 'apply_cta_view → apply_click' 'Generated report defines CTA position conversion'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

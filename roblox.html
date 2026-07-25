@@ -761,6 +761,24 @@
         });
       });
 
+      const applyCtas = document.querySelectorAll(
+        '[data-track-event="apply_click"][data-track-label]'
+      );
+      if (applyCtas.length && 'IntersectionObserver' in window) {
+        const applyCtaObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const target = entry.target;
+            track('apply_cta_view', {
+              link_position: target.dataset.trackLabel,
+              course_selection: 'roblox',
+            });
+            applyCtaObserver.unobserve(target);
+          });
+        }, { threshold: 0.6 });
+        applyCtas.forEach((target) => applyCtaObserver.observe(target));
+      }
+
       const shortsSection = document.querySelector('[data-shorts-section]');
       if (shortsSection && 'IntersectionObserver' in window) {
         const shortsObserver = new IntersectionObserver((entries) => {

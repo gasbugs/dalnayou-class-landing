@@ -114,6 +114,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Change one primary hypothesis at a time. Keep audience, creative, destination, budget, and landing structure stable wherever the experiment requires a fair comparison.
 - Treat enterprise teaching history as proof, not decoration. Show a concise claim near the first CTA, specific institutions and dates in a dedicated trust section, and a tracked CTA immediately after the proof.
 - Give each meaningful CTA position a unique `data-track-label`; do not infer which CTA worked from aggregate `apply_click`.
+- Each course-page application CTA must emit `apply_cta_view` once when at least 60% visible,
+  using the same `link_position` as its `apply_click`. Compare clicks with views from the same
+  page, course, source, and date range before changing CTA placement.
 - Separate learner interest from payer intent, especially for youth courses. Write the page for both the person using the course and the person approving payment.
 - Check whether a youth-course ad set excludes the payer. When the age ceiling excludes
   parents or working-adult prospects, test an age-ceiling expansion as one variable while

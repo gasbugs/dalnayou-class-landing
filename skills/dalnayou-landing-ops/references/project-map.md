@@ -52,6 +52,8 @@
 - The main chooser and both detail pages load committed static Tailwind CSS and must not depend on Tailwind Play CDN at runtime.
 - Both chooser hero images are eager because both are visible in the first mobile and desktop viewport.
 - Course detail pages retain `apply_click` on every application CTA.
+- Course detail pages emit one `apply_cta_view` per visibly reached application CTA, using
+  the same `link_position` as the click event.
 - Enterprise teaching proof appears near the first CTA and in a dedicated trust section with a uniquely labelled application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
 - Each application CTA persists its unique position into the automatic attribution field,

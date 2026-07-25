@@ -51,6 +51,9 @@ only as a tracking diagnostic, never as a conversion rate.
 - Change one primary variable at a time.
 - Give each creative and destination a distinct `utm_content`.
 - Give each meaningful CTA position a distinct `data-track-label`.
+- Measure each application CTA's `apply_cta_view` with the same `link_position` used by
+  `apply_click`. A position click rate is valid only when views and clicks use the same
+  page, course, source, and date range.
 - Keep budget stable while landing structure changes.
 - Keep destination and audience stable when comparing creative whenever possible.
 - Match advertisement promise, landing headline, proof, outcome, schedule, price, and CTA.
