@@ -79,6 +79,13 @@ Search for the exact old phrase across the repository before editing. If it occu
   GA4 and Meta identify Notebook and Roblox consistently at every CTA position.
 - Preserve UTM parameters through internal navigation and include source context on click events.
 - Preserve `data-campaign-apply` on every application CTA so the existing Google Form receives UTM, landing path, course, campaign phase, and campaign price through `entry.1074868867`.
+- Include each CTA's `data-track-label` as `link_position` in the prefilled attribution
+  field and in the Apps Script `application_submit` payload. This is how hero, trust,
+  final, and mobile CTA clicks are tied to actual submissions.
+- Keep the live Apps Script `Code.gs` synchronized with
+  `integrations/google-apps-script/track-application-submit.gs`. Verify the installed
+  spreadsheet form-submit trigger after edits, and never run `trackApplicationSubmit`
+  manually because that would create a false submission event.
 - Generate channel URLs according to `references/tracking-taxonomy.md` and record reusable links in `tracking-links.md`.
 - Give each physical QR source a distinct UTM identity. Encode the full destination URL in the QR and verify the decoded destination, not only the image appearance.
 - Explain clearly that `apply_click` measures a click to the form, not a completed form submission.

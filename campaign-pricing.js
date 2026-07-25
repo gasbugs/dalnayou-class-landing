@@ -69,7 +69,7 @@
     });
   };
 
-  const buildApplicationUrl = (phase) => {
+  const buildApplicationUrl = (phase, linkPosition = "unknown") => {
     const source = window.dalnayouSource || {};
     const course = window.location.pathname.includes("roblox")
       ? "roblox"
@@ -85,6 +85,7 @@
       campaign_phase: phase.id,
       campaign_price: String(phase.price),
       course,
+      link_position: String(linkPosition || "unknown").trim().slice(0, 100),
     });
     const url = new URL(APPLICATION_FORM_URL);
     url.searchParams.set("usp", "pp_url");
@@ -135,7 +136,7 @@
         link.dataset.trackLabel = `${link.dataset.trackLabel || "apply"}_after_close`;
         return;
       }
-      link.href = buildApplicationUrl(phase);
+      link.href = buildApplicationUrl(phase, link.dataset.trackLabel);
     });
   };
 

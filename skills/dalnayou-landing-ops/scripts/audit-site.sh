@@ -44,6 +44,7 @@ required_files=(
   ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
+  integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
   images/shorts-cover.jpg
@@ -115,6 +116,10 @@ contains roblox.html 'dalnayou_landing_source' 'Roblox page preserves landing so
 contains notebooklm.html 'dalnayou_landing_source' 'NotebookLM page preserves landing source context'
 contains campaign-pricing.js 'entry\.1074868867' 'Application links prefill the Google Form attribution field'
 contains campaign-pricing.js 'entry\.240966579' 'Application links preselect the Google Form course'
+contains campaign-pricing.js 'link_position:' 'Application links persist the CTA position'
+contains campaign-pricing.js 'link\.dataset\.trackLabel' 'Application attribution uses each CTA tracking label'
+contains integrations/google-apps-script/track-application-submit.gs "link_position: attribution\.link_position" 'Form submissions send the CTA position to GA4'
+contains integrations/google-apps-script/track-application-submit.gs "'link_position'" 'Apps Script allows the CTA position'
 contains campaign-pricing.js 'AI로 만드는 내 학습 비서' 'NotebookLM form option is mapped'
 contains campaign-pricing.js 'AI로 만드는 내 게임' 'Roblox form option is mapped'
 contains campaign-pricing.js 'earlybird_1' 'First early-bird phase exists'

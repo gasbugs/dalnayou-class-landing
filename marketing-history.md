@@ -363,6 +363,36 @@ Meta 랜딩 페이지 조회 19회와 GA4 Facebook 세션 74회는 집계 정의
 - 앞으로 과정·상품·가격처럼 분석에 중요한 값은 위치 라벨 문자열에서 추정하지 않고
   독립적인 구조화 속성으로 전달합니다.
 
+## 운영 개선 M-006: CTA 클릭 위치를 실제 신청 제출까지 연결
+
+- 상태: 운영 중
+- 발견: `apply_click`에는 `link_position`이 있었지만 Google Form의 자동 유입
+  정보와 `application_submit`에는 CTA 위치가 없어, 어떤 신청 버튼이 실제 제출까지
+  이어졌는지 연결할 수 없었습니다.
+- 변경:
+  - `campaign-pricing.js`가 각 `data-campaign-apply` 링크의
+    `data-track-label`을 `link_position`으로 자동 입력
+  - Apps Script 허용 목록과 `application_submit` 이벤트에 `link_position` 추가
+  - Apps Script 원본을
+    `integrations/google-apps-script/track-application-submit.gs`로 버전 관리
+  - 라이브 Apps Script 프로젝트 `달나유 GA4 신청 완료 추적`의 `Code.gs` 동기화
+- 검증:
+  - Gemini 노트북의 히어로·기업 신뢰·마지막·모바일 CTA가 서로 다른
+    `link_position`을 생성
+  - Google Form 현재 URL 사용 상태에서
+    `notebooklm_enterprise_trust_form` 자동 입력 확인
+  - 기존 `스프레드시트에서 → 양식 제출 시` 트리거 1개와 오류율 0% 유지
+  - 테스트 응답은 제출하지 않아 응답 수와 `application_submit`을 인위적으로 늘리지 않음
+- 개인정보: 이름·전화번호·학년·응답 내용은 GA4에 보내지 않음
+- 판정 활용: 제출 3건 이상부터 CTA별 절대 제출 수를 참고하고, CTA 클릭 10건
+  이상인 위치는 `application_submit / apply_click`을 함께 비교
+
+### F-007: 클릭 이벤트만으로 CTA 성과를 판단
+
+- 클릭 위치만 기록하면 폼을 열고 이탈한 CTA도 성과가 좋아 보일 수 있습니다.
+- 앞으로 CTA 위치는 클릭 URL의 자동 유입 정보에 함께 넣고, 실제 제출 이벤트까지
+  같은 구조화 값으로 전달해 클릭률과 제출률을 분리해서 판단합니다.
+
 ## 다음 기록 양식
 
 ```text

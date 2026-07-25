@@ -160,6 +160,21 @@
         "The audit detects missing structured course values or Meta propagation.",
         "The historical misclassification and non-retroactive data limitation are recorded."
       ]
+    },
+    {
+      "id": 13,
+      "prompt": "히어로, 기업 이력 아래, 마지막, 모바일 신청 버튼 중 실제 신청서 제출로 이어진 위치를 비교할 수 있게 해줘.",
+      "expected_output": "Each application CTA persists its own link_position into the prefilled form attribution, the version-controlled and live Apps Script forwards that value on application_submit without PII, and the existing installed trigger remains intact without a fake test submission.",
+      "files": [],
+      "expectations": [
+        "Every data-campaign-apply URL includes the CTA's exact data-track-label as link_position.",
+        "The Google Form automatic attribution field visibly receives the selected CTA position.",
+        "The Apps Script attribution allowlist includes link_position and forwards it in application_submit.",
+        "The live Code.gs matches a repository source file that contains no API secret.",
+        "The existing spreadsheet form-submit trigger remains installed and shows no new errors.",
+        "No test form response or manual trackApplicationSubmit execution creates a false conversion.",
+        "The new attribution contract, privacy boundary, and prior measurement gap are documented and audited."
+      ]
     }
   ]
 }
