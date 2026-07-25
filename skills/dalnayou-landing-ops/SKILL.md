@@ -66,6 +66,14 @@ Search for the exact old phrase across the repository before editing. If it occu
 ### 3. Preserve analytics
 
 - Keep `data-track-event` on actionable elements.
+- Keep `ga4-events.js` on every public page so page views and custom events do not depend
+  on an unpublished or empty GTM container.
+- Do not infer that GA4 routing is active merely because the GTM snippet is present. Inspect
+  the published container before removing direct GA4, and treat a container with zero tags
+  as an inactive shell.
+- Custom event helpers must call `dalnayouSendGa4`; a plain
+  `dataLayer.push({ event: ... })` does not reach GA4 when the published GTM container has no
+  matching tag and trigger.
 - Application-form links use `apply_click`; inquiry links use `contact_click`; maps use `map_click`.
 - Preserve UTM parameters through internal navigation and include source context on click events.
 - Preserve `data-campaign-apply` on every application CTA so the existing Google Form receives UTM, landing path, course, campaign phase, and campaign price through `entry.1074868867`.

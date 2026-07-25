@@ -116,6 +116,20 @@
         "The public form is checked at a mobile viewport without sending a response or exposing applicant data.",
         "The form experiment and its apply_click-to-application_submit decision threshold are appended to marketing-history.md."
       ]
+    },
+    {
+      "id": 10,
+      "prompt": "GTM 코드가 모든 페이지에 있는데 GA4 이벤트가 제대로 들어가는지 확인하고, 누락되면 중복 없이 고쳐서 배포해줘.",
+      "expected_output": "The published GTM container is inspected rather than assumed active, direct GA4 delivery remains when the container is empty, every public page sends page views, tracked actions reach GA4, and future GTM migration rules prevent duplicate events.",
+      "files": [],
+      "expectations": [
+        "The published GTM container tag state is checked before changing direct gtag delivery.",
+        "A shared direct GA4 loader is included in every public page and in the deployment allowlist.",
+        "Tracked auxiliary-page actions call a real GA4 event sender instead of relying only on a dataLayer object.",
+        "Existing apply_click names, CTA labels, UTM context, Meta Pixel behavior, and form submission tracking remain unchanged.",
+        "The audit fails when the shared GA4 loader or sender is missing.",
+        "The measurement finding, historical limitation, and duplicate-prevention rule are appended to the operating record."
+      ]
     }
   ]
 }

@@ -44,7 +44,7 @@ required_files=(
   ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
-  marketing-events.js images/roblox-creator-cole-tucker.webp
+  ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
   images/shorts-cover.jpg
   images/notebooklm-docusign-workplace.webp
@@ -59,6 +59,14 @@ for file in index.html main.html roblox.html notebooklm.html poster.html refund.
   contains "$file" 'GTM-KVC6H3SL' "$file includes the GTM container"
 done
 contains ads/index.html 'GTM-KVC6H3SL' 'Meta candidate page includes the GTM container'
+for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html ads/index.html 404.html; do
+  contains "$file" 'ga4-events\.js' "$file includes the direct GA4 loader"
+done
+contains ga4-events.js 'G-6W058PFM90' 'Shared GA4 loader uses the production measurement ID'
+contains ga4-events.js 'dalnayouSendGa4' 'Shared GA4 loader exposes the custom event sender'
+for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html ads/index.html; do
+  contains "$file" 'dalnayouSendGa4' "$file sends custom events directly to GA4"
+done
 contains ads/index.html 'marketing-events\.js' 'Meta candidate page includes the Meta Pixel loader'
 contains ads/index.html 'roblox_enterprise_v1' 'Roblox candidate has a unique tracked URL'
 contains ads/index.html 'notebooklm_enterprise_v1' 'Notebook candidate has a unique tracked URL'
@@ -199,6 +207,7 @@ contains .github/workflows/pages.yml 'node-version: 24' 'Pages workflow pins Nod
 contains .github/workflows/pages.yml 'run: npm ci' 'Pages workflow installs the pinned CSS build dependency'
 contains .github/workflows/pages.yml 'run: npm run build:css' 'Pages workflow rebuilds static landing CSS'
 contains .github/workflows/pages.yml "path: 'dist'" 'Pages workflow deploys dist'
+contains scripts/build-site.sh 'ga4-events\.js' 'Public build includes the direct GA4 loader'
 if [[ -d "$ROOT/dist" ]]; then
   if find "$ROOT/dist" -type f \( -name '*preview*' -o -name 'index-legacy.html' -o -name 'source.html' \) | grep -q .; then
     fail 'Public artifact contains a preview, legacy, or source page'
@@ -219,6 +228,11 @@ if [[ -d "$ROOT/dist" ]]; then
     pass 'Public artifact includes all compiled landing styles'
   else
     fail 'Public artifact is missing one or more compiled landing styles'
+  fi
+  if [[ -f "$ROOT/dist/ga4-events.js" ]]; then
+    pass 'Public artifact includes the direct GA4 loader'
+  else
+    fail 'Public artifact is missing the direct GA4 loader'
   fi
 else
   warn 'dist is absent; run bash scripts/build-site.sh before publishing'

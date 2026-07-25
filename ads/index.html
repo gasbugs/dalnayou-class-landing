@@ -14,6 +14,7 @@
   })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
   <!-- End Google Tag Manager -->
   <script defer src="../marketing-events.js?v=20260723-v1"></script>
+  <script src="../ga4-events.js?v=20260725-v1"></script>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -156,6 +157,19 @@ https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=face
     </div>
   </main>
   <script>
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("[data-track-event]");
+      if (!target) return;
+      window.dalnayouSendGa4?.(target.dataset.trackEvent, {
+        link_position: target.dataset.trackLabel || "unknown",
+        link_text: String(target.textContent || target.getAttribute("aria-label") || "")
+          .trim()
+          .replace(/\s+/g, " ")
+          .slice(0, 120),
+        link_url: target.href || "",
+      });
+    });
+
     document.querySelectorAll("[data-copy]").forEach((button) => {
       button.addEventListener("click", async () => {
         const textarea = button.closest("article").querySelector("textarea");
@@ -166,6 +180,9 @@ https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=face
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "copy_click",
+          link_position: copyLabel,
+        });
+        window.dalnayouSendGa4?.("copy_click", {
           link_position: copyLabel,
         });
         setTimeout(() => { button.textContent = previous; }, 1400);

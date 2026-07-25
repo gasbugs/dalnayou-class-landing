@@ -49,3 +49,13 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 4. Use Exploration with Event name and `link_position` to compare hero, final, and mobile CTAs after registering it as an event-scoped custom dimension.
 
 The application link pre-fills the form's `유입 정보 (자동 입력)` field. The spreadsheet form-submit trigger parses only the approved UTM, landing, phase, and price keys and sends them with `application_submit`; it never sends name or phone fields.
+
+## Delivery path
+
+- `ga4-events.js` initializes measurement ID `G-6W058PFM90` on every public page.
+- Page trackers call `dalnayouSendGa4(eventName, params)` for actual GA4 delivery.
+- The same trackers may keep a structured `dataLayer` record for later GTM use.
+- The published `GTM-KVC6H3SL` container had no tags or triggers on 2026-07-25, so a
+  `dataLayer.push({ event: ... })` by itself did not send a GA4 event.
+- Before moving GA4 into GTM, publish and verify the intended Google tag and custom-event
+  triggers, then remove the direct sender in one coordinated change to avoid duplicates.

@@ -15,6 +15,7 @@
   })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
   <!-- End Google Tag Manager -->
   <script defer src="./marketing-events.js?v=20260723-v1"></script>
+  <script src="./ga4-events.js?v=20260725-v1"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -245,6 +246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const track = (eventName, params = {}) => {
       if (!eventName) return;
       window.dataLayer.push({ event: eventName, ...params });
+      window.dalnayouSendGa4?.(eventName, params);
     };
     window.dalnayouTrack = track;
     document.addEventListener("click", (event) => {

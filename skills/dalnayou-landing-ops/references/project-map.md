@@ -22,6 +22,7 @@
 | `marketing-report.md` | Generated funnel rates and sample-readiness assessment | Regenerate after appending a snapshot |
 | `course-operations.md` | Internal application, payment, seat, and learner operations checklist | Registration operations or staffing rules change |
 | `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
+| `ga4-events.js` | Shared direct GA4 loader and custom-event sender | Measurement ID or GA4 delivery behavior changes |
 | `marketing-events.js` | Shared Meta Pixel loader and web behavior events | Pixel ID or Meta event mapping changes |
 | `styles/main.css` | Compiled Tailwind CSS for the two-course chooser | Rebuild after chooser utility-class changes |
 | `styles/roblox.css` | Compiled Tailwind CSS for Roblox detail | Rebuild after Roblox utility-class changes |
@@ -52,7 +53,10 @@
 - Course detail pages retain `apply_click` on every application CTA.
 - Enterprise teaching proof appears near the first CTA and in a dedicated trust section with a uniquely labelled application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
-- Current pages use GTM container `GTM-KVC6H3SL`.
+- Current pages include GTM container `GTM-KVC6H3SL`, but its published container had zero
+  tags on 2026-07-25. Direct GA4 delivery therefore remains required.
+- Every public page loads `ga4-events.js`; pages with tracked actions call
+  `dalnayouSendGa4` in addition to retaining their data-layer record.
 - Current public pages use Meta Pixel `2173864043186723`; `ApplyClick` is a form click, not a completed application.
 - UTM/source context survives main-to-detail navigation for the session.
 - The A4 poster intentionally omits price and sends QR traffic with a print-specific UTM.

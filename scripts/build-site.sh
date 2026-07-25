@@ -17,6 +17,7 @@ cp \
   "${ROOT}/privacy.html" \
   "${ROOT}/404.html" \
   "${ROOT}/campaign-pricing.js" \
+  "${ROOT}/ga4-events.js" \
   "${ROOT}/marketing-events.js" \
   "${ROOT}/robots.txt" \
   "${ROOT}/sitemap.xml" \

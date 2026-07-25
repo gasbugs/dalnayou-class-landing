@@ -129,6 +129,11 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 
 다음 설정은 현재 필수 작업이 아니라, 직접 `gtag.js` 수집을 GTM으로 이전할 때 사용하는 전환 절차입니다.
 
+2026년 7월 25일 게시된 `GTM-KVC6H3SL` 컨테이너를 점검한 결과 태그와 트리거가
+0개였습니다. 따라서 현재는 모든 공개 페이지가 `ga4-events.js`로
+`G-6W058PFM90`을 직접 초기화하고, 각 추적 함수가 `dalnayouSendGa4`로 이벤트를
+전송합니다. GTM 설치 코드만 보고 직접 GA4를 제거하면 이벤트가 누락됩니다.
+
 1. GA4 기본 태그를 GTM에 추가
    - 태그 유형: Google Analytics / Google tag 또는 GA4 Configuration
    - Measurement ID: GA4 웹 스트림의 `G-XXXXXXXXXX`
@@ -150,6 +155,8 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 3. GA4 이벤트 태그 추가
    - 위 맞춤 이벤트 트리거마다 같은 이름의 GA4 이벤트 태그를 만듭니다.
    - `apply_click`, `contact_click`은 GA4에서 Key event로 지정하는 것을 권장합니다.
+   - GTM 게시와 동시에 직접 `dalnayouSendGa4` 호출을 제거하고 DebugView에서
+     이벤트가 한 번만 들어오는지 확인합니다.
 
 4. 권장 Data Layer Variable
    - `link_position`
