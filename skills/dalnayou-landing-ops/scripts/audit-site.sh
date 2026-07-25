@@ -44,6 +44,7 @@ required_files=(
   ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
+  marketing/experiments.json
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
@@ -106,6 +107,7 @@ contains marketing-history.md 'payment_confirmed' 'Marketing history tracks conf
 contains marketing-history.md '자료 부족' 'Marketing history distinguishes insufficient data from failure'
 contains marketing-report.md '클씨랩 AI 클래스 퍼널 보고서' 'Generated marketing funnel report exists'
 contains marketing-report.md '자료 부족' 'Generated report enforces sample-readiness language'
+contains marketing-report.md '실험 실행 게이트' 'Generated report shows queued experiment gates'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

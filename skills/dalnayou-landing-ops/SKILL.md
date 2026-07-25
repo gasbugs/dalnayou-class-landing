@@ -117,6 +117,9 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Optimize the earliest supported bottleneck. If application-form clicks are still too few
   to evaluate completion, keep the form stable and improve the ad or landing stage first.
 - Do not call a result successful or failed before the documented minimum sample and observation window. Mark it `자료 부족` when the sample is insufficient.
+- Keep queued experiments and their sample/time gates in `marketing/experiments.json`.
+  Regenerate the report before launching the next candidate, and do not bypass a `대기`
+  gate merely because a plausible new optimization was discovered.
 - Record failed hypotheses, contaminated data, and invalid comparisons. Do not delete or rewrite them after a later success.
 - Follow `references/conversion-optimization.md` for the reusable experiment format and decision rules.
 

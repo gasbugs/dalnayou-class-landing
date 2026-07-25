@@ -1,0 +1,40 @@
+{
+  "experiments": [
+    {
+      "id": "E-005",
+      "status": "prepared",
+      "name": "결제자까지 포함하는 연령 상한 확장",
+      "change": "Meta 광고 세트 연령을 18~24세에서 18~44세로 확장",
+      "keep_stable": [
+        "campaign",
+        "ad_set",
+        "creative",
+        "destination",
+        "region",
+        "daily_budget",
+        "account_spend_limit"
+      ],
+      "gate": {
+        "content": "all_paid_ads",
+        "metric": "landing_views",
+        "minimum": 30,
+        "not_before": "2026-07-27T22:45:00+09:00"
+      }
+    },
+    {
+      "id": "E-007",
+      "status": "candidate",
+      "name": "모바일 고정 CTA 신청 집중형",
+      "change": "모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대",
+      "depends_on": "E-005",
+      "keep_stable": [
+        "ad_audience",
+        "creative",
+        "destination",
+        "budget",
+        "hero_copy",
+        "application_form"
+      ]
+    }
+  ]
+}

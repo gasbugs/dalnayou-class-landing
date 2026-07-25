@@ -175,6 +175,20 @@
         "No test form response or manual trackApplicationSubmit execution creates a false conversion.",
         "The new attribution contract, privacy boundary, and prior measurement gap are documented and audited."
       ]
+    },
+    {
+      "id": 14,
+      "prompt": "모바일 고정 신청 버튼이 작아 보여. 바로 고치기 전에 지금 진행 중인 광고와 랜딩 실험을 오염시키지 않는지 확인하고 다음 행동을 정해줘.",
+      "expected_output": "The current experiment gate is evaluated from the latest immutable snapshot, a new mobile CTA hypothesis is queued rather than silently mixed into the active observation window, and the report states the remaining sample, earliest action time, dependency, and stable variables.",
+      "files": [],
+      "expectations": [
+        "The latest paid landing count is compared with the documented minimum sample.",
+        "The not-before time and remaining sample are generated from structured experiment data.",
+        "The mobile CTA candidate is recorded with one primary change and explicit stable variables.",
+        "The candidate depends on the earlier audience experiment rather than launching simultaneously.",
+        "The live mobile CTA is not changed while the gate remains 대기.",
+        "The report, learning history, skill rule, and audit all preserve the experiment order."
+      ]
     }
   ]
 }

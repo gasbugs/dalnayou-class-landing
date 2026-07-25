@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const SNAPSHOT_PATH = resolve(ROOT, "marketing/snapshots.jsonl");
+const EXPERIMENT_PATH = resolve(ROOT, "marketing/experiments.json");
 const REPORT_PATH = resolve(ROOT, "marketing-report.md");
 const WRITE_REPORT = process.argv.includes("--write");
 
@@ -69,6 +70,11 @@ for (const record of records) {
   latestBySegment.set(key, record);
 }
 const latestRecords = Array.from(latestBySegment.values());
+const experimentConfig = JSON.parse(await readFile(EXPERIMENT_PATH, "utf8"));
+if (!Array.isArray(experimentConfig.experiments)) {
+  throw new Error("marketing/experiments.json must contain an experiments array");
+}
+const experiments = experimentConfig.experiments;
 
 const ratio = (numerator, denominator) =>
   Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
@@ -223,6 +229,41 @@ for (const record of latestRecords) {
   if (record.notes) {
     lines.push(`- 기록: ${record.notes}`);
   }
+  lines.push("");
+}
+
+lines.push("## 실험 실행 게이트", "");
+const latestObservationMs = Date.parse(records.at(-1).recorded_at);
+for (const experiment of experiments) {
+  lines.push(`### ${experiment.id} · ${experiment.name}`, "");
+  lines.push(`- 준비 상태: \`${experiment.status}\``);
+  lines.push(`- 단일 변경: ${experiment.change}`);
+  if (experiment.depends_on) {
+    lines.push(`- 실행 순서: ${experiment.depends_on} 판정 이후에만 검토`);
+    lines.push("- 현재 판정: **대기**");
+  } else if (experiment.gate) {
+    const gateRecord = latestRecords.find(
+      (record) => record.content === experiment.gate.content,
+    );
+    const current = gateRecord?.[experiment.gate.metric];
+    const remaining = Number.isFinite(current)
+      ? Math.max(0, experiment.gate.minimum - current)
+      : null;
+    const sampleReady = remaining === 0;
+    const timeReady =
+      Number.isFinite(latestObservationMs) &&
+      latestObservationMs >= Date.parse(experiment.gate.not_before);
+    lines.push(
+      `- 표본 게이트: ${count(current)} / ${count(experiment.gate.minimum)} ` +
+      `(${sampleReady ? "충족" : `${count(remaining)}회 부족`})`,
+    );
+    lines.push(
+      `- 시간 게이트: ${experiment.gate.not_before} ` +
+      `(${timeReady ? "충족" : "대기"})`,
+    );
+    lines.push(`- 현재 판정: **${sampleReady && timeReady ? "실행 검토 가능" : "대기"}**`);
+  }
+  lines.push(`- 유지 변수: ${experiment.keep_stable.join(", ")}`);
   lines.push("");
 }
 

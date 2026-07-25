@@ -56,6 +56,25 @@
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 기록: Fresh Meta Ads Manager refresh at 23:02 KST; exact ad-level values.
 
+## 실험 실행 게이트
+
+### E-005 · 결제자까지 포함하는 연령 상한 확장
+
+- 준비 상태: `prepared`
+- 단일 변경: Meta 광고 세트 연령을 18~24세에서 18~44세로 확장
+- 표본 게이트: 19 / 30 (11회 부족)
+- 시간 게이트: 2026-07-27T22:45:00+09:00 (대기)
+- 현재 판정: **대기**
+- 유지 변수: campaign, ad_set, creative, destination, region, daily_budget, account_spend_limit
+
+### E-007 · 모바일 고정 CTA 신청 집중형
+
+- 준비 상태: `candidate`
+- 단일 변경: 모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대
+- 실행 순서: E-005 판정 이후에만 검토
+- 현재 판정: **대기**
+- 유지 변수: ad_audience, creative, destination, budget, hero_copy, application_form
+
 ## 운영 규칙
 
 - 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.
