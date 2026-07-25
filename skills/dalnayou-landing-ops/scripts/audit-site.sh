@@ -30,7 +30,7 @@ printf 'Dalnayou landing audit: %s\n\n' "$ROOT"
 required_files=(
   index.html main.html index-legacy.html roblox.html notebooklm.html
   poster.html refund.html cardnews/index.html cardnews/source.html
-  tracking-links.md meta-ad-plan.md campaign-pricing.js robots.txt sitemap.xml 404.html
+  tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
   images/shorts-cover.jpg
@@ -45,6 +45,10 @@ for file in index.html main.html roblox.html notebooklm.html poster.html refund.
 done
 contains roblox.html 'data-track-event="apply_click"' 'Roblox application CTAs are tracked'
 contains notebooklm.html 'data-track-event="apply_click"' 'NotebookLM application CTAs are tracked'
+contains roblox.html 'data-track-label="roblox_enterprise_trust_form"' 'Roblox trust proof has a distinct application CTA'
+contains notebooklm.html 'data-track-label="notebooklm_enterprise_trust_form"' 'NotebookLM trust proof has a distinct application CTA'
+contains marketing-history.md 'payment_confirmed' 'Marketing history tracks confirmed payments as the final conversion'
+contains marketing-history.md '자료 부족' 'Marketing history distinguishes insufficient data from failure'
 contains index.html 'landing_source_detected' 'Main landing detects source parameters'
 contains roblox.html 'dalnayou_landing_source' 'Roblox page preserves landing source context'
 contains notebooklm.html 'dalnayou_landing_source' 'NotebookLM page preserves landing source context'

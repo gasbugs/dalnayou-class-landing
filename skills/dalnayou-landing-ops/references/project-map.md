@@ -14,6 +14,7 @@
 | `cardnews/index.html` | Card-news hub and copy tools | Ad copy, payment/confirmation/refund messages, resource links |
 | `cardnews/source.html` | Render source for social cards | Text or design printed into PNG assets |
 | `tracking-links.md` | Campaign URL registry and GA/GTM notes | New channels, UTM naming, event inventory |
+| `marketing-history.md` | Append-only conversion baseline, experiments, failures, and decisions | Advertisement, CTA, form, or conversion work |
 | `course-operations.md` | Internal application, payment, seat, and learner operations checklist | Registration operations or staffing rules change |
 | `campaign-pricing.js` | Shared phased price and form-attribution runtime | Price, deadline, form field, or phase changes |
 | `marketing-events.js` | Shared Meta Pixel loader and web behavior events | Pixel ID or Meta event mapping changes |
@@ -34,6 +35,7 @@
 - The legacy `notebooklm.html` URL, analytics labels, internal course key, and exact Google Form option stay stable for compatibility.
 - Both main chooser mirrors and both course detail pages expose the prepared YouTube short and emit `shorts_section_view` and `shorts_click`.
 - Course detail pages retain `apply_click` on every application CTA.
+- Enterprise teaching proof appears near the first CTA and in a dedicated trust section with a uniquely labelled application CTA.
 - Course detail pages preselect the matching Google Form course while retaining the automatic attribution field.
 - Current pages use GTM container `GTM-KVC6H3SL`.
 - Current public pages use Meta Pixel `2173864043186723`; `ApplyClick` is a form click, not a completed application.

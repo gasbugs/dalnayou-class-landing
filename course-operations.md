@@ -9,6 +9,8 @@
 - 과정별 입금 요청 메시지는 `cardnews/index.html`의 복사 도구를 사용합니다.
 - 입금 확인 전에는 수강 확정으로 처리하지 않습니다.
 - Meta 광고 집행과 일일 성과 점검은 `meta-ad-plan.md`의 단일 캠페인 기준을 따릅니다.
+- `apply_click`은 신청서 이동, `application_submit`은 제출, 입금 확인은 최종 확정으로 각각 구분합니다.
+- 광고·랜딩 변경 전후 수치와 실제 입금 확정 인원은 `marketing-history.md`에 누적합니다.
 
 ## 입금 및 정원
 

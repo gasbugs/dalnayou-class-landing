@@ -149,6 +149,34 @@ Facebook 피드, Instagram 릴스·스토리 미리보기에서 첫 3초의 주�
 A/B 테스트가 아닙니다. 각 광고가 맡은 역할별 랜딩 페이지 조회와 신청 성과를
 비교하고, 실제 신청 완료는 `application_submit`으로 판단합니다.
 
+## 2026-07-25 전환 진단과 다음 소재
+
+7월 24~25일 초기 관찰에서는 총 노출 5,103회, 링크 클릭 30회, 랜딩 페이지 조회
+13회였고 처리 완료 GA4 데이터의 유료 Facebook `apply_click`과
+`application_submit`은 모두 0회였습니다. 상세 수치와 해석은
+`marketing-history.md`의 기준선을 따릅니다.
+
+현재 실험의 우선순위는 예산 확대가 아니라 아래 순서입니다.
+
+1. 기업·금융권·공공기관 교육 경험을 광고와 랜딩의 핵심 신뢰 근거로 일치시킵니다.
+2. 과정별 광고는 과정 선택 페이지를 거치지 않고 해당 상세 페이지로 연결합니다.
+3. 랜딩의 기업 이력 직후 CTA를 위치별로 추적합니다.
+4. 최소 30회 유료 랜딩과 변경 후 48시간을 모두 충족한 뒤 다음 판단을 합니다.
+
+다음 교체 후보 URL:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise
+```
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise
+```
+
+두 후보 모두 `현대자동차·삼성SDS·금융보안원 등 기업·기관 교육 경험 10년+`을
+핵심 근거로 사용합니다. 기존 광고를 실제로 교체하거나 새 소재를 게시하는 행위는
+예산을 늘리지 않더라도 담당자의 최종 확인 후 진행합니다.
+
 ## 게시 완료 확인
 
 - [x] 이미지 광고 `플레이어에서크리에이터로_단일소재`가 `활동 중`인지 확인
@@ -165,6 +193,7 @@ A/B 테스트가 아닙니다. 각 광고가 맡은 역할별 랜딩 페이지 �
 ## 일일 점검
 
 - 매일 같은 시간에 지출, 랜딩 페이지 조회, `ApplyClick`, GA4 `application_submit`을 기록합니다.
+- 변경 전후 수치와 실패 원인은 `marketing-history.md`에 날짜순으로 누적합니다.
 - `ApplyClick`은 신청서 이동일 뿐 신청 완료로 계산하지 않습니다.
 - 입금 확인 인원만 실제 확정 수강생으로 계산합니다.
 - 댓글과 메시지의 수강 연령, 노트북, 위치, 시간 문의를 운영 FAQ에 반영합니다.

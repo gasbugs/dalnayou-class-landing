@@ -87,6 +87,20 @@
         "The promotional video appears on the main mirrors and both course detail pages, and emits shorts_section_view and shorts_click.",
         "Mobile and desktop public pages are visually verified after deployment."
       ]
+    },
+    {
+      "id": 8,
+      "prompt": "광고는 돌고 있는데 신청이 안 들어와. 랜딩과 광고를 알아서 개선하고 이번 실패에서 다음에도 배울 수 있게 해줘.",
+      "expected_output": "The current paid funnel is baselined before editing, the earliest bottleneck is identified, one measurable conversion hypothesis is implemented without an unapproved spend change, CTA positions remain distinguishable, and the observation and failure record is appended for later decisions.",
+      "files": [],
+      "expectations": [
+        "Meta and GA4 counts use the same explicit date range and distinguish apply_click, application_submit, and payment_confirmed.",
+        "Operator, foreign, and unqualified Direct traffic are not treated as paid-campaign conversions.",
+        "The implemented page change has one stated primary hypothesis and unique tracking labels for meaningful CTA positions.",
+        "Advertising budget, publication, or payment settings are not changed without action-time approval.",
+        "marketing-history.md preserves the baseline, experiment status, sample threshold, and failed or invalid comparisons.",
+        "The result is not called a success or failure before the documented minimum sample and observation window."
+      ]
     }
   ]
 }

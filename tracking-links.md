@@ -31,6 +31,19 @@ Facebook Gemini 노트북 광고:
 https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_creative_a
 ```
 
+기업교육 이력 직접 랜딩 실험:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise
+```
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise
+```
+
+위 두 링크는 광고 메시지와 상세 페이지를 과정별로 일치시키는 다음 실험용입니다.
+현재 집행 링크와 섞어 해석하지 않고 `utm_content`별로 비교합니다.
+
 유튜브 쇼츠 본문:
 
 ```text
@@ -88,6 +101,14 @@ https://gasbugs.github.io/dalnayou-class-landing/?utm_source=a4_poster&utm_mediu
 - `download_click`: 카드뉴스 ZIP·PNG 다운로드
 - `copy_click`: 카드뉴스 광고 문구·확정 메시지·환불 메시지 복사
 - `landing_source_detected`: URL 파라미터가 있는 랜딩 진입 감지
+
+과정 상세 페이지의 기업 출강 이력 직후 CTA는 아래 `link_position`으로
+구분합니다.
+
+- `roblox_enterprise_trust_form`
+- `notebooklm_enterprise_trust_form`
+
+전환 실험의 기준선과 결과는 `marketing-history.md`에 누적합니다.
 - `application_submit`: 기존 Google 신청서가 실제 제출된 경우
 - `campaign_phase_view`: 방문 시 적용된 1차·2차 얼리버드 또는 파이널 등록 단계
 

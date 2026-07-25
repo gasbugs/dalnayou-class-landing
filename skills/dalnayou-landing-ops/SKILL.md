@@ -1,7 +1,6 @@
 ---
 name: dalnayou-landing-ops
 description: Operate, revise, verify, and publish the dalnayou-class-landing GitHub Pages campaign. Use this skill whenever the user asks to change the Dalnayou/Cloud Security Lab landing pages, course pages, A4 poster, card news, payment or confirmation messages, refund copy, QR codes, campaign URLs, UTM/GA4 tracking, mobile layout, print layout, or GitHub Pages deployment, even when they only request a small wording correction.
-compatibility: Requires shell tools, git, and curl. Uses gh when available and Chrome or an in-app browser for visual QA when available.
 ---
 
 # Dalnayou Landing Operations
@@ -14,8 +13,10 @@ Run this campaign as a controlled content-and-deployment loop. Small wording cha
 2. Read `references/project-map.md` before choosing files.
 3. Read `references/operating-plan.md` for the complete loop and definition of done.
 4. Read `references/tracking-taxonomy.md` for any QR, UTM, GA4, or channel-link task.
-5. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
-6. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
+5. Read `references/conversion-optimization.md` and the repository's
+   `marketing-history.md` for any application, advertisement, CTA, or conversion task.
+6. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
+7. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
 
 ## Classify the request
 
@@ -30,6 +31,7 @@ Choose the smallest applicable surface:
 - Refund rules: `refund.html` and matching message copy when explicitly requested.
 - Channel links and analytics guidance: `tracking-links.md` plus the destination page if tracking behavior changes.
 - Meta campaign operations: `meta-ad-plan.md` for account defaults, audience, budget ceiling, creative, stop rules, and approval boundaries.
+- Conversion experiments and failure learning: `marketing-history.md`; append observations and decisions instead of rewriting old results.
 - Campaign pricing and application attribution: `campaign-pricing.js`, course-page `data-campaign-apply` links, and the existing Google Form attribution field.
 - Course-page application links also preselect their matching Google Form course through `entry.240966579`; keep the option text synchronized with the live form.
 
@@ -72,7 +74,19 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Confirm that the business portfolio has a Facebook Page to use as the ad identity. Instagram is optional for the initial campaign.
 - Treat account creation, business-policy acceptance, payment-method entry, publishing, and spend increases as explicit approval actions. Prepare all reversible fields first and stop at the final confirmation.
 
-### 4. Protect mobile and print layouts
+### 4. Optimize conversion as a measured loop
+
+- Define the current bottleneck before changing the page: advertisement click, landing completion, course selection, trust-section reach, application click, application submission, or payment confirmation.
+- Capture the current date range, traffic source, spend, and funnel counts in `marketing-history.md` before changing a conversion surface.
+- Change one primary hypothesis at a time. Keep audience, creative, destination, budget, and landing structure stable wherever the experiment requires a fair comparison.
+- Treat enterprise teaching history as proof, not decoration. Show a concise claim near the first CTA, specific institutions and dates in a dedicated trust section, and a tracked CTA immediately after the proof.
+- Give each meaningful CTA position a unique `data-track-label`; do not infer which CTA worked from aggregate `apply_click`.
+- Separate learner interest from payer intent, especially for youth courses. Write the page for both the person using the course and the person approving payment.
+- Do not call a result successful or failed before the documented minimum sample and observation window. Mark it `자료 부족` when the sample is insufficient.
+- Record failed hypotheses, contaminated data, and invalid comparisons. Do not delete or rewrite them after a later success.
+- Follow `references/conversion-optimization.md` for the reusable experiment format and decision rules.
+
+### 5. Protect mobile and print layouts
 
 - Check narrow mobile widths first because most visitors arrive on phones.
 - Keep each course's heading, schedule, curriculum, and CTA visually grouped; do not interleave course content on mobile.
@@ -82,7 +96,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Ensure `.no-print` controls disappear only in print, not on narrow screens.
 - When removing a block from the poster, deliberately redistribute the released space instead of leaving a large gap.
 
-### 5. Regenerate derived assets
+### 6. Regenerate derived assets
 
 When `cardnews/source.html` changes:
 
@@ -94,7 +108,7 @@ When `cardnews/source.html` changes:
 
 Do not regenerate card images for changes limited to `cardnews/index.html` operator messages.
 
-### 6. Verify before publishing
+### 7. Verify before publishing
 
 Run:
 
@@ -117,7 +131,7 @@ Then perform proportional visual QA:
 
 Use the in-app browser when available. If it is unavailable, report that limitation and still complete structural checks. Do not claim visual verification you did not perform.
 
-### 7. Commit and publish safely
+### 8. Commit and publish safely
 
 - Stage only files changed for the current request.
 - Never stage, revert, or rewrite unrelated dirty files.
@@ -128,9 +142,9 @@ Use the in-app browser when available. If it is unavailable, report that limitat
 - If `gh` is unavailable, poll the exact public URL with a cache-busting query until the new distinguishing text appears.
 - Verify the live page itself; a successful push alone is not proof of deployment.
 
-### 8. Close the loop
+### 9. Close the loop
 
-Report the user-visible change, live URL, tracking identity when relevant, and any verification limitation. Keep the final response concise; the user needs the result and link, not a transcript of every command.
+Report the user-visible change, live URL, tracking identity when relevant, and any verification limitation. For conversion work, also name the active experiment and the earliest valid review point. Keep the final response concise; the user needs the result and link, not a transcript of every command.
 
 ## Operational safeguards
 
@@ -142,4 +156,4 @@ Report the user-visible change, live URL, tracking identity when relevant, and a
 
 ## Maintenance
 
-Update this skill when the repository gains a new public surface, tracking event, campaign naming rule, rendering command, or deployment mechanism. Add a corresponding eval to `evals/evals.json` whenever a real production correction reveals a missing rule.
+Update this skill when the repository gains a new public surface, tracking event, campaign naming rule, rendering command, deployment mechanism, or conversion-learning rule. Add a corresponding eval to `evals/evals.json` whenever a real production correction reveals a missing rule.
