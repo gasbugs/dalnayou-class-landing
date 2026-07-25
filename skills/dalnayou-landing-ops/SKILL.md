@@ -147,6 +147,15 @@ When `cardnews/source.html` changes:
 
 Do not regenerate card images for changes limited to `cardnews/index.html` operator messages.
 
+When `ads/source.html` changes:
+
+1. Run `scripts/render-meta-ads.sh`.
+2. Verify both feed outputs at 1080x1350 and both story outputs at 1080x1920.
+3. Fill the entire 4:5 feed canvas with intentional content or a continuous section
+   background; do not leave an accidental differently colored strip below the CTA.
+4. Preserve the lower story safe area for platform account and action overlays.
+5. Confirm the ZIP archive was regenerated and inspect all four native-size outputs.
+
 ### 7. Verify before publishing
 
 Run:

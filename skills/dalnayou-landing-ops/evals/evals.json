@@ -189,6 +189,20 @@
         "The live mobile CTA is not changed while the gate remains 대기.",
         "The report, learning history, skill rule, and audit all preserve the experiment order."
       ]
+    },
+    {
+      "id": 15,
+      "prompt": "기업 강의 이력을 강조한 Meta 광고 후보 피드와 스토리 이미지를 점검하고, 어색한 여백은 고치되 아직 라이브 광고에는 반영하지 마.",
+      "expected_output": "All four candidate assets are rendered and inspected at native size, feed canvases have no accidental trailing strip, story safe areas remain available for platform overlays, and the live experiment is not changed before its gate.",
+      "files": [],
+      "expectations": [
+        "Both feed assets are exactly 1080x1350 and use the full canvas intentionally.",
+        "Both story assets are exactly 1080x1920 and retain a lower platform-safe area.",
+        "Enterprise proof, course outcome, schedule, price, and CTA remain legible.",
+        "The candidate ZIP archive is regenerated from the current source.",
+        "No live Meta creative, audience, budget, URL, or publication state is changed.",
+        "The candidate-only refinement is appended to marketing-history.md."
+      ]
     }
   ]
 }
