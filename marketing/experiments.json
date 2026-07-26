@@ -76,6 +76,33 @@
         "application_form",
         "refund_policy"
       ]
+    },
+    {
+      "id": "E-010",
+      "status": "queued",
+      "name": "Google Form 모바일 첫 화면 압축",
+      "change": "신청서 설명에서 랜딩페이지와 중복되는 기관 이력·상세 가격 문장을 줄여 첫 필수 질문을 더 빨리 보이게 함",
+      "gate": {
+        "content": "ga4_today_processed_mixed",
+        "metric": "apply_clicks",
+        "minimum": 10,
+        "not_before": "2026-07-27T20:00:00+09:00"
+      },
+      "additional_condition": "application_submits remains 0 and Google Form response count does not increase",
+      "follow_up_candidate": "If form submissions still remain 0 after the first-screen test, evaluate a course-branching form so Notebook applicants do not have to select a Roblox grade.",
+      "keep_stable": [
+        "course_options",
+        "required_contact_fields",
+        "privacy_consent",
+        "price",
+        "schedule",
+        "location",
+        "application_attribution",
+        "landing_pages",
+        "ad_audience",
+        "ad_creative",
+        "ad_budget"
+      ]
     }
   ]
 }

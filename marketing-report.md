@@ -258,6 +258,15 @@
 - 현재 판정: **실행 중**
 - 유지 변수: price, schedule, location, application_form, refund_policy
 
+### E-010 · Google Form 모바일 첫 화면 압축
+
+- 준비 상태: `queued`
+- 단일 변경: 신청서 설명에서 랜딩페이지와 중복되는 기관 이력·상세 가격 문장을 줄여 첫 필수 질문을 더 빨리 보이게 함
+- 표본 게이트: 3 / 10 (7회 부족)
+- 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
+- 현재 판정: **대기**
+- 유지 변수: course_options, required_contact_fields, privacy_consent, price, schedule, location, application_attribution, landing_pages, ad_audience, ad_creative, ad_budget
+
 ## 운영 규칙
 
 - 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.
