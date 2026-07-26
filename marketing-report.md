@@ -275,6 +275,16 @@
 - 현재 판정: **대기**
 - 유지 변수: course_options, required_contact_fields, privacy_consent, price, schedule, location, application_attribution, landing_pages, ad_audience, ad_creative, ad_budget
 
+### E-011 · Gemini 노트북 업무 문서 문제형 소재
+
+- 준비 상태: `prepared_not_live`
+- 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
+- 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
+- 표본 게이트: 4 / 30 (26회 부족)
+- 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
+- 현재 판정: **대기**
+- 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
+
 ## 운영 규칙
 
 - 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.

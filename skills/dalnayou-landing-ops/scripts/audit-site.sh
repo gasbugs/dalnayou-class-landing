@@ -45,6 +45,7 @@ required_files=(
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
   marketing/experiments.json experiments/e-007-mobile-cta-preview.html
+  experiments/e-011-notebook-workload-ad-preview.html
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
@@ -144,6 +145,9 @@ fi
 contains scripts/analyze-marketing-funnel.mjs '"apply_cta_views"' 'Marketing analyzer accepts CTA view counts'
 contains marketing/experiments.json 'experiments/e-007-mobile-cta-preview\.html' 'E-007 references its internal preview'
 contains marketing-report.md 'experiments/e-007-mobile-cta-preview\.html' 'Generated report exposes the E-007 preview path'
+contains marketing/experiments.json 'experiments/e-011-notebook-workload-ad-preview\.html' 'E-011 references its internal preview'
+contains marketing/experiments.json 'notebooklm_workload_candidate_v2' 'E-011 reserves a unique candidate content value'
+contains marketing-report.md 'experiments/e-011-notebook-workload-ad-preview\.html' 'Generated report exposes the E-011 preview path'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

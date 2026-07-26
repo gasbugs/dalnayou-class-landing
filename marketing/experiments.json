@@ -103,6 +103,42 @@
         "ad_creative",
         "ad_budget"
       ]
+    },
+    {
+      "id": "E-011",
+      "status": "prepared_not_live",
+      "name": "Gemini 노트북 업무 문서 문제형 소재",
+      "change": "도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체",
+      "preview_file": "experiments/e-011-notebook-workload-ad-preview.html",
+      "candidate_content": "notebooklm_workload_candidate_v2",
+      "primary_metric": "meta_link_ctr_percent",
+      "downstream_metric": "notebooklm_apply_clicks",
+      "gate": {
+        "content": "notebooklm_enterprise_emergency",
+        "metric": "landing_views",
+        "minimum": 30,
+        "not_before": "2026-07-27T20:00:00+09:00"
+      },
+      "additional_condition": "Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing still requires explicit user approval.",
+      "candidate_copy": {
+        "primary_text": "회의록, 보고서, 규정 PDF가 쌓여 있는데 읽고 정리할 시간이 부족한가요? Gemini 노트북(Google NotebookLM)으로 내 자료에 근거한 요약, 업무 브리핑, 마인드맵, 오디오 브리핑을 직접 만드는 4주 오프라인 실전 과정입니다. 기업·금융권·공공기관 교육 경험을 바탕으로 실제 업무에 적용하는 흐름을 함께 익힙니다.",
+        "headline": "쌓인 업무 자료, AI가 먼저 읽게 하세요",
+        "description": "8/16 개강 · 소사역 · 매주 일요일 오전 9~12시",
+        "cta": "자세히 보기"
+      },
+      "keep_stable": [
+        "campaign",
+        "ad_set",
+        "audience",
+        "region",
+        "destination",
+        "daily_budget",
+        "price",
+        "schedule",
+        "location",
+        "application_form",
+        "refund_policy"
+      ]
     }
   ]
 }
