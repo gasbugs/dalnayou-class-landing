@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:52:05+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T10:15:43+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,15 +19,15 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 1,022원 | 231 | 2 | 0.9% | 2 | 100.0% | — | — | — |
-| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 847원 | 157 | 2 | 1.3% | 2 | 100.0% | — | — | — |
-| 2026-07-26T09:18:00+09:00~2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 7 | — | — | — | — |
+| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 1,242원 | 274 | 2 | 0.7% | 2 | 100.0% | — | — | — |
+| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 1,180원 | 223 | 4 | 1.8% | 4 | 100.0% | — | — | — |
+| 2026-07-26T09:45:43+09:00~2026-07-26T10:15:43+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 1 | — | — | — | — |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
-| 2026-07-26T09:18:00+09:00~2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | 5 | — | — | ga4 |
+| 2026-07-26T09:45:43+09:00~2026-07-26T10:15:43+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
 
 ## 과정별 실행 판단
 
@@ -35,8 +35,8 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 1,022 / 40,000 (2.6%) | 2 / 30 (6.7%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
-| 로블록스 AI | 847 / 40,000 (2.1%) | 2 / 30 (6.7%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
+| Gemini 노트북 | 1,242 / 40,000 (3.1%) | 2 / 30 (6.7%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
+| 로블록스 AI | 1,180 / 40,000 (2.9%) | 4 / 30 (13.3%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
 
 
 ## 관찰 이력
@@ -64,6 +64,10 @@
 | 2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | 7 | ga4 |
 | 2026-07-26T09:52:05+09:00 | `notebooklm_enterprise_emergency` | 1,022원 | 231 | 2 | 2 | meta |
 | 2026-07-26T09:52:05+09:00 | `roblox_enterprise_emergency` | 847원 | 157 | 2 | 2 | meta |
+| 2026-07-26T10:15:43+09:00 | `notebooklm_enterprise_emergency` | 1,242원 | 274 | 2 | 2 | meta |
+| 2026-07-26T10:15:43+09:00 | `roblox_enterprise_emergency` | 1,180원 | 223 | 4 | 4 | meta |
+| 2026-07-26T10:15:43+09:00 | `ga4_realtime_30m_mixed` | — | — | — | 1 | ga4 |
+| 2026-07-26T10:15:43+09:00 | `all_form_responses` | — | — | — | — | google_forms |
 
 ## 최신 병목 판정
 
@@ -111,7 +115,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Cumulative aggregate only: 3 responses total, NotebookLM 2 and Roblox 1. All 3 have an empty automatic attribution field, so none is assigned to the current paid campaign. Applicant PII is intentionally excluded.
+- 기록: Cumulative aggregate remains 3 responses: NotebookLM 2 and Roblox 1. The automatic attribution field remains empty for all three, so no response is attributed to the replacement Meta campaign. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -171,7 +175,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Exact today-only Meta ad-set values. Reach 211, frequency 1.09, link CTR 0.87%, landing-view cost 511 KRW. Status still displayed 준비 중 while delivery metrics increased.
+- 기록: Exact today-only Meta ad-set values. Status active, link CTR 0.73%, link CPC 621 KRW, landing-view cost 621 KRW. The 40,000 KRW spend and 30 landing-view decision gates remain unmet.
 
 ### roblox_enterprise_emergency
 
@@ -181,7 +185,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Exact today-only Meta ad-set values. Reach 102, frequency 1.54, link CTR 1.27%, landing-view cost 424 KRW. Status still displayed 준비 중 while delivery metrics increased.
+- 기록: Exact today-only Meta ad-set values. Status active, link CPC 295 KRW, landing-view cost 295 KRW. The 40,000 KRW spend and 30 landing-view decision gates remain unmet.
 
 ### ga4_realtime_30m_mixed
 
@@ -191,7 +195,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: GA4 realtime mixed-traffic observation: 7 course_landing_view and 5 apply_cta_view events. apply_click was not listed, but is left null rather than recorded as a processed zero. Operator QA and other channels may be included, so this is not attributed to the new Meta campaign.
+- 기록: GA4 realtime mixed-traffic observation: the visible page card showed two Roblox page views, while the event table showed one course_landing_view and one apply_cta_view. apply_click was not listed and remains null rather than a processed zero.
 
 ## 실험 실행 게이트
 
