@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:39:57+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:48:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -21,10 +21,13 @@
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
 | 2026-07-25~2026-07-26 | `notebooklm_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
 | 2026-07-25~2026-07-26 | `roblox_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
+| 2026-07-26T09:18:00+09:00~2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 7 | — | — | — | — |
 
 ## CTA 위치별 성과
 
-아직 수집된 CTA 위치 스냅샷이 없습니다. 배포 후 같은 GA4 기간·과정·유입 안에서 집계합니다.
+| 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
+| --- | --- | ---: | ---: | ---: | --- |
+| 2026-07-26T09:18:00+09:00~2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | 5 | — | — | ga4 |
 
 
 ## 관찰 이력
@@ -49,6 +52,7 @@
 | 2026-07-26T09:04:09+09:00 | `all_courses_payment_confirmed` | — | — | — | — | operator_report |
 | 2026-07-26T09:39:57+09:00 | `notebooklm_enterprise_emergency` | — | — | — | 1 | meta |
 | 2026-07-26T09:39:57+09:00 | `roblox_enterprise_emergency` | — | — | — | 1 | meta |
+| 2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | 7 | ga4 |
 
 ## 최신 병목 판정
 
@@ -167,6 +171,16 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: First exact Meta ad-set observation for the replacement campaign. Roblox ad set remained marked 준비 중 while reporting 1 landing-page view; metrics not visible in this observation are left null.
+
+### ga4_realtime_30m_mixed
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: GA4 realtime mixed-traffic observation: 7 course_landing_view and 5 apply_cta_view events. apply_click was not listed, but is left null rather than recorded as a processed zero. Operator QA and other channels may be included, so this is not attributed to the new Meta campaign.
 
 ## 실험 실행 게이트
 
