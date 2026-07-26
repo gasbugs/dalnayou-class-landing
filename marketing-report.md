@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T13:43:29+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T13:51:17+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -23,12 +23,14 @@
 | 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 3,360원 | 841 | 6 | 0.7% | 6 | 100.0% | — | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
+| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | — | — | — | — | 33 | — | 3 | 0 | — |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
+| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | 42 | 3 | 7.1% | ga4 |
 
 ## 과정별 실행 판단
 
@@ -82,6 +84,7 @@
 | 2026-07-26T13:43:29+09:00 | `notebooklm_enterprise_emergency` | 3,612원 | 769 | 3 | 3 | meta |
 | 2026-07-26T13:43:29+09:00 | `roblox_enterprise_emergency` | 3,360원 | 841 | 6 | 6 | meta |
 | 2026-07-26T13:43:29+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-26T13:51:17+09:00 | `ga4_today_processed_mixed` | — | — | — | 33 | ga4 |
 
 ## 최신 병목 판정
 
@@ -220,6 +223,16 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: Processed GA4 report across mixed traffic: apply_click 4 events from 3 users; application_submit 0. Course page views were 60 for Roblox and 35 for NotebookLM under the canonical project path. Do not attribute these mixed counts to Meta without matching UTM data.
+
+### ga4_today_processed_mixed
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **관찰 양호** (9.1%)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: Processed GA4 report for today across mixed traffic: 33 course_landing_view events, 42 apply_cta_view events, 3 apply_click events from 2 users and 0 application_submit. The three apply clicks specifically split by tracked landing/content into Roblox 2 and Gemini Notebook 1; all used facebook / paid_social / dalnayou_2026_08. Event detail reported United States for all three clicks, so they are not treated as verified local applicants or completed applications.
 
 ## 실험 실행 게이트
 

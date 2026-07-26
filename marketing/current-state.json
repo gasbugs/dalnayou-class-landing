@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T13:43:29+09:00",
+  "updated_at": "2026-07-26T13:51:17+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -86,6 +86,27 @@
     },
     "note": "GA4 apply_click is a form-open action, not a completed application."
   },
+  "ga4_today_processed": {
+    "period_start": "2026-07-26",
+    "period_end": "2026-07-26",
+    "page_views": 57,
+    "course_landing_views": 33,
+    "apply_cta_views": 42,
+    "apply_clicks": 3,
+    "apply_click_users": 2,
+    "apply_clicks_by_course": {
+      "notebooklm": 1,
+      "roblox": 2
+    },
+    "application_submits": 0,
+    "apply_click_attribution": {
+      "utm_source": "facebook",
+      "utm_medium": "paid_social",
+      "utm_campaign": "dalnayou_2026_08"
+    },
+    "country_reported_for_apply_clicks": "United States",
+    "note": "All three clicks carried the replacement campaign UTMs, but apply_click only means the form was opened. The country value and zero completed submissions mean these clicks must not be treated as verified local applicants."
+  },
   "latest_actions": [
     "Paused the superseded Roblox campaign.",
     "Confirmed both course ad sets are active at 20,000 KRW/day each.",
@@ -96,7 +117,8 @@
     "Recovered Chrome control and verified tab discovery, navigation, DOM interaction, form entry and external-save workflows.",
     "Changed the Meta account spending limit from 310,000 KRW to 350,000 KRW and verified 32,897 KRW spent / 317,103 KRW remaining.",
     "Published the approved free Facebook Page launch post with separate tracked course links and verified that it is not promoted.",
-    "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views."
+    "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views.",
+    "Verified the Chrome extension with live GA4 navigation and interaction. Today's processed GA4 report shows 3 apply_click events from 2 users: Roblox 2 and Gemini Notebook 1; application_submit remains 0."
   ],
   "facebook_page_post": {
     "status": "published",
