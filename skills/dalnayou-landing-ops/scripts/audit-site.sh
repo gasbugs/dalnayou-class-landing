@@ -251,6 +251,9 @@ contains cardnews/index.html 'combined_launch_post_roblox' 'Facebook Page post d
 contains cardnews/index.html 'utm_content=notebooklm_enterprise_emergency' 'Notebook Facebook copy uses the live emergency UTM'
 contains cardnews/index.html 'utm_content=roblox_enterprise_emergency' 'Roblox Facebook copy uses the live emergency UTM'
 not_contains cardnews/index.html '달나유 이음센터' 'Operator messages use the current venue name'
+contains ads/source.html '잔여석 마감 임박' 'Meta creative uses non-numeric urgency'
+not_contains ads/source.html '소수정예 5명|선착순 5명' 'Meta creative does not claim a false five-person limit'
+not_contains ads/index.html '소수정예 5명|선착순 5명' 'Meta copy does not claim a false five-person limit'
 
 printf '\nMirrored page consistency\n'
 if diff -q \
