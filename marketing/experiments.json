@@ -48,8 +48,9 @@
       "daily_budget_total_krw": 40000,
       "course_daily_budget_krw": 20000,
       "minimum_enrollment_per_course": 6,
+      "advertising_stop_paid_at": 6,
       "capacity_per_course": 15,
-      "stop_rule": "과정별 입금 완료 15명에 도달한 광고 세트만 중단",
+      "stop_rule": "이번 긴급 모집은 과정별 입금 완료 6명에 도달한 광고 세트만 중단",
       "change_thresholds": {
         "spend_krw": 40000,
         "landing_views": 30

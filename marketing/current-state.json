@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-26T12:55:00+09:00",
+  "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
+  "campaign": {
+    "name": "[Codex] 2026-08_AI클래스_모집",
+    "status": "active",
+    "start_date": "2026-07-26",
+    "end_date": "2026-08-02",
+    "region": "소사역 +8km",
+    "age_range": "18-44",
+    "optimization": "landing_page_views",
+    "daily_budget_total_krw": 40000,
+    "account_spend_limit_krw": 310000,
+    "account_spend_to_date_krw": 31928,
+    "account_spend_remaining_krw": 278072,
+    "account_limit_change": {
+      "status": "approval_required",
+      "proposed_limit_krw": 350000,
+      "reason": "The current 310,000 KRW account limit can run out about 36,151 KRW before both 20,000 KRW/day ad sets reach 2026-08-02."
+    }
+  },
+  "courses": {
+    "notebooklm": {
+      "display_name": "Gemini 노트북",
+      "applications_total": 2,
+      "paid_confirmed": null,
+      "paid_target": 6,
+      "remaining_to_target": null,
+      "ad_set": "[Codex] Gemini노트북_소사역_18-44",
+      "ad": "[Codex] Gemini노트북_기업교육신뢰_v1",
+      "daily_budget_krw": 20000,
+      "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
+      "utm_content": "notebooklm_enterprise_emergency",
+      "meta_today": {
+        "spend_krw": 3249,
+        "impressions": 638,
+        "link_clicks": 3,
+        "landing_views": 3,
+        "link_ctr_percent": 0.47,
+        "cost_per_landing_view_krw": 1083
+      }
+    },
+    "roblox": {
+      "display_name": "로블록스 AI",
+      "applications_total": 1,
+      "paid_confirmed": null,
+      "paid_target": 6,
+      "remaining_to_target": null,
+      "ad_set": "[Codex] 로블록스AI_소사역_18-44",
+      "ad": "[Codex] 로블록스AI_기업교육신뢰_v1",
+      "daily_budget_krw": 20000,
+      "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
+      "utm_content": "roblox_enterprise_emergency",
+      "meta_today": {
+        "spend_krw": 2528,
+        "impressions": 525,
+        "link_clicks": 6,
+        "landing_views": 5,
+        "link_ctr_percent": 1.14,
+        "cost_per_landing_view_krw": 506
+      }
+    }
+  },
+  "applications": {
+    "google_form_total": 3,
+    "notebooklm": 2,
+    "roblox": 1,
+    "attributed_responses": 0,
+    "paid_confirmed_total_reported_by_user": 3,
+    "paid_confirmed_by_course": null,
+    "note": "No per-course payment status is stored in the connected response sheet. Do not infer it."
+  },
+  "ga4_processed": {
+    "period_start": "2026-07-24",
+    "period_end": "2026-07-26",
+    "apply_clicks": 4,
+    "apply_click_users": 3,
+    "application_submits": 0,
+    "page_views": {
+      "main": 227,
+      "roblox": 60,
+      "notebooklm": 35
+    },
+    "note": "GA4 apply_click is a form-open action, not a completed application."
+  },
+  "latest_actions": [
+    "Paused the superseded Roblox campaign.",
+    "Confirmed both course ad sets are active at 20,000 KRW/day each.",
+    "Corrected the Roblox ad destination from notebooklm.html to roblox.html and verified no unpublished draft remains.",
+    "Verified mobile course landing and Google Form preselection/attribution flow.",
+    "Kept creative, audience and budget stable because each course is below the 40,000 KRW or 30 landing-view decision gate."
+  ],
+  "next_decision": {
+    "at": "2026-07-26T20:00:00+09:00",
+    "review": [
+      "Meta spend, impressions, link clicks and landing views by course",
+      "GA4 apply_click by course and UTM",
+      "Google Form application count and attribution field",
+      "Paid confirmations by course from the operator"
+    ]
+  },
+  "stop_and_change_rules": {
+    "stop_course_ad_at_paid_confirmations": 6,
+    "change_creative_if_spend_krw_reaches": 40000,
+    "change_creative_if_landing_views_reach": 30,
+    "change_condition": "If either threshold is reached and apply_click remains 0 for that course."
+  },
+  "history_files": [
+    "marketing/archive/2026-07-24-to-26-meta-baseline.md",
+    "marketing-history.md",
+    "marketing/snapshots.jsonl"
+  ]
+}

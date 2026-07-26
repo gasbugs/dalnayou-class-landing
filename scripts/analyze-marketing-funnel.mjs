@@ -229,14 +229,19 @@ if (liveCourseExperiment) {
   const spendThreshold = liveCourseExperiment.change_thresholds?.spend_krw;
   const landingThreshold = liveCourseExperiment.change_thresholds?.landing_views;
   const minimumEnrollment = liveCourseExperiment.minimum_enrollment_per_course;
+  const advertisingStopPaidAt = Number.isFinite(
+    liveCourseExperiment.advertising_stop_paid_at,
+  )
+    ? liveCourseExperiment.advertising_stop_paid_at
+    : liveCourseExperiment.capacity_per_course;
   const capacity = liveCourseExperiment.capacity_per_course;
   lines.push(
     "## 과정별 실행 판단",
     "",
-    `실험: \`${liveCourseExperiment.id}\` · ${count(minimumEnrollment)}명은 개강 기준, ${count(capacity)}명은 과정별 광고 중단 기준입니다.`,
+    `실험: \`${liveCourseExperiment.id}\` · ${count(minimumEnrollment)}명은 개강 기준, ${count(advertisingStopPaidAt)}명은 광고 중단 기준, ${count(capacity)}명은 과정 정원입니다.`,
     "",
-    "| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 정원 | 현재 조치 |",
-    "| --- | ---: | ---: | ---: | ---: | ---: | --- |",
+    "| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |",
+    "| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
   );
   for (const segment of liveCourseExperiment.course_segments) {
     const record = latestRecords.find(
@@ -256,8 +261,8 @@ if (liveCourseExperiment) {
       record.landing_views >= landingThreshold;
     const paymentReady =
       Number.isFinite(paymentConfirmed) &&
-      Number.isFinite(capacity) &&
-      paymentConfirmed >= capacity;
+      Number.isFinite(advertisingStopPaidAt) &&
+      paymentConfirmed >= advertisingStopPaidAt;
     let action = "관찰 유지";
     if (paymentReady) {
       action = "해당 과정 광고 중단";
@@ -272,6 +277,7 @@ if (liveCourseExperiment) {
       `| ${segment.name} | ${progress(record?.spend_krw, spendThreshold)} | ` +
       `${progress(record?.landing_views, landingThreshold)} | ${count(record?.apply_clicks)} | ` +
       `${progress(paymentConfirmed, minimumEnrollment)} | ` +
+      `${progress(paymentConfirmed, advertisingStopPaidAt)} | ` +
       `${progress(paymentConfirmed, capacity)} | **${action}** |`,
     );
   }

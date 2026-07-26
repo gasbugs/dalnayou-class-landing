@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T10:47:26+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T12:55:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -13,15 +13,16 @@
 | 2026-07-24~2026-07-26 | `combined_courses_shorts` | 16,012원 | 4,056 | 27 | 0.7% | 14 | 51.9% | — | — | — |
 | 2026-07-24~2026-07-26 | `roblox_youth` | 6,290원 | 1,649 | 9 | 0.5% | 5 | 55.6% | — | — | — |
 | 2026-07-24~2026-07-24 | `ga4_paid_processed_absolute` | — | — | — | — | 93 | — | 0 | 0 | — |
-| unknown~2026-07-26 | `all_form_responses` | — | — | — | — | — | — | — | 3 | — |
+| unknown~2026-07-26 | `all_form_responses` | — | — | — | 비교 금지 | — | 비교 금지 | — | 3 | 3 |
 | 2026-07-25~2026-07-26 | `account_1272476857609072_instagram_boost` | 23,058원 | 3,486 | 76 | 2.2% | 71 | 93.4% | — | — | — |
 | 2026-07-25~2026-07-26 | `account_1661899158952556_existing_campaign` | 23,485원 | 5,974 | 37 | 0.6% | 22 | 59.5% | — | — | — |
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 1,704원 | 374 | 3 | 0.8% | 3 | 100.0% | — | — | — |
-| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 1,418원 | 259 | 5 | 1.9% | 5 | 100.0% | — | — | — |
+| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 3,249원 | 638 | 3 | 0.5% | 3 | 100.0% | — | — | — |
+| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 2,528원 | 525 | 6 | 1.1% | 5 | 83.3% | — | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
+| 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 
 ## CTA 위치별 성과
 
@@ -31,12 +32,12 @@
 
 ## 과정별 실행 판단
 
-실험: `E-009` · 6명은 개강 기준, 15명은 과정별 광고 중단 기준입니다.
+실험: `E-009` · 6명은 개강 기준, 6명은 광고 중단 기준, 15명은 과정 정원입니다.
 
-| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 정원 | 현재 조치 |
-| --- | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 1,704 / 40,000 (4.3%) | 3 / 30 (10.0%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
-| 로블록스 AI | 1,418 / 40,000 (3.5%) | 5 / 30 (16.7%) | — | 확인 필요 | 확인 필요 | **관찰 유지** |
+| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Gemini 노트북 | 3,249 / 40,000 (8.1%) | 3 / 30 (10.0%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
+| 로블록스 AI | 2,528 / 40,000 (6.3%) | 5 / 30 (16.7%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
 
 
 ## 관찰 이력
@@ -72,6 +73,10 @@
 | 2026-07-26T10:47:26+09:00 | `roblox_enterprise_emergency` | 1,418원 | 259 | 5 | 5 | meta |
 | 2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | 3 | ga4 |
 | 2026-07-26T10:47:26+09:00 | `all_form_responses` | — | — | — | — | google_forms |
+| 2026-07-26T12:55:00+09:00 | `notebooklm_enterprise_emergency` | 3,249원 | 638 | 3 | 3 | meta |
+| 2026-07-26T12:55:00+09:00 | `roblox_enterprise_emergency` | 2,528원 | 525 | 6 | 5 | meta |
+| 2026-07-26T12:55:00+09:00 | `ga4_processed_mixed` | — | — | — | — | ga4 |
+| 2026-07-26T12:55:00+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -119,7 +124,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Cumulative aggregate remains 3 responses: NotebookLM 2 and Roblox 1. The automatic attribution field has 0 responses, so none is assigned to the replacement Meta campaign. Applicant PII is intentionally excluded.
+- 기록: Cumulative responses remain NotebookLM 2 and Roblox 1. The operator previously reported 3 paid confirmations in total, but no per-course payment split is stored, so course-level paid counts remain unknown. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -179,7 +184,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Exact today-only Meta ad-set values after a manual table refresh. Reach 337, link CTR 0.80%, link CPC and landing-view cost 568 KRW. Status active; the 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 기록: Exact today-only Meta ad-set values after refresh. Link CTR 0.47% and landing-view cost 1,083 KRW. Status active; the 40,000 KRW spend and 30 landing-view change gates remain unmet.
 
 ### roblox_enterprise_emergency
 
@@ -189,7 +194,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Exact today-only Meta ad-set values after a manual table refresh. Reach 232, link CTR 1.93%, link CPC and landing-view cost 284 KRW. Status active; the 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 기록: Exact today-only Meta ad-set values after refresh. Link CTR 1.14% and landing-view cost 506 KRW. The destination URL was corrected from notebooklm.html to roblox.html and verified. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
 
 ### ga4_realtime_30m_mixed
 
@@ -200,6 +205,16 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: GA4 realtime mixed-traffic observation: 2 active users, 3 course_landing_view events, 2 Gemini page views and 1 Roblox page view, and 1 apply_cta_view. apply_click and application_submit were not listed and remain null rather than processed zeros.
+
+### ga4_processed_mixed
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: Processed GA4 report across mixed traffic: apply_click 4 events from 3 users; application_submit 0. Course page views were 60 for Roblox and 35 for NotebookLM under the canonical project path. Do not attribute these mixed counts to Meta without matching UTM data.
 
 ## 실험 실행 게이트
 

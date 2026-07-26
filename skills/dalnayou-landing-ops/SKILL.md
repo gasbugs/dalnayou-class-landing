@@ -10,15 +10,21 @@ Run this campaign as a controlled content-and-deployment loop. Small wording cha
 ## Start here
 
 1. Resolve the repository root with `git rev-parse --show-toplevel`.
-2. Read `references/project-map.md` before choosing files.
-3. Read `references/operating-plan.md` for the complete loop and definition of done.
-4. Read `references/tracking-taxonomy.md` for any QR, UTM, GA4, or channel-link task.
-5. Read `references/conversion-optimization.md` and the repository's
-   `marketing-history.md` for any application, advertisement, CTA, or conversion task.
-6. For a new performance observation, append `marketing/snapshots.jsonl` and run
+2. Read `marketing/current-state.json` first when it exists. Treat it as the compact,
+   authoritative handoff for campaign status, latest metrics, pending approvals and next
+   decision time.
+3. Do not reread the full conversation, `marketing-history.md`, or `marketing/archive/`
+   during a routine campaign check. Open detailed history only when investigating an older
+   decision, contradiction, or regression.
+4. Read `references/project-map.md` before choosing files for a site change.
+5. Read `references/operating-plan.md` only when the requested operation is not already
+   covered by the current-state handoff.
+6. Read `references/tracking-taxonomy.md` for any QR, UTM, GA4, or channel-link task.
+7. Read `references/conversion-optimization.md` for a new conversion experiment.
+8. For a new performance observation, append `marketing/snapshots.jsonl` and run
    `node scripts/analyze-marketing-funnel.mjs --write` before deciding what to change.
-7. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
-8. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
+9. Run the bundled `scripts/audit-site.sh <repo-root>` before editing to capture the current baseline.
+10. Inspect `git status --short --branch`. Treat unrelated modifications as user work and preserve them.
 
 ## Classify the request
 
