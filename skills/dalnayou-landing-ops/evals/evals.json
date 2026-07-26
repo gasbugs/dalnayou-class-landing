@@ -282,6 +282,24 @@
         "The experiment not-before gate is reset to 48 hours after the performance deployment.",
         "The before/after measurement and non-premature success rule are appended to the learning history."
       ]
+    },
+    {
+      "id": 21,
+      "prompt": "두 Meta 광고 계정에서 같은 강좌 광고가 동시에 돌아가고 있어. 과정별 6명은 개강 기준이고 정원은 15명이야. 전체 일 4만원 안에서 두 과정을 분리해 게시하고 중복 지출 없이 운영해줘.",
+      "expected_output": "All active Meta accounts are inventoried before publication, superseded campaigns are paused, the approved aggregate daily cap is split between direct course campaigns, minimum enrollment remains distinct from paid capacity, and only a course reaching 15 paid students is stopped.",
+      "files": [],
+      "expectations": [
+        "Every active Meta account serving the same offer is included in the pre-change budget total.",
+        "The new Gemini and Roblox ad sets each use 20,000 KRW per day and their aggregate is no more than 40,000 KRW.",
+        "Superseded campaigns in both accounts are verified off before or immediately when the replacement is published.",
+        "Each course ad uses its direct landing page and a distinct UTM content value.",
+        "Codex-created campaign, ad sets, and ads use the [Codex] prefix without renaming user-owned assets.",
+        "The account spending limit is recorded separately from the daily budget and does not silently constrain the approved run.",
+        "Six paid students is documented as the minimum to run, not a stop condition.",
+        "Only the course reaching 15 paid students is stopped; the other course can continue within the aggregate daily cap.",
+        "Superseded and paused experiments render as 중지 while the emergency experiment renders as 실행 중.",
+        "Applicant PII and course-level payment identities remain outside the repository and analytics."
+      ]
     }
   ]
 }

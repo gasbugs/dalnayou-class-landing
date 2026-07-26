@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T00:23:59+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:04:09+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -14,6 +14,11 @@
 | 2026-07-24~2026-07-26 | `roblox_youth` | 6,290원 | 1,649 | 9 | 0.5% | 5 | 55.6% | — | — | — |
 | 2026-07-24~2026-07-24 | `ga4_paid_processed_absolute` | — | — | — | — | 93 | — | 0 | 0 | — |
 | unknown~2026-07-26 | `all_form_responses` | — | — | — | — | — | — | — | 3 | — |
+| 2026-07-25~2026-07-26 | `account_1272476857609072_instagram_boost` | 23,058원 | 3,486 | 76 | 2.2% | 71 | 93.4% | — | — | — |
+| 2026-07-25~2026-07-26 | `account_1661899158952556_existing_campaign` | 23,485원 | 5,974 | 37 | 0.6% | 22 | 59.5% | — | — | — |
+| 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
+| 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
+| unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
 
 ## CTA 위치별 성과
 
@@ -35,6 +40,11 @@
 | 2026-07-26T00:23:59+09:00 | `roblox_youth` | 6,290원 | 1,649 | 9 | 5 | meta |
 | 2026-07-26T00:23:59+09:00 | `ga4_paid_processed_absolute` | — | — | — | 93 | ga4 |
 | 2026-07-26T00:23:59+09:00 | `all_form_responses` | — | — | — | — | google_forms |
+| 2026-07-26T09:04:09+09:00 | `account_1272476857609072_instagram_boost` | 23,058원 | 3,486 | 76 | 71 | meta |
+| 2026-07-26T09:04:09+09:00 | `account_1661899158952556_existing_campaign` | 23,485원 | 5,974 | 37 | 22 | meta |
+| 2026-07-26T09:04:09+09:00 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 93 | meta |
+| 2026-07-26T09:04:09+09:00 | `ga4_latest_processed_7d` | — | — | — | 544 | ga4 |
+| 2026-07-26T09:04:09+09:00 | `all_courses_payment_confirmed` | — | — | — | — | operator_report |
 
 ## 최신 병목 판정
 
@@ -84,25 +94,79 @@
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: Cumulative aggregate only: 3 responses total, NotebookLM 2 and Roblox 1. All 3 have an empty automatic attribution field, so none is assigned to the current paid campaign. Applicant PII is intentionally excluded.
 
+### account_1272476857609072_instagram_boost
+
+- 광고 클릭: **관찰 양호** (2.2%)
+- 랜딩 완료: **관찰 양호** (93.4%)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 유료 랜딩 30회까지 관찰을 계속합니다.
+- 기록: Exact Meta account-level observation before the Instagram-created campaign was paused. CPC 303.39 KRW, link CTR 2.180%, landing-view cost 324.76 KRW.
+
+### account_1661899158952556_existing_campaign
+
+- 광고 클릭: **개선 필요** (0.6%)
+- 랜딩 완료: **개선 필요** (59.5%)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
+- 기록: Exact aggregate for the existing CSL campaign before it was paused. Combined short: 18,017 KRW, 4,551 impressions, 27 clicks, 15 landing views. Roblox image: 5,468 KRW, 1,423 impressions, 10 clicks, 7 landing views.
+
+### all_active_meta_accounts_before_replacement
+
+- 광고 클릭: **관찰 양호** (1.2%)
+- 랜딩 완료: **관찰 양호** (82.3%)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 유료 랜딩 30회까지 관찰을 계속합니다.
+- 기록: Exact sum of two independently active Meta ad accounts before replacement. This is an account inventory total, not a single-campaign cohort.
+
+### ga4_latest_processed_7d
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **개선 필요** (0.9%)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 첫 개선 후보: 결과물·신뢰·가격 근거·일정 적합성과 CTA 위치를 점검
+- 기록: Latest fully processed GA4 seven-day report: page_view 544, session_start 383, first_visit 331, course_click 50 from 18 users, apply_click 5 from 3 users, application_submit 2 from 2 users. These GA4 event totals are not divided into Meta metrics.
+
+### all_courses_payment_confirmed
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: User-reported aggregate paid count only. Course split and applicant PII remain in the operator's private ledger and are not stored here.
+
 ## 실험 실행 게이트
 
 ### E-005 · 결제자까지 포함하는 연령 상한 확장
 
-- 준비 상태: `prepared`
+- 준비 상태: `superseded_by_emergency_recruitment`
 - 단일 변경: Meta 광고 세트 연령을 18~24세에서 18~44세로 확장
-- 표본 게이트: 19 / 30 (11회 부족)
-- 시간 게이트: 2026-07-28T01:10:00+09:00 (대기)
-- 현재 판정: **대기**
+- 현재 판정: **중지**
 - 유지 변수: campaign, ad_set, creative, destination, region, daily_budget, account_spend_limit
 
 ### E-007 · 모바일 고정 CTA 신청 집중형
 
-- 준비 상태: `candidate`
+- 준비 상태: `paused_during_emergency_recruitment`
 - 단일 변경: 모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대
 - 미리보기: `experiments/e-007-mobile-cta-preview.html`
-- 실행 순서: E-005 판정 이후에만 검토
-- 현재 판정: **대기**
+- 현재 판정: **중지**
 - 유지 변수: ad_audience, creative, destination, budget, hero_copy, application_form
+
+### E-009 · 과정별 기업교육 신뢰형 긴급 모집
+
+- 준비 상태: `live_meta_review`
+- 단일 변경: Gemini 노트북과 로블록스 AI를 각각 일 20,000원, 18~44세, 소사역 +8km, 과정별 직접 랜딩과 기업교육 신뢰형 소재로 분리
+- 현재 판정: **실행 중**
+- 유지 변수: price, schedule, location, application_form, refund_policy
 
 ## 운영 규칙
 

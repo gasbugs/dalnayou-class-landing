@@ -106,6 +106,23 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Candidate Meta assets may be prepared while an experiment is running, but do not publish them or split the live budget before the documented observation threshold and action-time approval.
 - Confirm that the business portfolio has a Facebook Page to use as the ad identity. Instagram is optional for the initial campaign.
 - Treat account creation, business-policy acceptance, payment-method entry, publishing, and spend increases as explicit approval actions. Prepare all reversible fields first and stop at the final confirmation.
+- Before creating, duplicating, or increasing a live Meta campaign, inventory every active
+  campaign across every ad account used for the same offer. Sum the active daily budgets;
+  the user's approved budget ceiling applies to the aggregate, not to each account separately.
+- Distinguish a minimum enrollment threshold from the course capacity. Reaching the minimum
+  confirms that the course can run; it does not stop recruitment unless the user explicitly
+  says so. Stop an individual course ad only at its documented paid capacity.
+- Set an account spending limit high enough for the approved run so it does not stop early,
+  but enforce the actual daily cap in campaign or ad-set budgets. Record both values because
+  the account limit is not a daily budget.
+- Prefix Meta assets created or directly modified by Codex with `[Codex]`. Do not rename
+  existing user-owned assets merely to apply the prefix.
+- Once the user has explicitly approved a total daily ceiling, date range, and publication,
+  proceed within that envelope without requesting the same approval again. Reconfirm only
+  when the total daily spend, end date, payment scope, or offer terms would materially change.
+- After replacing live campaigns, verify three independent facts: every superseded campaign
+  is off, only the intended new campaign is on, and the aggregate active daily budget remains
+  within the approved ceiling.
 
 ### 4. Optimize conversion as a measured loop
 

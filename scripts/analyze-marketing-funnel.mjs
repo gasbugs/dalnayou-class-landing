@@ -278,7 +278,15 @@ for (const experiment of experiments) {
   if (experiment.preview_file) {
     lines.push(`- 미리보기: \`${experiment.preview_file}\``);
   }
-  if (experiment.depends_on) {
+  const isInactive =
+    experiment.status.startsWith("superseded") ||
+    experiment.status.startsWith("paused");
+  const isLive = experiment.status.startsWith("live");
+  if (isInactive) {
+    lines.push("- 현재 판정: **중지**");
+  } else if (isLive) {
+    lines.push("- 현재 판정: **실행 중**");
+  } else if (experiment.depends_on) {
     lines.push(`- 실행 순서: ${experiment.depends_on} 판정 이후에만 검토`);
     lines.push("- 현재 판정: **대기**");
   } else if (experiment.gate) {

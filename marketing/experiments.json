@@ -2,7 +2,7 @@
   "experiments": [
     {
       "id": "E-005",
-      "status": "prepared",
+      "status": "superseded_by_emergency_recruitment",
       "name": "결제자까지 포함하는 연령 상한 확장",
       "change": "Meta 광고 세트 연령을 18~24세에서 18~44세로 확장",
       "keep_stable": [
@@ -23,7 +23,7 @@
     },
     {
       "id": "E-007",
-      "status": "candidate",
+      "status": "paused_during_emergency_recruitment",
       "name": "모바일 고정 CTA 신청 집중형",
       "change": "모바일 고정 바의 공유 버튼을 제거하고 신청 버튼 비중을 확대",
       "preview_file": "experiments/e-007-mobile-cta-preview.html",
@@ -35,6 +35,27 @@
         "budget",
         "hero_copy",
         "application_form"
+      ]
+    },
+    {
+      "id": "E-009",
+      "status": "live_meta_review",
+      "name": "과정별 기업교육 신뢰형 긴급 모집",
+      "change": "Gemini 노트북과 로블록스 AI를 각각 일 20,000원, 18~44세, 소사역 +8km, 과정별 직접 랜딩과 기업교육 신뢰형 소재로 분리",
+      "campaign": "[Codex] 2026-08_AI클래스_모집",
+      "period_start": "2026-07-26",
+      "period_end": "2026-08-02",
+      "daily_budget_total_krw": 40000,
+      "course_daily_budget_krw": 20000,
+      "minimum_enrollment_per_course": 6,
+      "capacity_per_course": 15,
+      "stop_rule": "과정별 입금 완료 15명에 도달한 광고 세트만 중단",
+      "keep_stable": [
+        "price",
+        "schedule",
+        "location",
+        "application_form",
+        "refund_policy"
       ]
     }
   ]
