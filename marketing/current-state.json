@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T14:29:28+09:00",
+  "updated_at": "2026-07-26T14:36:37+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -35,12 +35,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 4074,
-        "impressions": 858,
+        "spend_krw": 4425,
+        "impressions": 962,
         "link_clicks": 4,
         "landing_views": 4,
-        "link_ctr_percent": 0.47,
-        "cost_per_landing_view_krw": 1019
+        "link_ctr_percent": 0.42,
+        "cost_per_landing_view_krw": 1106
       }
     },
     "roblox": {
@@ -55,12 +55,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 3755,
-        "impressions": 999,
-        "link_clicks": 7,
-        "landing_views": 7,
-        "link_ctr_percent": 0.7,
-        "cost_per_landing_view_krw": 536
+        "spend_krw": 4416,
+        "impressions": 1240,
+        "link_clicks": 9,
+        "landing_views": 10,
+        "link_ctr_percent": 0.73,
+        "cost_per_landing_view_krw": 442
       }
     }
   },
@@ -144,7 +144,8 @@
     "Added a privacy-safe course payment tracker to the operator page. It stores only aggregate counts locally, calculates the six-person ad-stop threshold and 15-person capacity, and produces a PII-free status summary.",
     "Updated the payment recorder so one command refreshes both the marketing report and compact current state. Missing course counts remain unknown; the aggregate total changes only when both course counts are known.",
     "Corrected the Meta enterprise creative and copy from the false five-person scarcity claim to the non-numeric 잔여석 마감 임박 label, then regenerated and visually verified all four assets.",
-    "Published the corrected feed/story assets to all three placement groups for both live ads without changing budget, audience, destination, UTM, copy or CTA. Roblox returned to active; Gemini Notebook is in Meta review, and no unpublished edits remain."
+    "Published the corrected feed/story assets to all three placement groups for both live ads without changing budget, audience, destination, UTM, copy or CTA. Roblox returned to active; Gemini Notebook is in Meta review, and no unpublished edits remain.",
+    "Verified at 14:36 KST that both corrected ads are active. Gemini recorded 4,425 KRW / 962 impressions / 4 link clicks / 4 landing views; Roblox recorded 4,416 KRW / 1,240 impressions / 9 link clicks / 10 landing views. Google Form remains at 3 responses and GA4 remains at 3 apply_click / 0 application_submit."
   ],
   "facebook_page_post": {
     "status": "published",
