@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T15:06:58+09:00",
+  "updated_at": "2026-07-26T20:43:33+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -42,12 +42,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 4854,
-        "impressions": 1082,
-        "link_clicks": 4,
-        "landing_views": 4,
-        "link_ctr_percent": 0.37,
-        "cost_per_landing_view_krw": 1214
+        "spend_krw": 12776,
+        "impressions": 3372,
+        "link_clicks": 21,
+        "landing_views": 20,
+        "link_ctr_percent": 0.62,
+        "cost_per_landing_view_krw": 639
       }
     },
     "roblox": {
@@ -62,12 +62,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 5193,
-        "impressions": 1448,
-        "link_clicks": 10,
-        "landing_views": 10,
-        "link_ctr_percent": 0.69,
-        "cost_per_landing_view_krw": 519
+        "spend_krw": 11805,
+        "impressions": 3546,
+        "link_clicks": 25,
+        "landing_views": 23,
+        "link_ctr_percent": 0.71,
+        "cost_per_landing_view_krw": 513
       }
     }
   },
@@ -96,9 +96,11 @@
   "ga4_today_processed": {
     "period_start": "2026-07-26",
     "period_end": "2026-07-26",
-    "page_views": 57,
-    "course_landing_views": 33,
-    "apply_cta_views": 42,
+    "page_views": 92,
+    "course_landing_views": 58,
+    "course_clicks": 8,
+    "enterprise_trust_views": 10,
+    "apply_cta_views": 71,
     "apply_clicks": 3,
     "apply_click_users": 2,
     "apply_clicks_by_course": {
@@ -160,7 +162,7 @@
     "next_required_evidence": [
       "Course-specific paid counts from the operator without applicant PII.",
       "Course-specific confirmation-message send completion.",
-      "Meta, GA4 and Google Form counts at the scheduled 20:00 KST review."
+      "Meta, GA4 and Google Form counts at the next scheduled review on 2026-07-27 at 20:00 KST."
     ]
   },
   "latest_actions": [
@@ -186,7 +188,8 @@
     "Re-audited both live Meta structures: each ad set is 20,000 KRW/day, landing-page-view optimized, age 18-44, all genders, Sosa Station +8 km, and ends August 2; each ad retains its correct course landing URL and course-specific UTM. No unpublished edits remain.",
     "Changed both live Meta ad-set end times from August 2 at 15:23 KST to August 2 at 23:59 KST within the approved date and daily-budget envelope. Reopened both ad sets to verify the persisted 23:59 values and confirmed no unpublished edits remain.",
     "Recorded a 14:55 KST Meta checkpoint after a manual refresh: Gemini 4,854 KRW / 1,082 impressions / 4 link clicks / 4 landing views; Roblox 5,193 KRW / 1,448 impressions / 10 link clicks / 10 landing views. Both ads remain active and below the change gates, so no settings were changed.",
-    "Prepared E-011, an internal-only Gemini Notebook workload-problem creative candidate with separate copy and preview. It is not live and may be reviewed only after the documented sample gate and explicit publication approval."
+    "Prepared E-011, an internal-only Gemini Notebook workload-problem creative candidate with separate copy and preview. It is not live and may be reviewed only after the documented sample gate and explicit publication approval.",
+    "Completed the 20:00 KST review at 20:43. Gemini recorded 12,776 KRW / 3,372 impressions / 21 link clicks / 20 landing views; Roblox recorded 11,805 KRW / 3,546 impressions / 25 link clicks / 23 landing views. GA4 remained at 3 apply clicks and 0 submissions, while Google Form responses remained 3. No campaign setting was changed because neither course reached its decision gate."
   ],
   "facebook_page_post": {
     "status": "published",
@@ -198,7 +201,7 @@
     "note": "Published as a free Page post. Ad-post, boost, scheduling and story-sharing switches were all off before publication."
   },
   "next_decision": {
-    "at": "2026-07-26T20:00:00+09:00",
+    "at": "2026-07-27T20:00:00+09:00",
     "review": [
       "Meta spend, impressions, link clicks and landing views by course",
       "GA4 apply_click by course and UTM",

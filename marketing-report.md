@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T14:55:56+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T20:43:33+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,18 +19,18 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 4,854원 | 1,082 | 4 | 0.4% | 4 | 100.0% | — | — | — |
-| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 5,193원 | 1,448 | 10 | 0.7% | 10 | 100.0% | — | — | — |
+| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 12,776원 | 3,372 | 21 | 0.6% | 20 | 95.2% | — | — | — |
+| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 11,805원 | 3,546 | 25 | 0.7% | 23 | 92.0% | — | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
-| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | — | — | — | — | 33 | — | 3 | 0 | — |
+| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | — | — | — | — | 58 | — | 3 | 0 | — |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
-| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | 42 | 3 | 7.1% | ga4 |
+| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | 71 | 3 | 4.2% | ga4 |
 
 ## 과정별 실행 판단
 
@@ -38,8 +38,8 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 4,854 / 40,000 (12.1%) | 4 / 30 (13.3%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
-| 로블록스 AI | 5,193 / 40,000 (13.0%) | 10 / 30 (33.3%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
+| Gemini 노트북 | 12,776 / 40,000 (31.9%) | 20 / 30 (66.7%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
+| 로블록스 AI | 11,805 / 40,000 (29.5%) | 23 / 30 (76.7%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
 
 
 ## 관찰 이력
@@ -93,6 +93,10 @@
 | 2026-07-26T14:36:37+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 | 2026-07-26T14:55:56+09:00 | `notebooklm_enterprise_emergency` | 4,854원 | 1,082 | 4 | 4 | meta |
 | 2026-07-26T14:55:56+09:00 | `roblox_enterprise_emergency` | 5,193원 | 1,448 | 10 | 10 | meta |
+| 2026-07-26T20:43:33+09:00 | `notebooklm_enterprise_emergency` | 12,776원 | 3,372 | 21 | 20 | meta |
+| 2026-07-26T20:43:33+09:00 | `roblox_enterprise_emergency` | 11,805원 | 3,546 | 25 | 23 | meta |
+| 2026-07-26T20:43:33+09:00 | `ga4_today_processed_mixed` | — | — | — | 58 | ga4 |
+| 2026-07-26T20:43:33+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -140,7 +144,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Google Form response count remains 3. The known course split remains NotebookLM 2 and Roblox 1; per-course payment allocation is still unknown and is not inferred. Applicant PII is intentionally excluded.
+- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The automatic attribution field remains empty for all three. The operator-reported aggregate paid count remains 3, but no per-course split is stored. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -194,23 +198,23 @@
 
 ### notebooklm_enterprise_emergency
 
-- 광고 클릭: **개선 필요** (0.4%)
-- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 광고 클릭: **개선 필요** (0.6%)
+- 랜딩 완료: **관찰 양호** (95.2%)
 - 신청서 이동: **자료 부족** (유료 랜딩 30회)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
-- 기록: Exact today-only Meta ad-set values after a manual 14:55 KST refresh. Link CTR 0.37%, landing-view cost 1,214 KRW, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 기록: Exact today-only Meta ad-set values after the 20:00 review refresh. Link CTR 0.62%, landing-view cost 639 KRW, frequency 1.43, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
 
 ### roblox_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.7%)
-- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 랜딩 완료: **관찰 양호** (92.0%)
 - 신청서 이동: **자료 부족** (유료 랜딩 30회)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
-- 기록: Exact today-only Meta ad-set values after a manual 14:55 KST refresh. Link CTR 0.69%, landing-view cost 519 KRW, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 기록: Exact today-only Meta ad-set values after the 20:00 review refresh. Link CTR 0.71%, landing-view cost 513 KRW, frequency 1.30, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
 
 ### ga4_realtime_30m_mixed
 
@@ -236,11 +240,11 @@
 
 - 광고 클릭: **자료 부족** (노출 1,000회)
 - 랜딩 완료: **자료 부족** (링크 클릭 20회)
-- 신청서 이동: **관찰 양호** (9.1%)
+- 신청서 이동: **관찰 양호** (5.2%)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Processed GA4 report for today across mixed traffic: 33 course_landing_view events, 42 apply_cta_view events, 3 apply_click events from 2 users and 0 application_submit. The three apply clicks specifically split by tracked landing/content into Roblox 2 and Gemini Notebook 1; all used facebook / paid_social / dalnayou_2026_08. Event detail reported United States for all three clicks, so they are not treated as verified local applicants or completed applications.
+- 기록: Processed GA4 report for today across mixed traffic: 92 page_view, 58 course_landing_view, 8 course_click, 10 enterprise_trust_view, 71 apply_cta_view, 3 apply_click events from 2 users and 0 application_submit. Apply clicks remain Roblox 2 and Gemini Notebook 1, all from facebook / paid_social / dalnayou_2026_08. Event detail still reports United States for all three clicks, so they are not treated as verified local applicants or completed applications.
 
 ## 실험 실행 게이트
 
@@ -280,7 +284,7 @@
 - 준비 상태: `prepared_not_live`
 - 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
 - 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
-- 표본 게이트: 4 / 30 (26회 부족)
+- 표본 게이트: 20 / 30 (10회 부족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**
 - 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
