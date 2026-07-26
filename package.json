@@ -2,7 +2,9 @@
   "name": "dalnayou-class-landing",
   "private": true,
   "scripts": {
-    "build:css": "bash scripts/build-tailwind-css.sh"
+    "build:css": "bash scripts/build-tailwind-css.sh",
+    "marketing:payments": "node scripts/record-course-payments.mjs",
+    "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"

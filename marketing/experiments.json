@@ -56,12 +56,16 @@
       },
       "course_segments": [
         {
+          "key": "notebooklm",
           "name": "Gemini 노트북",
-          "content": "notebooklm_enterprise_emergency"
+          "content": "notebooklm_enterprise_emergency",
+          "payment_content": "notebooklm_payment_confirmed"
         },
         {
+          "key": "roblox",
           "name": "로블록스 AI",
-          "content": "roblox_enterprise_emergency"
+          "content": "roblox_enterprise_emergency",
+          "payment_content": "roblox_payment_confirmed"
         }
       ],
       "keep_stable": [

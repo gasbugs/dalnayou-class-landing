@@ -242,6 +242,10 @@ if (liveCourseExperiment) {
     const record = latestRecords.find(
       (candidate) => candidate.content === segment.content,
     );
+    const paymentRecord = latestRecords.find(
+      (candidate) => candidate.content === segment.payment_content,
+    );
+    const paymentConfirmed = paymentRecord?.payment_confirmed;
     const spendReady =
       Number.isFinite(record?.spend_krw) &&
       Number.isFinite(spendThreshold) &&
@@ -251,9 +255,9 @@ if (liveCourseExperiment) {
       Number.isFinite(landingThreshold) &&
       record.landing_views >= landingThreshold;
     const paymentReady =
-      Number.isFinite(record?.payment_confirmed) &&
+      Number.isFinite(paymentConfirmed) &&
       Number.isFinite(capacity) &&
-      record.payment_confirmed >= capacity;
+      paymentConfirmed >= capacity;
     let action = "관찰 유지";
     if (paymentReady) {
       action = "해당 과정 광고 중단";
@@ -267,8 +271,8 @@ if (liveCourseExperiment) {
     lines.push(
       `| ${segment.name} | ${progress(record?.spend_krw, spendThreshold)} | ` +
       `${progress(record?.landing_views, landingThreshold)} | ${count(record?.apply_clicks)} | ` +
-      `${progress(record?.payment_confirmed, minimumEnrollment)} | ` +
-      `${progress(record?.payment_confirmed, capacity)} | **${action}** |`,
+      `${progress(paymentConfirmed, minimumEnrollment)} | ` +
+      `${progress(paymentConfirmed, capacity)} | **${action}** |`,
     );
   }
   lines.push("");
