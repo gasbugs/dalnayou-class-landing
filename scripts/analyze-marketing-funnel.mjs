@@ -87,6 +87,10 @@ const won = (value, estimated = false) =>
   Number.isFinite(value)
     ? `${estimated ? "약 " : ""}${Math.round(value).toLocaleString("ko-KR")}원`
     : "—";
+const progress = (value, target) =>
+  Number.isFinite(value) && Number.isFinite(target) && target > 0
+    ? `${count(value)} / ${count(target)} (${Math.min(100, value / target * 100).toFixed(1)}%)`
+    : "확인 필요";
 const metricSource = (record, field) => {
   const explicit = record.metric_sources?.[field];
   if (typeof explicit === "string" && explicit.trim()) {
@@ -210,6 +214,61 @@ if (latestCtaRecords.length === 0) {
     const course = record.course ? `${record.course} · ` : "";
     lines.push(
       `| ${record.period_start}~${record.period_end} | \`${course}${position}\` | ${count(record.apply_cta_views)} | ${count(record.apply_clicks)} | ${cohortCompatible(record, "apply_clicks", "apply_cta_views") ? percent(ctaToApply) : "비교 금지"} | ${record.source_systems.join(" + ")} |`,
+    );
+  }
+  lines.push("");
+}
+
+const liveCourseExperiment = experiments.find(
+  (experiment) =>
+    experiment.status.startsWith("live") &&
+    Array.isArray(experiment.course_segments) &&
+    experiment.course_segments.length > 0,
+);
+if (liveCourseExperiment) {
+  const spendThreshold = liveCourseExperiment.change_thresholds?.spend_krw;
+  const landingThreshold = liveCourseExperiment.change_thresholds?.landing_views;
+  const minimumEnrollment = liveCourseExperiment.minimum_enrollment_per_course;
+  const capacity = liveCourseExperiment.capacity_per_course;
+  lines.push(
+    "## 과정별 실행 판단",
+    "",
+    `실험: \`${liveCourseExperiment.id}\` · 6명은 개강 기준, ${count(capacity)}명은 과정별 광고 중단 기준입니다.`,
+    "",
+    "| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 정원 | 현재 조치 |",
+    "| --- | ---: | ---: | ---: | ---: | ---: | --- |",
+  );
+  for (const segment of liveCourseExperiment.course_segments) {
+    const record = latestRecords.find(
+      (candidate) => candidate.content === segment.content,
+    );
+    const spendReady =
+      Number.isFinite(record?.spend_krw) &&
+      Number.isFinite(spendThreshold) &&
+      record.spend_krw >= spendThreshold;
+    const landingReady =
+      Number.isFinite(record?.landing_views) &&
+      Number.isFinite(landingThreshold) &&
+      record.landing_views >= landingThreshold;
+    const paymentReady =
+      Number.isFinite(record?.payment_confirmed) &&
+      Number.isFinite(capacity) &&
+      record.payment_confirmed >= capacity;
+    let action = "관찰 유지";
+    if (paymentReady) {
+      action = "해당 과정 광고 중단";
+    } else if (spendReady || landingReady) {
+      action = record?.apply_clicks === 0
+        ? "소재·첫 화면 교체"
+        : Number.isFinite(record?.apply_clicks)
+          ? "신청 이후 단계 점검"
+          : "GA4 신청 이동 확인 후 판정";
+    }
+    lines.push(
+      `| ${segment.name} | ${progress(record?.spend_krw, spendThreshold)} | ` +
+      `${progress(record?.landing_views, landingThreshold)} | ${count(record?.apply_clicks)} | ` +
+      `${progress(record?.payment_confirmed, minimumEnrollment)} | ` +
+      `${progress(record?.payment_confirmed, capacity)} | **${action}** |`,
     );
   }
   lines.push("");

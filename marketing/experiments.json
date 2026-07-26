@@ -50,6 +50,20 @@
       "minimum_enrollment_per_course": 6,
       "capacity_per_course": 15,
       "stop_rule": "과정별 입금 완료 15명에 도달한 광고 세트만 중단",
+      "change_thresholds": {
+        "spend_krw": 40000,
+        "landing_views": 30
+      },
+      "course_segments": [
+        {
+          "name": "Gemini 노트북",
+          "content": "notebooklm_enterprise_emergency"
+        },
+        {
+          "name": "로블록스 AI",
+          "content": "roblox_enterprise_emergency"
+        }
+      ],
       "keep_stable": [
         "price",
         "schedule",
