@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T14:43:56+09:00",
+  "updated_at": "2026-07-26T14:50:44+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -15,10 +15,11 @@
     "account_spend_to_date_krw": 32897,
     "account_spend_remaining_krw": 317103,
     "schedule_end_time": {
-      "current_at": "2026-08-02T15:23:00+09:00",
+      "current_at": "2026-08-02T23:59:00+09:00",
       "intended_at": "2026-08-02T23:59:00+09:00",
-      "status": "pending_correction",
-      "reason": "Both ad sets use the approved August 2 end date but currently stop at 15:23, leaving the final evening unavailable."
+      "status": "executed",
+      "executed_at": "2026-07-26T14:50:44+09:00",
+      "reason": "Both ad sets previously stopped at 15:23 on the approved August 2 end date, leaving the final evening unavailable."
     },
     "account_limit_change": {
       "status": "executed",
@@ -153,7 +154,7 @@
     "Published the corrected feed/story assets to all three placement groups for both live ads without changing budget, audience, destination, UTM, copy or CTA. Roblox returned to active; Gemini Notebook is in Meta review, and no unpublished edits remain.",
     "Verified at 14:36 KST that both corrected ads are active. Gemini recorded 4,425 KRW / 962 impressions / 4 link clicks / 4 landing views; Roblox recorded 4,416 KRW / 1,240 impressions / 9 link clicks / 10 landing views. Google Form remains at 3 responses and GA4 remains at 3 apply_click / 0 application_submit.",
     "Re-audited both live Meta structures: each ad set is 20,000 KRW/day, landing-page-view optimized, age 18-44, all genders, Sosa Station +8 km, and ends August 2; each ad retains its correct course landing URL and course-specific UTM. No unpublished edits remain.",
-    "Found that both August 2 end times are 15:23 KST rather than end-of-day. Correcting both to 23:59 KST is pending within the already approved date and daily-budget envelope."
+    "Changed both live Meta ad-set end times from August 2 at 15:23 KST to August 2 at 23:59 KST within the approved date and daily-budget envelope. Reopened both ad sets to verify the persisted 23:59 values and confirmed no unpublished edits remain."
   ],
   "facebook_page_post": {
     "status": "published",
