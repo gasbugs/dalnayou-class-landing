@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T13:51:17+09:00",
+  "updated_at": "2026-07-26T13:55:34+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -118,7 +118,8 @@
     "Changed the Meta account spending limit from 310,000 KRW to 350,000 KRW and verified 32,897 KRW spent / 317,103 KRW remaining.",
     "Published the approved free Facebook Page launch post with separate tracked course links and verified that it is not promoted.",
     "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views.",
-    "Verified the Chrome extension with live GA4 navigation and interaction. Today's processed GA4 report shows 3 apply_click events from 2 users: Roblox 2 and Gemini Notebook 1; application_submit remains 0."
+    "Verified the Chrome extension with live GA4 navigation and interaction. Today's processed GA4 report shows 3 apply_click events from 2 users: Roblox 2 and Gemini Notebook 1; application_submit remains 0.",
+    "Aligned all current emergency-operation documents to the campaign-specific rule: stop a course ad at 6 paid confirmations while keeping the course capacity at 15."
   ],
   "facebook_page_post": {
     "status": "published",
