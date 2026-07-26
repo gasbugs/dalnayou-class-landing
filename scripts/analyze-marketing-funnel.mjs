@@ -233,7 +233,7 @@ if (liveCourseExperiment) {
   lines.push(
     "## 과정별 실행 판단",
     "",
-    `실험: \`${liveCourseExperiment.id}\` · 6명은 개강 기준, ${count(capacity)}명은 과정별 광고 중단 기준입니다.`,
+    `실험: \`${liveCourseExperiment.id}\` · ${count(minimumEnrollment)}명은 개강 기준, ${count(capacity)}명은 과정별 광고 중단 기준입니다.`,
     "",
     "| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 정원 | 현재 조치 |",
     "| --- | ---: | ---: | ---: | ---: | ---: | --- |",
