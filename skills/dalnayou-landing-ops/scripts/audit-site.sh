@@ -67,6 +67,7 @@ for file in index.html main.html roblox.html notebooklm.html poster.html refund.
 done
 contains ga4-events.js 'G-6W058PFM90' 'Shared GA4 loader uses the production measurement ID'
 contains ga4-events.js 'dalnayouSendGa4' 'Shared GA4 loader exposes the custom event sender'
+contains ga4-events.js 'hostname === "localhost".*hostname === "127\.0\.0\.1"' 'Shared GA4 loader excludes local QA traffic'
 for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html ads/index.html; do
   contains "$file" 'dalnayouSendGa4' "$file sends custom events directly to GA4"
 done
@@ -167,6 +168,7 @@ contains campaign-pricing.js 'price: 199000' 'Second phase price is 199,000 won'
 contains campaign-pricing.js 'price: 209000' 'Final phase price is 209,000 won'
 contains marketing-events.js '2173864043186723' 'Meta Pixel uses the Cloud Security Lab data set'
 contains marketing-events.js '"ApplyClick"' 'Meta Pixel distinguishes application clicks from completions'
+contains marketing-events.js 'hostname === "localhost".*hostname === "127\.0\.0\.1"' 'Meta Pixel excludes local QA traffic'
 for file in index.html main.html roblox.html notebooklm.html poster.html refund.html privacy.html cardnews/index.html 404.html; do
   contains "$file" 'marketing-events\.js' "$file includes the Meta Pixel loader"
 done

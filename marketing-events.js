@@ -2,6 +2,11 @@
   "use strict";
 
   var PIXEL_ID = "2173864043186723";
+  var hostname = window.location.hostname;
+  var isLocalPreview =
+    hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]";
+
+  if (isLocalPreview) return;
 
   if (!window.fbq) {
     var fbq = function () {

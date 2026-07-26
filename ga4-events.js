@@ -2,6 +2,14 @@
   "use strict";
 
   var measurementId = "G-6W058PFM90";
+  var hostname = window.location.hostname;
+  var isLocalPreview =
+    hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]";
+
+  if (isLocalPreview) {
+    window.dalnayouSendGa4 = function () {};
+    return;
+  }
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =

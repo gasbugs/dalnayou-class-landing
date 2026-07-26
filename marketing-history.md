@@ -751,3 +751,23 @@ E-009이며 과정별 지출, 랜딩, 신청 이동, 신청 완료, 입금 완�
   과정만 중단
 - 다음 정식 성과 판단: 2026년 7월 26일 20:00 KST. 그전에는 거절·결제 실패
   알림이나 15명 정원 확인이 없는 한 예산·소재·목적지를 유지
+
+### 2026-07-26 10:27 KST 모바일 신청 경로 재검증
+
+- 로블록스와 Gemini 노트북 공개 랜딩을 각각 390×844 CSS 픽셀로 렌더링
+- 두 페이지 모두 제목, 신뢰 문구, 모바일 혜택 요약, 상단 문의 버튼과 하단 고정
+  신청 CTA가 가로 잘림 없이 화면 안에 배치됨
+- 로블록스 광고 URL에서 신청서를 열면 로블록스 과정이 사전 선택되고
+  `utm_content=roblox_enterprise_emergency`, `course=roblox`,
+  `link_position=roblox_hero_form`이 자동 유입 정보에 전달됨
+- Gemini 노트북 광고 URL에서 신청서를 열면 NotebookLM 과정이 사전 선택되고
+  `utm_content=notebooklm_enterprise_emergency`, `course=notebooklm`,
+  `link_position=notebooklm_hero_form`이 자동 유입 정보에 전달됨
+- Google Form은 제출 전 과정 선택, 개인정보 동의, 신청자 정보, 신청 유형,
+  로블록스 학년 질문을 정상 표시
+- 신청서를 실제 제출하지 않아 테스트 응답과 `application_submit`을 만들지 않음
+- 10:22~10:28 KST 로컬 QA는 Facebook UTM을 사용했으므로 이후 GA4 분석에서
+  호스트가 `localhost` 또는 `127.0.0.1`인 방문을 고객 유입에서 제외
+- 같은 문제가 반복되지 않도록 공통 GA4·Meta 스크립트가 로컬 미리보기에서는
+  외부 추적을 전송하지 않게 차단
+- 모바일 또는 신청 연결 결함이 발견되지 않았으므로 랜딩·폼·광고 변수 유지
