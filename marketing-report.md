@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:04:09+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:39:57+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,6 +19,8 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
+| 2026-07-25~2026-07-26 | `notebooklm_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
+| 2026-07-25~2026-07-26 | `roblox_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
 
 ## CTA 위치별 성과
 
@@ -45,6 +47,8 @@
 | 2026-07-26T09:04:09+09:00 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 93 | meta |
 | 2026-07-26T09:04:09+09:00 | `ga4_latest_processed_7d` | — | — | — | 544 | ga4 |
 | 2026-07-26T09:04:09+09:00 | `all_courses_payment_confirmed` | — | — | — | — | operator_report |
+| 2026-07-26T09:39:57+09:00 | `notebooklm_enterprise_emergency` | — | — | — | 1 | meta |
+| 2026-07-26T09:39:57+09:00 | `roblox_enterprise_emergency` | — | — | — | 1 | meta |
 
 ## 최신 병목 판정
 
@@ -143,6 +147,26 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: User-reported aggregate paid count only. Course split and applicant PII remain in the operator's private ledger and are not stored here.
+
+### notebooklm_enterprise_emergency
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: First exact Meta ad-set observation for the replacement campaign. Gemini ad set remained marked 준비 중 while reporting 1 landing-page view; metrics not visible in this observation are left null.
+
+### roblox_enterprise_emergency
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: First exact Meta ad-set observation for the replacement campaign. Roblox ad set remained marked 준비 중 while reporting 1 landing-page view; metrics not visible in this observation are left null.
 
 ## 실험 실행 게이트
 
