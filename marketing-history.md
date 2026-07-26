@@ -654,3 +654,19 @@ E-005와 E-007은 긴급 모집 구조와 변수가 겹치므로 삭제하지 �
 `superseded_by_emergency_recruitment`,
 `paused_during_emergency_recruitment`로 기록했습니다. 현재 라이브 판단 단위는
 E-009이며 과정별 지출, 랜딩, 신청 이동, 신청 완료, 입금 완료를 분리해 봅니다.
+
+### 2026-07-26 09:18 KST 게시 후 점검
+
+- `[Codex] Gemini노트북_소사역_18-44`: 설정됨, Meta 상태 `준비 중`
+- `[Codex] 로블록스AI_소사역_18-44`: 설정됨, Meta 상태 `준비 중`
+- 클씨랩 계정의 기존 `소사역통학권_18-24_광범위`: `캠페인 중단됨`
+- 별도 Instagram 광고 계정의 기존 홍보 캠페인: `꺼짐`
+- Gemini 공개 랜딩의 Facebook UTM이 Google Form의 출처, 과정,
+  `link_position`에 전달됨
+- Roblox 공개 랜딩의 Facebook UTM이 Google Form의 출처, 과정,
+  `link_position`에 전달됨
+- 두 공개 랜딩 모두 `ga4-events.js`, `marketing-events.js` 로드 확인
+
+신규 광고는 아직 성과 지표가 생성되지 않았으므로 지출, 노출, 클릭, 랜딩 조회를
+0으로 기록하지 않습니다. Meta가 `게재 중`으로 전환된 뒤 실제 지표가 생긴
+시점부터 E-009의 과정별 성과를 기록합니다.
