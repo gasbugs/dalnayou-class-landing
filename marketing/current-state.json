@@ -15,8 +15,9 @@
     "account_spend_to_date_krw": 31928,
     "account_spend_remaining_krw": 278072,
     "account_limit_change": {
-      "status": "approval_required",
+      "status": "approved_pending_execution",
       "proposed_limit_krw": 350000,
+      "approved_at": "2026-07-26T13:20:13+09:00",
       "reason": "The current 310,000 KRW account limit can run out about 36,151 KRW before both 20,000 KRW/day ad sets reach 2026-08-02."
     }
   },
@@ -89,8 +90,17 @@
     "Confirmed both course ad sets are active at 20,000 KRW/day each.",
     "Corrected the Roblox ad destination from notebooklm.html to roblox.html and verified no unpublished draft remains.",
     "Verified mobile course landing and Google Form preselection/attribution flow.",
-    "Kept creative, audience and budget stable because each course is below the 40,000 KRW or 30 landing-view decision gate."
+    "Kept creative, audience and budget stable because each course is below the 40,000 KRW or 30 landing-view decision gate.",
+    "User approved opening a new Chrome window and changing the account spending limit from 310,000 KRW to 350,000 KRW.",
+    "The approved account-limit change and free Facebook Page post remain pending because the Chrome extension lists tabs but times out on tab control."
   ],
+  "facebook_page_post": {
+    "status": "approved_pending_execution",
+    "approved_at": "2026-07-26T13:20:13+09:00",
+    "copy_source": "cardnews/index.html",
+    "utm_source": "facebook_page",
+    "note": "Publish after Chrome extension control is restored. Do not request approval again."
+  },
   "next_decision": {
     "at": "2026-07-26T20:00:00+09:00",
     "review": [

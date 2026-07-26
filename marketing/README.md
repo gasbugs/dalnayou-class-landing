@@ -10,3 +10,6 @@
 
 `marketing-history.md`와 `archive/`는 과거 결정의 이유를 조사할 때만 읽습니다.
 일상 점검에서 전체 대화나 전체 이력을 다시 읽지 않습니다.
+
+예산·게시 승인 여부는 `approvals.jsonl`과 `current-state.json`에서 확인합니다.
+이미 승인된 동일 금액과 동일 작업을 다시 승인받지 않습니다.
