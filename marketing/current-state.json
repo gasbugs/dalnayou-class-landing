@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T13:58:29+09:00",
+  "updated_at": "2026-07-26T14:04:23+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -35,12 +35,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 3612,
-        "impressions": 769,
-        "link_clicks": 3,
-        "landing_views": 3,
-        "link_ctr_percent": 0.39,
-        "cost_per_landing_view_krw": 1204
+        "spend_krw": 4074,
+        "impressions": 858,
+        "link_clicks": 4,
+        "landing_views": 4,
+        "link_ctr_percent": 0.47,
+        "cost_per_landing_view_krw": 1019
       }
     },
     "roblox": {
@@ -55,12 +55,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 3360,
-        "impressions": 841,
-        "link_clicks": 6,
-        "landing_views": 6,
-        "link_ctr_percent": 0.71,
-        "cost_per_landing_view_krw": 560
+        "spend_krw": 3755,
+        "impressions": 999,
+        "link_clicks": 7,
+        "landing_views": 7,
+        "link_ctr_percent": 0.7,
+        "cost_per_landing_view_krw": 536
       }
     }
   },
@@ -139,7 +139,8 @@
     "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views.",
     "Verified the Chrome extension with live GA4 navigation and interaction. Today's processed GA4 report shows 3 apply_click events from 2 users: Roblox 2 and Gemini Notebook 1; application_submit remains 0.",
     "Aligned all current emergency-operation documents to the campaign-specific rule: stop a course ad at 6 paid confirmations while keeping the course capacity at 15.",
-    "Audited the live Google Form on a 390 x 844 mobile viewport. Course and attribution prefill work; queued E-010 rather than changing the form before the 10-click evidence gate."
+    "Audited the live Google Form on a 390 x 844 mobile viewport. Course and attribution prefill work; queued E-010 rather than changing the form before the 10-click evidence gate.",
+    "Recorded 14:04 KST Meta values: Gemini 4,074 KRW / 858 impressions / 4 link clicks / 4 landing views; Roblox 3,755 KRW / 999 impressions / 7 link clicks / 7 landing views. Form responses remain 3."
   ],
   "facebook_page_post": {
     "status": "published",
