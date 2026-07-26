@@ -112,6 +112,10 @@ Search for the exact old phrase across the repository before editing. If it occu
 - Distinguish a minimum enrollment threshold from the course capacity. Reaching the minimum
   confirms that the course can run; it does not stop recruitment unless the user explicitly
   says so. Stop an individual course ad only at its documented paid capacity.
+- Do not create urgency by displaying a numeric scarcity claim that conflicts with the real
+  paid capacity. When capacity changes, update the chooser badges, internal remaining-seat
+  formula, advertising stop rule, and operator messages together; use a non-numeric
+  `잔여석 마감 임박` label when the exact remaining count is not verified.
 - Set an account spending limit high enough for the approved run so it does not stop early,
   but enforce the actual daily cap in campaign or ad-set budgets. Record both values because
   the account limit is not a daily budget.

@@ -300,6 +300,24 @@
         "Superseded and paused experiments render as 중지 while the emergency experiment renders as 실행 중.",
         "Applicant PII and course-level payment identities remain outside the repository and analytics."
       ]
+    },
+    {
+      "id": 22,
+      "prompt": "과정별 최소 개강 인원은 6명이고 정원은 15명이야. 광고는 15명이 찰 때까지 유지할 건데, 선택 페이지와 운영 메시지에 예전 5명 기준이 남아 있는지 확인하고 직접 홍보 문구도 바로 복사할 수 있게 해줘.",
+      "expected_output": "All public urgency labels, internal seat calculations, stop rules, venue copy, and direct-outreach links agree with the six-person minimum and 15-person paid capacity without inventing a smaller numeric scarcity claim.",
+      "files": [],
+      "expectations": [
+        "The chooser mirrors use a non-numeric remaining-seat urgency label instead of claiming only five seats.",
+        "The internal operations checklist states six as the minimum to run and 15 as the paid capacity.",
+        "Remaining seats are calculated as 15 minus confirmed payments.",
+        "Only a course reaching 15 paid students changes to waitlist and stops its ad.",
+        "Payment and confirmation templates keep exactly two course-specific variants.",
+        "Confirmation messages use the current Sosa Station Hills Avenue Dalnayou B1 venue name.",
+        "Facebook copy uses the same emergency UTM content values as the live ads.",
+        "Existing-network, enterprise-network, and apartment-community copy each use a distinct source and remain ready to copy.",
+        "Mobile and desktop visual checks show no overlap or clipping in the chooser and outreach-copy section.",
+        "The audit fails if the obsolete five-seat claim or old venue name returns."
+      ]
     }
   ]
 }

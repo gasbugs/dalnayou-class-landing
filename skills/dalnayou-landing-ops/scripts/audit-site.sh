@@ -213,6 +213,20 @@ if [[ "$payment_count" == "2" ]]; then pass 'Two course-specific payment templat
 if [[ "$confirmation_count" == "2" ]]; then pass 'Two course-specific confirmation templates exist'; else fail "Expected 2 confirmation templates, found $confirmation_count"; fi
 contains cardnews/index.html 'cloudsecuritylab\.notion\.site/67ab4138eb88824c837601ca00e990af' 'Roblox signup guide uses the current Cloud Security Lab URL'
 not_contains cardnews/index.html 'mupersei\.notion\.site' 'Old Roblox signup guide URL is absent'
+for file in index.html main.html; do
+  contains "$file" '잔여석 마감 임박' "$file uses a non-numeric urgency label"
+  not_contains "$file" '선착순 5명' "$file does not contradict the 15-person capacity"
+done
+contains course-operations.md '최소 개강 인원은 6명' 'Operations distinguish the six-person minimum'
+contains course-operations.md '정원은 15명' 'Operations use the 15-person capacity'
+contains course-operations.md '15 - 입금 확인 인원' 'Operations calculate remaining seats from capacity 15'
+contains cardnews/index.html 'id="outreach-copy"' 'Operator page exposes direct outreach copy'
+contains cardnews/index.html 'utm_source=existing_network' 'Existing-network outreach has a distinct source'
+contains cardnews/index.html 'utm_source=enterprise_network' 'Enterprise outreach has a distinct source'
+contains cardnews/index.html 'utm_source=apartment_chat' 'Local-community outreach has a distinct source'
+contains cardnews/index.html 'utm_content=notebooklm_enterprise_emergency' 'Notebook Facebook copy uses the live emergency UTM'
+contains cardnews/index.html 'utm_content=roblox_enterprise_emergency' 'Roblox Facebook copy uses the live emergency UTM'
+not_contains cardnews/index.html '달나유 이음센터' 'Operator messages use the current venue name'
 
 printf '\nMirrored page consistency\n'
 if diff -q \
