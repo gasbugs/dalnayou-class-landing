@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:48:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T09:52:05+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,8 +19,8 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-25~2026-07-26 | `notebooklm_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
-| 2026-07-25~2026-07-26 | `roblox_enterprise_emergency` | — | — | — | — | 1 | — | — | — | — |
+| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 1,022원 | 231 | 2 | 0.9% | 2 | 100.0% | — | — | — |
+| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 847원 | 157 | 2 | 1.3% | 2 | 100.0% | — | — | — |
 | 2026-07-26T09:18:00+09:00~2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 7 | — | — | — | — |
 
 ## CTA 위치별 성과
@@ -53,6 +53,8 @@
 | 2026-07-26T09:39:57+09:00 | `notebooklm_enterprise_emergency` | — | — | — | 1 | meta |
 | 2026-07-26T09:39:57+09:00 | `roblox_enterprise_emergency` | — | — | — | 1 | meta |
 | 2026-07-26T09:48:00+09:00 | `ga4_realtime_30m_mixed` | — | — | — | 7 | ga4 |
+| 2026-07-26T09:52:05+09:00 | `notebooklm_enterprise_emergency` | 1,022원 | 231 | 2 | 2 | meta |
+| 2026-07-26T09:52:05+09:00 | `roblox_enterprise_emergency` | 847원 | 157 | 2 | 2 | meta |
 
 ## 최신 병목 판정
 
@@ -160,7 +162,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: First exact Meta ad-set observation for the replacement campaign. Gemini ad set remained marked 준비 중 while reporting 1 landing-page view; metrics not visible in this observation are left null.
+- 기록: Exact today-only Meta ad-set values. Reach 211, frequency 1.09, link CTR 0.87%, landing-view cost 511 KRW. Status still displayed 준비 중 while delivery metrics increased.
 
 ### roblox_enterprise_emergency
 
@@ -170,7 +172,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: First exact Meta ad-set observation for the replacement campaign. Roblox ad set remained marked 준비 중 while reporting 1 landing-page view; metrics not visible in this observation are left null.
+- 기록: Exact today-only Meta ad-set values. Reach 102, frequency 1.54, link CTR 1.27%, landing-view cost 424 KRW. Status still displayed 준비 중 while delivery metrics increased.
 
 ### ga4_realtime_30m_mixed
 
@@ -201,7 +203,7 @@
 
 ### E-009 · 과정별 기업교육 신뢰형 긴급 모집
 
-- 준비 상태: `live_meta_review`
+- 준비 상태: `live_delivery_confirmed`
 - 단일 변경: Gemini 노트북과 로블록스 AI를 각각 일 20,000원, 18~44세, 소사역 +8km, 과정별 직접 랜딩과 기업교육 신뢰형 소재로 분리
 - 현재 판정: **실행 중**
 - 유지 변수: price, schedule, location, application_form, refund_policy
