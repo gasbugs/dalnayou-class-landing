@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T12:55:00+09:00",
+  "updated_at": "2026-07-26T13:43:29+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -11,13 +11,14 @@
     "age_range": "18-44",
     "optimization": "landing_page_views",
     "daily_budget_total_krw": 40000,
-    "account_spend_limit_krw": 310000,
-    "account_spend_to_date_krw": 31928,
-    "account_spend_remaining_krw": 278072,
+    "account_spend_limit_krw": 350000,
+    "account_spend_to_date_krw": 32897,
+    "account_spend_remaining_krw": 317103,
     "account_limit_change": {
-      "status": "approved_pending_execution",
+      "status": "executed",
       "proposed_limit_krw": 350000,
       "approved_at": "2026-07-26T13:20:13+09:00",
+      "executed_at": "2026-07-26T13:39:00+09:00",
       "reason": "The current 310,000 KRW account limit can run out about 36,151 KRW before both 20,000 KRW/day ad sets reach 2026-08-02."
     }
   },
@@ -34,12 +35,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 3249,
-        "impressions": 638,
+        "spend_krw": 3612,
+        "impressions": 769,
         "link_clicks": 3,
         "landing_views": 3,
-        "link_ctr_percent": 0.47,
-        "cost_per_landing_view_krw": 1083
+        "link_ctr_percent": 0.39,
+        "cost_per_landing_view_krw": 1204
       }
     },
     "roblox": {
@@ -54,12 +55,12 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 2528,
-        "impressions": 525,
+        "spend_krw": 3360,
+        "impressions": 841,
         "link_clicks": 6,
-        "landing_views": 5,
-        "link_ctr_percent": 1.14,
-        "cost_per_landing_view_krw": 506
+        "landing_views": 6,
+        "link_ctr_percent": 0.71,
+        "cost_per_landing_view_krw": 560
       }
     }
   },
@@ -92,14 +93,19 @@
     "Verified mobile course landing and Google Form preselection/attribution flow.",
     "Kept creative, audience and budget stable because each course is below the 40,000 KRW or 30 landing-view decision gate.",
     "User approved opening a new Chrome window and changing the account spending limit from 310,000 KRW to 350,000 KRW.",
-    "The approved account-limit change and free Facebook Page post remain pending because the Chrome extension lists tabs but times out on tab control."
+    "Recovered Chrome control and verified tab discovery, navigation, DOM interaction, form entry and external-save workflows.",
+    "Changed the Meta account spending limit from 310,000 KRW to 350,000 KRW and verified 32,897 KRW spent / 317,103 KRW remaining.",
+    "Published the approved free Facebook Page launch post with separate tracked course links and verified that it is not promoted.",
+    "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views."
   ],
   "facebook_page_post": {
-    "status": "approved_pending_execution",
+    "status": "published",
     "approved_at": "2026-07-26T13:20:13+09:00",
+    "published_at": "2026-07-26T13:39:00+09:00",
     "copy_source": "cardnews/index.html",
     "utm_source": "facebook_page",
-    "note": "Publish after Chrome extension control is restored. Do not request approval again."
+    "permalink": "https://facebook.com/permalink.php?story_fbid=pfbid0DjxcbUANa3E7BmnA1gnFRECtfdU3aGkUSaFLSkwucEDRUF16aVpUUaRNMsRTcj32l&id=61592079254729",
+    "note": "Published as a free Page post. Ad-post, boost, scheduling and story-sharing switches were all off before publication."
   },
   "next_decision": {
     "at": "2026-07-26T20:00:00+09:00",
