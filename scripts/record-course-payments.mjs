@@ -9,6 +9,7 @@ const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const SNAPSHOT_PATH = resolve(ROOT, "marketing/snapshots.jsonl");
 const EXPERIMENT_PATH = resolve(ROOT, "marketing/experiments.json");
 const REPORT_SCRIPT = resolve(ROOT, "scripts/analyze-marketing-funnel.mjs");
+const STATE_SCRIPT = resolve(ROOT, "scripts/update-current-state.mjs");
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -167,6 +168,15 @@ const report = spawnSync(process.execPath, [REPORT_SCRIPT, "--write"], {
 if (report.status !== 0) {
   process.stderr.write(report.stderr || report.stdout);
   process.exit(report.status ?? 1);
+}
+
+const state = spawnSync(process.execPath, [STATE_SCRIPT], {
+  cwd: ROOT,
+  encoding: "utf8",
+});
+if (state.status !== 0) {
+  process.stderr.write(state.stderr || state.stdout);
+  process.exit(state.status ?? 1);
 }
 process.stdout.write(
   `${records.map((record) => `${record.content}: ${record.payment_confirmed}`).join("\n")}\n`,

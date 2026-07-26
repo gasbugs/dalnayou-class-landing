@@ -72,6 +72,7 @@ const newestTimestamp = records
   .at(-1);
 if (newestTimestamp) state.updated_at = newestTimestamp;
 
+const paidByCourse = {};
 for (const [key, course] of Object.entries(state.courses)) {
   const metaRecord = latestByContent.get(course.utm_content);
   if (metaRecord) {
@@ -111,6 +112,7 @@ for (const [key, course] of Object.entries(state.courses)) {
       0,
       course.paid_target - course.paid_confirmed,
     );
+    paidByCourse[key] = course.paid_confirmed;
   }
 }
 
@@ -120,6 +122,28 @@ if (formRecord) {
   if (Number.isFinite(formRecord.payment_confirmed)) {
     state.applications.paid_confirmed_total_reported_by_user =
       formRecord.payment_confirmed;
+  }
+}
+
+if (Object.keys(paidByCourse).length > 0) {
+  state.applications.paid_confirmed_by_course = Object.fromEntries(
+    Object.keys(state.courses).map((key) => [
+      key,
+      Number.isFinite(paidByCourse[key]) ? paidByCourse[key] : null,
+    ]),
+  );
+  const allCourseCountsKnown = Object.keys(state.courses).every((key) =>
+    Number.isFinite(paidByCourse[key]),
+  );
+  if (allCourseCountsKnown) {
+    state.applications.paid_confirmed_total_reported_by_user = Object.values(
+      paidByCourse,
+    ).reduce((total, value) => total + value, 0);
+    state.applications.note =
+      "Course-level paid counts are operator-reported aggregates. Applicant PII is not stored.";
+  } else {
+    state.applications.note =
+      "Only some course-level paid counts are known. Do not infer the missing course count.";
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T14:11:00+09:00",
+  "updated_at": "2026-07-26T14:14:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -141,7 +141,8 @@
     "Aligned all current emergency-operation documents to the campaign-specific rule: stop a course ad at 6 paid confirmations while keeping the course capacity at 15.",
     "Audited the live Google Form on a 390 x 844 mobile viewport. Course and attribution prefill work; queued E-010 rather than changing the form before the 10-click evidence gate.",
     "Recorded 14:04 KST Meta values: Gemini 4,074 KRW / 858 impressions / 4 link clicks / 4 landing views; Roblox 3,755 KRW / 999 impressions / 7 link clicks / 7 landing views. Form responses remain 3.",
-    "Added a privacy-safe course payment tracker to the operator page. It stores only aggregate counts locally, calculates the six-person ad-stop threshold and 15-person capacity, and produces a PII-free status summary."
+    "Added a privacy-safe course payment tracker to the operator page. It stores only aggregate counts locally, calculates the six-person ad-stop threshold and 15-person capacity, and produces a PII-free status summary.",
+    "Updated the payment recorder so one command refreshes both the marketing report and compact current state. Missing course counts remain unknown; the aggregate total changes only when both course counts are known."
   ],
   "facebook_page_post": {
     "status": "published",
