@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T15:01:09+09:00",
+  "updated_at": "2026-07-26T15:06:58+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -132,6 +132,36 @@
       "Notebook applicants must explicitly select a not-applicable answer for the required Roblox grade question."
     ],
     "decision": "Do not change the live form at only 3 tracked apply clicks. E-010 queues a first-screen copy reduction after 10 apply clicks if completed submissions remain 0."
+  },
+  "completion_audit": {
+    "audited_at": "2026-07-26T15:06:58+09:00",
+    "status": "incomplete",
+    "proven": [
+      "The live campaign is split into Gemini Notebook and Roblox AI ad sets with independent 20,000 KRW daily budgets.",
+      "Both ad sets use age 18-44, Sosa Station +8 km, landing-page-view optimization and the approved August 2 end date.",
+      "Each ad points directly to its matching course landing page with a distinct course UTM.",
+      "Enterprise, finance and public-sector teaching experience is present in the live course-specific creative.",
+      "Mobile landing, application preselection, attribution prefill and form controls have been audited.",
+      "Two course-specific payment-request templates and two course-specific confirmation templates are ready in cardnews/index.html.",
+      "Existing-network, enterprise-contact and local-community outreach copy is ready in cardnews/index.html.",
+      "A privacy-safe course payment tracker and command-line recorder are available."
+    ],
+    "partial": [
+      "A free Facebook Page post was published, but distribution through existing learners, enterprise contacts and local communities is not externally verified.",
+      "The operator reported three paid learners in aggregate, but no authoritative course split is available."
+    ],
+    "unproven": [
+      "Gemini Notebook has at least six paid confirmations.",
+      "Roblox AI has at least six paid confirmations.",
+      "Course-specific confirmation messages have been sent to every paid learner.",
+      "Any course ad has reached its six-paid stop condition and been stopped.",
+      "Final spend and channel-level paid enrollment results have been recorded."
+    ],
+    "next_required_evidence": [
+      "Course-specific paid counts from the operator without applicant PII.",
+      "Course-specific confirmation-message send completion.",
+      "Meta, GA4 and Google Form counts at the scheduled 20:00 KST review."
+    ]
   },
   "latest_actions": [
     "Paused the superseded Roblox campaign.",
