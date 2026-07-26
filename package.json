@@ -4,7 +4,8 @@
   "scripts": {
     "build:css": "bash scripts/build-tailwind-css.sh",
     "marketing:payments": "node scripts/record-course-payments.mjs",
-    "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write"
+    "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write",
+    "marketing:state": "node scripts/update-current-state.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"
