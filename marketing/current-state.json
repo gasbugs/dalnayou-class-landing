@@ -27,6 +27,17 @@
       "approved_at": "2026-07-26T13:20:13+09:00",
       "executed_at": "2026-07-26T13:39:00+09:00",
       "reason": "The current 310,000 KRW account limit can run out about 36,151 KRW before both 20,000 KRW/day ad sets reach 2026-08-02."
+    },
+    "optimization_approval": {
+      "status": "approved",
+      "daily_budget_total_krw": 40000,
+      "end_date": "2026-08-02",
+      "scope": "Course-specific creative optimization while keeping price, schedule, location, audience, destination and application form stable.",
+      "requires_new_approval": [
+        "Increase aggregate daily budget above 40,000 KRW",
+        "Extend advertising beyond 2026-08-02",
+        "Change price, schedule, location or payment scope"
+      ]
     }
   },
   "courses": {
@@ -194,9 +205,10 @@
     "Re-audited both live Meta structures: each ad set is 20,000 KRW/day, landing-page-view optimized, age 18-44, all genders, Sosa Station +8 km, and ends August 2; each ad retains its correct course landing URL and course-specific UTM. No unpublished edits remain.",
     "Changed both live Meta ad-set end times from August 2 at 15:23 KST to August 2 at 23:59 KST within the approved date and daily-budget envelope. Reopened both ad sets to verify the persisted 23:59 values and confirmed no unpublished edits remain.",
     "Recorded a 14:55 KST Meta checkpoint after a manual refresh: Gemini 4,854 KRW / 1,082 impressions / 4 link clicks / 4 landing views; Roblox 5,193 KRW / 1,448 impressions / 10 link clicks / 10 landing views. Both ads remain active and below the change gates, so no settings were changed.",
-    "Prepared E-011, an internal-only Gemini Notebook workload-problem creative candidate with separate copy and preview. It is not live and may be reviewed only after the documented sample gate and explicit publication approval.",
+    "Prepared E-011, an internal-only Gemini Notebook workload-problem creative candidate with separate copy and preview. It is not live and may be published after the documented sample gate within the approved 40,000 KRW/day and August 2 operating envelope.",
     "Completed the 20:00 KST review at 20:43. Gemini recorded 12,776 KRW / 3,372 impressions / 21 link clicks / 20 landing views; Roblox recorded 11,805 KRW / 3,546 impressions / 25 link clicks / 23 landing views. GA4 remained at 3 apply clicks and 0 submissions, while Google Form responses remained 3. No campaign setting was changed because neither course reached its decision gate.",
-    "At 2026-07-27 16:01 KST, verified both ad sets active. Cumulative Meta results were Gemini 17,156 KRW / 4,622 impressions / 26 link clicks / 24 landing views and Roblox 16,784 KRW / 5,027 impressions / 35 link clicks / 33 landing views. Roblox crossed the landing review gate, but its two processed campaign apply clicks mean the zero-click replacement rule does not apply."
+    "At 2026-07-27 16:01 KST, verified both ad sets active. Cumulative Meta results were Gemini 17,156 KRW / 4,622 impressions / 26 link clicks / 24 landing views and Roblox 16,784 KRW / 5,027 impressions / 35 link clicks / 33 landing views. Roblox crossed the landing review gate, but its two processed campaign apply clicks mean the zero-click replacement rule does not apply.",
+    "At 2026-07-27 16:17 KST, verified that Google Form responses remain at three and reconciled the operating approval: six paid learners is the minimum to run, 15 is the per-course ad-stop capacity, and creative optimization inside the existing 40,000 KRW/day and August 2 envelope does not require repeated approval."
   ],
   "facebook_page_post": {
     "status": "published",
