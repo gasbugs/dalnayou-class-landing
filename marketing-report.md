@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T17:27:44+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T18:11:35+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,12 +19,13 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 28,447원 | 7,663 | 48 | 0.6% | 43 | 89.6% | 1 | — | — |
-| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 27,593원 | 8,191 | 56 | 0.7% | 52 | 92.9% | 2 | — | — |
+| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 29,291원 | 7,927 | 49 | 0.6% | 44 | 89.8% | 1 | — | — |
+| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 28,491원 | 8,489 | 56 | 0.7% | 53 | 94.6% | 2 | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | 115 | — | 4 | 0 | — |
+| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | 115 | 비교 금지 | 4 | 3 | 3 |
 
 ## CTA 위치별 성과
 
@@ -32,6 +33,7 @@
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 128 | 4 | 3.1% | ga4 |
+| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 128 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -39,8 +41,8 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 28,447 / 40,000 (71.1%) | 43 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
-| 로블록스 AI | 27,593 / 40,000 (69.0%) | 52 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
+| Gemini 노트북 | 29,291 / 40,000 (73.2%) | 44 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
+| 로블록스 AI | 28,491 / 40,000 (71.2%) | 53 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
 
 
 ## 관찰 이력
@@ -106,6 +108,9 @@
 | 2026-07-27T17:27:44+09:00 | `notebooklm_enterprise_emergency` | 28,447원 | 7,663 | 48 | 43 | meta + ga4 |
 | 2026-07-27T17:27:44+09:00 | `roblox_enterprise_emergency` | 27,593원 | 8,191 | 56 | 52 | meta + ga4 |
 | 2026-07-27T17:27:44+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-27T18:11:35+09:00 | `notebooklm_enterprise_emergency` | 29,291원 | 7,927 | 49 | 44 | meta + ga4 |
+| 2026-07-27T18:11:35+09:00 | `roblox_enterprise_emergency` | 28,491원 | 8,489 | 56 | 53 | meta + ga4 |
+| 2026-07-27T18:11:35+09:00 | `pre_20_decision_checkpoint` | — | — | — | 115 | ga4 + google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -208,24 +213,24 @@
 ### notebooklm_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.6%)
-- 랜딩 완료: **관찰 양호** (89.6%)
+- 랜딩 완료: **관찰 양호** (89.8%)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.63%, link-click CPC 593 KRW and landing-view cost 662 KRW. Apply click remains the latest processed GA4 value for this exact utm_content; the separate CTA-position exploration found two Notebook clicks across its broader scope. Neither value is divided by the later Meta landing count.
+- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.62%, link-click CPC about 598 KRW and landing-view cost about 666 KRW. The exact-content apply click remains the latest processed GA4 value; the broader CTA-position exploration remains at two Notebook clicks. No experiment is launched before the 20:00 time gate.
 
 ### roblox_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.7%)
-- 랜딩 완료: **관찰 양호** (92.9%)
+- 랜딩 완료: **관찰 양호** (94.6%)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.68%, link-click CPC 493 KRW and landing-view cost 531 KRW. The processed GA4 July 26-27 exploration identified two historical Roblox application clicks by link position. This value is not divided by the later Meta landing count.
+- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.66%, link-click CPC about 509 KRW and landing-view cost about 538 KRW. The processed GA4 exploration remains at two Roblox application clicks. The zero-click replacement condition does not apply.
 
 ### ga4_realtime_30m_mixed
 
@@ -266,6 +271,12 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 첫 개선 후보: 결과물·신뢰·가격 근거·일정 적합성과 CTA 위치를 점검
 - 기록: GA4 Exploration free-form table for July 26-27, filtered to apply_cta_view, apply_click and application_submit. Apply clicks were notebooklm_hero_form 1, notebooklm_mobile_form 1, roblox_final_form 1 and roblox_mobile_form 1. The four historical apply_click rows had course_selection=(not set), while their link_position values still identified two clicks per course. This exposed and led to a prospective fix that adds explicit course_selection to all course-page tracked clicks. CTA views were Roblox mobile 48, Notebook mobile 40, Roblox hero 13, Notebook hero 12, Roblox enterprise trust 8, Notebook enterprise trust 3, Roblox final 3 and Notebook final 1. Application_submit was absent from the filtered table and therefore 0 for this processed range.
+
+### pre_20_decision_checkpoint
+
+- 누적 신청서 제출: **3건**
+- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
+- 기록: The GA4 CTA-position exploration remains at 128 CTA views and 4 apply clicks with 0 tracked application_submit events. Google Form responses remain 3 (NotebookLM 2, Roblox 1). The operator-reported paid total remains 3 with no course split, so course-level paid counts remain unknown. This checkpoint is a baseline for the scheduled 20:00 decision, not an early experiment trigger.
 
 ## 실험 실행 게이트
 
@@ -310,7 +321,7 @@
 - 실행 자산: feed=`experiments/assets/e-011-notebook-workload-feed.png`, story=`experiments/assets/e-011-notebook-workload-story.png`, render_script=`scripts/render-e011-notebook-workload.sh`, photo_source=`experiments/assets/notebooklm-workplace-generic-v2.webp`
 - 실행 광고: `[Codex] Gemini노트북_업무문서문제_v2`
 - 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2`
-- 표본 게이트: 43 / 30 (충족)
+- 표본 게이트: 44 / 30 (충족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**
 - 추가 조건: Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.
