@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T18:35:55+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T19:10:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,13 +19,13 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 29,291원 | 7,927 | 49 | 0.6% | 44 | 89.8% | 1 | — | — |
-| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 28,491원 | 8,489 | 56 | 0.7% | 53 | 94.6% | 2 | — | — |
+| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 30,025원 | 8,137 | — | 비교 금지 | 44 | 비교 금지 | 1 | — | — |
+| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 29,012원 | 8,693 | — | 비교 금지 | 53 | 비교 금지 | 2 | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | — | — | 4 | 0 | — |
-| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | 115 | 비교 금지 | 4 | 0 | 3 |
+| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 
 ## CTA 위치별 성과
 
@@ -33,7 +33,7 @@
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 129 | 4 | 3.1% | ga4 |
-| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 128 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -41,8 +41,8 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 유효 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 29,291 / 40,000 (73.2%) | 44 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
-| 로블록스 AI | 28,491 / 40,000 (71.2%) | 53 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
+| Gemini 노트북 | 30,025 / 40,000 (75.1%) | 44 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
+| 로블록스 AI | 29,012 / 40,000 (72.5%) | 53 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
 
 
 ## 관찰 이력
@@ -113,6 +113,9 @@
 | 2026-07-27T18:11:35+09:00 | `pre_20_decision_checkpoint` | — | — | — | 115 | ga4 + google_forms + operator_report |
 | 2026-07-27T18:35:55+09:00 | `ga4_cta_position_breakdown` | — | — | — | — | ga4 |
 | 2026-07-27T18:35:55+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-27T19:10:00+09:00 | `notebooklm_enterprise_emergency` | 30,025원 | 8,137 | — | 44 | meta + ga4 |
+| 2026-07-27T19:10:00+09:00 | `roblox_enterprise_emergency` | 29,012원 | 8,693 | — | 53 | meta + ga4 |
+| 2026-07-27T19:10:00+09:00 | `pre_20_decision_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -214,25 +217,25 @@
 
 ### notebooklm_enterprise_emergency
 
-- 광고 클릭: **개선 필요** (0.6%)
-- 랜딩 완료: **관찰 양호** (89.8%)
+- 광고 클릭: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 랜딩 완료: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
-- 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
+- 현재 판단: 다음 퍼널 단계의 절대 전환 수와 입금 확정을 확인합니다.
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.62%, link-click CPC about 598 KRW and landing-view cost about 666 KRW. The exact-content raw apply click was reported from the United States and is excluded from qualified local recruitment evidence. The broader CTA-position exploration remains at two Notebook clicks, also without verified local attribution. No experiment is launched before the 20:00 time gate.
+- 기록: 19:10 KST checkpoint. Meta totals were read at about 19:05 KST and the ads table still showed 44 landing-page views at 19:10. The only raw exact-content apply click remains excluded as United States or QA traffic. The replacement draft is saved but unpublished until the documented 20:00 decision gate.
 
 ### roblox_enterprise_emergency
 
-- 광고 클릭: **개선 필요** (0.7%)
-- 랜딩 완료: **관찰 양호** (94.6%)
+- 광고 클릭: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 랜딩 완료: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
-- 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
+- 현재 판단: 다음 퍼널 단계의 절대 전환 수와 입금 확정을 확인합니다.
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.66%, link-click CPC about 509 KRW and landing-view cost about 538 KRW. The two raw Roblox application clicks were reported from the United States or otherwise unverified QA traffic and are excluded from qualified local recruitment evidence.
+- 기록: 19:10 KST checkpoint. Meta totals were read at about 19:05 KST and the ads table still showed 53 landing-page views at 19:10. Both raw Roblox apply clicks remain excluded as United States or otherwise unverified QA traffic.
 
 ### ga4_realtime_30m_mixed
 
@@ -278,7 +281,7 @@
 
 - 누적 신청서 제출: **0건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: The GA4 CTA-position exploration remains at 128 CTA views and 4 apply clicks with 0 tracked application_submit events. Google Form responses remain 3 (NotebookLM 2, Roblox 1). The operator-reported paid total remains 3 with no course split, so course-level paid counts remain unknown. This checkpoint is a baseline for the scheduled 20:00 decision, not an early experiment trigger.
+- 기록: At 19:10 KST the GA4 CTA-position exploration remained at 129 CTA views, four raw apply clicks and zero tracked application_submit events. Google Form responses remained three. The operator-reported paid total remains three with no authoritative course split, so it is not used for a course-level capacity stop. Six paid learners confirms a course can run; only 15 paid learners in a specific course stops that course ad.
 
 ## 실험 실행 게이트
 
