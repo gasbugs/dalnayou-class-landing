@@ -295,6 +295,8 @@ contains scripts/evaluate-campaign-actions.mjs 'hold_e011_during_form_test' 'Dec
 contains package.json 'marketing:decide' 'Package exposes the campaign decision command'
 contains package.json 'marketing:test' 'Package exposes campaign decision regression tests'
 contains cardnews/index.html 'id="payment-tracker"' 'Operator page exposes the privacy-safe payment tracker'
+not_contains cardnews/index.html '달나유 일요 AI 클래스에 신청' 'Operator messages do not present the venue as the class operator'
+contains cardnews/index.html '클씨랩 일요 AI 클래스에 신청' 'Operator messages identify Cloud Security Lab as the class operator'
 contains cardnews/index.html 'const MINIMUM_ENROLLMENT = 6' 'Payment tracker uses the six-person minimum enrollment'
 contains cardnews/index.html 'const COURSE_CAPACITY = 15' 'Payment tracker uses the 15-person course capacity'
 contains cardnews/index.html 'value >= COURSE_CAPACITY' 'Payment tracker stops advertising only at course capacity'
