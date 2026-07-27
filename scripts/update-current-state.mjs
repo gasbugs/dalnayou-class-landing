@@ -115,6 +115,13 @@ for (const [key, course] of Object.entries(state.courses)) {
         ? Math.round(landingCost)
         : null,
     };
+    course.processed_apply_clicks = Number.isFinite(metaRecord.apply_clicks)
+      ? metaRecord.apply_clicks
+      : null;
+    course.processed_apply_period_end =
+      metaRecord.metric_sources?.apply_clicks === "ga4"
+        ? metaRecord.period_end
+        : null;
   }
 
   const segment = liveExperiment?.course_segments?.find(

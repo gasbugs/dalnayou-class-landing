@@ -62,7 +62,9 @@
       },
       "minimum_enrollment": 6,
       "capacity": 15,
-      "advertising_stop_paid_at": 15
+      "advertising_stop_paid_at": 15,
+      "processed_apply_clicks": 1,
+      "processed_apply_period_end": "2026-07-27"
     },
     "roblox": {
       "display_name": "로블록스 AI",
@@ -85,7 +87,9 @@
       },
       "minimum_enrollment": 6,
       "capacity": 15,
-      "advertising_stop_paid_at": 15
+      "advertising_stop_paid_at": 15,
+      "processed_apply_clicks": 2,
+      "processed_apply_period_end": "2026-07-27"
     }
   },
   "applications": {
@@ -203,7 +207,8 @@
     "Prepared upload-ready E-011 Gemini Notebook workload creative assets at 1080x1350 and 1080x1920, visually verified both layouts, and kept them internal until the July 27 20:00 sample gate.",
     "Defined the E-011 launch as [Codex] Gemini노트북_업무문서문제_v2 inside the existing Gemini ad set. The new ad must be active and verified before the superseded Gemini ad is paused; Roblox and the 40,000 KRW aggregate daily budget remain unchanged.",
     "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate.",
-    "At 2026-07-27 16:31 KST, the GA4 today report showed 25 course_landing_view events from 23 users, 0 apply_click, 0 application_submit and 0 active users in the last 30 minutes. Google Form responses remained three. This is a partial-day observation and does not trigger a pre-20:00 change."
+    "At 2026-07-27 16:31 KST, the GA4 today report showed 25 course_landing_view events from 23 users, 0 apply_click, 0 application_submit and 0 active users in the last 30 minutes. Google Form responses remained three. This is a partial-day observation and does not trigger a pre-20:00 change.",
+    "Added a deterministic marketing:decide command. It keeps ads at six paid learners, stops at 15, prioritizes capacity stop over creative changes, and prevents E-010 form compression and E-011 Gemini creative replacement from launching together."
   ],
   "facebook_page_post": {
     "status": "published",

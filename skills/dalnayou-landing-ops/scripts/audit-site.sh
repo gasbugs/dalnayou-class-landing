@@ -44,6 +44,7 @@ required_files=(
   ads/index.html ads/source.html ads/meta-enterprise-candidates.zip scripts/render-meta-ads.sh
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
+  scripts/evaluate-campaign-actions.mjs
   marketing/experiments.json experiments/e-007-mobile-cta-preview.html
   experiments/e-011-notebook-workload-ad-preview.html
   experiments/assets/e-011-notebook-workload-feed.png
@@ -267,6 +268,13 @@ contains scripts/update-current-state.mjs 'allCourseCountsKnown' 'Current state 
 contains scripts/update-current-state.mjs 'Do not infer the missing course count' 'Current state preserves unknown course payment counts'
 contains scripts/update-current-state.mjs 'latestByContent\.get\("ga4_today_processed_mixed"\)' 'Current state refreshes the latest GA4 observation'
 contains scripts/update-current-state.mjs '"partial_day"' 'Current state distinguishes partial-day GA4 data'
+contains scripts/update-current-state.mjs 'processed_apply_clicks' 'Current state preserves course-level processed apply clicks'
+contains scripts/evaluate-campaign-actions.mjs 'paid_confirmed >= course\.advertising_stop_paid_at' 'Decision tool stops a course only at capacity'
+contains scripts/evaluate-campaign-actions.mjs 'apply_e010_description' 'Decision tool evaluates the E-010 form gate'
+contains scripts/evaluate-campaign-actions.mjs 'launch_e011_then_pause_v1' 'Decision tool evaluates the E-011 creative gate'
+contains scripts/evaluate-campaign-actions.mjs 'skip_e011_course_full' 'Decision tool prioritizes capacity stop over creative replacement'
+contains scripts/evaluate-campaign-actions.mjs 'hold_e011_during_form_test' 'Decision tool avoids simultaneous form and creative changes'
+contains package.json 'marketing:decide' 'Package exposes the campaign decision command'
 contains cardnews/index.html 'id="payment-tracker"' 'Operator page exposes the privacy-safe payment tracker'
 contains cardnews/index.html 'const MINIMUM_ENROLLMENT = 6' 'Payment tracker uses the six-person minimum enrollment'
 contains cardnews/index.html 'const COURSE_CAPACITY = 15' 'Payment tracker uses the 15-person course capacity'

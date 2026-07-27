@@ -88,6 +88,9 @@
         "minimum": 10,
         "not_before": "2026-07-27T20:00:00+09:00"
       },
+      "baseline": {
+        "google_form_responses": 3
+      },
       "additional_condition": "application_submits remains 0 and Google Form response count does not increase",
       "candidate_form_description": [
         "수강 가능 여부 확인을 위한 신청서입니다. 제출만으로 결제되지 않으며, 입금 확인 후 최종 확정됩니다.",
@@ -143,6 +146,10 @@
         "metric": "landing_views",
         "minimum": 30,
         "not_before": "2026-07-27T20:00:00+09:00"
+      },
+      "baseline": {
+        "recorded_at": "2026-07-27T16:01:29+09:00",
+        "processed_apply_clicks": 1
       },
       "additional_condition": "Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.",
       "candidate_copy": {
