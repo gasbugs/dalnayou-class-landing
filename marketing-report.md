@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T18:11:35+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T18:35:55+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -24,15 +24,15 @@
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
-| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | 115 | — | 4 | 0 | — |
-| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | 115 | 비교 금지 | 4 | 3 | 3 |
+| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | — | — | 4 | 0 | — |
+| 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | 115 | 비교 금지 | 4 | 0 | 3 |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
-| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 128 | 4 | 3.1% | ga4 |
+| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 129 | 4 | 3.1% | ga4 |
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 128 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
@@ -111,6 +111,8 @@
 | 2026-07-27T18:11:35+09:00 | `notebooklm_enterprise_emergency` | 29,291원 | 7,927 | 49 | 44 | meta + ga4 |
 | 2026-07-27T18:11:35+09:00 | `roblox_enterprise_emergency` | 28,491원 | 8,489 | 56 | 53 | meta + ga4 |
 | 2026-07-27T18:11:35+09:00 | `pre_20_decision_checkpoint` | — | — | — | 115 | ga4 + google_forms + operator_report |
+| 2026-07-27T18:35:55+09:00 | `ga4_cta_position_breakdown` | — | — | — | — | ga4 |
+| 2026-07-27T18:35:55+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -158,7 +160,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The operator-reported aggregate paid count remains 3, but the per-course payment split is unknown and is not inferred. Six paid learners confirms a course can run and does not stop its ad; only 15 paid learners in a specific course stops that course ad. Applicant PII is intentionally excluded.
+- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The operator-reported aggregate paid count remains 3, but the per-course payment split is unknown and is not inferred. Six paid learners is the minimum to run and keeps advertising active; only 15 paid learners in a specific course stops that course ad. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -266,15 +268,15 @@
 
 - 광고 클릭: **자료 부족** (노출 1,000회)
 - 랜딩 완료: **자료 부족** (링크 클릭 20회)
-- 신청서 이동: **개선 필요** (3.5%)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
-- 현재 첫 개선 후보: 결과물·신뢰·가격 근거·일정 적합성과 CTA 위치를 점검
-- 기록: GA4 Exploration free-form table for July 26-27, filtered to apply_cta_view, apply_click and application_submit. Apply clicks were notebooklm_hero_form 1, notebooklm_mobile_form 1, roblox_final_form 1 and roblox_mobile_form 1. The four historical apply_click rows had course_selection=(not set), while their link_position values still identified two clicks per course. This exposed and led to a prospective fix that adds explicit course_selection to all course-page tracked clicks. CTA views were Roblox mobile 48, Notebook mobile 40, Roblox hero 13, Notebook hero 12, Roblox enterprise trust 8, Notebook enterprise trust 3, Roblox final 3 and Notebook final 1. Application_submit was absent from the filtered table and therefore 0 for this processed range.
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: GA4 Exploration refreshed at 18:35 KST for July 26-27. CTA views are Roblox mobile 48, Notebook mobile 41, Roblox hero 13, Notebook hero 12, Roblox enterprise trust 8, Notebook enterprise trust 3, Roblox final 3 and Notebook final 1. Apply clicks remain four: Notebook hero 1, Notebook mobile 1, Roblox final 1 and Roblox mobile 1. No application_submit row is present, so processed tracked submissions remain 0. The single new CTA view without a click does not change either experiment gate.
 
 ### pre_20_decision_checkpoint
 
-- 누적 신청서 제출: **3건**
+- 누적 신청서 제출: **0건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: The GA4 CTA-position exploration remains at 128 CTA views and 4 apply clicks with 0 tracked application_submit events. Google Form responses remain 3 (NotebookLM 2, Roblox 1). The operator-reported paid total remains 3 with no course split, so course-level paid counts remain unknown. This checkpoint is a baseline for the scheduled 20:00 decision, not an early experiment trigger.
 
