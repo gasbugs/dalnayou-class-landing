@@ -106,32 +106,43 @@ for (const [key, course] of Object.entries(state.courses)) {
         ? metaRecord.spend_krw / metaRecord.landing_views
         : null;
     course.meta_today = {
+      ...course.meta_today,
       period_start: metaRecord.period_start,
       period_end: metaRecord.period_end,
       window: "campaign_observation",
-      spend_krw: metaRecord.spend_krw,
-      impressions: metaRecord.impressions,
-      link_clicks: metaRecord.link_clicks,
-      landing_views: metaRecord.landing_views,
+      spend_krw: Number.isFinite(metaRecord.spend_krw)
+        ? metaRecord.spend_krw
+        : course.meta_today?.spend_krw ?? null,
+      impressions: Number.isFinite(metaRecord.impressions)
+        ? metaRecord.impressions
+        : course.meta_today?.impressions ?? null,
+      link_clicks: Number.isFinite(metaRecord.link_clicks)
+        ? metaRecord.link_clicks
+        : course.meta_today?.link_clicks ?? null,
+      landing_views: Number.isFinite(metaRecord.landing_views)
+        ? metaRecord.landing_views
+        : course.meta_today?.landing_views ?? null,
       link_ctr_percent: Number.isFinite(ctr) ? Number(ctr.toFixed(2)) : null,
       cost_per_landing_view_krw: Number.isFinite(landingCost)
         ? Math.round(landingCost)
         : null,
     };
-    course.processed_apply_clicks = Number.isFinite(metaRecord.apply_clicks)
-      ? metaRecord.apply_clicks
-      : null;
-    course.qualified_apply_clicks = Number.isFinite(
-      metaRecord.qualified_apply_clicks,
-    )
-      ? metaRecord.qualified_apply_clicks
-      : null;
-    course.apply_click_qualification =
-      metaRecord.apply_click_qualification || "not_evaluated";
-    course.processed_apply_period_end =
-      metaRecord.metric_sources?.apply_clicks === "ga4"
-        ? metaRecord.period_end
-        : null;
+    if (Number.isFinite(metaRecord.apply_clicks)) {
+      course.processed_apply_clicks = metaRecord.apply_clicks;
+    }
+    if (Number.isFinite(metaRecord.qualified_apply_clicks)) {
+      course.qualified_apply_clicks = metaRecord.qualified_apply_clicks;
+    }
+    if (
+      !course.pending_qualification_apply_clicks &&
+      metaRecord.apply_click_qualification
+    ) {
+      course.apply_click_qualification =
+        metaRecord.apply_click_qualification;
+    }
+    if (metaRecord.metric_sources?.apply_clicks === "ga4") {
+      course.processed_apply_period_end = metaRecord.period_end;
+    }
   }
 
   const segment = liveExperiment?.course_segments?.find(
@@ -158,6 +169,28 @@ for (const [key, course] of Object.entries(state.courses)) {
   }
 }
 
+const courseAdsetRecord = latestByContent.get("course_adset_checkpoint");
+if (courseAdsetRecord?.course_breakdown) {
+  for (const [key, metrics] of Object.entries(
+    courseAdsetRecord.course_breakdown,
+  )) {
+    const course = state.courses[key];
+    if (!course || !Number.isFinite(metrics?.landing_views)) continue;
+    course.meta_today = {
+      ...course.meta_today,
+      period_start: courseAdsetRecord.period_start,
+      period_end: courseAdsetRecord.period_end,
+      window: "today_and_yesterday",
+      spend_krw: null,
+      impressions: null,
+      link_clicks: null,
+      landing_views: metrics.landing_views,
+      link_ctr_percent: null,
+      cost_per_landing_view_krw: null,
+    };
+  }
+}
+
 state.stop_and_change_rules.minimum_enrollment_per_course =
   minimumEnrollment;
 state.stop_and_change_rules.capacity_per_course = courseCapacity;
@@ -173,12 +206,24 @@ if (formRecord) {
   }
 }
 
-const ga4TodayRecord = latestByContent.get("ga4_today_processed_mixed");
+const ga4TodayRecord = [...records]
+  .reverse()
+  .find(
+    (record) =>
+      record.source_systems.includes("ga4") &&
+      Number.isFinite(record.apply_clicks) &&
+      Number.isFinite(record.apply_cta_views),
+  ) || latestByContent.get("ga4_today_processed_mixed");
 if (ga4TodayRecord) {
+  const isGa4Metric = (field) =>
+    ga4TodayRecord.metric_sources?.[field] === "ga4" ||
+    (ga4TodayRecord.source_systems.length === 1 &&
+      ga4TodayRecord.source_systems[0] === "ga4");
   state.ga4_today_processed = {
+    ...state.ga4_today_processed,
     observed_at: ga4TodayRecord.recorded_at,
     status:
-      ga4TodayRecord.period_end === ga4TodayRecord.recorded_at?.slice(0, 10)
+      ga4TodayRecord.period_start === ga4TodayRecord.period_end
         ? "partial_day"
         : "processed_period",
     period_start: ga4TodayRecord.period_start,
@@ -186,9 +231,11 @@ if (ga4TodayRecord) {
     page_views: Number.isFinite(ga4TodayRecord.page_views)
       ? ga4TodayRecord.page_views
       : null,
-    course_landing_views: Number.isFinite(ga4TodayRecord.landing_views)
+    course_landing_views:
+      isGa4Metric("landing_views") &&
+      Number.isFinite(ga4TodayRecord.landing_views)
       ? ga4TodayRecord.landing_views
-      : null,
+      : state.ga4_today_processed.course_landing_views ?? null,
     course_clicks: Number.isFinite(ga4TodayRecord.course_clicks)
       ? ga4TodayRecord.course_clicks
       : null,

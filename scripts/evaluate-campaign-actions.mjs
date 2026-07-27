@@ -83,9 +83,15 @@ if (e011) {
       state.stop_and_change_rules.change_creative_if_spend_krw_reaches ||
     course.meta_today.landing_views >= e011.gate.minimum;
   const qualifiedApplyClicks = course.qualified_apply_clicks;
+  const pendingQualificationApplyClicks =
+    course.pending_qualification_apply_clicks;
+  const attributionPending =
+    Number.isFinite(pendingQualificationApplyClicks) &&
+    pendingQualificationApplyClicks > 0;
   const applyStagnant =
     Number.isFinite(qualifiedApplyClicks) &&
-    qualifiedApplyClicks <= e011.baseline.qualified_apply_clicks;
+    qualifiedApplyClicks <= e011.baseline.qualified_apply_clicks &&
+    !attributionPending;
   push(
     "notebooklm",
     courseAtCapacity
@@ -103,7 +109,7 @@ if (e011) {
         ? `E-011 상태가 ${e011.status}이므로 재게시하지 않고 후보 상태와 성과만 확인`
       : formChangeScheduled
         ? "신청 이동 이후 Form 병목 실험을 먼저 실행해 동시 변수 변경을 방지"
-      : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e011.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
+      : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e011.gate.minimum}, 지출 ${course.meta_today.spend_krw ?? "미확인"}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회, 출처 확인 대기 ${pendingQualificationApplyClicks ?? 0}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
   );
 }
 
@@ -121,9 +127,15 @@ if (e012) {
       state.stop_and_change_rules.change_creative_if_spend_krw_reaches ||
     course.meta_today.landing_views >= e012.gate.minimum;
   const qualifiedApplyClicks = course.qualified_apply_clicks;
+  const pendingQualificationApplyClicks =
+    course.pending_qualification_apply_clicks;
+  const attributionPending =
+    Number.isFinite(pendingQualificationApplyClicks) &&
+    pendingQualificationApplyClicks > 0;
   const applyStagnant =
     Number.isFinite(qualifiedApplyClicks) &&
-    qualifiedApplyClicks <= e012.baseline.qualified_apply_clicks;
+    qualifiedApplyClicks <= e012.baseline.qualified_apply_clicks &&
+    !attributionPending;
   push(
     "roblox",
     courseAtCapacity
@@ -141,7 +153,7 @@ if (e012) {
         ? `E-012 상태가 ${e012.status}이므로 재게시하지 않고 후보 상태와 성과만 확인`
         : formChangeScheduled
           ? "신청 이동 이후 Form 병목 실험을 먼저 실행해 동시 변수 변경을 방지"
-          : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e012.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
+          : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e012.gate.minimum}, 지출 ${course.meta_today.spend_krw ?? "미확인"}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회, 출처 확인 대기 ${pendingQualificationApplyClicks ?? 0}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
   );
 }
 

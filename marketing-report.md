@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T22:21:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-28T08:45:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -26,10 +26,12 @@
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
-| 2026-07-27~2026-07-27 | `notebooklm_workload_candidate_v2` | — | — | — | — | 0 | — | 0 | — | — |
+| 2026-07-27~2026-07-28 | `notebooklm_workload_candidate_v2` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | — | — | — | 비교 금지 | 101 | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
+| 2026-07-27~2026-07-28 | `course_adset_checkpoint` | — | — | — | — | 66 | — | — | — | — |
+| 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
 
 ## CTA 위치별 성과
 
@@ -41,6 +43,7 @@
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | 129 | 4 | 비교 금지 | meta + ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | 160 | 6 | 3.8% | meta + ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -131,6 +134,9 @@
 | 2026-07-27T22:01:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 | 2026-07-27T22:01:00+09:00 | `overnight_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
 | 2026-07-27T22:21:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
+| 2026-07-28T08:42:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 3 | meta |
+| 2026-07-28T08:44:00+09:00 | `course_adset_checkpoint` | — | — | — | 66 | meta |
+| 2026-07-28T08:45:00+09:00 | `accelerated_roblox_gate_checkpoint` | — | — | — | 66 | meta + ga4 + google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -306,7 +312,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: At 22:21 KST, more than two hours after publication, E-011 still showed processing. The superseded Gemini ad remained active with 46 cumulative landing-page views. No error or unpublished draft was shown, so the candidate was not recreated and the old ad was not paused.
+- 기록: At the user-accelerated morning checkpoint, Meta showed E-011 active with three landing-page views. The superseded Gemini ad had 32 landing-page views in the same July 27-28 report window and was paused only after the candidate was verified active. The existing Gemini ad-set budget, audience, destination and end date were unchanged.
 
 ### e011_launch_checkpoint
 
@@ -325,6 +331,22 @@
 - 누적 신청서 제출: **0건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: At 22:01 KST GA4 remained at 129 CTA views and four raw apply clicks with no application_submit row. Google Form responses remained three. The operator-reported paid total remains three without a course split. Both course ads continue because neither has verified 15-person paid capacity.
+
+### course_adset_checkpoint
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: Meta ad-set view for July 27-28 showed 35 Gemini and 31 Roblox landing-page views. Both course ad sets remained active. No daily budget change was made.
+
+### accelerated_roblox_gate_checkpoint
+
+- 누적 신청서 제출: **0건**
+- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
+- 기록: The user advanced the Roblox decision gate by 20 minutes. GA4 shows four historical course-unset apply clicks plus one newly course-tagged click for each course, but paid-source and local qualification are not yet proven. Google Form responses remain three. E-012 stays unpublished until the new Roblox click attribution is resolved; both course ads continue because neither has verified 15-person paid capacity.
 
 ## 실험 실행 게이트
 
@@ -363,7 +385,7 @@
 
 ### E-011 · Gemini 노트북 업무 문서 문제형 소재
 
-- 준비 상태: `published_processing`
+- 준비 상태: `published_active`
 - 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
 - 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
 - 실행 자산: feed=`experiments/assets/e-011-notebook-workload-feed.png`, story=`experiments/assets/e-011-notebook-workload-story.png`, render_script=`scripts/render-e011-notebook-workload.sh`, photo_source=`experiments/assets/notebooklm-workplace-generic-v2.webp`
@@ -384,9 +406,9 @@
 - 실행 광고: `[Codex] 로블록스AI_실제결과물_v2`
 - 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_real_output_candidate_v2`
 - 표본 게이트: 53 / 30 (충족)
-- 시간 게이트: 2026-07-28T09:00:00+09:00 (대기)
-- 현재 판정: **대기**
-- 추가 조건: At the 2026-07-28 09:00 KST checkpoint, launch only if qualified Roblox apply-click evidence is still absent or stagnant and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.
+- 시간 게이트: 2026-07-28T08:40:00+09:00 (충족)
+- 현재 판정: **실행 검토 가능**
+- 추가 조건: At the user-accelerated 2026-07-28 08:40 KST checkpoint, launch only if qualified Roblox apply-click evidence is absent or stagnant, no recent click is awaiting attribution, and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.
 - 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
 
 ## 운영 규칙
