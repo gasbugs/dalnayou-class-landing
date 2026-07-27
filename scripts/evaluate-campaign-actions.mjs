@@ -81,9 +81,10 @@ if (e011) {
     course.meta_today.spend_krw >=
       state.stop_and_change_rules.change_creative_if_spend_krw_reaches ||
     course.meta_today.landing_views >= e011.gate.minimum;
+  const qualifiedApplyClicks = course.qualified_apply_clicks;
   const applyStagnant =
-    Number.isFinite(course.processed_apply_clicks) &&
-    course.processed_apply_clicks <= e011.baseline.processed_apply_clicks;
+    Number.isFinite(qualifiedApplyClicks) &&
+    qualifiedApplyClicks <= e011.baseline.qualified_apply_clicks;
   push(
     "notebooklm",
     courseAtCapacity
@@ -97,7 +98,7 @@ if (e011) {
       ? "과정 정원 충족으로 광고 중단이 소재 교체보다 우선"
       : formChangeScheduled
         ? "신청 이동 이후 Form 병목 실험을 먼저 실행해 동시 변수 변경을 방지"
-      : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e011.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 처리된 신청 이동 ${course.processed_apply_clicks ?? "미확인"}회`,
+      : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e011.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
   );
 }
 

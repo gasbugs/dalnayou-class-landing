@@ -39,10 +39,10 @@
 
 실험: `E-009` · 6명은 개강 기준, 15명은 광고 중단 기준, 15명은 과정 정원입니다.
 
-| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
+| 과정 | 지출 판단선 | 랜딩 판단선 | 유효 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 29,291 / 40,000 (73.2%) | 44 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
-| 로블록스 AI | 28,491 / 40,000 (71.2%) | 53 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
+| Gemini 노트북 | 29,291 / 40,000 (73.2%) | 44 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
+| 로블록스 AI | 28,491 / 40,000 (71.2%) | 53 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
 
 
 ## 관찰 이력
@@ -221,7 +221,7 @@
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.62%, link-click CPC about 598 KRW and landing-view cost about 666 KRW. The exact-content apply click remains the latest processed GA4 value; the broader CTA-position exploration remains at two Notebook clicks. No experiment is launched before the 20:00 time gate.
+- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.62%, link-click CPC about 598 KRW and landing-view cost about 666 KRW. The exact-content raw apply click was reported from the United States and is excluded from qualified local recruitment evidence. The broader CTA-position exploration remains at two Notebook clicks, also without verified local attribution. No experiment is launched before the 20:00 time gate.
 
 ### roblox_enterprise_emergency
 
@@ -232,7 +232,7 @@
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.66%, link-click CPC about 509 KRW and landing-view cost about 538 KRW. The processed GA4 exploration remains at two Roblox application clicks. The zero-click replacement condition does not apply.
+- 기록: 18:11 KST pre-decision checkpoint. Meta July 26-27 cumulative values after a manual refresh: status active, link CTR 0.66%, link-click CPC about 509 KRW and landing-view cost about 538 KRW. The two raw Roblox application clicks were reported from the United States or otherwise unverified QA traffic and are excluded from qualified local recruitment evidence.
 
 ### ga4_realtime_30m_mixed
 

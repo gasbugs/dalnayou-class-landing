@@ -67,7 +67,9 @@
       "capacity": 15,
       "advertising_stop_paid_at": 15,
       "processed_apply_clicks": 1,
-      "processed_apply_period_end": "2026-07-27"
+      "processed_apply_period_end": "2026-07-27",
+      "qualified_apply_clicks": 0,
+      "apply_click_qualification": "excluded_non_target_country_or_qa"
     },
     "roblox": {
       "display_name": "로블록스 AI",
@@ -95,7 +97,9 @@
       "capacity": 15,
       "advertising_stop_paid_at": 15,
       "processed_apply_clicks": 2,
-      "processed_apply_period_end": "2026-07-27"
+      "processed_apply_period_end": "2026-07-27",
+      "qualified_apply_clicks": 0,
+      "apply_click_qualification": "excluded_non_target_country_or_qa"
     }
   },
   "applications": {

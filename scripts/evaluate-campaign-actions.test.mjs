@@ -49,6 +49,7 @@ test("form optimization takes priority over a simultaneous creative change", () 
     state.courses.notebooklm.paid_confirmed = 6;
     state.courses.notebooklm.meta_today.landing_views = 30;
     state.courses.notebooklm.processed_apply_clicks = 1;
+    state.courses.notebooklm.qualified_apply_clicks = 0;
     state.ga4_today_processed.apply_clicks = 10;
     state.ga4_today_processed.application_submits = 0;
     state.applications.google_form_total = 3;
@@ -62,7 +63,8 @@ test("Gemini replacement launches when only its gate is ready", () => {
   const decisions = evaluate((state) => {
     state.courses.notebooklm.paid_confirmed = 6;
     state.courses.notebooklm.meta_today.landing_views = 30;
-    state.courses.notebooklm.processed_apply_clicks = 1;
+    state.courses.notebooklm.processed_apply_clicks = 4;
+    state.courses.notebooklm.qualified_apply_clicks = 0;
     state.ga4_today_processed.apply_clicks = 0;
     state.ga4_today_processed.application_submits = 0;
   });
@@ -71,4 +73,18 @@ test("Gemini replacement launches when only its gate is ready", () => {
   assert.ok(
     actionFor(decisions, "notebooklm", "launch_e011_then_pause_v1"),
   );
+});
+
+test("qualified local apply evidence holds the Gemini replacement", () => {
+  const decisions = evaluate((state) => {
+    state.courses.notebooklm.paid_confirmed = 6;
+    state.courses.notebooklm.meta_today.landing_views = 30;
+    state.courses.notebooklm.processed_apply_clicks = 4;
+    state.courses.notebooklm.qualified_apply_clicks = 1;
+    state.ga4_today_processed.apply_clicks = 0;
+    state.ga4_today_processed.application_submits = 0;
+  });
+
+  assert.ok(actionFor(decisions, "google_form", "keep_form"));
+  assert.ok(actionFor(decisions, "notebooklm", "keep_current_creative"));
 });

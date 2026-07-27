@@ -28,7 +28,9 @@ const numericFields = [
   "trust_views",
   "apply_cta_views",
   "apply_clicks",
+  "qualified_apply_clicks",
   "application_submits",
+  "form_responses",
   "payment_confirmed",
 ];
 
@@ -240,7 +242,7 @@ if (liveCourseExperiment) {
     "",
     `실험: \`${liveCourseExperiment.id}\` · ${count(minimumEnrollment)}명은 개강 기준, ${count(advertisingStopPaidAt)}명은 광고 중단 기준, ${count(capacity)}명은 과정 정원입니다.`,
     "",
-    "| 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |",
+    "| 과정 | 지출 판단선 | 랜딩 판단선 | 유효 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |",
     "| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
   );
   for (const segment of liveCourseExperiment.course_segments) {
@@ -251,6 +253,9 @@ if (liveCourseExperiment) {
       (candidate) => candidate.content === segment.payment_content,
     );
     const paymentConfirmed = paymentRecord?.payment_confirmed;
+    const decisionApplyClicks = Number.isFinite(record?.qualified_apply_clicks)
+      ? record.qualified_apply_clicks
+      : record?.apply_clicks;
     const spendReady =
       Number.isFinite(record?.spend_krw) &&
       Number.isFinite(spendThreshold) &&
@@ -267,15 +272,15 @@ if (liveCourseExperiment) {
     if (paymentReady) {
       action = "해당 과정 광고 중단";
     } else if (spendReady || landingReady) {
-      action = record?.apply_clicks === 0
+      action = decisionApplyClicks === 0
         ? "소재·첫 화면 교체"
-        : Number.isFinite(record?.apply_clicks)
+        : Number.isFinite(decisionApplyClicks)
           ? "신청 이후 단계 점검"
           : "GA4 신청 이동 확인 후 판정";
     }
     lines.push(
       `| ${segment.name} | ${progress(record?.spend_krw, spendThreshold)} | ` +
-      `${progress(record?.landing_views, landingThreshold)} | ${count(record?.apply_clicks)} | ` +
+      `${progress(record?.landing_views, landingThreshold)} | ${count(decisionApplyClicks)} | ` +
       `${progress(paymentConfirmed, minimumEnrollment)} | ` +
       `${progress(paymentConfirmed, advertisingStopPaidAt)} | ` +
       `${progress(paymentConfirmed, capacity)} | **${action}** |`,

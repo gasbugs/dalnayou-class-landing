@@ -167,7 +167,9 @@
       },
       "baseline": {
         "recorded_at": "2026-07-27T16:01:29+09:00",
-        "processed_apply_clicks": 1
+        "processed_apply_clicks": 1,
+        "qualified_apply_clicks": 0,
+        "qualification_note": "The exact-content raw click was reported from the United States and is excluded from local recruitment evidence."
       },
       "additional_condition": "Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.",
       "asset_safety": "The candidate uses a generated generic Korean workplace photo with no third-party logo, brand name, readable text or watermark.",

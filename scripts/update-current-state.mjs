@@ -121,6 +121,13 @@ for (const [key, course] of Object.entries(state.courses)) {
     course.processed_apply_clicks = Number.isFinite(metaRecord.apply_clicks)
       ? metaRecord.apply_clicks
       : null;
+    course.qualified_apply_clicks = Number.isFinite(
+      metaRecord.qualified_apply_clicks,
+    )
+      ? metaRecord.qualified_apply_clicks
+      : null;
+    course.apply_click_qualification =
+      metaRecord.apply_click_qualification || "not_evaluated";
     course.processed_apply_period_end =
       metaRecord.metric_sources?.apply_clicks === "ga4"
         ? metaRecord.period_end
