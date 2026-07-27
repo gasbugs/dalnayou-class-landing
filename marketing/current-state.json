@@ -53,6 +53,9 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
+        "period_start": "2026-07-26",
+        "period_end": "2026-07-27",
+        "window": "campaign_observation",
         "spend_krw": 17156,
         "impressions": 4622,
         "link_clicks": 26,
@@ -78,6 +81,9 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
+        "period_start": "2026-07-26",
+        "period_end": "2026-07-27",
+        "window": "campaign_observation",
         "spend_krw": 16784,
         "impressions": 5027,
         "link_clicks": 35,
@@ -209,7 +215,8 @@
     "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate.",
     "At 2026-07-27 16:31 KST, the GA4 today report showed 25 course_landing_view events from 23 users, 0 apply_click, 0 application_submit and 0 active users in the last 30 minutes. Google Form responses remained three. This is a partial-day observation and does not trigger a pre-20:00 change.",
     "Added a deterministic marketing:decide command. It keeps ads at six paid learners, stops at 15, prioritizes capacity stop over creative changes, and prevents E-010 form compression and E-011 Gemini creative replacement from launching together.",
-    "Added and passed three regression tests for six-versus-15 enrollment handling, E-010 priority over simultaneous E-011, and standalone E-011 launch eligibility."
+    "Added and passed three regression tests for six-versus-15 enrollment handling, E-010 priority over simultaneous E-011, and standalone E-011 launch eligibility.",
+    "Labeled each course Meta metric block with its 2026-07-26 to 2026-07-27 campaign observation window so cumulative values are not mistaken for July 27 daily-only results."
   ],
   "facebook_page_post": {
     "status": "published",

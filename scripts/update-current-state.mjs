@@ -106,6 +106,9 @@ for (const [key, course] of Object.entries(state.courses)) {
         ? metaRecord.spend_krw / metaRecord.landing_views
         : null;
     course.meta_today = {
+      period_start: metaRecord.period_start,
+      period_end: metaRecord.period_end,
+      window: "campaign_observation",
       spend_krw: metaRecord.spend_krw,
       impressions: metaRecord.impressions,
       link_clicks: metaRecord.link_clicks,

@@ -270,6 +270,7 @@ contains scripts/update-current-state.mjs 'Do not infer the missing course count
 contains scripts/update-current-state.mjs 'latestByContent\.get\("ga4_today_processed_mixed"\)' 'Current state refreshes the latest GA4 observation'
 contains scripts/update-current-state.mjs '"partial_day"' 'Current state distinguishes partial-day GA4 data'
 contains scripts/update-current-state.mjs 'processed_apply_clicks' 'Current state preserves course-level processed apply clicks'
+contains scripts/update-current-state.mjs 'window: "campaign_observation"' 'Current state labels the Meta observation window'
 contains scripts/evaluate-campaign-actions.mjs 'paid_confirmed >= course\.advertising_stop_paid_at' 'Decision tool stops a course only at capacity'
 contains scripts/evaluate-campaign-actions.mjs 'apply_e010_description' 'Decision tool evaluates the E-010 form gate'
 contains scripts/evaluate-campaign-actions.mjs 'launch_e011_then_pause_v1' 'Decision tool evaluates the E-011 creative gate'
