@@ -142,8 +142,8 @@
       "launch_state": {
         "new_ad": "processing",
         "superseded_ad": "active",
-        "last_checked_at": "2026-07-27T22:01:00+09:00",
-        "note": "The candidate was published at the scheduled gate. At 22:01 Meta still reported that recent ad updates were processing and that some updates can take several hours. Keep the superseded ad active until Meta reports the candidate as active so there is no delivery gap."
+        "last_checked_at": "2026-07-27T22:21:00+09:00",
+        "note": "The candidate was published at the scheduled gate. At 22:21, more than two hours after publication, Meta still reported the candidate as processing while the superseded ad remained active. Keep the superseded ad active until Meta reports the candidate as active so there is no delivery gap."
       },
       "preview_file": "experiments/e-011-notebook-workload-ad-preview.html",
       "candidate_assets": {

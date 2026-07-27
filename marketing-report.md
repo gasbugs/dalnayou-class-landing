@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T22:01:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T22:21:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -130,6 +130,7 @@
 | 2026-07-27T21:01:00+09:00 | `post_e011_launch_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
 | 2026-07-27T22:01:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 | 2026-07-27T22:01:00+09:00 | `overnight_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
+| 2026-07-27T22:21:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 
 ## 최신 병목 판정
 
@@ -305,7 +306,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: At 22:01 KST the E-011 candidate remained processing and Meta still stated that some recent ad updates can take several hours. The superseded Gemini ad remained active with 46 cumulative landing-page views. Overnight delivery remains available with no budget change or exposure gap.
+- 기록: At 22:21 KST, more than two hours after publication, E-011 still showed processing. The superseded Gemini ad remained active with 46 cumulative landing-page views. No error or unpublished draft was shown, so the candidate was not recreated and the old ad was not paused.
 
 ### e011_launch_checkpoint
 
