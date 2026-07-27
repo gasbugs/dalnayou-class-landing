@@ -124,7 +124,8 @@
       "candidate_assets": {
         "feed": "experiments/assets/e-011-notebook-workload-feed.png",
         "story": "experiments/assets/e-011-notebook-workload-story.png",
-        "render_script": "scripts/render-e011-notebook-workload.sh"
+        "render_script": "scripts/render-e011-notebook-workload.sh",
+        "photo_source": "experiments/assets/notebooklm-workplace-generic-v2.webp"
       },
       "candidate_content": "notebooklm_workload_candidate_v2",
       "launch_spec": {
@@ -152,6 +153,7 @@
         "processed_apply_clicks": 1
       },
       "additional_condition": "Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.",
+      "asset_safety": "The candidate uses a generated generic Korean workplace photo with no third-party logo, brand name, readable text or watermark.",
       "candidate_copy": {
         "primary_text": "회의록, 보고서, 규정 PDF가 쌓여 있는데 읽고 정리할 시간이 부족한가요? Gemini 노트북(Google NotebookLM)으로 내 자료에 근거한 요약, 업무 브리핑, 마인드맵, 오디오 브리핑을 직접 만드는 4주 오프라인 실전 과정입니다. 기업·금융권·공공기관 교육 경험을 바탕으로 실제 업무에 적용하는 흐름을 함께 익힙니다.",
         "headline": "쌓인 업무 자료, AI가 먼저 읽게 하세요",

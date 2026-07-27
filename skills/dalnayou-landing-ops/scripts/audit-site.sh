@@ -50,6 +50,7 @@ required_files=(
   experiments/e-011-notebook-workload-ad-preview.html
   experiments/assets/e-011-notebook-workload-feed.png
   experiments/assets/e-011-notebook-workload-story.png
+  experiments/assets/notebooklm-workplace-generic-v2.webp
   scripts/render-e011-notebook-workload.sh
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
@@ -169,6 +170,9 @@ contains marketing/experiments.json 'utm_content=notebooklm_workload_candidate_v
 contains marketing/experiments.json 'Pause only the superseded Gemini ad after the new ad is active' 'E-011 launch sequence avoids a delivery gap'
 contains marketing/experiments.json 'experiments/assets/e-011-notebook-workload-feed\.png' 'E-011 references its feed upload asset'
 contains marketing/experiments.json 'experiments/assets/e-011-notebook-workload-story\.png' 'E-011 references its story upload asset'
+contains marketing/experiments.json 'experiments/assets/notebooklm-workplace-generic-v2\.webp' 'E-011 references its logo-free workplace source'
+contains experiments/e-011-notebook-workload-ad-preview.html 'assets/notebooklm-workplace-generic-v2\.webp' 'E-011 preview uses its logo-free workplace source'
+not_contains experiments/e-011-notebook-workload-ad-preview.html 'docusign' 'E-011 preview excludes the third-party branded workplace image'
 contains marketing-report.md 'experiments/e-011-notebook-workload-ad-preview\.html' 'Generated report exposes the E-011 preview path'
 contains marketing-report.md 'experiments/assets/e-011-notebook-workload-feed\.png' 'Generated report exposes the E-011 feed upload asset'
 contains marketing-report.md 'experiments/assets/e-011-notebook-workload-story\.png' 'Generated report exposes the E-011 story upload asset'
