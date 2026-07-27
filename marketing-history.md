@@ -1137,3 +1137,13 @@ E-009이며 과정별 지출, 랜딩, 신청 이동, 신청 완료, 입금 완�
   시작일·종료일과 `campaign_observation` 범위를 함께 기록
 - Gemini 17,156원·24 랜딩, Roblox 16,784원·33 랜딩 수치는 변경하지 않음
 - 자동 판정 회귀 테스트 3건을 다시 실행해 모두 통과
+
+### 2026-07-27 16:45 KST GA4 맞춤 측정기준 확인
+
+- GA4 관리 화면의 맞춤 정의를 직접 확인
+- `course_selection`과 `link_position`이 모두 이벤트 범위 맞춤 측정기준으로
+  이미 등록되어 있어 별도 설정 변경은 하지 않음
+- `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `landing_path`,
+  `campaign_phase`, `source_system`도 이벤트 범위로 등록된 상태
+- 맞춤 측정기준은 등록 이후 처리 데이터부터 보고서에서 사용되며 과거 데이터를
+  소급 채우지 않으므로, 20:00 KST 점검에서는 처리된 오늘 데이터만 사용
