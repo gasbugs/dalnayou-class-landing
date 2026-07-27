@@ -265,6 +265,8 @@ contains scripts/record-course-payments.mjs 'value > capacity' 'Payment recorder
 contains scripts/record-course-payments.mjs 'STATE_SCRIPT' 'Payment recorder refreshes the compact current state'
 contains scripts/update-current-state.mjs 'allCourseCountsKnown' 'Current state totals payments only when both course counts are known'
 contains scripts/update-current-state.mjs 'Do not infer the missing course count' 'Current state preserves unknown course payment counts'
+contains scripts/update-current-state.mjs 'latestByContent\.get\("ga4_today_processed_mixed"\)' 'Current state refreshes the latest GA4 observation'
+contains scripts/update-current-state.mjs '"partial_day"' 'Current state distinguishes partial-day GA4 data'
 contains cardnews/index.html 'id="payment-tracker"' 'Operator page exposes the privacy-safe payment tracker'
 contains cardnews/index.html 'const MINIMUM_ENROLLMENT = 6' 'Payment tracker uses the six-person minimum enrollment'
 contains cardnews/index.html 'const COURSE_CAPACITY = 15' 'Payment tracker uses the 15-person course capacity'

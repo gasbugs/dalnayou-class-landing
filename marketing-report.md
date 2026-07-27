@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T16:01:29+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T16:31:48+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -13,7 +13,7 @@
 | 2026-07-24~2026-07-26 | `combined_courses_shorts` | 16,012원 | 4,056 | 27 | 0.7% | 14 | 51.9% | — | — | — |
 | 2026-07-24~2026-07-26 | `roblox_youth` | 6,290원 | 1,649 | 9 | 0.5% | 5 | 55.6% | — | — | — |
 | 2026-07-24~2026-07-24 | `ga4_paid_processed_absolute` | — | — | — | — | 93 | — | 0 | 0 | — |
-| unknown~2026-07-26 | `all_form_responses` | — | — | — | 비교 금지 | — | 비교 금지 | — | 3 | 3 |
+| unknown~2026-07-27 | `all_form_responses` | — | — | — | 비교 금지 | — | 비교 금지 | — | 3 | 3 |
 | 2026-07-25~2026-07-26 | `account_1272476857609072_instagram_boost` | 23,058원 | 3,486 | 76 | 2.2% | 71 | 93.4% | — | — | — |
 | 2026-07-25~2026-07-26 | `account_1661899158952556_existing_campaign` | 23,485원 | 5,974 | 37 | 0.6% | 22 | 59.5% | — | — | — |
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
@@ -23,14 +23,13 @@
 | 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 0.7% | 33 | 94.3% | 2 | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
-| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | — | — | — | — | 58 | — | 3 | 0 | — |
+| 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
-| 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | 71 | 3 | 4.2% | ga4 |
 
 ## 과정별 실행 판단
 
@@ -99,6 +98,8 @@
 | 2026-07-26T20:43:33+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 | 2026-07-27T16:01:29+09:00 | `notebooklm_enterprise_emergency` | 17,156원 | 4,622 | 26 | 24 | meta + ga4 |
 | 2026-07-27T16:01:29+09:00 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 33 | meta + ga4 |
+| 2026-07-27T16:31:48+09:00 | `ga4_today_processed_mixed` | — | — | — | 25 | ga4 |
+| 2026-07-27T16:31:48+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -146,7 +147,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The automatic attribution field remains empty for all three. The operator-reported aggregate paid count remains 3, but no per-course split is stored. Applicant PII is intentionally excluded.
+- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The operator-reported aggregate paid count remains 3, but the per-course payment split is unknown and is not inferred. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -244,11 +245,11 @@
 
 - 광고 클릭: **자료 부족** (노출 1,000회)
 - 랜딩 완료: **자료 부족** (링크 클릭 20회)
-- 신청서 이동: **관찰 양호** (5.2%)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Processed GA4 report for today across mixed traffic: 92 page_view, 58 course_landing_view, 8 course_click, 10 enterprise_trust_view, 71 apply_cta_view, 3 apply_click events from 2 users and 0 application_submit. Apply clicks remain Roblox 2 and Gemini Notebook 1, all from facebook / paid_social / dalnayou_2026_08. Event detail still reports United States for all three clicks, so they are not treated as verified local applicants or completed applications.
+- 기록: Partial-day GA4 standard report observed at 16:31 KST: course_landing_view 25 events from 23 users, apply_click 0, application_submit 0 and 0 active users in the last 30 minutes. This is an explicit same-day report zero, not an inferred value. Course-level attribution is not available in this observation.
 
 ## 실험 실행 게이트
 
@@ -279,7 +280,7 @@
 - 준비 상태: `queued`
 - 단일 변경: 신청서 설명에서 랜딩페이지와 중복되는 기관 이력·상세 가격 문장을 줄여 첫 필수 질문을 더 빨리 보이게 함
 - 실행 문안: 신청서 설명 5줄 준비
-- 표본 게이트: 3 / 10 (7회 부족)
+- 표본 게이트: 0 / 10 (10회 부족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**
 - 추가 조건: application_submits remains 0 and Google Form response count does not increase

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T16:31:00+09:00",
+  "updated_at": "2026-07-27T16:31:48+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -111,27 +111,18 @@
     "note": "GA4 apply_click is a form-open action, not a completed application."
   },
   "ga4_today_processed": {
-    "period_start": "2026-07-26",
-    "period_end": "2026-07-26",
-    "page_views": 92,
-    "course_landing_views": 58,
-    "course_clicks": 8,
-    "enterprise_trust_views": 10,
-    "apply_cta_views": 71,
-    "apply_clicks": 3,
-    "apply_click_users": 2,
-    "apply_clicks_by_course": {
-      "notebooklm": 1,
-      "roblox": 2
-    },
+    "observed_at": "2026-07-27T16:31:48+09:00",
+    "status": "partial_day",
+    "period_start": "2026-07-27",
+    "period_end": "2026-07-27",
+    "page_views": null,
+    "course_landing_views": 25,
+    "course_clicks": null,
+    "enterprise_trust_views": null,
+    "apply_cta_views": null,
+    "apply_clicks": 0,
     "application_submits": 0,
-    "apply_click_attribution": {
-      "utm_source": "facebook",
-      "utm_medium": "paid_social",
-      "utm_campaign": "dalnayou_2026_08"
-    },
-    "country_reported_for_apply_clicks": "United States",
-    "note": "All three clicks carried the replacement campaign UTMs, but apply_click only means the form was opened. The country value and zero completed submissions mean these clicks must not be treated as verified local applicants."
+    "note": "Partial-day GA4 standard report observed at 16:31 KST: course_landing_view 25 events from 23 users, apply_click 0, application_submit 0 and 0 active users in the last 30 minutes. This is an explicit same-day report zero, not an inferred value. Course-level attribution is not available in this observation."
   },
   "google_form_mobile_audit": {
     "audited_at": "2026-07-26T13:58:29+09:00",
@@ -211,7 +202,8 @@
     "At 2026-07-27 16:17 KST, verified that Google Form responses remain at three and reconciled the operating approval: six paid learners is the minimum to run, 15 is the per-course ad-stop capacity, and creative optimization inside the existing 40,000 KRW/day and August 2 envelope does not require repeated approval.",
     "Prepared upload-ready E-011 Gemini Notebook workload creative assets at 1080x1350 and 1080x1920, visually verified both layouts, and kept them internal until the July 27 20:00 sample gate.",
     "Defined the E-011 launch as [Codex] Gemini노트북_업무문서문제_v2 inside the existing Gemini ad set. The new ad must be active and verified before the superseded Gemini ad is paused; Roblox and the 40,000 KRW aggregate daily budget remain unchanged.",
-    "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate."
+    "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate.",
+    "At 2026-07-27 16:31 KST, the GA4 today report showed 25 course_landing_view events from 23 users, 0 apply_click, 0 application_submit and 0 active users in the last 30 minutes. Google Form responses remained three. This is a partial-day observation and does not trigger a pre-20:00 change."
   ],
   "facebook_page_post": {
     "status": "published",

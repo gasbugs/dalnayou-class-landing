@@ -156,6 +156,41 @@ if (formRecord) {
   }
 }
 
+const ga4TodayRecord = latestByContent.get("ga4_today_processed_mixed");
+if (ga4TodayRecord) {
+  state.ga4_today_processed = {
+    observed_at: ga4TodayRecord.recorded_at,
+    status:
+      ga4TodayRecord.period_end === ga4TodayRecord.recorded_at?.slice(0, 10)
+        ? "partial_day"
+        : "processed_period",
+    period_start: ga4TodayRecord.period_start,
+    period_end: ga4TodayRecord.period_end,
+    page_views: Number.isFinite(ga4TodayRecord.page_views)
+      ? ga4TodayRecord.page_views
+      : null,
+    course_landing_views: Number.isFinite(ga4TodayRecord.landing_views)
+      ? ga4TodayRecord.landing_views
+      : null,
+    course_clicks: Number.isFinite(ga4TodayRecord.course_clicks)
+      ? ga4TodayRecord.course_clicks
+      : null,
+    enterprise_trust_views: Number.isFinite(ga4TodayRecord.trust_views)
+      ? ga4TodayRecord.trust_views
+      : null,
+    apply_cta_views: Number.isFinite(ga4TodayRecord.apply_cta_views)
+      ? ga4TodayRecord.apply_cta_views
+      : null,
+    apply_clicks: Number.isFinite(ga4TodayRecord.apply_clicks)
+      ? ga4TodayRecord.apply_clicks
+      : null,
+    application_submits: Number.isFinite(ga4TodayRecord.application_submits)
+      ? ga4TodayRecord.application_submits
+      : null,
+    note: ga4TodayRecord.notes,
+  };
+}
+
 if (Object.keys(paidByCourse).length > 0) {
   state.applications.paid_confirmed_by_course = Object.fromEntries(
     Object.keys(state.courses).map((key) => [
