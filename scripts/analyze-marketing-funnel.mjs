@@ -353,6 +353,10 @@ for (const experiment of experiments) {
       .join(", ");
     lines.push(`- 실행 자산: ${assets}`);
   }
+  if (experiment.launch_spec) {
+    lines.push(`- 실행 광고: \`${experiment.launch_spec.new_ad_name}\``);
+    lines.push(`- 실행 목적지: \`${experiment.launch_spec.destination}\``);
+  }
   const isInactive =
     experiment.status.startsWith("superseded") ||
     experiment.status.startsWith("paused");

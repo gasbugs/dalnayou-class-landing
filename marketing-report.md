@@ -290,6 +290,8 @@
 - 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
 - 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
 - 실행 자산: feed=`experiments/assets/e-011-notebook-workload-feed.png`, story=`experiments/assets/e-011-notebook-workload-story.png`, render_script=`scripts/render-e011-notebook-workload.sh`
+- 실행 광고: `[Codex] Gemini노트북_업무문서문제_v2`
+- 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2`
 - 표본 게이트: 24 / 30 (6회 부족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**

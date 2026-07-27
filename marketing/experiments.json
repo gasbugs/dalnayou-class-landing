@@ -116,6 +116,18 @@
         "render_script": "scripts/render-e011-notebook-workload.sh"
       },
       "candidate_content": "notebooklm_workload_candidate_v2",
+      "launch_spec": {
+        "ad_set": "[Codex] Gemini노트북_소사역_18-44",
+        "new_ad_name": "[Codex] Gemini노트북_업무문서문제_v2",
+        "superseded_ad": "[Codex] Gemini노트북_기업교육신뢰_v1",
+        "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2",
+        "transition": [
+          "Create the new ad inside the existing Gemini ad set without changing its 20,000 KRW daily budget.",
+          "Publish and verify the new ad is active with the candidate destination and both candidate assets.",
+          "Pause only the superseded Gemini ad after the new ad is active.",
+          "Verify the Roblox ad remains active and aggregate daily budget remains 40,000 KRW."
+        ]
+      },
       "primary_metric": "meta_link_ctr_percent",
       "downstream_metric": "notebooklm_apply_clicks",
       "gate": {

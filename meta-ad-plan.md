@@ -81,6 +81,29 @@
 같은 시각 클씨랩 Facebook 페이지에 두 과정의 추적 링크를 포함한 무료 게시물을
 발행했습니다. 광고 게시물과 홍보 기능은 사용하지 않았습니다.
 
+## Gemini 업무 문서 문제형 교체 후보
+
+`E-011`은 기존 Gemini 광고가 표본 기준에 도달한 뒤 신청서 이동이 정체될 때만
+사용하는 교체 후보입니다.
+
+- 광고 세트: `[Codex] Gemini노트북_소사역_18-44`
+- 새 광고: `[Codex] Gemini노트북_업무문서문제_v2`
+- 교체 대상: `[Codex] Gemini노트북_기업교육신뢰_v1`
+- 피드: `experiments/assets/e-011-notebook-workload-feed.png`
+- 스토리·릴스: `experiments/assets/e-011-notebook-workload-story.png`
+- CTA: `자세히 보기`
+- 제목: `쌓인 업무 자료, AI가 먼저 읽게 하세요`
+- 설명: `8/16 개강 · 소사역 · 매주 일요일 오전 9~12시`
+- 목적지:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2
+```
+
+게시할 때 새 광고를 기존 Gemini 광고 세트 안에 만들고, 새 광고의 활성 상태와
+목적지·소재를 확인한 뒤 기존 Gemini 광고만 중단합니다. 광고 세트 일 예산
+20,000원, Roblox 광고 활동 상태, 전체 일 예산 40,000원을 다시 확인합니다.
+
 아래 `초기 캠페인`부터의 내용은 교체 전 운영 이력입니다.
 
 ## 집행 전제
