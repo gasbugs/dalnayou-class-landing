@@ -263,6 +263,16 @@
     "permalink": "https://facebook.com/permalink.php?story_fbid=pfbid0DjxcbUANa3E7BmnA1gnFRECtfdU3aGkUSaFLSkwucEDRUF16aVpUUaRNMsRTcj32l&id=61592079254729",
     "note": "Published as a free Page post. Ad-post, boost, scheduling and story-sharing switches were all off before publication."
   },
+  "facebook_page_follow_up_post": {
+    "status": "published",
+    "published_at": "2026-07-27T17:58:00+09:00",
+    "course": "notebooklm",
+    "utm_source": "facebook_page",
+    "utm_medium": "organic_social",
+    "utm_content": "notebooklm_workload_organic_20260727",
+    "permalink": "https://www.facebook.com/permalink.php?story_fbid=pfbid0zTUtsfFKLFNtAAPAW4rhPjVH6amKjogja3mHx3PA2Pu8uJW2gpok8PyXkvZHSpaDl&id=61592079254729",
+    "note": "Published immediately as a free public Page post with the tracked NotebookLM landing link. The paid-promotion switch was off."
+  },
   "next_decision": {
     "at": "2026-07-27T20:00:00+09:00",
     "review": [

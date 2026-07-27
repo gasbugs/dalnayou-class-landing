@@ -1211,3 +1211,17 @@ E-009이며 과정별 지출, 랜딩, 신청 이동, 신청 완료, 입금 완�
   `클씨랩 일요 AI 클래스`로 정정
 - 장소 표기는 기존 `소사역 힐스에비뉴 달나유 B1`을 그대로 유지
 - 광고·가격·일정·환불 규정·수강생 데이터는 변경하지 않음
+
+### 2026-07-27 17:58 KST Gemini 업무 문제형 무료 게시물
+
+- 클씨랩 Facebook 페이지에 Gemini 노트북 업무 문제형 후속 게시물을 전체 공개
+- 별도 유입 링크:
+  `utm_source=facebook_page`, `utm_medium=organic_social`,
+  `utm_content=notebooklm_workload_organic_20260727`
+- 회의록·보고서·규정 PDF 정리 문제, Google NotebookLM 결과물, 기업·금융·공공
+  교육 10년+, 일정·장소·정상가와 얼리버드가를 포함
+- 랜딩의 OG 이미지 링크 미리보기를 사용했으며 게시물 홍보 기능은 끈 상태로 게시
+- 게시 직후 콘텐츠 라이브러리에서 `게시됨 · 오늘 오후 5:58`을 확인
+- 게시물 고유 링크:
+  `https://www.facebook.com/permalink.php?story_fbid=pfbid0zTUtsfFKLFNtAAPAW4rhPjVH6amKjogja3mHx3PA2Pu8uJW2gpok8PyXkvZHSpaDl&id=61592079254729`
+- 유료 광고와 다른 UTM을 사용하므로 E-011 유료 소재 판정에는 합산하지 않음
