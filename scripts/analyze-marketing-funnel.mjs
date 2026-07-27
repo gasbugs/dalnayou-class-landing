@@ -357,6 +357,11 @@ for (const experiment of experiments) {
     lines.push(`- 실행 광고: \`${experiment.launch_spec.new_ad_name}\``);
     lines.push(`- 실행 목적지: \`${experiment.launch_spec.destination}\``);
   }
+  if (experiment.candidate_form_description) {
+    lines.push(
+      `- 실행 문안: 신청서 설명 ${experiment.candidate_form_description.length}줄 준비`,
+    );
+  }
   const isInactive =
     experiment.status.startsWith("superseded") ||
     experiment.status.startsWith("paused");

@@ -89,6 +89,14 @@
         "not_before": "2026-07-27T20:00:00+09:00"
       },
       "additional_condition": "application_submits remains 0 and Google Form response count does not increase",
+      "candidate_form_description": [
+        "수강 가능 여부 확인을 위한 신청서입니다. 제출만으로 결제되지 않으며, 입금 확인 후 최종 확정됩니다.",
+        "🗓️ 8/16~9/6 · 매주 일요일 4주 · 총 12시간",
+        "🟦 Gemini 노트북 09:00~12:00 / 🟧 로블록스 AI 14:00~17:00",
+        "📍 소사역 힐스에비뉴 달나유 B1",
+        "만 14세 미만 수강생은 법정대리인이 작성해주세요. 가격·환불·상세 안내: https://gasbugs.github.io/dalnayou-class-landing/"
+      ],
+      "change_scope": "Replace only the Google Form description. Keep the privacy consent text, all questions, required states, options, response destination and Apps Script trigger unchanged.",
       "follow_up_candidate": "If form submissions still remain 0 after the first-screen test, evaluate a course-branching form so Notebook applicants do not have to select a Roblox grade.",
       "keep_stable": [
         "course_options",

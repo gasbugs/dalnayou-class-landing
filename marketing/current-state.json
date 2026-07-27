@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T16:27:00+09:00",
+  "updated_at": "2026-07-27T16:31:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -210,7 +210,8 @@
     "At 2026-07-27 16:01 KST, verified both ad sets active. Cumulative Meta results were Gemini 17,156 KRW / 4,622 impressions / 26 link clicks / 24 landing views and Roblox 16,784 KRW / 5,027 impressions / 35 link clicks / 33 landing views. Roblox crossed the landing review gate, but its two processed campaign apply clicks mean the zero-click replacement rule does not apply.",
     "At 2026-07-27 16:17 KST, verified that Google Form responses remain at three and reconciled the operating approval: six paid learners is the minimum to run, 15 is the per-course ad-stop capacity, and creative optimization inside the existing 40,000 KRW/day and August 2 envelope does not require repeated approval.",
     "Prepared upload-ready E-011 Gemini Notebook workload creative assets at 1080x1350 and 1080x1920, visually verified both layouts, and kept them internal until the July 27 20:00 sample gate.",
-    "Defined the E-011 launch as [Codex] Gemini노트북_업무문서문제_v2 inside the existing Gemini ad set. The new ad must be active and verified before the superseded Gemini ad is paused; Roblox and the 40,000 KRW aggregate daily budget remain unchanged."
+    "Defined the E-011 launch as [Codex] Gemini노트북_업무문서문제_v2 inside the existing Gemini ad set. The new ad must be active and verified before the superseded Gemini ad is paused; Roblox and the 40,000 KRW aggregate daily budget remain unchanged.",
+    "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate."
   ],
   "facebook_page_post": {
     "status": "published",
