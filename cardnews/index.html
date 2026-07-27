@@ -540,8 +540,8 @@
             <strong>명</strong>
           </div>
           <div class="payment-result" id="notebooklm-payment-result" aria-live="polite">
-            <span>광고 중단 목표까지 <strong data-payment-remaining="notebooklm">확인 필요</strong></span>
-            <span>정원까지 <strong data-capacity-remaining="notebooklm">확인 필요</strong></span>
+            <span>개강 최소까지 <strong data-payment-remaining="notebooklm">확인 필요</strong></span>
+            <span>광고 중단·정원까지 <strong data-capacity-remaining="notebooklm">확인 필요</strong></span>
             <span class="payment-state" data-payment-state="notebooklm">확인 필요</span>
           </div>
         </article>
@@ -553,8 +553,8 @@
             <strong>명</strong>
           </div>
           <div class="payment-result" id="roblox-payment-result" aria-live="polite">
-            <span>광고 중단 목표까지 <strong data-payment-remaining="roblox">확인 필요</strong></span>
-            <span>정원까지 <strong data-capacity-remaining="roblox">확인 필요</strong></span>
+            <span>개강 최소까지 <strong data-payment-remaining="roblox">확인 필요</strong></span>
+            <span>광고 중단·정원까지 <strong data-capacity-remaining="roblox">확인 필요</strong></span>
             <span class="payment-state" data-payment-state="roblox">확인 필요</span>
           </div>
         </article>
@@ -1196,7 +1196,7 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
 
     (() => {
       const STORAGE_KEY = "dalnayou-payment-counts-v1";
-      const PAYMENT_TARGET = 6;
+      const MINIMUM_ENROLLMENT = 6;
       const COURSE_CAPACITY = 15;
       const inputs = {
         notebooklm: document.getElementById("paid-notebooklm"),
@@ -1242,11 +1242,14 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
             return;
           }
           inputs[key].value = String(value);
-          targetRemaining.textContent = `${Math.max(0, PAYMENT_TARGET - value)}명`;
+          targetRemaining.textContent = `${Math.max(0, MINIMUM_ENROLLMENT - value)}명`;
           capacityRemaining.textContent = `${Math.max(0, COURSE_CAPACITY - value)}명`;
-          if (value >= PAYMENT_TARGET) {
-            state.textContent = "광고 중단";
+          if (value >= COURSE_CAPACITY) {
+            state.textContent = "정원 충족 · 광고 중단";
             state.classList.add("stop");
+          } else if (value >= MINIMUM_ENROLLMENT) {
+            state.textContent = "개강 기준 충족 · 광고 유지";
+            state.classList.add("keep");
           } else {
             state.textContent = "광고 유지";
             state.classList.add("keep");
@@ -1286,8 +1289,8 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
         }).format(new Date());
         const courseLine = (key) => {
           const value = values[key];
-          const action = value >= PAYMENT_TARGET ? "광고 중단" : "광고 유지";
-          return `${names[key]}: ${value}명 입금 완료 / 6명까지 ${Math.max(0, PAYMENT_TARGET - value)}명 / ${action}`;
+          const action = value >= COURSE_CAPACITY ? "광고 중단" : "광고 유지";
+          return `${names[key]}: ${value}명 입금 완료 / 개강 6명까지 ${Math.max(0, MINIMUM_ENROLLMENT - value)}명 / 정원 15명까지 ${Math.max(0, COURSE_CAPACITY - value)}명 / ${action}`;
         };
         const summary = [
           "[클씨랩 과정별 입금 현황]",

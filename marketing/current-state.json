@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T20:43:33+09:00",
+  "updated_at": "2026-07-27T16:01:29+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -42,13 +42,16 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 12776,
-        "impressions": 3372,
-        "link_clicks": 21,
-        "landing_views": 20,
-        "link_ctr_percent": 0.62,
-        "cost_per_landing_view_krw": 639
-      }
+        "spend_krw": 17156,
+        "impressions": 4622,
+        "link_clicks": 26,
+        "landing_views": 24,
+        "link_ctr_percent": 0.56,
+        "cost_per_landing_view_krw": 715
+      },
+      "minimum_enrollment": 6,
+      "capacity": 15,
+      "advertising_stop_paid_at": 15
     },
     "roblox": {
       "display_name": "로블록스 AI",
@@ -62,13 +65,16 @@
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
       "meta_today": {
-        "spend_krw": 11805,
-        "impressions": 3546,
-        "link_clicks": 25,
-        "landing_views": 23,
-        "link_ctr_percent": 0.71,
-        "cost_per_landing_view_krw": 513
-      }
+        "spend_krw": 16784,
+        "impressions": 5027,
+        "link_clicks": 35,
+        "landing_views": 33,
+        "link_ctr_percent": 0.7,
+        "cost_per_landing_view_krw": 509
+      },
+      "minimum_enrollment": 6,
+      "capacity": 15,
+      "advertising_stop_paid_at": 15
     }
   },
   "applications": {
@@ -156,7 +162,7 @@
       "Gemini Notebook has at least six paid confirmations.",
       "Roblox AI has at least six paid confirmations.",
       "Course-specific confirmation messages have been sent to every paid learner.",
-      "Any course ad has reached its six-paid stop condition and been stopped.",
+      "Any course ad has reached its 15-person paid capacity and been stopped.",
       "Final spend and channel-level paid enrollment results have been recorded."
     ],
     "next_required_evidence": [
@@ -177,10 +183,10 @@
     "Published the approved free Facebook Page launch post with separate tracked course links and verified that it is not promoted.",
     "Recorded the latest exact Meta values: Gemini 3,612 KRW / 769 impressions / 3 link clicks / 3 landing views; Roblox 3,360 KRW / 841 impressions / 6 link clicks / 6 landing views.",
     "Verified the Chrome extension with live GA4 navigation and interaction. Today's processed GA4 report shows 3 apply_click events from 2 users: Roblox 2 and Gemini Notebook 1; application_submit remains 0.",
-    "Aligned all current emergency-operation documents to the campaign-specific rule: stop a course ad at 6 paid confirmations while keeping the course capacity at 15.",
+    "Corrected the current emergency-operation rule: six paid confirmations is the minimum to run, while an individual course ad stops only at the 15-person paid capacity.",
     "Audited the live Google Form on a 390 x 844 mobile viewport. Course and attribution prefill work; queued E-010 rather than changing the form before the 10-click evidence gate.",
     "Recorded 14:04 KST Meta values: Gemini 4,074 KRW / 858 impressions / 4 link clicks / 4 landing views; Roblox 3,755 KRW / 999 impressions / 7 link clicks / 7 landing views. Form responses remain 3.",
-    "Added a privacy-safe course payment tracker to the operator page. It stores only aggregate counts locally, calculates the six-person ad-stop threshold and 15-person capacity, and produces a PII-free status summary.",
+    "Added a privacy-safe course payment tracker to the operator page. It stores only aggregate counts locally, distinguishes the six-person minimum from the 15-person ad-stop capacity, and produces a PII-free status summary.",
     "Updated the payment recorder so one command refreshes both the marketing report and compact current state. Missing course counts remain unknown; the aggregate total changes only when both course counts are known.",
     "Corrected the Meta enterprise creative and copy from the false five-person scarcity claim to the non-numeric 잔여석 마감 임박 label, then regenerated and visually verified all four assets.",
     "Published the corrected feed/story assets to all three placement groups for both live ads without changing budget, audience, destination, UTM, copy or CTA. Roblox returned to active; Gemini Notebook is in Meta review, and no unpublished edits remain.",
@@ -189,7 +195,8 @@
     "Changed both live Meta ad-set end times from August 2 at 15:23 KST to August 2 at 23:59 KST within the approved date and daily-budget envelope. Reopened both ad sets to verify the persisted 23:59 values and confirmed no unpublished edits remain.",
     "Recorded a 14:55 KST Meta checkpoint after a manual refresh: Gemini 4,854 KRW / 1,082 impressions / 4 link clicks / 4 landing views; Roblox 5,193 KRW / 1,448 impressions / 10 link clicks / 10 landing views. Both ads remain active and below the change gates, so no settings were changed.",
     "Prepared E-011, an internal-only Gemini Notebook workload-problem creative candidate with separate copy and preview. It is not live and may be reviewed only after the documented sample gate and explicit publication approval.",
-    "Completed the 20:00 KST review at 20:43. Gemini recorded 12,776 KRW / 3,372 impressions / 21 link clicks / 20 landing views; Roblox recorded 11,805 KRW / 3,546 impressions / 25 link clicks / 23 landing views. GA4 remained at 3 apply clicks and 0 submissions, while Google Form responses remained 3. No campaign setting was changed because neither course reached its decision gate."
+    "Completed the 20:00 KST review at 20:43. Gemini recorded 12,776 KRW / 3,372 impressions / 21 link clicks / 20 landing views; Roblox recorded 11,805 KRW / 3,546 impressions / 25 link clicks / 23 landing views. GA4 remained at 3 apply clicks and 0 submissions, while Google Form responses remained 3. No campaign setting was changed because neither course reached its decision gate.",
+    "At 2026-07-27 16:01 KST, verified both ad sets active. Cumulative Meta results were Gemini 17,156 KRW / 4,622 impressions / 26 link clicks / 24 landing views and Roblox 16,784 KRW / 5,027 impressions / 35 link clicks / 33 landing views. Roblox crossed the landing review gate, but its two processed campaign apply clicks mean the zero-click replacement rule does not apply."
   ],
   "facebook_page_post": {
     "status": "published",
@@ -210,10 +217,12 @@
     ]
   },
   "stop_and_change_rules": {
-    "stop_course_ad_at_paid_confirmations": 6,
+    "stop_course_ad_at_paid_confirmations": 15,
     "change_creative_if_spend_krw_reaches": 40000,
     "change_creative_if_landing_views_reach": 30,
-    "change_condition": "If either threshold is reached and apply_click remains 0 for that course."
+    "change_condition": "If either threshold is reached and apply_click remains 0 for that course.",
+    "minimum_enrollment_per_course": 6,
+    "capacity_per_course": 15
   },
   "history_files": [
     "marketing/archive/2026-07-24-to-26-meta-baseline.md",

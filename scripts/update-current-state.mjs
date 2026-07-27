@@ -54,6 +54,13 @@ const experimentConfig = JSON.parse(
 const liveExperiment = experimentConfig.experiments.find((candidate) =>
   candidate.status.startsWith("live"),
 );
+const minimumEnrollment = liveExperiment?.minimum_enrollment_per_course;
+const courseCapacity = liveExperiment?.capacity_per_course;
+const advertisingStopPaidAt = Number.isFinite(
+  liveExperiment?.advertising_stop_paid_at,
+)
+  ? liveExperiment.advertising_stop_paid_at
+  : courseCapacity;
 const records = (await readFile(SNAPSHOT_PATH, "utf8"))
   .split(/\r?\n/)
   .map((line) => line.trim())
@@ -74,6 +81,16 @@ if (newestTimestamp) state.updated_at = newestTimestamp;
 
 const paidByCourse = {};
 for (const [key, course] of Object.entries(state.courses)) {
+  if (Number.isFinite(minimumEnrollment)) {
+    course.paid_target = minimumEnrollment;
+    course.minimum_enrollment = minimumEnrollment;
+  }
+  if (Number.isFinite(courseCapacity)) {
+    course.capacity = courseCapacity;
+  }
+  if (Number.isFinite(advertisingStopPaidAt)) {
+    course.advertising_stop_paid_at = advertisingStopPaidAt;
+  }
   const metaRecord = latestByContent.get(course.utm_content);
   if (metaRecord) {
     const ctr =
@@ -112,9 +129,23 @@ for (const [key, course] of Object.entries(state.courses)) {
       0,
       course.paid_target - course.paid_confirmed,
     );
+    course.remaining_to_capacity = Number.isFinite(courseCapacity)
+      ? Math.max(0, courseCapacity - course.paid_confirmed)
+      : null;
+    course.ad_action =
+      Number.isFinite(advertisingStopPaidAt) &&
+      course.paid_confirmed >= advertisingStopPaidAt
+        ? "stop"
+        : "keep";
     paidByCourse[key] = course.paid_confirmed;
   }
 }
+
+state.stop_and_change_rules.minimum_enrollment_per_course =
+  minimumEnrollment;
+state.stop_and_change_rules.capacity_per_course = courseCapacity;
+state.stop_and_change_rules.stop_course_ad_at_paid_confirmations =
+  advertisingStopPaidAt;
 
 const formRecord = latestByContent.get("all_form_responses");
 if (formRecord) {

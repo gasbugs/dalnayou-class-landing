@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-26T20:43:33+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T16:01:29+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,8 +19,8 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-26 | `notebooklm_enterprise_emergency` | 12,776원 | 3,372 | 21 | 0.6% | 20 | 95.2% | — | — | — |
-| 2026-07-26~2026-07-26 | `roblox_enterprise_emergency` | 11,805원 | 3,546 | 25 | 0.7% | 23 | 92.0% | — | — | — |
+| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 17,156원 | 4,622 | 26 | 0.6% | 24 | 92.3% | 1 | — | — |
+| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 0.7% | 33 | 94.3% | 2 | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-26~2026-07-26 | `ga4_today_processed_mixed` | — | — | — | — | 58 | — | 3 | 0 | — |
@@ -34,12 +34,12 @@
 
 ## 과정별 실행 판단
 
-실험: `E-009` · 6명은 개강 기준, 6명은 광고 중단 기준, 15명은 과정 정원입니다.
+실험: `E-009` · 6명은 개강 기준, 15명은 광고 중단 기준, 15명은 과정 정원입니다.
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 12,776 / 40,000 (31.9%) | 20 / 30 (66.7%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
-| 로블록스 AI | 11,805 / 40,000 (29.5%) | 23 / 30 (76.7%) | — | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
+| Gemini 노트북 | 17,156 / 40,000 (42.9%) | 24 / 30 (80.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
+| 로블록스 AI | 16,784 / 40,000 (42.0%) | 33 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
 
 
 ## 관찰 이력
@@ -97,6 +97,8 @@
 | 2026-07-26T20:43:33+09:00 | `roblox_enterprise_emergency` | 11,805원 | 3,546 | 25 | 23 | meta |
 | 2026-07-26T20:43:33+09:00 | `ga4_today_processed_mixed` | — | — | — | 58 | ga4 |
 | 2026-07-26T20:43:33+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-27T16:01:29+09:00 | `notebooklm_enterprise_emergency` | 17,156원 | 4,622 | 26 | 24 | meta + ga4 |
+| 2026-07-27T16:01:29+09:00 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 33 | meta + ga4 |
 
 ## 최신 병목 판정
 
@@ -199,22 +201,24 @@
 ### notebooklm_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.6%)
-- 랜딩 완료: **관찰 양호** (95.2%)
-- 신청서 이동: **자료 부족** (유료 랜딩 30회)
-- 신청서 제출: **자료 부족** (신청서 이동 10회)
-- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 랜딩 완료: **관찰 양호** (92.3%)
+- 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
-- 기록: Exact today-only Meta ad-set values after the 20:00 review refresh. Link CTR 0.62%, landing-view cost 639 KRW, frequency 1.43, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
+- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.56%, landing-view cost 715 KRW. The apply-click count is the latest processed GA4 evidence through July 26 for this exact campaign content; it proves nonzero form entry but is not divided by the later Meta landing count.
 
 ### roblox_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.7%)
-- 랜딩 완료: **관찰 양호** (92.0%)
-- 신청서 이동: **자료 부족** (유료 랜딩 30회)
-- 신청서 제출: **자료 부족** (신청서 이동 10회)
-- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 랜딩 완료: **관찰 양호** (94.3%)
+- 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
-- 기록: Exact today-only Meta ad-set values after the 20:00 review refresh. Link CTR 0.71%, landing-view cost 513 KRW, frequency 1.30, daily budget 20,000 KRW and status active. The 40,000 KRW spend and 30 landing-view change gates remain unmet.
+- 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
+- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.70%, landing-view cost 509 KRW. Roblox crossed the 30-landing review gate, but the latest processed GA4 evidence through July 26 contains two apply clicks for this exact campaign content, so the zero-click replacement rule does not apply. The two systems are not divided into a conversion rate.
 
 ### ga4_realtime_30m_mixed
 
@@ -284,7 +288,7 @@
 - 준비 상태: `prepared_not_live`
 - 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
 - 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
-- 표본 게이트: 20 / 30 (10회 부족)
+- 표본 게이트: 24 / 30 (6회 부족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**
 - 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
