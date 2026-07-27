@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T20:30:00+09:00",
+  "updated_at": "2026-07-27T21:01:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -58,7 +58,8 @@
         "utm_content": "notebooklm_workload_candidate_v2",
         "published_at": "2026-07-27T20:03:00+09:00",
         "status": "processing",
-        "last_checked_at": "2026-07-27T20:30:00+09:00",
+        "last_checked_at": "2026-07-27T21:01:00+09:00",
+        "status_note": "Meta says recent ad updates are still processing and some updates can take several hours.",
         "pause_superseded_only_after": "candidate_active"
       },
       "meta_today": {
@@ -299,7 +300,7 @@
     "note": "Published immediately as a free public Page post with the tracked Roblox landing link. Paid promotion was off, and the copy explicitly says that earnings are not guaranteed."
   },
   "next_decision": {
-    "at": "2026-07-27T21:00:00+09:00",
+    "at": "2026-07-27T22:00:00+09:00",
     "review": [
       "Meta spend, impressions, link clicks and landing views by course",
       "GA4 apply_click by course and UTM",
