@@ -33,6 +33,8 @@
 | 2026-07-27~2026-07-28 | `course_adset_checkpoint` | — | — | — | — | 66 | — | — | — | — |
 | 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
 | 2026-07-26~2026-07-28 | `qualified_paid_apply_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
+| 2026-07-26~2026-07-28 | `paid_cta_funnel_notebooklm` | — | — | — | — | — | — | 2 | 0 | — |
+| 2026-07-26~2026-07-28 | `paid_cta_funnel_roblox` | — | — | — | — | — | — | 3 | 0 | — |
 
 ## CTA 위치별 성과
 
@@ -46,6 +48,8 @@
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | 160 | 6 | 3.8% | meta + ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-28 | `qualified_paid_apply_checkpoint` | 160 | 6 | 3.8% | meta + ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-28 | `notebooklm · all_course_ctas` | 46 | 2 | 4.3% | ga4 |
+| 2026-07-26~2026-07-28 | `roblox · all_course_ctas` | 62 | 3 | 4.8% | ga4 |
 
 ## 과정별 실행 판단
 
@@ -53,7 +57,7 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 유효 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 30,025 / 40,000 (75.1%) | 44 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
+| Gemini 노트북 | 확인 필요 | 3 / 30 (10.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
 | 로블록스 AI | 확인 필요 | 31 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
 
 
@@ -142,6 +146,8 @@
 | 2026-07-28T08:54:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 3 | meta + ga4 |
 | 2026-07-28T08:54:00+09:00 | `roblox_enterprise_emergency` | — | — | — | 31 | meta + ga4 |
 | 2026-07-28T08:54:00+09:00 | `qualified_paid_apply_checkpoint` | — | — | — | 66 | meta + ga4 + google_forms + operator_report |
+| 2026-07-28T08:54:00+09:00 | `paid_cta_funnel_notebooklm` | — | — | — | — | ga4 |
+| 2026-07-28T08:54:00+09:00 | `paid_cta_funnel_roblox` | — | — | — | — | ga4 |
 
 ## 최신 병목 판정
 
@@ -360,6 +366,26 @@
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: GA4 paid-traffic and US segment comparison confirms the newly course-tagged NotebookLM and Roblox clicks are both paid traffic and both zero in the US segment. Four historical course-unset clicks include three paid US clicks and one additional US click. Google Form responses remain three, no application_submit row is present, and E-012 stays unpublished because Roblox now has qualified paid application movement.
 
+### paid_cta_funnel_notebooklm
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: Within the GA4 paid-traffic segment, NotebookLM recorded 46 application CTA views and two form-open clicks, a 4.35% view-to-click rate. One newly course-tagged click is excluded from the US segment. This is not a completed application.
+
+### paid_cta_funnel_roblox
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: Within the GA4 paid-traffic segment, Roblox recorded 62 application CTA views and three form-open clicks, a 4.84% view-to-click rate. One newly course-tagged click is excluded from the US segment. This is not a completed application.
+
 ## 실험 실행 게이트
 
 ### E-005 · 결제자까지 포함하는 연령 상한 확장
@@ -411,7 +437,7 @@
 
 ### E-012 · 로블록스 실제 결과물 진행형 소재
 
-- 준비 상태: `prepared`
+- 준비 상태: `held_qualified_paid_click`
 - 단일 변경: 생성 이미지 중심의 완성 약속을 실제 수업 결과 화면 3개와 1주차·3주차·4주차 진행 과정으로 교체
 - 미리보기: `experiments/e-012-roblox-real-output-ad-preview.html`
 - 실행 자산: feed=`experiments/assets/e-012-roblox-real-output-feed.png`, story=`experiments/assets/e-012-roblox-real-output-story.png`, render_script=`scripts/render-e012-roblox-real-output.sh`, photo_sources=`images/house2-v3.webp,images/park-v2.webp,images/publish-v2.webp`

@@ -59,7 +59,7 @@
         {
           "key": "notebooklm",
           "name": "Gemini 노트북",
-          "content": "notebooklm_enterprise_emergency",
+          "content": "notebooklm_workload_candidate_v2",
           "payment_content": "notebooklm_payment_confirmed"
         },
         {
@@ -90,6 +90,15 @@
       },
       "baseline": {
         "google_form_responses": 3
+      },
+      "current_checkpoint": {
+        "observed_at": "2026-07-28T08:54:00+09:00",
+        "processed_apply_clicks": 6,
+        "paid_traffic_apply_clicks": 5,
+        "application_submits": 0,
+        "google_form_responses": 3,
+        "remaining_processed_clicks_to_gate": 4,
+        "decision": "keep_current_form_until_gate"
       },
       "baseline_form_description": [
         "수강 가능 여부 확인을 위한 신청서입니다.",
@@ -203,7 +212,7 @@
     },
     {
       "id": "E-012",
-      "status": "prepared",
+      "status": "held_qualified_paid_click",
       "name": "로블록스 실제 결과물 진행형 소재",
       "change": "생성 이미지 중심의 완성 약속을 실제 수업 결과 화면 3개와 1주차·3주차·4주차 진행 과정으로 교체",
       "preview_file": "experiments/e-012-roblox-real-output-ad-preview.html",

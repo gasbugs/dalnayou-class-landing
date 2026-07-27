@@ -211,7 +211,26 @@
       "notebooklm_final_form": 1
     },
     "tracking_status": "course_selection_populating_prospectively",
-    "note": "Historical apply_click rows still have course_selection=(not set), while one newly tagged click appears for NotebookLM final and one for Roblox mobile. UTM and country qualification are still pending; do not claim either as a paid local click yet."
+    "note": "Historical apply_click rows still have course_selection=(not set), while one newly tagged click appears for NotebookLM final and one for Roblox mobile. GA4 segment comparison now confirms both new clicks are paid traffic and both are zero in the US segment."
+  },
+  "ga4_paid_cta_funnel": {
+    "observed_at": "2026-07-28T08:54:00+09:00",
+    "period_start": "2026-07-26",
+    "period_end": "2026-07-28",
+    "segment": "paid_traffic",
+    "notebooklm": {
+      "apply_cta_views": 46,
+      "apply_clicks": 2,
+      "view_to_click_percent": 4.35,
+      "qualified_non_us_course_tagged_clicks": 1
+    },
+    "roblox": {
+      "apply_cta_views": 62,
+      "apply_clicks": 3,
+      "view_to_click_percent": 4.84,
+      "qualified_non_us_course_tagged_clicks": 1
+    },
+    "note": "Same GA4 paid-traffic segment and July 26-28 period. CTA views and clicks are not mixed with Meta landing-page counts. The two newly course-tagged clicks are excluded from the US segment."
   },
   "google_form_mobile_audit": {
     "audited_at": "2026-07-26T13:58:29+09:00",
@@ -341,8 +360,17 @@
       "Meta spend, impressions, link clicks and landing views by course",
       "GA4 apply_click by course and UTM",
       "Google Form application count and attribution field",
-      "Paid confirmations by course from the operator"
-    ]
+      "Paid confirmations by course from the operator",
+      "E-010 Form compression gate: 10 processed apply clicks with no submit or Form increase"
+    ],
+    "next_conversion_action": {
+      "experiment": "E-010",
+      "current_processed_apply_clicks": 6,
+      "required_processed_apply_clicks": 10,
+      "remaining_to_gate": 4,
+      "execute_if": "application_submit remains 0 and Google Form responses remain at or below 3",
+      "change_scope": "Shorten only the Form description; keep questions, required states, consent, price, schedule, venue, attribution and trigger unchanged."
+    }
   },
   "stop_and_change_rules": {
     "stop_course_ad_at_paid_confirmations": 15,

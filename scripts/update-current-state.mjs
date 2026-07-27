@@ -210,6 +210,7 @@ const ga4TodayRecord = [...records]
   .reverse()
   .find(
     (record) =>
+      !record.course &&
       record.source_systems.includes("ga4") &&
       Number.isFinite(record.apply_clicks) &&
       Number.isFinite(record.apply_cta_views),
