@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T08:45:00+09:00",
+  "updated_at": "2026-07-28T08:54:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -81,11 +81,11 @@
       "capacity": 15,
       "advertising_stop_paid_at": 15,
       "processed_apply_clicks": 1,
-      "processed_apply_period_end": "2026-07-27",
-      "qualified_apply_clicks": 0,
-      "pending_qualification_apply_clicks": 1,
+      "processed_apply_period_end": "2026-07-28",
+      "qualified_apply_clicks": 1,
+      "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one newly course-tagged click awaits source and country processing"
+      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment"
     },
     "roblox": {
       "display_name": "로블록스 AI",
@@ -102,12 +102,12 @@
         "experiment": "E-012",
         "ad": "[Codex] 로블록스AI_실제결과물_v2",
         "utm_content": "roblox_real_output_candidate_v2",
-        "status": "held_pending_click_attribution",
-        "decision_at": "2026-07-28T08:45:00+09:00",
+        "status": "held_qualified_paid_click",
+        "decision_at": "2026-07-28T08:54:00+09:00",
         "original_decision_at": "2026-07-28T09:00:00+09:00",
         "decision_accelerated_by_user": true,
         "launch_only_if": "Qualified local Roblox apply-click evidence remains absent or stagnant, no new click awaits attribution, and paid capacity 15 is not proven.",
-        "decision_note": "A newly course-tagged Roblox apply click appeared. Keep the current creative until its source and country attribution are processed."
+        "decision_note": "The newly course-tagged Roblox apply click is included in GA4 paid traffic and excluded from the US segment. Keep the current creative because the zero-apply replacement condition is no longer true."
       },
       "meta_today": {
         "period_start": "2026-07-27",
@@ -123,12 +123,12 @@
       "minimum_enrollment": 6,
       "capacity": 15,
       "advertising_stop_paid_at": 15,
-      "processed_apply_clicks": 2,
-      "processed_apply_period_end": "2026-07-27",
-      "qualified_apply_clicks": 0,
-      "pending_qualification_apply_clicks": 1,
+      "processed_apply_clicks": 1,
+      "processed_apply_period_end": "2026-07-28",
+      "qualified_apply_clicks": 1,
+      "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one newly course-tagged click awaits source and country processing"
+      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment"
     }
   },
   "applications": {
@@ -154,7 +154,7 @@
     "note": "GA4 apply_click is a form-open action, not a completed application."
   },
   "ga4_today_processed": {
-    "observed_at": "2026-07-28T08:45:00+09:00",
+    "observed_at": "2026-07-28T08:54:00+09:00",
     "status": "processed_period",
     "period_start": "2026-07-26",
     "period_end": "2026-07-28",
@@ -170,7 +170,13 @@
       "roblox": 1
     },
     "historical_course_unset_apply_clicks": 4,
-    "note": "The user advanced the Roblox decision gate by 20 minutes. GA4 shows four historical course-unset apply clicks plus one newly course-tagged click for each course, but paid-source and local qualification are not yet proven. Google Form responses remain three. E-012 stays unpublished until the new Roblox click attribution is resolved; both course ads continue because neither has verified 15-person paid capacity."
+    "paid_traffic_apply_clicks": 5,
+    "us_segment_apply_clicks": 4,
+    "qualified_non_us_paid_course_clicks": {
+      "notebooklm": 1,
+      "roblox": 1
+    },
+    "note": "GA4 paid-traffic and US segment comparison confirms the newly course-tagged NotebookLM and Roblox clicks are both paid traffic and both zero in the US segment. Four historical course-unset clicks include three paid US clicks and one additional US click. Google Form responses remain three, no application_submit row is present, and E-012 stays unpublished because Roblox now has qualified paid application movement."
   },
   "ga4_custom_dimensions": {
     "verified_at": "2026-07-27T16:45:52+09:00",
@@ -297,7 +303,8 @@
     "Aligned Meta ApplyClick with GA4 by adding an explicit course_selection derived from each tracked CTA. Budget, creative, audience, destination and UTM remain unchanged.",
     "Published and verified a free public Roblox creator follow-up post with a distinct organic UTM. It keeps the paid campaign unchanged and explicitly states that earnings are not guaranteed.",
     "At the user-accelerated 08:40 checkpoint, verified E-011 active with three landing-page views and paused only the superseded Gemini ad after confirming the candidate was live. The report window was July 27-28; the superseded ad had 32 landing-page views.",
-    "Held E-012 unpublished because GA4 now shows one newly course-tagged Roblox apply click whose source and country attribution are not yet processed. Roblox remains active at the existing 20,000 KRW/day budget."
+    "Held E-012 unpublished because GA4 now shows one newly course-tagged Roblox apply click whose source and country attribution are not yet processed. Roblox remains active at the existing 20,000 KRW/day budget.",
+    "At 08:54 KST, confirmed the new NotebookLM and Roblox course-tagged clicks are both in GA4 paid traffic and both excluded from the US segment. E-012 remains unpublished because Roblox now has qualified paid application movement."
   ],
   "facebook_page_post": {
     "status": "published",

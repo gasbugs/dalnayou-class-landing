@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-28T08:45:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-28T08:54:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -20,18 +20,19 @@
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
 | 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 30,025원 | 8,137 | — | 비교 금지 | 44 | 비교 금지 | 1 | — | — |
-| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 29,012원 | 8,693 | — | 비교 금지 | 53 | 비교 금지 | 2 | — | — |
+| 2026-07-26~2026-07-28 | `roblox_enterprise_emergency` | — | — | — | 비교 금지 | 31 | 비교 금지 | 1 | 0 | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
-| 2026-07-27~2026-07-28 | `notebooklm_workload_candidate_v2` | — | — | — | — | 3 | — | — | — | — |
+| 2026-07-26~2026-07-28 | `notebooklm_workload_candidate_v2` | — | — | — | 비교 금지 | 3 | 비교 금지 | 1 | 0 | — |
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | — | — | — | 비교 금지 | 101 | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-27~2026-07-28 | `course_adset_checkpoint` | — | — | — | — | 66 | — | — | — | — |
 | 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
+| 2026-07-26~2026-07-28 | `qualified_paid_apply_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
 
 ## CTA 위치별 성과
 
@@ -44,6 +45,7 @@
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | 160 | 6 | 3.8% | meta + ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-28 | `qualified_paid_apply_checkpoint` | 160 | 6 | 3.8% | meta + ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -52,7 +54,7 @@
 | 과정 | 지출 판단선 | 랜딩 판단선 | 유효 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | Gemini 노트북 | 30,025 / 40,000 (75.1%) | 44 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
-| 로블록스 AI | 29,012 / 40,000 (72.5%) | 53 / 30 (100.0%) | 0 | 확인 필요 | 확인 필요 | 확인 필요 | **소재·첫 화면 교체** |
+| 로블록스 AI | 확인 필요 | 31 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
 
 
 ## 관찰 이력
@@ -137,6 +139,9 @@
 | 2026-07-28T08:42:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 3 | meta |
 | 2026-07-28T08:44:00+09:00 | `course_adset_checkpoint` | — | — | — | 66 | meta |
 | 2026-07-28T08:45:00+09:00 | `accelerated_roblox_gate_checkpoint` | — | — | — | 66 | meta + ga4 + google_forms + operator_report |
+| 2026-07-28T08:54:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 3 | meta + ga4 |
+| 2026-07-28T08:54:00+09:00 | `roblox_enterprise_emergency` | — | — | — | 31 | meta + ga4 |
+| 2026-07-28T08:54:00+09:00 | `qualified_paid_apply_checkpoint` | — | — | — | 66 | meta + ga4 + google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -252,11 +257,11 @@
 - 광고 클릭: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 랜딩 완료: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
-- 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
-- 현재 판단: 다음 퍼널 단계의 절대 전환 수와 입금 확정을 확인합니다.
+- 현재 판단: 신청서 이동 10회까지 관찰을 계속합니다.
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: 19:10 KST checkpoint. Meta totals were read at about 19:05 KST and the ads table still showed 53 landing-page views at 19:10. Both raw Roblox apply clicks remain excluded as United States or otherwise unverified QA traffic.
+- 기록: The current Roblox ad remains active with 31 landing-page views in Meta's July 27-28 ad-set window. GA4 paid-traffic and US segment comparison shows the newly course-tagged Roblox mobile-CTA click as paid traffic with zero US events. E-012 stays unpublished because the zero-apply replacement condition is no longer true.
 
 ### ga4_realtime_30m_mixed
 
@@ -306,13 +311,14 @@
 
 ### notebooklm_workload_candidate_v2
 
-- 광고 클릭: **자료 부족** (노출 1,000회)
-- 랜딩 완료: **자료 부족** (링크 클릭 20회)
-- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 광고 클릭: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 랜딩 완료: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
-- 입금 확정: **자료 부족** (신청서 제출 3회)
-- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: At the user-accelerated morning checkpoint, Meta showed E-011 active with three landing-page views. The superseded Gemini ad had 32 landing-page views in the same July 27-28 report window and was paused only after the candidate was verified active. The existing Gemini ad-set budget, audience, destination and end date were unchanged.
+- 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 현재 판단: 신청서 이동 10회까지 관찰을 계속합니다.
+- 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
+- 기록: The active E-011 candidate remains at three landing-page views in Meta's July 27-28 window. GA4 paid-traffic and US segment comparison shows the newly course-tagged NotebookLM final-CTA click as paid traffic with zero US events. The superseded Gemini ad is confirmed off.
 
 ### e011_launch_checkpoint
 
@@ -347,6 +353,12 @@
 - 누적 신청서 제출: **0건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: The user advanced the Roblox decision gate by 20 minutes. GA4 shows four historical course-unset apply clicks plus one newly course-tagged click for each course, but paid-source and local qualification are not yet proven. Google Form responses remain three. E-012 stays unpublished until the new Roblox click attribution is resolved; both course ads continue because neither has verified 15-person paid capacity.
+
+### qualified_paid_apply_checkpoint
+
+- 누적 신청서 제출: **0건**
+- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
+- 기록: GA4 paid-traffic and US segment comparison confirms the newly course-tagged NotebookLM and Roblox clicks are both paid traffic and both zero in the US segment. Four historical course-unset clicks include three paid US clicks and one additional US click. Google Form responses remain three, no application_submit row is present, and E-012 stays unpublished because Roblox now has qualified paid application movement.
 
 ## 실험 실행 게이트
 
@@ -405,7 +417,7 @@
 - 실행 자산: feed=`experiments/assets/e-012-roblox-real-output-feed.png`, story=`experiments/assets/e-012-roblox-real-output-story.png`, render_script=`scripts/render-e012-roblox-real-output.sh`, photo_sources=`images/house2-v3.webp,images/park-v2.webp,images/publish-v2.webp`
 - 실행 광고: `[Codex] 로블록스AI_실제결과물_v2`
 - 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_real_output_candidate_v2`
-- 표본 게이트: 53 / 30 (충족)
+- 표본 게이트: 31 / 30 (충족)
 - 시간 게이트: 2026-07-28T08:40:00+09:00 (충족)
 - 현재 판정: **실행 검토 가능**
 - 추가 조건: At the user-accelerated 2026-07-28 08:40 KST checkpoint, launch only if qualified Roblox apply-click evidence is absent or stagnant, no recent click is awaiting attribution, and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.

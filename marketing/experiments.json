@@ -248,9 +248,9 @@
         "qualification_note": "Historical raw clicks exist, but no qualified local campaign apply click or tracked application submission is currently proven."
       },
       "last_decision": {
-        "decided_at": "2026-07-28T08:45:00+09:00",
+        "decided_at": "2026-07-28T08:54:00+09:00",
         "action": "hold_current_creative",
-        "reason": "The user advanced the checkpoint by 20 minutes. GA4 now shows one newly course-tagged Roblox apply click, but its paid-source and local qualification have not finished processing. Hold the current creative until attribution is resolved instead of contaminating the signal."
+        "reason": "The user advanced the checkpoint by 20 minutes. GA4 segment comparison shows the newly course-tagged Roblox apply click in paid traffic and at zero in the US segment. Keep the current creative because the zero-apply replacement condition is false."
       },
       "additional_condition": "At the user-accelerated 2026-07-28 08:40 KST checkpoint, launch only if qualified Roblox apply-click evidence is absent or stagnant, no recent click is awaiting attribution, and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.",
       "candidate_copy": {
