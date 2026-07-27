@@ -1225,3 +1225,25 @@ E-009이며 과정별 지출, 랜딩, 신청 이동, 신청 완료, 입금 완�
 - 게시물 고유 링크:
   `https://www.facebook.com/permalink.php?story_fbid=pfbid0zTUtsfFKLFNtAAPAW4rhPjVH6amKjogja3mHx3PA2Pu8uJW2gpok8PyXkvZHSpaDl&id=61592079254729`
 - 유료 광고와 다른 UTM을 사용하므로 E-011 유료 소재 판정에는 합산하지 않음
+
+### 2026-07-27 18:20 KST 로블록스 크리에이터 사례형 무료 게시물
+
+- 클씨랩 Facebook 페이지에 로블록스 크리에이터 사례형 후속 게시물을 전체 공개
+- 별도 유입 링크:
+  `utm_source=facebook_page`, `utm_medium=organic_social`,
+  `utm_content=roblox_creator_organic_20260727`
+- Roblox 공식 Creator Hub의 Cole Tucker(1Coal)·Hide or Die 사례를 사용하고,
+  활성 이용자 100만 명 규모와 월 약 4만5천 달러 사례를 소개
+- 수익 보장으로 오인되지 않도록 `수익은 보장되지 않습니다`와
+  `수익을 보장하는 수업이 아니라` 문구를 함께 유지
+- 초4 이상 입문자부터 성인, AI로 만드는 게임 결과물, 기업·기관 교육 10년+,
+  일정·장소·정상가와 얼리버드가를 포함
+- 게시 전 전체 공개, 즉시 게시, 스토리 공유 끔, 유료 홍보 끔을 확인
+- 콘텐츠 라이브러리에서 `게시됨 · 오늘 오후 6:20`과 올바른 로블록스 UTM을
+  확인
+- 게시물 고유 링크:
+  `https://www.facebook.com/permalink.php?story_fbid=pfbid02xJDYmDJkuAd7ZXugNpQ3W5Aj5iT245cPbzEUvwPqW1tTtDwbTVtcG699zNu2PRFDl&id=61592079254729`
+- 공식 사례 출처:
+  `https://create.roblox.com/docs/monetize`
+- 유료 로블록스 광고와 다른 UTM을 사용하므로 E-009 유료 성과 판정에는 합산하지
+  않음

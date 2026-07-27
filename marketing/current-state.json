@@ -252,7 +252,8 @@
     "Labeled each course Meta metric block with its 2026-07-26 to 2026-07-27 campaign observation window so cumulative values are not mistaken for July 27 daily-only results.",
     "Verified in GA4 Admin that course_selection and link_position are already registered as event-scoped custom dimensions, together with campaign UTM and submission-system dimensions. No GA4 setting change was required.",
     "Updated the GA4 exploration to the direct-course funnel and added a CTA-position table. It showed four processed apply clicks split by link position into two NotebookLM and two Roblox clicks, while course_selection was historically unset. Added explicit course_selection to all eight course-page application CTAs and tracked clicks.",
-    "Aligned Meta ApplyClick with GA4 by adding an explicit course_selection derived from each tracked CTA. Budget, creative, audience, destination and UTM remain unchanged."
+    "Aligned Meta ApplyClick with GA4 by adding an explicit course_selection derived from each tracked CTA. Budget, creative, audience, destination and UTM remain unchanged.",
+    "Published and verified a free public Roblox creator follow-up post with a distinct organic UTM. It keeps the paid campaign unchanged and explicitly states that earnings are not guaranteed."
   ],
   "facebook_page_post": {
     "status": "published",
@@ -272,6 +273,16 @@
     "utm_content": "notebooklm_workload_organic_20260727",
     "permalink": "https://www.facebook.com/permalink.php?story_fbid=pfbid0zTUtsfFKLFNtAAPAW4rhPjVH6amKjogja3mHx3PA2Pu8uJW2gpok8PyXkvZHSpaDl&id=61592079254729",
     "note": "Published immediately as a free public Page post with the tracked NotebookLM landing link. The paid-promotion switch was off."
+  },
+  "facebook_page_roblox_follow_up_post": {
+    "status": "published",
+    "published_at": "2026-07-27T18:20:00+09:00",
+    "course": "roblox",
+    "utm_source": "facebook_page",
+    "utm_medium": "organic_social",
+    "utm_content": "roblox_creator_organic_20260727",
+    "permalink": "https://www.facebook.com/permalink.php?story_fbid=pfbid02xJDYmDJkuAd7ZXugNpQ3W5Aj5iT245cPbzEUvwPqW1tTtDwbTVtcG699zNu2PRFDl&id=61592079254729",
+    "note": "Published immediately as a free public Page post with the tracked Roblox landing link. Paid promotion was off, and the copy explicitly says that earnings are not guaranteed."
   },
   "next_decision": {
     "at": "2026-07-27T20:00:00+09:00",

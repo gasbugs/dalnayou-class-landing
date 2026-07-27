@@ -36,9 +36,15 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook
 https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook_page&utm_medium=organic_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_organic_20260727
 ```
 
+클씨랩 Facebook 페이지 로블록스 크리에이터 후속 게시물:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook_page&utm_medium=organic_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_creator_organic_20260727
+```
+
 로블록스 이미지는 로블록스 상세 페이지, Gemini Notebook과 로블록스를 함께
 소개하는 쇼츠는 두 과정 선택 페이지로 연결합니다. Meta에서는 부천 소사역
-통학권의 18~24세를 중심으로 운영합니다. 초등학생 수강 문의는 당근·아파트
+통학권의 18~44세를 중심으로 운영합니다. 초등학생 수강 문의는 당근·아파트
 채팅방 등 보호자가 주로 보는 지역 채널로 연결합니다.
 
 Facebook Gemini 노트북 광고:
