@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>E-012 로블록스 실제 결과물 광고 후보</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      display: flex;
+      min-height: 100vh;
+      align-items: flex-start;
+      justify-content: center;
+      background: #d9dce1;
+      color: #171717;
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+    .creative {
+      --accent: #e84d0e;
+      display: flex;
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      flex-direction: column;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+    .story { height: 1920px; }
+    .proof {
+      display: flex;
+      min-height: 102px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 68px;
+      background: #16181d;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand img {
+      width: 190px;
+      height: 60px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    .proof strong {
+      color: #ffd54a;
+      font-size: 27px;
+    }
+    .copy {
+      padding: 44px 68px 36px;
+      background: #f8fafc;
+    }
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 29px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 15px 0 0;
+      font-size: 66px;
+      line-height: 1.12;
+      font-weight: 900;
+    }
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .subcopy {
+      margin: 20px 0 0;
+      color: #414651;
+      font-size: 28px;
+      line-height: 1.42;
+      font-weight: 700;
+    }
+    .showcase {
+      display: grid;
+      height: 500px;
+      grid-template-columns: 1.32fr 0.9fr;
+      gap: 8px;
+      padding: 8px;
+      background: #171717;
+    }
+    .shot {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      background: #262626;
+    }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .shot-main img { object-position: center; }
+    .shot-stack {
+      display: grid;
+      min-width: 0;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+    }
+    .shot-label {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      padding: 10px 15px;
+      background: rgba(17, 17, 17, 0.9);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .details {
+      display: grid;
+      flex: 1;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 30px 68px 38px;
+      background: #fff;
+      border-top: 8px solid var(--accent);
+    }
+    .facts {
+      display: grid;
+      gap: 9px;
+      font-size: 25px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .facts .price {
+      color: var(--accent);
+      font-size: 28px;
+    }
+    .cta {
+      display: flex;
+      min-width: 258px;
+      min-height: 96px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 28px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 29px;
+      font-weight: 900;
+    }
+    .story .proof {
+      min-height: 128px;
+      padding: 0 64px;
+    }
+    .story .copy {
+      padding: 78px 68px 56px;
+    }
+    .story .eyebrow { font-size: 34px; }
+    .story h1 {
+      margin-top: 23px;
+      font-size: 88px;
+      line-height: 1.1;
+    }
+    .story .subcopy {
+      margin-top: 30px;
+      font-size: 34px;
+    }
+    .story .showcase {
+      height: 800px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1.15fr 0.85fr;
+    }
+    .story .shot-stack {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .story .shot-label {
+      left: 24px;
+      bottom: 22px;
+      padding: 13px 18px;
+      font-size: 25px;
+    }
+    .story .details {
+      grid-template-columns: 1fr;
+      align-content: center;
+      padding: 48px 68px 174px;
+    }
+    .story .facts {
+      gap: 13px;
+      font-size: 32px;
+    }
+    .story .facts .price { font-size: 35px; }
+    .story .cta {
+      width: 100%;
+      min-height: 112px;
+      margin-top: 22px;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <main id="creative" class="creative">
+    <div class="proof">
+      <div class="brand">
+        <img src="../images/cloud-security-lab-logo.png" alt="" />
+        <span>클씨랩 오프라인 AI 클래스</span>
+      </div>
+      <strong>기업·공공 교육 10년+</strong>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">초4 이상부터 성인까지 · 코딩 경험 불필요</p>
+      <h1>방 하나에서 시작해<br /><em>친구와 하는 게임까지</em></h1>
+      <p class="subcopy">AI로 만들고 직접 테스트하며,<br />4주 뒤 공개 링크로 공유합니다.</p>
+    </div>
+    <div class="showcase">
+      <div class="shot shot-main">
+        <img src="../images/house2-v3.webp" alt="" />
+        <span class="shot-label">1주차 · AI로 내 방 만들기</span>
+      </div>
+      <div class="shot-stack">
+        <div class="shot">
+          <img src="../images/park-v2.webp" alt="" />
+          <span class="shot-label">3주차 · 미니게임</span>
+        </div>
+        <div class="shot">
+          <img src="../images/publish-v2.webp" alt="" />
+          <span class="shot-label">4주차 · 게임 공개</span>
+        </div>
+      </div>
+    </div>
+    <div class="details">
+      <div class="facts">
+        <div>8/16 개강 · 매주 일요일 오후 2~5시</div>
+        <div>소사역 힐스에비뉴 · 잔여석 마감 임박</div>
+        <div class="price">정상가 249,000원 · 8/1까지 189,000원</div>
+      </div>
+      <div class="cta">결과물 자세히 보기</div>
+    </div>
+  </main>
+  <script>
+    const format = new URLSearchParams(window.location.search).get("format");
+    if (format === "story") {
+      document.getElementById("creative").classList.add("story");
+    }
+  </script>
+</body>
+</html>

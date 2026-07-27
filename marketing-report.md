@@ -374,6 +374,20 @@
 - 추가 조건: Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.
 - 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
 
+### E-012 · 로블록스 실제 결과물 진행형 소재
+
+- 준비 상태: `prepared`
+- 단일 변경: 생성 이미지 중심의 완성 약속을 실제 수업 결과 화면 3개와 1주차·3주차·4주차 진행 과정으로 교체
+- 미리보기: `experiments/e-012-roblox-real-output-ad-preview.html`
+- 실행 자산: feed=`experiments/assets/e-012-roblox-real-output-feed.png`, story=`experiments/assets/e-012-roblox-real-output-story.png`, render_script=`scripts/render-e012-roblox-real-output.sh`, photo_sources=`images/house2-v3.webp,images/park-v2.webp,images/publish-v2.webp`
+- 실행 광고: `[Codex] 로블록스AI_실제결과물_v2`
+- 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_real_output_candidate_v2`
+- 표본 게이트: 53 / 30 (충족)
+- 시간 게이트: 2026-07-28T09:00:00+09:00 (대기)
+- 현재 판정: **대기**
+- 추가 조건: At the 2026-07-28 09:00 KST checkpoint, launch only if qualified Roblox apply-click evidence is still absent or stagnant and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.
+- 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
+
 ## 운영 규칙
 
 - 새 수치는 기존 줄을 수정하지 않고 JSONL 마지막에 추가합니다.

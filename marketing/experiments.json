@@ -200,6 +200,71 @@
         "application_form",
         "refund_policy"
       ]
+    },
+    {
+      "id": "E-012",
+      "status": "prepared",
+      "name": "로블록스 실제 결과물 진행형 소재",
+      "change": "생성 이미지 중심의 완성 약속을 실제 수업 결과 화면 3개와 1주차·3주차·4주차 진행 과정으로 교체",
+      "preview_file": "experiments/e-012-roblox-real-output-ad-preview.html",
+      "candidate_assets": {
+        "feed": "experiments/assets/e-012-roblox-real-output-feed.png",
+        "story": "experiments/assets/e-012-roblox-real-output-story.png",
+        "render_script": "scripts/render-e012-roblox-real-output.sh",
+        "photo_sources": [
+          "images/house2-v3.webp",
+          "images/park-v2.webp",
+          "images/publish-v2.webp"
+        ]
+      },
+      "candidate_content": "roblox_real_output_candidate_v2",
+      "launch_spec": {
+        "ad_set": "[Codex] 로블록스AI_소사역_18-44",
+        "new_ad_name": "[Codex] 로블록스AI_실제결과물_v2",
+        "superseded_ad": "[Codex] 로블록스AI_기업교육신뢰_v1",
+        "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_real_output_candidate_v2",
+        "transition": [
+          "Create the new ad inside the existing Roblox ad set without changing its 20,000 KRW daily budget.",
+          "Publish and verify the new ad is active with the candidate destination and both candidate assets.",
+          "Pause only the superseded Roblox ad after the new ad is active.",
+          "Verify the Gemini ad remains active and aggregate daily budget remains 40,000 KRW."
+        ]
+      },
+      "primary_metric": "meta_link_ctr_percent",
+      "downstream_metric": "roblox_apply_clicks",
+      "gate": {
+        "content": "roblox_enterprise_emergency",
+        "metric": "landing_views",
+        "minimum": 30,
+        "not_before": "2026-07-28T09:00:00+09:00"
+      },
+      "baseline": {
+        "recorded_at": "2026-07-27T22:01:00+09:00",
+        "landing_views": 55,
+        "processed_apply_clicks": 2,
+        "qualified_apply_clicks": 0,
+        "qualification_note": "Historical raw clicks exist, but no qualified local campaign apply click or tracked application submission is currently proven."
+      },
+      "additional_condition": "At the 2026-07-28 09:00 KST checkpoint, launch only if qualified Roblox apply-click evidence is still absent or stagnant and no course-specific 15-person paid-capacity stop is proven. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date.",
+      "candidate_copy": {
+        "primary_text": "로블록스를 플레이하는 데서 끝내지 말고 AI와 함께 직접 만들어보세요. 초등학교 4학년 이상부터 성인까지, 코딩 경험이 없어도 방 만들기부터 미니게임과 공개 링크까지 4주 동안 단계별 결과물을 완성하는 오프라인 실전 과정입니다. 기업·공공기관 교육 경험을 바탕으로 처음 만드는 사람도 끝까지 따라올 수 있게 진행합니다.",
+        "headline": "방 하나에서 시작해, 4주 뒤 내 게임 공개",
+        "description": "8/16 개강 · 소사역 · 매주 일요일 오후 2~5시",
+        "cta": "자세히 보기"
+      },
+      "keep_stable": [
+        "campaign",
+        "ad_set",
+        "audience",
+        "region",
+        "destination",
+        "daily_budget",
+        "price",
+        "schedule",
+        "location",
+        "application_form",
+        "refund_policy"
+      ]
     }
   ]
 }

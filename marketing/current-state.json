@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T22:01:00+09:00",
+  "updated_at": "2026-07-27T22:08:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -92,6 +92,14 @@
       "daily_budget_krw": 20000,
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
+      "prepared_candidate": {
+        "experiment": "E-012",
+        "ad": "[Codex] 로블록스AI_실제결과물_v2",
+        "utm_content": "roblox_real_output_candidate_v2",
+        "status": "prepared_not_published",
+        "decision_at": "2026-07-28T09:00:00+09:00",
+        "launch_only_if": "Qualified local Roblox apply-click evidence remains absent or stagnant and paid capacity 15 is not proven."
+      },
       "meta_today": {
         "period_start": "2026-07-26",
         "period_end": "2026-07-27",
@@ -263,6 +271,7 @@
     "Inspected the public Google Form without reading responses. Prepared an exact five-line E-010 description that removes duplicated enterprise and tier-price detail while preserving payment confirmation, dates, times, venue, minor-applicant notice and the detailed landing link. The live form remains unchanged until its gate.",
     "At 2026-07-27 16:31 KST, the GA4 today report showed 25 course_landing_view events from 23 users, 0 apply_click, 0 application_submit and 0 active users in the last 30 minutes. Google Form responses remained three. This is a partial-day observation and does not trigger a pre-20:00 change.",
     "Added a deterministic marketing:decide command. It keeps ads at six paid learners, stops at 15, prioritizes capacity stop over creative changes, and prevents E-010 form compression and E-011 Gemini creative replacement from launching together.",
+    "Prepared E-012, a Roblox candidate that shows actual first-week, mini-game and published-game outputs. It remains unpublished until the 2026-07-28 09:00 KST checkpoint.",
     "Added and passed three regression tests for six-versus-15 enrollment handling, E-010 priority over simultaneous E-011, and standalone E-011 launch eligibility.",
     "Labeled each course Meta metric block with its 2026-07-26 to 2026-07-27 campaign observation window so cumulative values are not mistaken for July 27 daily-only results.",
     "Verified in GA4 Admin that course_selection and link_position are already registered as event-scoped custom dimensions, together with campaign UTM and submission-system dimensions. No GA4 setting change was required.",
