@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T21:01:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T22:01:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -29,6 +29,7 @@
 | 2026-07-27~2026-07-27 | `notebooklm_workload_candidate_v2` | — | — | — | — | 0 | — | 0 | — | — |
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | — | — | — | 비교 금지 | 101 | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
+| 2026-07-26~2026-07-27 | `overnight_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 
 ## CTA 위치별 성과
 
@@ -39,6 +40,7 @@
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | 129 | 4 | 비교 금지 | meta + ga4 + google_forms + operator_report |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-27 | `overnight_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -126,6 +128,8 @@
 | 2026-07-27T20:30:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 | 2026-07-27T21:01:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 | 2026-07-27T21:01:00+09:00 | `post_e011_launch_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
+| 2026-07-27T22:01:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
+| 2026-07-27T22:01:00+09:00 | `overnight_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -301,7 +305,7 @@
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: At 21:01 KST the E-011 candidate remained processing. Meta's status tooltip explicitly said it was processing recent ad updates and that some updates can take several hours. The superseded Gemini ad remained active with 46 cumulative landing-page views. The candidate was not recreated and the old ad was not paused.
+- 기록: At 22:01 KST the E-011 candidate remained processing and Meta still stated that some recent ad updates can take several hours. The superseded Gemini ad remained active with 46 cumulative landing-page views. Overnight delivery remains available with no budget change or exposure gap.
 
 ### e011_launch_checkpoint
 
@@ -314,6 +318,12 @@
 - 누적 신청서 제출: **0건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: At 21:01 KST GA4 remained at 129 CTA views and four raw apply clicks with no application_submit row. Google Form responses remained three. The operator-reported paid total remains three without an authoritative course split. No course has verified 15-person capacity, so both course ad sets continue recruiting.
+
+### overnight_checkpoint
+
+- 누적 신청서 제출: **0건**
+- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
+- 기록: At 22:01 KST GA4 remained at 129 CTA views and four raw apply clicks with no application_submit row. Google Form responses remained three. The operator-reported paid total remains three without a course split. Both course ads continue because neither has verified 15-person paid capacity.
 
 ## 실험 실행 게이트
 
