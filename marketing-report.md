@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T19:10:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T20:30:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -26,6 +26,8 @@
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
+| 2026-07-27~2026-07-27 | `notebooklm_workload_candidate_v2` | — | — | — | — | 0 | — | 0 | — | — |
+| 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | — | — | — | 비교 금지 | 101 | 비교 금지 | 4 | 0 | 3 |
 
 ## CTA 위치별 성과
 
@@ -34,6 +36,7 @@
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
 | 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 129 | 4 | 3.1% | ga4 |
 | 2026-07-26~2026-07-27 | `pre_20_decision_checkpoint` | 129 | 4 | 비교 금지 | ga4 + google_forms + operator_report |
+| 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | 129 | 4 | 비교 금지 | meta + ga4 + google_forms + operator_report |
 
 ## 과정별 실행 판단
 
@@ -116,6 +119,9 @@
 | 2026-07-27T19:10:00+09:00 | `notebooklm_enterprise_emergency` | 30,025원 | 8,137 | — | 44 | meta + ga4 |
 | 2026-07-27T19:10:00+09:00 | `roblox_enterprise_emergency` | 29,012원 | 8,693 | — | 53 | meta + ga4 |
 | 2026-07-27T19:10:00+09:00 | `pre_20_decision_checkpoint` | — | — | — | — | ga4 + google_forms + operator_report |
+| 2026-07-27T20:03:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | — | meta |
+| 2026-07-27T20:03:00+09:00 | `e011_launch_checkpoint` | — | — | — | 101 | meta + ga4 + google_forms + operator_report |
+| 2026-07-27T20:30:00+09:00 | `notebooklm_workload_candidate_v2` | — | — | — | 0 | meta |
 
 ## 최신 병목 판정
 
@@ -283,6 +289,22 @@
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
 - 기록: At 19:10 KST the GA4 CTA-position exploration remained at 129 CTA views, four raw apply clicks and zero tracked application_submit events. Google Form responses remained three. The operator-reported paid total remains three with no authoritative course split, so it is not used for a course-level capacity stop. Six paid learners confirms a course can run; only 15 paid learners in a specific course stops that course ad.
 
+### notebooklm_workload_candidate_v2
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **자료 부족** (유료 랜딩 30회)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
+- 기록: At 20:30 KST the published E-011 candidate still showed processing and had not begun delivery. The superseded Gemini ad remained active with 46 cumulative landing-page views. No delivery gap or budget change was introduced; the old ad will be paused only after the candidate becomes active.
+
+### e011_launch_checkpoint
+
+- 누적 신청서 제출: **0건**
+- 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
+- 기록: 20:00 KST decision checkpoint: Meta showed 46 cumulative Gemini and 55 cumulative Roblox landing-page views after a manual refresh. GA4 remained at 129 CTA views and four raw apply clicks, with no application_submit row. Google Form responses remained three and the operator-reported paid total remained three without an authoritative course split. The deterministic decision therefore launched E-011, kept the Form stable, and kept both course ad sets recruiting because neither has verified 15-person paid capacity.
+
 ## 실험 실행 게이트
 
 ### E-005 · 결제자까지 포함하는 연령 상한 확장
@@ -313,22 +335,22 @@
 - 단일 변경: 신청서 설명에서 랜딩페이지와 중복되는 기관 이력·상세 가격 문장을 줄여 첫 필수 질문을 더 빨리 보이게 함
 - 실행 문안: 신청서 설명 5줄 준비
 - 표본 게이트: 0 / 10 (10회 부족)
-- 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
+- 시간 게이트: 2026-07-27T20:00:00+09:00 (충족)
 - 현재 판정: **대기**
 - 추가 조건: application_submits remains 0 and Google Form response count does not increase
 - 유지 변수: course_options, required_contact_fields, privacy_consent, price, schedule, location, application_attribution, landing_pages, ad_audience, ad_creative, ad_budget
 
 ### E-011 · Gemini 노트북 업무 문서 문제형 소재
 
-- 준비 상태: `prepared_not_live`
+- 준비 상태: `published_processing`
 - 단일 변경: 도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체
 - 미리보기: `experiments/e-011-notebook-workload-ad-preview.html`
 - 실행 자산: feed=`experiments/assets/e-011-notebook-workload-feed.png`, story=`experiments/assets/e-011-notebook-workload-story.png`, render_script=`scripts/render-e011-notebook-workload.sh`, photo_source=`experiments/assets/notebooklm-workplace-generic-v2.webp`
 - 실행 광고: `[Codex] Gemini노트북_업무문서문제_v2`
 - 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2`
 - 표본 게이트: 44 / 30 (충족)
-- 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
-- 현재 판정: **대기**
+- 시간 게이트: 2026-07-27T20:00:00+09:00 (충족)
+- 현재 판정: **실행 검토 가능**
 - 추가 조건: Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.
 - 유지 변수: campaign, ad_set, audience, region, destination, daily_budget, price, schedule, location, application_form, refund_policy
 

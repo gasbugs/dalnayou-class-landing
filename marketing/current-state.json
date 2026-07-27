@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T19:10:00+09:00",
+  "updated_at": "2026-07-27T20:30:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -52,6 +52,15 @@
       "daily_budget_krw": 20000,
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_enterprise_emergency",
+      "pending_replacement": {
+        "ad": "[Codex] Gemini노트북_업무문서문제_v2",
+        "meta_ad_id": "120245602259470292",
+        "utm_content": "notebooklm_workload_candidate_v2",
+        "published_at": "2026-07-27T20:03:00+09:00",
+        "status": "processing",
+        "last_checked_at": "2026-07-27T20:30:00+09:00",
+        "pause_superseded_only_after": "candidate_active"
+      },
       "meta_today": {
         "period_start": "2026-07-26",
         "period_end": "2026-07-27",
@@ -290,7 +299,7 @@
     "note": "Published immediately as a free public Page post with the tracked Roblox landing link. Paid promotion was off, and the copy explicitly says that earnings are not guaranteed."
   },
   "next_decision": {
-    "at": "2026-07-27T20:00:00+09:00",
+    "at": "2026-07-27T21:00:00+09:00",
     "review": [
       "Meta spend, impressions, link clicks and landing views by course",
       "GA4 apply_click by course and UTM",

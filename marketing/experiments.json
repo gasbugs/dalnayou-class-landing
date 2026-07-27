@@ -134,9 +134,17 @@
     },
     {
       "id": "E-011",
-      "status": "prepared_not_live",
+      "status": "published_processing",
       "name": "Gemini 노트북 업무 문서 문제형 소재",
       "change": "도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체",
+      "launched_at": "2026-07-27T20:03:00+09:00",
+      "meta_ad_id": "120245602259470292",
+      "launch_state": {
+        "new_ad": "processing",
+        "superseded_ad": "active",
+        "last_checked_at": "2026-07-27T20:30:00+09:00",
+        "note": "The candidate was published at the scheduled gate. Keep the superseded ad active until Meta reports the candidate as active so there is no delivery gap."
+      },
       "preview_file": "experiments/e-011-notebook-workload-ad-preview.html",
       "candidate_assets": {
         "feed": "experiments/assets/e-011-notebook-workload-feed.png",
