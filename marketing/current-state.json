@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T16:45:52+09:00",
+  "updated_at": "2026-07-27T17:10:20+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -150,6 +150,23 @@
     ],
     "note": "GA4 Admin custom definitions were inspected directly. course_selection and link_position are already registered as event-scoped dimensions; no settings change was required. Reports populate prospectively after processing and do not backfill pre-registration data."
   },
+  "ga4_cta_position_breakdown": {
+    "observed_at": "2026-07-27T17:10:20+09:00",
+    "period_start": "2026-07-26",
+    "period_end": "2026-07-27",
+    "course_landing_views": 115,
+    "apply_cta_views": 128,
+    "apply_clicks": 4,
+    "application_submits": 0,
+    "apply_click_positions": {
+      "notebooklm_hero_form": 1,
+      "notebooklm_mobile_form": 1,
+      "roblox_final_form": 1,
+      "roblox_mobile_form": 1
+    },
+    "tracking_status": "course_selection_fixed_prospectively",
+    "note": "Historical apply_click rows had course_selection=(not set), but their link_position values identify two NotebookLM and two Roblox clicks. All course-page apply CTAs and click events now send explicit course_selection; do not backfill or rewrite the historical rows."
+  },
   "google_form_mobile_audit": {
     "audited_at": "2026-07-26T13:58:29+09:00",
     "status": "working",
@@ -233,7 +250,8 @@
     "Added a deterministic marketing:decide command. It keeps ads at six paid learners, stops at 15, prioritizes capacity stop over creative changes, and prevents E-010 form compression and E-011 Gemini creative replacement from launching together.",
     "Added and passed three regression tests for six-versus-15 enrollment handling, E-010 priority over simultaneous E-011, and standalone E-011 launch eligibility.",
     "Labeled each course Meta metric block with its 2026-07-26 to 2026-07-27 campaign observation window so cumulative values are not mistaken for July 27 daily-only results.",
-    "Verified in GA4 Admin that course_selection and link_position are already registered as event-scoped custom dimensions, together with campaign UTM and submission-system dimensions. No GA4 setting change was required."
+    "Verified in GA4 Admin that course_selection and link_position are already registered as event-scoped custom dimensions, together with campaign UTM and submission-system dimensions. No GA4 setting change was required.",
+    "Updated the GA4 exploration to the direct-course funnel and added a CTA-position table. It showed four processed apply clicks split by link position into two NotebookLM and two Roblox clicks, while course_selection was historically unset. Added explicit course_selection to all eight course-page application CTAs and tracked clicks."
   ],
   "facebook_page_post": {
     "status": "published",

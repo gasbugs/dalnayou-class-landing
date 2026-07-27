@@ -97,6 +97,14 @@ contains roblox.html "track\\('course_landing_view'" 'Roblox sends a GA4 course 
 contains roblox.html "course_selection: 'roblox'" 'Roblox course landing identifies its course'
 contains notebooklm.html "track\\('course_landing_view'" 'NotebookLM sends a GA4 course landing event'
 contains notebooklm.html "course_selection: 'notebooklm'" 'NotebookLM course landing identifies its course'
+contains roblox.html 'data-track-event="apply_click"[^>]*data-course-selection="roblox"' 'Roblox apply CTAs identify their course'
+contains notebooklm.html 'data-track-event="apply_click"[^>]*data-course-selection="notebooklm"' 'NotebookLM apply CTAs identify their course'
+contains roblox.html "course_selection: target.dataset.courseSelection || 'roblox'" 'Roblox tracked clicks include their course'
+contains notebooklm.html "course_selection: target.dataset.courseSelection || 'notebooklm'" 'NotebookLM tracked clicks include their course'
+roblox_apply_course_count="$(rg -c 'data-track-event="apply_click"[^>]*data-course-selection="roblox"' "$ROOT/roblox.html" || true)"
+notebook_apply_course_count="$(rg -c 'data-track-event="apply_click"[^>]*data-course-selection="notebooklm"' "$ROOT/notebooklm.html" || true)"
+if [[ "$roblox_apply_course_count" == "4" ]]; then pass 'All four Roblox apply CTAs identify their course'; else fail "Expected 4 course-tagged Roblox apply CTAs, found $roblox_apply_course_count"; fi
+if [[ "$notebook_apply_course_count" == "4" ]]; then pass 'All four NotebookLM apply CTAs identify their course'; else fail "Expected 4 course-tagged NotebookLM apply CTAs, found $notebook_apply_course_count"; fi
 contains roblox.html "track\\('apply_cta_view'" 'Roblox measures application CTA visibility'
 contains notebooklm.html "track\\('apply_cta_view'" 'NotebookLM measures application CTA visibility'
 contains roblox.html 'applyCtaObserver\.unobserve\(target\)' 'Roblox application CTA views are one-time'

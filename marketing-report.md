@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T16:31:48+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T17:10:20+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -24,12 +24,14 @@
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
+| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | — | — | — | — | 115 | — | 4 | 0 | — |
 
 ## CTA 위치별 성과
 
 | 기간 | 과정·위치 | CTA 노출 | 신청 클릭 | 노출→신청 | 출처 |
 | --- | --- | ---: | ---: | ---: | --- |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | 1 | — | — | ga4 |
+| 2026-07-26~2026-07-27 | `ga4_cta_position_breakdown` | 128 | 4 | 3.1% | ga4 |
 
 ## 과정별 실행 판단
 
@@ -100,6 +102,7 @@
 | 2026-07-27T16:01:29+09:00 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 33 | meta + ga4 |
 | 2026-07-27T16:31:48+09:00 | `ga4_today_processed_mixed` | — | — | — | 25 | ga4 |
 | 2026-07-27T16:31:48+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-27T17:10:20+09:00 | `ga4_cta_position_breakdown` | — | — | — | 115 | ga4 |
 
 ## 최신 병목 판정
 
@@ -250,6 +253,16 @@
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: Partial-day GA4 standard report observed at 16:31 KST: course_landing_view 25 events from 23 users, apply_click 0, application_submit 0 and 0 active users in the last 30 minutes. This is an explicit same-day report zero, not an inferred value. Course-level attribution is not available in this observation.
+
+### ga4_cta_position_breakdown
+
+- 광고 클릭: **자료 부족** (노출 1,000회)
+- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 신청서 이동: **개선 필요** (3.5%)
+- 신청서 제출: **자료 부족** (신청서 이동 10회)
+- 입금 확정: **자료 부족** (신청서 제출 3회)
+- 현재 첫 개선 후보: 결과물·신뢰·가격 근거·일정 적합성과 CTA 위치를 점검
+- 기록: GA4 Exploration free-form table for July 26-27, filtered to apply_cta_view, apply_click and application_submit. Apply clicks were notebooklm_hero_form 1, notebooklm_mobile_form 1, roblox_final_form 1 and roblox_mobile_form 1. The four historical apply_click rows had course_selection=(not set), while their link_position values still identified two clicks per course. This exposed and led to a prospective fix that adds explicit course_selection to all course-page tracked clicks. CTA views were Roblox mobile 48, Notebook mobile 40, Roblox hero 13, Notebook hero 12, Roblox enterprise trust 8, Notebook enterprise trust 3, Roblox final 3 and Notebook final 1. Application_submit was absent from the filtered table and therefore 0 for this processed range.
 
 ## 실험 실행 게이트
 
