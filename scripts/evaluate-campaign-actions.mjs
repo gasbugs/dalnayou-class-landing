@@ -72,6 +72,7 @@ if (e010) {
 const e011 = config.experiments.find((experiment) => experiment.id === "E-011");
 if (e011) {
   const course = state.courses.notebooklm;
+  const alreadyPublished = e011.status.startsWith("published_");
   const courseAtCapacity =
     Number.isFinite(course.paid_confirmed) &&
     Number.isFinite(course.advertising_stop_paid_at) &&
@@ -89,6 +90,8 @@ if (e011) {
     "notebooklm",
     courseAtCapacity
       ? "skip_e011_course_full"
+      : alreadyPublished
+        ? "monitor_e011_published_candidate"
       : formChangeScheduled
         ? "hold_e011_during_form_test"
       : timeReady && sampleReady && applyStagnant
@@ -96,9 +99,49 @@ if (e011) {
         : "keep_current_creative",
     courseAtCapacity
       ? "과정 정원 충족으로 광고 중단이 소재 교체보다 우선"
+      : alreadyPublished
+        ? `E-011 상태가 ${e011.status}이므로 재게시하지 않고 후보 상태와 성과만 확인`
       : formChangeScheduled
         ? "신청 이동 이후 Form 병목 실험을 먼저 실행해 동시 변수 변경을 방지"
       : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e011.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
+  );
+}
+
+const e012 = config.experiments.find((experiment) => experiment.id === "E-012");
+if (e012) {
+  const course = state.courses.roblox;
+  const alreadyPublished = e012.status.startsWith("published_");
+  const courseAtCapacity =
+    Number.isFinite(course.paid_confirmed) &&
+    Number.isFinite(course.advertising_stop_paid_at) &&
+    course.paid_confirmed >= course.advertising_stop_paid_at;
+  const timeReady = now >= new Date(e012.gate.not_before);
+  const sampleReady =
+    course.meta_today.spend_krw >=
+      state.stop_and_change_rules.change_creative_if_spend_krw_reaches ||
+    course.meta_today.landing_views >= e012.gate.minimum;
+  const qualifiedApplyClicks = course.qualified_apply_clicks;
+  const applyStagnant =
+    Number.isFinite(qualifiedApplyClicks) &&
+    qualifiedApplyClicks <= e012.baseline.qualified_apply_clicks;
+  push(
+    "roblox",
+    courseAtCapacity
+      ? "skip_e012_course_full"
+      : alreadyPublished
+        ? "monitor_e012_published_candidate"
+        : formChangeScheduled
+          ? "hold_e012_during_form_test"
+          : timeReady && sampleReady && applyStagnant
+            ? "launch_e012_then_pause_v1"
+            : "keep_current_creative",
+    courseAtCapacity
+      ? "과정 정원 충족으로 광고 중단이 소재 교체보다 우선"
+      : alreadyPublished
+        ? `E-012 상태가 ${e012.status}이므로 재게시하지 않고 후보 상태와 성과만 확인`
+        : formChangeScheduled
+          ? "신청 이동 이후 Form 병목 실험을 먼저 실행해 동시 변수 변경을 방지"
+          : `시간 ${timeReady ? "충족" : "대기"}, 랜딩 ${course.meta_today.landing_views}/${e012.gate.minimum}, 지출 ${course.meta_today.spend_krw}원, 검증된 신청 이동 ${qualifiedApplyClicks ?? "미확인"}회 (원시 ${course.processed_apply_clicks ?? "미확인"}회)`,
   );
 }
 
