@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T17:10:20+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-27T17:27:44+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -19,8 +19,8 @@
 | 2026-07-25~2026-07-26 | `all_active_meta_accounts_before_replacement` | 46,543원 | 9,460 | 113 | 1.2% | 93 | 82.3% | — | — | — |
 | 2026-07-19~2026-07-25 | `ga4_latest_processed_7d` | — | — | — | — | 544 | — | 5 | 2 | — |
 | unknown~2026-07-26 | `all_courses_payment_confirmed` | — | — | — | — | — | — | — | — | 3 |
-| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 17,156원 | 4,622 | 26 | 0.6% | 24 | 92.3% | 1 | — | — |
-| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 16,784원 | 5,027 | 35 | 0.7% | 33 | 94.3% | 2 | — | — |
+| 2026-07-26~2026-07-27 | `notebooklm_enterprise_emergency` | 28,447원 | 7,663 | 48 | 0.6% | 43 | 89.6% | 1 | — | — |
+| 2026-07-26~2026-07-27 | `roblox_enterprise_emergency` | 27,593원 | 8,191 | 56 | 0.7% | 52 | 92.9% | 2 | — | — |
 | 2026-07-26T10:17:26+09:00~2026-07-26T10:47:26+09:00 | `ga4_realtime_30m_mixed` | — | — | — | — | 3 | — | — | — | — |
 | 2026-07-24~2026-07-26 | `ga4_processed_mixed` | — | — | — | — | — | — | 4 | 0 | — |
 | 2026-07-27~2026-07-27 | `ga4_today_processed_mixed` | — | — | — | — | 25 | — | 0 | 0 | — |
@@ -39,8 +39,8 @@
 
 | 과정 | 지출 판단선 | 랜딩 판단선 | 신청 이동 | 입금 / 개강선 | 입금 / 광고중단 | 입금 / 정원 | 현재 조치 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 17,156 / 40,000 (42.9%) | 24 / 30 (80.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **관찰 유지** |
-| 로블록스 AI | 16,784 / 40,000 (42.0%) | 33 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
+| Gemini 노트북 | 28,447 / 40,000 (71.1%) | 43 / 30 (100.0%) | 1 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
+| 로블록스 AI | 27,593 / 40,000 (69.0%) | 52 / 30 (100.0%) | 2 | 확인 필요 | 확인 필요 | 확인 필요 | **신청 이후 단계 점검** |
 
 
 ## 관찰 이력
@@ -103,6 +103,9 @@
 | 2026-07-27T16:31:48+09:00 | `ga4_today_processed_mixed` | — | — | — | 25 | ga4 |
 | 2026-07-27T16:31:48+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 | 2026-07-27T17:10:20+09:00 | `ga4_cta_position_breakdown` | — | — | — | 115 | ga4 |
+| 2026-07-27T17:27:44+09:00 | `notebooklm_enterprise_emergency` | 28,447원 | 7,663 | 48 | 43 | meta + ga4 |
+| 2026-07-27T17:27:44+09:00 | `roblox_enterprise_emergency` | 27,593원 | 8,191 | 56 | 52 | meta + ga4 |
+| 2026-07-27T17:27:44+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
 
 ## 최신 병목 판정
 
@@ -150,7 +153,7 @@
 
 - 누적 신청서 제출: **3건**
 - 퍼널 판정: **귀속 불가** (자동 유입 정보가 없는 누적 응답)
-- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The operator-reported aggregate paid count remains 3, but the per-course payment split is unknown and is not inferred. Applicant PII is intentionally excluded.
+- 기록: Google Form response count remains 3: NotebookLM 2 and Roblox 1. The operator-reported aggregate paid count remains 3, but the per-course payment split is unknown and is not inferred. Six paid learners confirms a course can run and does not stop its ad; only 15 paid learners in a specific course stops that course ad. Applicant PII is intentionally excluded.
 
 ### account_1272476857609072_instagram_boost
 
@@ -205,24 +208,24 @@
 ### notebooklm_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.6%)
-- 랜딩 완료: **관찰 양호** (92.3%)
+- 랜딩 완료: **관찰 양호** (89.6%)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.56%, landing-view cost 715 KRW. The apply-click count is the latest processed GA4 evidence through July 26 for this exact campaign content; it proves nonzero form entry but is not divided by the later Meta landing count.
+- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.63%, link-click CPC 593 KRW and landing-view cost 662 KRW. Apply click remains the latest processed GA4 value for this exact utm_content; the separate CTA-position exploration found two Notebook clicks across its broader scope. Neither value is divided by the later Meta landing count.
 
 ### roblox_enterprise_emergency
 
 - 광고 클릭: **개선 필요** (0.7%)
-- 랜딩 완료: **관찰 양호** (94.3%)
+- 랜딩 완료: **관찰 양호** (92.9%)
 - 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
 - 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
 - 데이터 한계: meta + ga4 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
-- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.70%, landing-view cost 509 KRW. Roblox crossed the 30-landing review gate, but the latest processed GA4 evidence through July 26 contains two apply clicks for this exact campaign content, so the zero-click replacement rule does not apply. The two systems are not divided into a conversion rate.
+- 기록: Meta cumulative values for July 26-27 after a manual refresh: status active, link CTR 0.68%, link-click CPC 493 KRW and landing-view cost 531 KRW. The processed GA4 July 26-27 exploration identified two historical Roblox application clicks by link position. This value is not divided by the later Meta landing count.
 
 ### ga4_realtime_30m_mixed
 
@@ -307,7 +310,7 @@
 - 실행 자산: feed=`experiments/assets/e-011-notebook-workload-feed.png`, story=`experiments/assets/e-011-notebook-workload-story.png`, render_script=`scripts/render-e011-notebook-workload.sh`
 - 실행 광고: `[Codex] Gemini노트북_업무문서문제_v2`
 - 실행 목적지: `https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2`
-- 표본 게이트: 24 / 30 (6회 부족)
+- 표본 게이트: 43 / 30 (충족)
 - 시간 게이트: 2026-07-27T20:00:00+09:00 (대기)
 - 현재 판정: **대기**
 - 추가 조건: Review only when Notebook spend reaches 40,000 KRW or landing views reach 30 and qualified apply-click evidence is absent or stagnant. Publishing is pre-approved within the existing 40,000 KRW total daily budget and August 2 end date; budget increases or date extensions still require separate approval.

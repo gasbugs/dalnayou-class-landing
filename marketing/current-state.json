@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T17:14:00+09:00",
+  "updated_at": "2026-07-27T17:27:44+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -56,12 +56,12 @@
         "period_start": "2026-07-26",
         "period_end": "2026-07-27",
         "window": "campaign_observation",
-        "spend_krw": 17156,
-        "impressions": 4622,
-        "link_clicks": 26,
-        "landing_views": 24,
-        "link_ctr_percent": 0.56,
-        "cost_per_landing_view_krw": 715
+        "spend_krw": 28447,
+        "impressions": 7663,
+        "link_clicks": 48,
+        "landing_views": 43,
+        "link_ctr_percent": 0.63,
+        "cost_per_landing_view_krw": 662
       },
       "minimum_enrollment": 6,
       "capacity": 15,
@@ -84,12 +84,12 @@
         "period_start": "2026-07-26",
         "period_end": "2026-07-27",
         "window": "campaign_observation",
-        "spend_krw": 16784,
-        "impressions": 5027,
-        "link_clicks": 35,
-        "landing_views": 33,
-        "link_ctr_percent": 0.7,
-        "cost_per_landing_view_krw": 509
+        "spend_krw": 27593,
+        "impressions": 8191,
+        "link_clicks": 56,
+        "landing_views": 52,
+        "link_ctr_percent": 0.68,
+        "cost_per_landing_view_krw": 531
       },
       "minimum_enrollment": 6,
       "capacity": 15,
