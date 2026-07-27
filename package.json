@@ -6,7 +6,8 @@
     "marketing:payments": "node scripts/record-course-payments.mjs",
     "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write",
     "marketing:state": "node scripts/update-current-state.mjs",
-    "marketing:decide": "node scripts/evaluate-campaign-actions.mjs"
+    "marketing:decide": "node scripts/evaluate-campaign-actions.mjs",
+    "marketing:test": "node --test scripts/evaluate-campaign-actions.test.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"

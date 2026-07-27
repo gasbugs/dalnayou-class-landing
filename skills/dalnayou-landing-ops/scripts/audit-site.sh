@@ -45,6 +45,7 @@ required_files=(
   tracking-links.md meta-ad-plan.md marketing-history.md campaign-pricing.js robots.txt sitemap.xml 404.html
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
   scripts/evaluate-campaign-actions.mjs
+  scripts/evaluate-campaign-actions.test.mjs
   marketing/experiments.json experiments/e-007-mobile-cta-preview.html
   experiments/e-011-notebook-workload-ad-preview.html
   experiments/assets/e-011-notebook-workload-feed.png
@@ -275,6 +276,7 @@ contains scripts/evaluate-campaign-actions.mjs 'launch_e011_then_pause_v1' 'Deci
 contains scripts/evaluate-campaign-actions.mjs 'skip_e011_course_full' 'Decision tool prioritizes capacity stop over creative replacement'
 contains scripts/evaluate-campaign-actions.mjs 'hold_e011_during_form_test' 'Decision tool avoids simultaneous form and creative changes'
 contains package.json 'marketing:decide' 'Package exposes the campaign decision command'
+contains package.json 'marketing:test' 'Package exposes campaign decision regression tests'
 contains cardnews/index.html 'id="payment-tracker"' 'Operator page exposes the privacy-safe payment tracker'
 contains cardnews/index.html 'const MINIMUM_ENROLLMENT = 6' 'Payment tracker uses the six-person minimum enrollment'
 contains cardnews/index.html 'const COURSE_CAPACITY = 15' 'Payment tracker uses the 15-person course capacity'
