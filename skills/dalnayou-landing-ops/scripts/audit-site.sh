@@ -117,6 +117,7 @@ contains main.html 'data-course-selection="notebooklm"' 'Main mirror identifies 
 contains main.html 'data-course-selection="roblox"' 'Main mirror identifies Roblox course selections'
 contains index.html 'course_selection: target.dataset.courseSelection' 'GA4 course clicks include the selected course'
 contains main.html 'course_selection: target.dataset.courseSelection' 'GA4 mirror course clicks include the selected course'
+contains marketing-events.js 'params.course_selection = getTargetCourse\(target\)' 'Meta ApplyClick identifies its course'
 contains marketing-events.js 'params.course_selection = params.content_name' 'Meta CourseSelect includes the selected course'
 contains roblox.html 'data-track-label="roblox_enterprise_trust_form"' 'Roblox trust proof has a distinct application CTA'
 contains notebooklm.html 'data-track-label="notebooklm_enterprise_trust_form"' 'NotebookLM trust proof has a distinct application CTA'

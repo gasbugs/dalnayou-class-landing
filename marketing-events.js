@@ -85,6 +85,7 @@
         var params = buildParams(target);
 
         if (eventName === "apply_click") {
+          params.course_selection = getTargetCourse(target);
           window.fbq("trackCustom", "ApplyClick", params);
         } else if (eventName === "contact_click") {
           window.fbq("track", "Contact", params);
