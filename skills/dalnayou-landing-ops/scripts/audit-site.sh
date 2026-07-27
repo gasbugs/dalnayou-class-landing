@@ -46,6 +46,9 @@ required_files=(
   marketing/snapshots.jsonl marketing-report.md scripts/analyze-marketing-funnel.mjs
   marketing/experiments.json experiments/e-007-mobile-cta-preview.html
   experiments/e-011-notebook-workload-ad-preview.html
+  experiments/assets/e-011-notebook-workload-feed.png
+  experiments/assets/e-011-notebook-workload-story.png
+  scripts/render-e011-notebook-workload.sh
   integrations/google-apps-script/track-application-submit.gs
   ga4-events.js marketing-events.js images/roblox-creator-cole-tucker.webp
   images/gemini-spark.webp
@@ -147,7 +150,13 @@ contains marketing/experiments.json 'experiments/e-007-mobile-cta-preview\.html'
 contains marketing-report.md 'experiments/e-007-mobile-cta-preview\.html' 'Generated report exposes the E-007 preview path'
 contains marketing/experiments.json 'experiments/e-011-notebook-workload-ad-preview\.html' 'E-011 references its internal preview'
 contains marketing/experiments.json 'notebooklm_workload_candidate_v2' 'E-011 reserves a unique candidate content value'
+contains marketing/experiments.json 'experiments/assets/e-011-notebook-workload-feed\.png' 'E-011 references its feed upload asset'
+contains marketing/experiments.json 'experiments/assets/e-011-notebook-workload-story\.png' 'E-011 references its story upload asset'
 contains marketing-report.md 'experiments/e-011-notebook-workload-ad-preview\.html' 'Generated report exposes the E-011 preview path'
+contains marketing-report.md 'experiments/assets/e-011-notebook-workload-feed\.png' 'Generated report exposes the E-011 feed upload asset'
+contains marketing-report.md 'experiments/assets/e-011-notebook-workload-story\.png' 'Generated report exposes the E-011 story upload asset'
+require_png_dimensions experiments/assets/e-011-notebook-workload-feed.png '1080 x 1350'
+require_png_dimensions experiments/assets/e-011-notebook-workload-story.png '1080 x 1920'
 if node "$ROOT/scripts/analyze-marketing-funnel.mjs" >/dev/null; then
   pass 'Marketing snapshot data passes deterministic analysis'
 else

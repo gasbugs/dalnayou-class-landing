@@ -347,6 +347,12 @@ for (const experiment of experiments) {
   if (experiment.preview_file) {
     lines.push(`- 미리보기: \`${experiment.preview_file}\``);
   }
+  if (experiment.candidate_assets) {
+    const assets = Object.entries(experiment.candidate_assets)
+      .map(([name, path]) => `${name}=\`${path}\``)
+      .join(", ");
+    lines.push(`- 실행 자산: ${assets}`);
+  }
   const isInactive =
     experiment.status.startsWith("superseded") ||
     experiment.status.startsWith("paused");
@@ -379,6 +385,9 @@ for (const experiment of experiments) {
       `(${timeReady ? "충족" : "대기"})`,
     );
     lines.push(`- 현재 판정: **${sampleReady && timeReady ? "실행 검토 가능" : "대기"}**`);
+  }
+  if (experiment.additional_condition) {
+    lines.push(`- 추가 조건: ${experiment.additional_condition}`);
   }
   lines.push(`- 유지 변수: ${experiment.keep_stable.join(", ")}`);
   lines.push("");

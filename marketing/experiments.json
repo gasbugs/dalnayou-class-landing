@@ -110,6 +110,11 @@
       "name": "Gemini 노트북 업무 문서 문제형 소재",
       "change": "도구 소개형 첫 인상을 쌓인 회의록·보고서 정리 문제와 직장인 업무 장면 중심으로 교체",
       "preview_file": "experiments/e-011-notebook-workload-ad-preview.html",
+      "candidate_assets": {
+        "feed": "experiments/assets/e-011-notebook-workload-feed.png",
+        "story": "experiments/assets/e-011-notebook-workload-story.png",
+        "render_script": "scripts/render-e011-notebook-workload.sh"
+      },
       "candidate_content": "notebooklm_workload_candidate_v2",
       "primary_metric": "meta_link_ctr_percent",
       "downstream_metric": "notebooklm_apply_clicks",
