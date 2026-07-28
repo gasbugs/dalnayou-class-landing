@@ -145,7 +145,27 @@ https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=apartmen
 - 이름·전화번호·응답 내용은 이 문서, GA4, 마케팅 스냅샷에 기록하지 않습니다.
 - 운영자는 별도 비공개 결제대장에서 과정·입금 여부·발송 여부만 관리합니다.
 
-## 매일 20:00 기록
+## 매일 09:00 기록
+
+Meta·GA4·Google Form의 집계값과 운영자가 확인한 총입금 인원만 사용합니다.
+이름, 전화번호, 이메일, 개별 응답 내용은 입력 파일에 넣지 않습니다.
+
+```bash
+npm run marketing:checkpoint -- --example
+npm run marketing:checkpoint -- --input /private/tmp/dalnayou-checkpoint.json --dry-run
+npm run marketing:checkpoint -- --input /private/tmp/dalnayou-checkpoint.json
+```
+
+첫 명령은 입력 예시를 출력합니다. 두 번째 명령은 합계와 개인정보 필드를 검증만
+하고, 마지막 명령이 7개의 체크포인트 레코드를 추가한 뒤
+`marketing/current-state.json`과 `marketing-report.md`를 갱신합니다.
+
+- `meta.notebooklm_total`: 현재 후보와 중단된 이전 소재를 합친 Gemini 누적값
+- `meta.notebooklm_active`: 현재 집행 중인 Gemini 후보만의 값
+- `meta.roblox_active`: 현재 집행 중인 로블록스 광고의 값
+- `ga4.notebooklm`, `ga4.roblox`: 동일한 GA4 유료 트래픽 세그먼트의 CTA 노출·신청서 이동
+- `forms`: 전체 응답 수와 과정별 선택 수
+- `payments.total`: 운영자가 확인한 총입금 인원이며 과정별 수는 추정하지 않음
 
 | 날짜 | 과정 | 광고비 | Meta 랜딩 | GA4 apply_click | 신청 완료 | 입금 완료 | 목표 잔여 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |

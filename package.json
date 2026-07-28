@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "build:css": "bash scripts/build-tailwind-css.sh",
+    "marketing:checkpoint": "node scripts/record-campaign-checkpoint.mjs",
     "marketing:payments": "node scripts/record-course-payments.mjs",
     "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write",
     "marketing:state": "node scripts/update-current-state.mjs",
     "marketing:decide": "node scripts/evaluate-campaign-actions.mjs",
-    "marketing:test": "node --test scripts/analyze-marketing-funnel.test.mjs scripts/campaign-reference-consistency.test.mjs scripts/evaluate-campaign-actions.test.mjs scripts/record-course-payments.test.mjs scripts/update-current-state.test.mjs"
+    "marketing:test": "node --test scripts/analyze-marketing-funnel.test.mjs scripts/campaign-reference-consistency.test.mjs scripts/evaluate-campaign-actions.test.mjs scripts/record-campaign-checkpoint.test.mjs scripts/record-course-payments.test.mjs scripts/update-current-state.test.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"
