@@ -325,7 +325,8 @@
     "Held E-012 unpublished because GA4 now shows one newly course-tagged Roblox apply click whose source and country attribution are not yet processed. Roblox remains active at the existing 20,000 KRW/day budget.",
     "At 08:54 KST, confirmed the new NotebookLM and Roblox course-tagged clicks are both in GA4 paid traffic and both excluded from the US segment. E-012 remains unpublished because Roblox now has qualified paid application movement.",
     "At 09:10 KST, recorded exact July 27-28 Meta ad-set results: Gemini 24,765 KRW / 6,504 impressions / 44 link clicks / 35 landing views / 709 KRW per landing view; Roblox 25,737 KRW / 7,514 impressions / 38 link clicks / 31 landing views / 831 KRW per landing view. Both ads remain active at 20,000 KRW/day because each has one qualified paid non-US course-tagged apply click and neither has verified 15-person paid capacity.",
-    "Added a paste-ready LinkedIn launch post that leads with the 2015 first-lecture history and enterprise, finance and public-sector proof. NotebookLM and Roblox use separate organic-social UTM links so resulting traffic and application movement remain distinguishable."
+    "Added a paste-ready LinkedIn launch post that leads with the 2015 first-lecture history and enterprise, finance and public-sector proof. NotebookLM and Roblox use separate organic-social UTM links so resulting traffic and application movement remain distinguishable.",
+    "Promoted the two actual live Meta destinations to the top of tracking-links.md and synchronized meta-ad-plan.md with the live Gemini E-011 creative, current assets, July 27-28 metrics and 14:00 decision time. Historical and organic links remain explicitly separated from live paid attribution."
   ],
   "facebook_page_post": {
     "status": "published",

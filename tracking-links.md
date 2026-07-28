@@ -6,6 +6,26 @@
 https://gasbugs.github.io/dalnayou-class-landing/
 ```
 
+## 현재 라이브 Meta 광고
+
+2026년 7월 28일 기준 두 광고 세트는 각각 일 예산 `20,000원`으로 활동 중이며,
+총 일 예산은 `40,000원`입니다.
+
+Gemini 노트북 `[Codex] Gemini노트북_업무문서문제_v2`:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2
+```
+
+로블록스 AI `[Codex] 로블록스AI_기업교육신뢰_v1`:
+
+```text
+https://gasbugs.github.io/dalnayou-class-landing/roblox.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_emergency
+```
+
+Gemini의 이전 기업교육 신뢰형 광고는 중단됐습니다. 위 두 링크만 현재 유료 광고
+성과로 묶고, 아래 링크들은 과거 집행·후속 게시물·별도 채널 유입으로 구분합니다.
+
 ## 채널별 링크
 
 Facebook 로블록스 이미지 광고:

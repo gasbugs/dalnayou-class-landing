@@ -21,13 +21,13 @@
 
 | 과정 | 광고 세트 | 일 예산 | 광고 | 목적지 |
 | --- | --- | ---: | --- | --- |
-| Gemini 노트북 | `[Codex] Gemini노트북_소사역_18-44` | 20,000원 | `[Codex] Gemini노트북_기업교육신뢰_v1` | `notebooklm.html` |
+| Gemini 노트북 | `[Codex] Gemini노트북_소사역_18-44` | 20,000원 | `[Codex] Gemini노트북_업무문서문제_v2` | `notebooklm.html` |
 | 로블록스 AI | `[Codex] 로블록스AI_소사역_18-44` | 20,000원 | `[Codex] 로블록스AI_기업교육신뢰_v1` | `roblox.html` |
 
 사용 소재:
 
-- Gemini 피드: `ads/png/meta-notebooklm-enterprise-feed.png`
-- Gemini 스토리·릴스: `ads/png/meta-notebooklm-enterprise-story.png`
+- Gemini 피드: `experiments/assets/e-011-notebook-workload-feed.png`
+- Gemini 스토리·릴스: `experiments/assets/e-011-notebook-workload-story.png`
 - 로블록스 피드: `ads/png/meta-roblox-enterprise-feed.png`
 - 로블록스 스토리·릴스: `ads/png/meta-roblox-enterprise-story.png`
 - 음악·애니메이션·다이내믹 미디어 자동 효과: 사용하지 않음
@@ -35,7 +35,7 @@
 추적:
 
 - Gemini:
-  `utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_enterprise_emergency`
+  `utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2`
 - 로블록스:
   `utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=roblox_enterprise_emergency`
 
@@ -58,17 +58,18 @@
 상세 최신 상태는 `marketing/current-state.json`에서 관리합니다. 과거 수치 확인이
 필요할 때만 `marketing-history.md`와 `marketing/archive/`를 읽습니다.
 
-2026년 7월 26일 14:04 KST 최신 점검:
+2026년 7월 28일 09:10 KST 최신 점검:
 
-| 과정 | 지출 | 노출 | 링크 클릭 | 랜딩 조회 | 현재 조치 |
-| --- | ---: | ---: | ---: | ---: | --- |
-| Gemini 노트북 | 4,074원 | 858회 | 4회 | 4회 | 관찰 유지 |
-| 로블록스 AI | 3,755원 | 999회 | 7회 | 7회 | 관찰 유지 |
+| 과정 | 지출 | 노출 | 링크 클릭 | 랜딩 조회 | 랜딩당 비용 | 검증된 유료 신청 이동 | 현재 조치 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Gemini 노트북 | 24,765원 | 6,504회 | 44회 | 35회 | 709원 | 1회 | 라이브 소재 유지 |
+| 로블록스 AI | 25,737원 | 7,514회 | 38회 | 31회 | 831원 | 1회 | 라이브 소재 유지 |
 
-두 과정 모두 과정별 40,000원 또는 랜딩 30회의 변경 판단선에 도달하지
-않았습니다. 신청서 누적 응답은 NotebookLM 2건, 로블록스 1건으로 유지되고 새
-광고 UTM이 담긴 제출은 아직 없습니다. 따라서 예산·소재·타겟·신청서를 유지하고
-2026년 7월 26일 20:00 KST에 다시 판단합니다.
+두 과정 모두 랜딩 30회 판단선을 넘었지만, GA4에서 각각 한 번의 유료·비미국
+과정 식별 신청 이동이 확인됐습니다. 따라서 신청 이동 0회일 때만 적용하는 소재
+교체 조건은 충족되지 않았고 예산·소재·타겟·신청서를 유지합니다. Google Form
+누적 응답은 NotebookLM 2건, 로블록스 1건이며 다음 판단 시각은
+2026년 7월 28일 14:00 KST입니다.
 
 로블록스 광고 목적지가 잘못 `notebooklm.html`로 설정된 것을 발견해
 `roblox.html`로 수정했습니다. 광고 편집기를 다시 열어 URL 반영과 미게시 초안이
@@ -81,10 +82,10 @@
 같은 시각 클씨랩 Facebook 페이지에 두 과정의 추적 링크를 포함한 무료 게시물을
 발행했습니다. 광고 게시물과 홍보 기능은 사용하지 않았습니다.
 
-## Gemini 업무 문서 문제형 교체 후보
+## Gemini 업무 문서 문제형 라이브 소재
 
-`E-011`은 기존 Gemini 광고가 표본 기준에 도달한 뒤 신청서 이동이 정체될 때만
-사용하는 교체 후보입니다.
+`E-011`은 2026년 7월 27일 20:03 KST에 게시됐고, 7월 28일 오전 활동 상태와
+랜딩 조회를 확인한 뒤 이전 Gemini 기업교육 신뢰형 광고를 중단했습니다.
 
 - 광고 세트: `[Codex] Gemini노트북_소사역_18-44`
 - 새 광고: `[Codex] Gemini노트북_업무문서문제_v2`
@@ -100,9 +101,9 @@
 https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html?utm_source=facebook&utm_medium=paid_social&utm_campaign=dalnayou_2026_08&utm_content=notebooklm_workload_candidate_v2
 ```
 
-게시할 때 새 광고를 기존 Gemini 광고 세트 안에 만들고, 새 광고의 활성 상태와
-목적지·소재를 확인한 뒤 기존 Gemini 광고만 중단합니다. 광고 세트 일 예산
-20,000원, Roblox 광고 활동 상태, 전체 일 예산 40,000원을 다시 확인합니다.
+게시 당시 새 광고를 기존 Gemini 광고 세트 안에 만들고 활성 상태와 목적지·소재를
+확인한 뒤 이전 Gemini 광고만 중단했습니다. 현재 Gemini 광고 세트 일 예산은
+20,000원이며, Roblox 광고와 합산한 전체 일 예산은 40,000원입니다.
 
 아래 `초기 캠페인`부터의 내용은 교체 전 운영 이력입니다.
 
