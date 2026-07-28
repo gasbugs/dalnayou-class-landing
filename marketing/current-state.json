@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T10:05:00+09:00",
+  "updated_at": "2026-07-28T10:24:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -233,7 +233,7 @@
     "note": "Same GA4 paid-traffic segment and July 26-28 period. CTA views and clicks are not mixed with Meta landing-page counts. The two newly course-tagged clicks are excluded from the US segment."
   },
   "google_form_mobile_audit": {
-    "audited_at": "2026-07-28T10:05:00+09:00",
+    "audited_at": "2026-07-28T10:24:00+09:00",
     "status": "working",
     "course_prefill": "verified",
     "attribution_prefill": "verified",
@@ -244,10 +244,8 @@
       "mobile phone",
       "application type"
     ],
-    "friction_candidates": [
-      "The mobile introduction pushes the first required question below the initial viewport."
-    ],
-    "decision": "Removed the required Roblox grade question and its now-empty section. Both course-prefill links remain verified, existing response count remains 3, and E-010's separate first-screen copy gate remains queued."
+    "friction_candidates": [],
+    "decision": "E-010 is live. On a 390 x 844 viewport the first privacy-consent question heading begins at about 539 px, both course-prefill links remain verified, the grade field stays removed, and the existing response count remains 3."
   },
   "completion_audit": {
     "audited_at": "2026-07-26T15:06:58+09:00",
@@ -323,6 +321,7 @@
     "Held E-012 unpublished because GA4 now shows one newly course-tagged Roblox apply click whose source and country attribution are not yet processed. Roblox remains active at the existing 20,000 KRW/day budget.",
     "At 08:54 KST, confirmed the new NotebookLM and Roblox course-tagged clicks are both in GA4 paid traffic and both excluded from the US segment. E-012 remains unpublished because Roblox now has qualified paid application movement.",
     "At 09:10 KST, recorded exact July 27-28 Meta ad-set results: Gemini 24,765 KRW / 6,504 impressions / 44 link clicks / 35 landing views / 709 KRW per landing view; Roblox 25,737 KRW / 7,514 impressions / 38 link clicks / 31 landing views / 831 KRW per landing view. Both ads remain active at 20,000 KRW/day because each has one qualified paid non-US course-tagged apply click and neither has verified 15-person paid capacity.",
+    "At 10:24 KST, launched E-010 by shortening only the Google Form description. Removed duplicated enterprise history, tier-price detail and Kakao inquiry copy; retained payment confirmation, dates, separate course times, venue, minor-applicant notice and the detailed landing link. Mobile 390 x 844 verification places the first required question heading inside the initial viewport. Form responses remain 3, both course-prefill links work, and questions, consent, attribution, response destination and Apps Script trigger remain unchanged.",
     "Added a paste-ready LinkedIn launch post that leads with the 2015 first-lecture history and enterprise, finance and public-sector proof. NotebookLM and Roblox use separate organic-social UTM links so resulting traffic and application movement remain distinguishable.",
     "Promoted the two actual live Meta destinations to the top of tracking-links.md and synchronized meta-ad-plan.md with the live Gemini E-011 creative, current assets, July 27-28 metrics and 14:00 decision time. Historical and organic links remain explicitly separated from live paid attribution."
   ],
@@ -362,15 +361,16 @@
       "GA4 apply_click by course and UTM",
       "Google Form application count and attribution field",
       "Paid confirmations by course from the operator",
-      "E-010 Form compression gate: 10 processed apply clicks with no submit or Form increase"
+      "E-010 post-change result after 10 additional qualified non-US paid course-tagged apply clicks"
     ],
     "next_conversion_action": {
       "experiment": "E-010",
-      "current_processed_apply_clicks": 6,
-      "required_processed_apply_clicks": 10,
-      "remaining_to_gate": 4,
-      "execute_if": "application_submit remains 0 and Google Form responses remain at or below 3",
-      "change_scope": "Shorten only the Form description; keep questions, required states, consent, price, schedule, venue, attribution and trigger unchanged."
+      "status": "running",
+      "baseline_qualified_apply_clicks": 2,
+      "required_additional_qualified_apply_clicks": 10,
+      "current_additional_qualified_apply_clicks": 0,
+      "evaluate_when": "10 additional qualified non-US paid course-tagged apply clicks have been observed",
+      "keep_stable": "Questions, required states, consent, price, schedule, venue, attribution, trigger, landing pages and ads."
     }
   },
   "stop_and_change_rules": {

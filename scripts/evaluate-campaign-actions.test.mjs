@@ -22,6 +22,8 @@ const evaluate = (
 ) => {
   const state = structuredClone(BASE_STATE);
   const experiments = structuredClone(BASE_EXPERIMENTS);
+  experiments.experiments.find((item) => item.id === "E-010").status =
+    "completed";
   mutate(state);
   mutateExperiments(experiments);
   const directory = mkdtempSync(resolve(tmpdir(), "dalnayou-decision-test-"));
@@ -88,12 +90,27 @@ test("form optimization takes priority over a simultaneous creative change", () 
     state.ga4_today_processed.application_submits = 0;
     state.applications.google_form_total = 3;
   }, DECISION_TIME, (experiments) => {
+    experiments.experiments.find((item) => item.id === "E-010").status =
+      "queued";
     experiments.experiments.find((item) => item.id === "E-011").status =
       "prepared";
   });
 
   assert.ok(actionFor(decisions, "google_form", "apply_e010_description"));
   assert.ok(actionFor(decisions, "notebooklm", "hold_e011_during_form_test"));
+});
+
+test("running form optimization is monitored without reapplying it", () => {
+  const decisions = evaluate(() => {}, DECISION_TIME, (experiments) => {
+    experiments.experiments.find((item) => item.id === "E-010").status =
+      "running";
+    experiments.experiments.find((item) => item.id === "E-012").status =
+      "prepared";
+  });
+
+  assert.ok(actionFor(decisions, "google_form", "monitor_e010"));
+  assert.ok(actionFor(decisions, "roblox", "hold_e012_during_form_test"));
+  assert.ok(!actionFor(decisions, "google_form", "apply_e010_description"));
 });
 
 test("Gemini replacement launches when only its gate is ready", () => {

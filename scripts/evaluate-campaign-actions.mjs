@@ -51,22 +51,54 @@ for (const [key, course] of Object.entries(state.courses)) {
 const e010 = config.experiments.find((experiment) => experiment.id === "E-010");
 let formChangeScheduled = false;
 if (e010) {
-  const timeReady = now >= new Date(e010.gate.not_before);
-  const applyClicks = state.ga4_today_processed?.apply_clicks;
-  const submits = state.ga4_today_processed?.application_submits;
-  const formResponses = state.applications.google_form_total;
-  const sampleReady =
-    Number.isFinite(applyClicks) && applyClicks >= e010.gate.minimum;
-  const noSubmitIncrease =
-    submits === 0 &&
-    Number.isFinite(formResponses) &&
-    formResponses <= e010.baseline.google_form_responses;
-  formChangeScheduled = timeReady && sampleReady && noSubmitIncrease;
-  push(
-    "google_form",
-    formChangeScheduled ? "apply_e010_description" : "keep_form",
-    `시간 ${timeReady ? "충족" : "대기"}, 신청 이동 ${applyClicks ?? "미확인"}/${e010.gate.minimum}, Form 응답 ${formResponses ?? "미확인"}건`,
-  );
+  const experimentRunning = e010.status === "running";
+  if (experimentRunning) {
+    const qualifiedApplyClicks = Object.values(state.courses).reduce(
+      (sum, course) =>
+        sum +
+        (Number.isFinite(course.qualified_apply_clicks)
+          ? course.qualified_apply_clicks
+          : 0),
+      0,
+    );
+    const qualifiedBaseline =
+      e010.post_change_baseline?.qualified_non_us_paid_course_clicks ?? 0;
+    const qualifiedDelta = Math.max(
+      0,
+      qualifiedApplyClicks - qualifiedBaseline,
+    );
+    const evaluationMinimum =
+      e010.evaluation_gate?.minimum_additional_qualified_apply_clicks ?? 10;
+    formChangeScheduled = qualifiedDelta < evaluationMinimum;
+    push(
+      "google_form",
+      formChangeScheduled ? "monitor_e010" : "evaluate_e010",
+      `E-010 실행 중, 변경 후 검증된 신청 이동 ${qualifiedDelta}/${evaluationMinimum}회`,
+    );
+  } else if (e010.status === "queued") {
+    const timeReady = now >= new Date(e010.gate.not_before);
+    const applyClicks = state.ga4_today_processed?.apply_clicks;
+    const submits = state.ga4_today_processed?.application_submits;
+    const formResponses = state.applications.google_form_total;
+    const sampleReady =
+      Number.isFinite(applyClicks) && applyClicks >= e010.gate.minimum;
+    const noSubmitIncrease =
+      submits === 0 &&
+      Number.isFinite(formResponses) &&
+      formResponses <= e010.baseline.google_form_responses;
+    formChangeScheduled = timeReady && sampleReady && noSubmitIncrease;
+    push(
+      "google_form",
+      formChangeScheduled ? "apply_e010_description" : "keep_form",
+      `시간 ${timeReady ? "충족" : "대기"}, 신청 이동 ${applyClicks ?? "미확인"}/${e010.gate.minimum}, Form 응답 ${formResponses ?? "미확인"}건`,
+    );
+  } else {
+    push(
+      "google_form",
+      "keep_form",
+      `E-010 상태가 ${e010.status}이므로 설명을 다시 적용하지 않음`,
+    );
+  }
 }
 
 const e011 = config.experiments.find((experiment) => experiment.id === "E-011");
