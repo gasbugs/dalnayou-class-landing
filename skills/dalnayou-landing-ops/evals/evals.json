@@ -318,6 +318,22 @@
         "Mobile and desktop visual checks show no overlap or clipping in the chooser and outreach-copy section.",
         "The audit fails if the obsolete five-seat claim or old venue name returns."
       ]
+    },
+    {
+      "id": 23,
+      "prompt": "입금 완료자에게 확정 메시지를 보냈는지 과정별로 관리하고 싶어. 개인정보는 저장하지 말고 입금 수와 발송 수만 기록하게 해줘.",
+      "expected_output": "The operator page and recorder capture PII-free paid and confirmation-message aggregate counts per course, show unsent messages, and reject impossible counts without changing public offer terms.",
+      "files": [],
+      "expectations": [
+        "NotebookLM and Roblox each have separate paid-count and confirmation-message-count inputs.",
+        "The tracker shows paid minus sent as the remaining unsent count.",
+        "A confirmation-message count cannot exceed the corresponding paid count.",
+        "The copied summary includes paid, sent, and unsent counts without names or phone numbers.",
+        "The command-line recorder can store both metrics as operator-reported aggregates.",
+        "The compact current state and marketing report expose whether course confirmation counts are known.",
+        "Existing six-person minimum and 15-person capacity rules remain unchanged.",
+        "The public cardnews page is verified on desktop and a narrow mobile viewport."
+      ]
     }
   ]
 }

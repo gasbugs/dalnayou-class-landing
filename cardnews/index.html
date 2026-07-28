@@ -528,7 +528,7 @@
       <div class="copy-header">
         <div>
           <h2 id="payment-tracker-title">과정별 입금 현황</h2>
-          <p class="lead" style="margin-top:8px">이름과 연락처 없이 입금 완료 인원만 집계합니다.</p>
+          <p class="lead" style="margin-top:8px">이름과 연락처 없이 입금 완료와 확정 메시지 발송 인원만 집계합니다.</p>
         </div>
       </div>
       <div class="payment-tracker-grid">
@@ -539,9 +539,15 @@
             <input id="paid-notebooklm" type="number" inputmode="numeric" min="0" max="15" placeholder="미입력" aria-describedby="notebooklm-payment-result" />
             <strong>명</strong>
           </div>
+          <div class="payment-input-row">
+            <label for="confirmed-notebooklm">확정 메시지 발송</label>
+            <input id="confirmed-notebooklm" type="number" inputmode="numeric" min="0" max="15" placeholder="미입력" aria-describedby="notebooklm-payment-result" />
+            <strong>명</strong>
+          </div>
           <div class="payment-result" id="notebooklm-payment-result" aria-live="polite">
             <span>개강 최소까지 <strong data-payment-remaining="notebooklm">확인 필요</strong></span>
             <span>광고 중단·정원까지 <strong data-capacity-remaining="notebooklm">확인 필요</strong></span>
+            <span>확정 메시지 미발송 <strong data-confirmation-remaining="notebooklm">확인 필요</strong></span>
             <span class="payment-state" data-payment-state="notebooklm">확인 필요</span>
           </div>
         </article>
@@ -552,15 +558,24 @@
             <input id="paid-roblox" type="number" inputmode="numeric" min="0" max="15" placeholder="미입력" aria-describedby="roblox-payment-result" />
             <strong>명</strong>
           </div>
+          <div class="payment-input-row">
+            <label for="confirmed-roblox">확정 메시지 발송</label>
+            <input id="confirmed-roblox" type="number" inputmode="numeric" min="0" max="15" placeholder="미입력" aria-describedby="roblox-payment-result" />
+            <strong>명</strong>
+          </div>
           <div class="payment-result" id="roblox-payment-result" aria-live="polite">
             <span>개강 최소까지 <strong data-payment-remaining="roblox">확인 필요</strong></span>
             <span>광고 중단·정원까지 <strong data-capacity-remaining="roblox">확인 필요</strong></span>
+            <span>확정 메시지 미발송 <strong data-confirmation-remaining="roblox">확인 필요</strong></span>
             <span class="payment-state" data-payment-state="roblox">확인 필요</span>
           </div>
         </article>
       </div>
       <div class="payment-tracker-summary">
-        <div class="payment-total">전체 입금 완료 <strong id="payment-total">미입력</strong></div>
+        <div>
+          <div class="payment-total">전체 입금 완료 <strong id="payment-total">미입력</strong></div>
+          <div class="payment-total">확정 메시지 발송 <strong id="confirmation-total">미입력</strong></div>
+        </div>
         <div class="payment-tracker-actions">
           <button class="copy-btn green" id="copy-payment-summary" type="button" disabled data-track-event="operator_action" data-track-label="payment_summary_copy">집계 문구 복사</button>
           <button class="copy-btn" id="reset-payment-summary" type="button" data-track-event="operator_action" data-track-label="payment_summary_reset">초기화</button>
@@ -1259,27 +1274,35 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
     };
 
     (() => {
-      const STORAGE_KEY = "dalnayou-payment-counts-v1";
+      const STORAGE_KEY = "dalnayou-payment-counts-v2";
+      const LEGACY_STORAGE_KEY = "dalnayou-payment-counts-v1";
       const MINIMUM_ENROLLMENT = 6;
       const COURSE_CAPACITY = 15;
       const inputs = {
-        notebooklm: document.getElementById("paid-notebooklm"),
-        roblox: document.getElementById("paid-roblox"),
+        notebooklm: {
+          paid: document.getElementById("paid-notebooklm"),
+          confirmations: document.getElementById("confirmed-notebooklm"),
+        },
+        roblox: {
+          paid: document.getElementById("paid-roblox"),
+          confirmations: document.getElementById("confirmed-roblox"),
+        },
       };
       const names = {
         notebooklm: "Gemini 노트북",
         roblox: "로블록스 AI",
       };
       const total = document.getElementById("payment-total");
+      const confirmationTotal = document.getElementById("confirmation-total");
       const copyButton = document.getElementById("copy-payment-summary");
       const resetButton = document.getElementById("reset-payment-summary");
       const trackerStatus = document.getElementById("payment-copy-status");
 
-      const readValue = (input) => {
+      const readValue = (input, maximum = COURSE_CAPACITY) => {
         if (input.value === "") return null;
         const value = Number.parseInt(input.value, 10);
         if (!Number.isFinite(value)) return null;
-        return Math.min(COURSE_CAPACITY, Math.max(0, value));
+        return Math.min(maximum, Math.max(0, value));
       };
 
       const save = (values) => {
@@ -1292,26 +1315,42 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
 
       const render = () => {
         const values = Object.fromEntries(
-          Object.entries(inputs).map(([key, input]) => [key, readValue(input)]),
+          Object.entries(inputs).map(([key, courseInputs]) => {
+            const paid = readValue(courseInputs.paid);
+            const confirmations = readValue(
+              courseInputs.confirmations,
+              paid === null ? COURSE_CAPACITY : paid,
+            );
+            return [key, { paid, confirmations }];
+          }),
         );
-        Object.entries(values).forEach(([key, value]) => {
+        Object.entries(values).forEach(([key, course]) => {
+          const { paid, confirmations } = course;
           const targetRemaining = document.querySelector(`[data-payment-remaining="${key}"]`);
           const capacityRemaining = document.querySelector(`[data-capacity-remaining="${key}"]`);
+          const confirmationRemaining = document.querySelector(`[data-confirmation-remaining="${key}"]`);
           const state = document.querySelector(`[data-payment-state="${key}"]`);
           state.classList.remove("keep", "stop");
-          if (value === null) {
+          if (paid === null) {
             targetRemaining.textContent = "확인 필요";
             capacityRemaining.textContent = "확인 필요";
+            confirmationRemaining.textContent = "입금 수 입력 필요";
             state.textContent = "확인 필요";
             return;
           }
-          inputs[key].value = String(value);
-          targetRemaining.textContent = `${Math.max(0, MINIMUM_ENROLLMENT - value)}명`;
-          capacityRemaining.textContent = `${Math.max(0, COURSE_CAPACITY - value)}명`;
-          if (value >= COURSE_CAPACITY) {
+          inputs[key].paid.value = String(paid);
+          if (confirmations !== null) {
+            inputs[key].confirmations.value = String(confirmations);
+          }
+          targetRemaining.textContent = `${Math.max(0, MINIMUM_ENROLLMENT - paid)}명`;
+          capacityRemaining.textContent = `${Math.max(0, COURSE_CAPACITY - paid)}명`;
+          confirmationRemaining.textContent = confirmations === null
+            ? "확인 필요"
+            : `${Math.max(0, paid - confirmations)}명`;
+          if (paid >= COURSE_CAPACITY) {
             state.textContent = "정원 충족 · 광고 중단";
             state.classList.add("stop");
-          } else if (value >= MINIMUM_ENROLLMENT) {
+          } else if (paid >= MINIMUM_ENROLLMENT) {
             state.textContent = "개강 기준 충족 · 광고 유지";
             state.classList.add("keep");
           } else {
@@ -1320,48 +1359,76 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
           }
         });
 
-        const complete = Object.values(values).every((value) => value !== null);
-        total.textContent = complete
-          ? `${values.notebooklm + values.roblox}명 / 목표 12명`
+        const paymentComplete = Object.values(values).every(
+          ({ paid }) => paid !== null,
+        );
+        const confirmationComplete = Object.values(values).every(
+          ({ confirmations }) => confirmations !== null,
+        );
+        total.textContent = paymentComplete
+          ? `${values.notebooklm.paid + values.roblox.paid}명 / 목표 12명`
           : "두 과정 모두 입력 필요";
-        copyButton.disabled = !complete;
+        confirmationTotal.textContent = confirmationComplete
+          ? `${values.notebooklm.confirmations + values.roblox.confirmations}명`
+          : "두 과정 모두 입력 필요";
+        copyButton.disabled = !(paymentComplete && confirmationComplete);
         save(values);
         return values;
       };
 
       try {
-        const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}");
-        Object.entries(inputs).forEach(([key, input]) => {
-          if (Number.isInteger(saved[key])) input.value = String(saved[key]);
+        const current = JSON.parse(
+          window.localStorage.getItem(STORAGE_KEY) || "{}",
+        );
+        const legacy = JSON.parse(
+          window.localStorage.getItem(LEGACY_STORAGE_KEY) || "{}",
+        );
+        Object.entries(inputs).forEach(([key, courseInputs]) => {
+          const paid = current[key]?.paid ?? legacy[key];
+          const confirmations = current[key]?.confirmations;
+          if (Number.isInteger(paid)) {
+            courseInputs.paid.value = String(paid);
+          }
+          if (Number.isInteger(confirmations)) {
+            courseInputs.confirmations.value = String(confirmations);
+          }
         });
       } catch (_) {
         // Ignore malformed or unavailable local data.
       }
 
-      Object.values(inputs).forEach((input) => {
-        input.addEventListener("input", render);
-        input.addEventListener("blur", render);
+      Object.values(inputs).forEach((courseInputs) => {
+        Object.values(courseInputs).forEach((input) => {
+          input.addEventListener("input", render);
+          input.addEventListener("blur", render);
+        });
       });
 
       copyButton.addEventListener("click", async () => {
         const values = render();
-        if (Object.values(values).some((value) => value === null)) return;
+        if (
+          Object.values(values).some(
+            ({ paid, confirmations }) =>
+              paid === null || confirmations === null,
+          )
+        ) return;
         const timestamp = new Intl.DateTimeFormat("ko-KR", {
           timeZone: "Asia/Seoul",
           dateStyle: "medium",
           timeStyle: "short",
         }).format(new Date());
         const courseLine = (key) => {
-          const value = values[key];
-          const action = value >= COURSE_CAPACITY ? "광고 중단" : "광고 유지";
-          return `${names[key]}: ${value}명 입금 완료 / 개강 6명까지 ${Math.max(0, MINIMUM_ENROLLMENT - value)}명 / 정원 15명까지 ${Math.max(0, COURSE_CAPACITY - value)}명 / ${action}`;
+          const { paid, confirmations } = values[key];
+          const action = paid >= COURSE_CAPACITY ? "광고 중단" : "광고 유지";
+          return `${names[key]}: ${paid}명 입금 완료 / 확정 메시지 ${confirmations}명 발송·${Math.max(0, paid - confirmations)}명 미발송 / 개강 6명까지 ${Math.max(0, MINIMUM_ENROLLMENT - paid)}명 / 정원 15명까지 ${Math.max(0, COURSE_CAPACITY - paid)}명 / ${action}`;
         };
         const summary = [
           "[클씨랩 과정별 입금 현황]",
           `기준: ${timestamp}`,
           courseLine("notebooklm"),
           courseLine("roblox"),
-          `전체: ${values.notebooklm + values.roblox}명 / 목표 12명`,
+          `전체 입금: ${values.notebooklm.paid + values.roblox.paid}명 / 목표 12명`,
+          `전체 확정 메시지 발송: ${values.notebooklm.confirmations + values.roblox.confirmations}명`,
           "신청자 개인정보는 포함하지 않았습니다.",
         ].join("\n");
         try {
@@ -1372,11 +1439,14 @@ http://pf.kakao.com/_xeKJxen/chat</textarea>
       });
 
       resetButton.addEventListener("click", () => {
-        Object.values(inputs).forEach((input) => {
-          input.value = "";
+        Object.values(inputs).forEach((courseInputs) => {
+          Object.values(courseInputs).forEach((input) => {
+            input.value = "";
+          });
         });
         try {
           window.localStorage.removeItem(STORAGE_KEY);
+          window.localStorage.removeItem(LEGACY_STORAGE_KEY);
         } catch (_) {
           // Ignore unavailable local storage.
         }

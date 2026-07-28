@@ -1,0 +1,96 @@
+.e013-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 2.5rem;
+  border-block: 1px solid;
+}
+
+.e013-flow-grid > div {
+  min-height: 9rem;
+  padding: 1.5rem 1.25rem;
+  border-right: 1px solid;
+}
+
+.e013-flow-grid > div:last-child {
+  border-right: 0;
+}
+
+.e013-flow-grid span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.e013-flow-grid strong {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.e013-flow-grid p {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.e013-roblox-flow {
+  border-color: #fed7aa;
+}
+
+.e013-roblox-flow > div {
+  border-color: #fed7aa;
+}
+
+.e013-roblox-flow span,
+.e013-roblox-flow strong {
+  color: #c2410c;
+}
+
+.e013-notebook-flow {
+  border-color: #bfdbfe;
+}
+
+.e013-notebook-flow > div {
+  border-color: #bfdbfe;
+}
+
+.e013-notebook-flow span,
+.e013-notebook-flow strong {
+  color: #1d4ed8;
+}
+
+.e013-instructor-grid {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .e013-instructor-card {
+    padding: 2rem;
+  }
+
+  .e013-instructor-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .e013-flow-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .e013-flow-grid > div {
+    min-height: 8.5rem;
+    border-bottom: 1px solid;
+  }
+
+  .e013-flow-grid > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .e013-flow-grid > div:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+}

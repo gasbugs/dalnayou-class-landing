@@ -3,6 +3,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { calculateCampaignRisk } from "./campaign-risk.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const args = process.argv.slice(2);
@@ -29,6 +30,26 @@ if (Number.isNaN(now.getTime())) {
 
 const decisions = [];
 const push = (scope, action, reason) => decisions.push({ scope, action, reason });
+const goalRisk = calculateCampaignRisk(state, config, now);
+
+push(
+  "recruitment_goal",
+  goalRisk.status === "critical"
+    ? "critical_recruitment_risk"
+    : goalRisk.status === "goal_met"
+      ? "goal_met"
+      : "monitor_recruitment_risk",
+  Number.isFinite(goalRisk.paid_gap_total)
+    ? `입금 목표까지 ${goalRisk.paid_gap_total}명, 종료까지 ${goalRisk.hours_remaining ?? "미확인"}시간, 필요 일평균 ${goalRisk.required_paid_per_day ?? "미확인"}명`
+    : "입금 확정 총계가 없어 목표 위험도를 완전히 계산할 수 없음",
+);
+if (!goalRisk.course_paid_counts_known) {
+  push(
+    "operator",
+    "collect_course_paid_counts",
+    "전체 입금 총계만 있고 과정별 집계가 없어 각 과정의 6명 달성 여부와 남은 인원을 판단할 수 없음",
+  );
+}
 
 for (const [key, course] of Object.entries(state.courses)) {
   if (
@@ -70,10 +91,19 @@ if (e010) {
     const evaluationMinimum =
       e010.evaluation_gate?.minimum_additional_qualified_apply_clicks ?? 10;
     formChangeScheduled = qualifiedDelta < evaluationMinimum;
+    const formResponseDelta = Math.max(
+      0,
+      (state.applications.google_form_total ?? 0) -
+        (e010.post_change_baseline?.google_form_responses ?? 0),
+    );
     push(
       "google_form",
-      formChangeScheduled ? "monitor_e010" : "evaluate_e010",
-      `E-010 실행 중, 변경 후 검증된 신청 이동 ${qualifiedDelta}/${evaluationMinimum}회`,
+      formChangeScheduled
+        ? "monitor_e010"
+        : formResponseDelta > 0
+          ? "evaluate_e010_with_response"
+          : "evaluate_e010_no_response",
+      `E-010 실행 중, 변경 후 검증된 신청 이동 ${qualifiedDelta}/${evaluationMinimum}회, 신규 Form 응답 ${formResponseDelta}건`,
     );
   } else if (e010.status === "queued") {
     const timeReady = now >= new Date(e010.gate.not_before);
@@ -189,11 +219,33 @@ if (e012) {
   );
 }
 
+const e013 = config.experiments.find((experiment) => experiment.id === "E-013");
+if (e013) {
+  const e010GateMet =
+    Number.isFinite(goalRisk.e010.required_additional_qualified_apply_clicks) &&
+    goalRisk.e010.additional_qualified_apply_clicks >=
+      goalRisk.e010.required_additional_qualified_apply_clicks;
+  push(
+    "landing_pages",
+    !e010GateMet
+      ? "hold_e013_preview"
+      : e013.status === "approved_for_launch"
+        ? "e013_eligible_for_merge"
+        : "await_e013_user_approval",
+    !e010GateMet
+      ? `E-010 표본 ${goalRisk.e010.additional_qualified_apply_clicks}/${goalRisk.e010.required_additional_qualified_apply_clicks}회로 운영 페이지 병합 금지`
+      : e013.status === "approved_for_launch"
+        ? "E-010 판정 표본과 운영자 승인이 모두 충족됨"
+        : "E-010 판정 표본은 충족했지만 테스트 페이지에 대한 운영자 승인이 기록되지 않음",
+  );
+}
+
 process.stdout.write(
   `${JSON.stringify(
     {
       evaluated_at: now.toISOString(),
       aggregate_daily_budget_krw: state.campaign.daily_budget_total_krw,
+      goal_risk: goalRisk,
       decisions,
     },
     null,

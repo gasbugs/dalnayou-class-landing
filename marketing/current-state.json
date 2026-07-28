@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T10:24:00+09:00",
+  "updated_at": "2026-07-28T22:58:57+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -12,8 +12,8 @@
     "optimization": "landing_page_views",
     "daily_budget_total_krw": 40000,
     "account_spend_limit_krw": 350000,
-    "account_spend_to_date_krw": 32897,
-    "account_spend_remaining_krw": 317103,
+    "account_spend_to_date_krw": 71999,
+    "account_spend_remaining_krw": 278001,
     "schedule_end_time": {
       "current_at": "2026-08-02T23:59:00+09:00",
       "intended_at": "2026-08-02T23:59:00+09:00",
@@ -68,13 +68,13 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": 24765,
-        "impressions": 6504,
-        "link_clicks": 44,
-        "landing_views": 35,
-        "link_ctr_percent": 0.68,
-        "cost_per_landing_view_krw": 709,
-        "candidate_landing_views": 3,
+        "spend_krw": 35311,
+        "impressions": 9350,
+        "link_clicks": 61,
+        "landing_views": 48,
+        "link_ctr_percent": 0.65,
+        "cost_per_landing_view_krw": 736,
+        "candidate_landing_views": 16,
         "superseded_landing_views": 32
       },
       "minimum_enrollment": 6,
@@ -85,7 +85,9 @@
       "qualified_apply_clicks": 1,
       "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment"
+      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment",
+      "confirmation_messages_sent": null,
+      "confirmation_messages_remaining": null
     },
     "roblox": {
       "display_name": "로블록스 AI",
@@ -113,12 +115,12 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": 25737,
-        "impressions": 7514,
-        "link_clicks": 38,
-        "landing_views": 31,
-        "link_ctr_percent": 0.51,
-        "cost_per_landing_view_krw": 831
+        "spend_krw": 36688,
+        "impressions": 10805,
+        "link_clicks": 57,
+        "landing_views": 49,
+        "link_ctr_percent": 0.53,
+        "cost_per_landing_view_krw": 749
       },
       "minimum_enrollment": 6,
       "capacity": 15,
@@ -128,7 +130,9 @@
       "qualified_apply_clicks": 1,
       "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment"
+      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment",
+      "confirmation_messages_sent": null,
+      "confirmation_messages_remaining": null
     }
   },
   "applications": {
@@ -138,7 +142,12 @@
     "attributed_responses": 0,
     "paid_confirmed_total_reported_by_user": 3,
     "paid_confirmed_by_course": null,
-    "note": "No per-course payment status is stored in the connected response sheet. Do not infer it."
+    "note": "No per-course payment status is stored in the connected response sheet. Do not infer it.",
+    "confirmation_messages_sent_by_course": {
+      "notebooklm": null,
+      "roblox": null
+    },
+    "confirmation_messages_complete": false
   },
   "ga4_processed": {
     "period_start": "2026-07-24",
@@ -154,7 +163,7 @@
     "note": "GA4 apply_click is a form-open action, not a completed application."
   },
   "ga4_today_processed": {
-    "observed_at": "2026-07-28T08:54:00+09:00",
+    "observed_at": "2026-07-28T22:41:00+09:00",
     "status": "processed_period",
     "period_start": "2026-07-26",
     "period_end": "2026-07-28",
@@ -162,7 +171,7 @@
     "course_landing_views": null,
     "course_clicks": null,
     "enterprise_trust_views": null,
-    "apply_cta_views": 160,
+    "apply_cta_views": 167,
     "apply_clicks": 6,
     "application_submits": 0,
     "course_tagged_apply_clicks": {
@@ -176,7 +185,7 @@
       "notebooklm": 1,
       "roblox": 1
     },
-    "note": "GA4 paid-traffic and US segment comparison confirms the newly course-tagged NotebookLM and Roblox clicks are both paid traffic and both zero in the US segment. Four historical course-unset clicks include three paid US clicks and one additional US click. Google Form responses remain three, no application_submit row is present, and E-012 stays unpublished because Roblox now has qualified paid application movement."
+    "note": "At 22:41 KST, the GA4 paid-traffic exploration shows 167 application CTA views and five paid apply clicks. The full exploration still contains six apply clicks, including one qualified paid non-US course-tagged click per course, and no application_submit. Google Form responses remain three. E-010 has accumulated zero additional qualified apply clicks after launch."
   },
   "ga4_custom_dimensions": {
     "verified_at": "2026-07-27T16:45:52+09:00",
@@ -214,23 +223,23 @@
     "note": "Historical apply_click rows still have course_selection=(not set), while one newly tagged click appears for NotebookLM final and one for Roblox mobile. GA4 segment comparison now confirms both new clicks are paid traffic and both are zero in the US segment."
   },
   "ga4_paid_cta_funnel": {
-    "observed_at": "2026-07-28T08:54:00+09:00",
+    "observed_at": "2026-07-28T22:41:00+09:00",
     "period_start": "2026-07-26",
     "period_end": "2026-07-28",
     "segment": "paid_traffic",
     "notebooklm": {
-      "apply_cta_views": 46,
+      "apply_cta_views": 76,
       "apply_clicks": 2,
-      "view_to_click_percent": 4.35,
+      "view_to_click_percent": 2.63,
       "qualified_non_us_course_tagged_clicks": 1
     },
     "roblox": {
-      "apply_cta_views": 62,
+      "apply_cta_views": 91,
       "apply_clicks": 3,
-      "view_to_click_percent": 4.84,
+      "view_to_click_percent": 3.3,
       "qualified_non_us_course_tagged_clicks": 1
     },
-    "note": "Same GA4 paid-traffic segment and July 26-28 period. CTA views and clicks are not mixed with Meta landing-page counts. The two newly course-tagged clicks are excluded from the US segment."
+    "note": "Latest course-specific CTA views and form-open clicks from the same GA4 paid-traffic segment. Apply clicks are not completed applications."
   },
   "google_form_mobile_audit": {
     "audited_at": "2026-07-28T10:24:00+09:00",
@@ -258,7 +267,7 @@
       "Mobile landing, application preselection, attribution prefill and form controls have been audited.",
       "Two course-specific payment-request templates and two course-specific confirmation templates are ready in cardnews/index.html.",
       "Existing-network, enterprise-contact and local-community outreach copy is ready in cardnews/index.html.",
-      "A privacy-safe course payment tracker and command-line recorder are available."
+      "A privacy-safe course payment and confirmation-message tracker plus command-line recorder are available."
     ],
     "partial": [
       "A free Facebook Page post was published, but distribution through existing learners, enterprise contacts and local communities is not externally verified.",
@@ -274,7 +283,7 @@
     "next_required_evidence": [
       "Course-specific paid counts from the operator without applicant PII.",
       "Course-specific confirmation-message send completion.",
-      "Meta, GA4 and Google Form counts at the next scheduled review on 2026-07-28T14:00:00+09:00."
+      "Meta, GA4 and Google Form counts at the next scheduled review on 2026-07-29T09:00:00+09:00."
     ]
   },
   "latest_actions": [
@@ -323,7 +332,8 @@
     "At 09:10 KST, recorded exact July 27-28 Meta ad-set results: Gemini 24,765 KRW / 6,504 impressions / 44 link clicks / 35 landing views / 709 KRW per landing view; Roblox 25,737 KRW / 7,514 impressions / 38 link clicks / 31 landing views / 831 KRW per landing view. Both ads remain active at 20,000 KRW/day because each has one qualified paid non-US course-tagged apply click and neither has verified 15-person paid capacity.",
     "At 10:24 KST, launched E-010 by shortening only the Google Form description. Removed duplicated enterprise history, tier-price detail and Kakao inquiry copy; retained payment confirmation, dates, separate course times, venue, minor-applicant notice and the detailed landing link. Mobile 390 x 844 verification places the first required question heading inside the initial viewport. Form responses remain 3, both course-prefill links work, and questions, consent, attribution, response destination and Apps Script trigger remain unchanged.",
     "Added a paste-ready LinkedIn launch post that leads with the 2015 first-lecture history and enterprise, finance and public-sector proof. NotebookLM and Roblox use separate organic-social UTM links so resulting traffic and application movement remain distinguishable.",
-    "Promoted the two actual live Meta destinations to the top of tracking-links.md and synchronized meta-ad-plan.md with the live Gemini E-011 creative, current assets, July 27-28 metrics and 14:00 decision time. Historical and organic links remain explicitly separated from live paid attribution."
+    "Promoted the two actual live Meta destinations to the top of tracking-links.md and synchronized meta-ad-plan.md with the live Gemini E-011 creative, current assets, July 27-28 metrics and 14:00 decision time. Historical and organic links remain explicitly separated from live paid attribution.",
+    "Extended the privacy-safe operator tracker and payment recorder to capture course-level confirmation-message send counts, reject counts above paid enrollment, and expose remaining unsent messages without storing applicant PII."
   ],
   "facebook_page_post": {
     "status": "published",
@@ -355,7 +365,7 @@
     "note": "Published immediately as a free public Page post with the tracked Roblox landing link. Paid promotion was off, and the copy explicitly says that earnings are not guaranteed."
   },
   "next_decision": {
-    "at": "2026-07-28T14:00:00+09:00",
+    "at": "2026-07-29T09:00:00+09:00",
     "review": [
       "Meta spend, impressions, link clicks and landing views by course",
       "GA4 apply_click by course and UTM",
@@ -371,7 +381,15 @@
       "current_additional_qualified_apply_clicks": 0,
       "evaluate_when": "10 additional qualified non-US paid course-tagged apply clicks have been observed",
       "keep_stable": "Questions, required states, consent, price, schedule, venue, attribution, trigger, landing pages and ads."
-    }
+    },
+    "decision_rules": [
+      "과정별 입금 15명이 확인되면 해당 광고를 즉시 중단한다. 6명은 개강 최소 인원이며 광고 중단 기준이 아니다.",
+      "E-010 변경 후 검증된 신청 이동이 10회 미만이면 신청서와 운영 랜딩을 유지하고 E-013은 미리보기로만 둔다.",
+      "E-010 변경 후 검증된 신청 이동 10회 전에 신규 Form 응답이 생기면 먼저 입금 요청과 24시간 내 확정 안내를 실행하고 실험은 계속 측정한다.",
+      "E-010 변경 후 검증된 신청 이동이 10회에 도달했는데 신규 Form 응답이 없으면 남은 필수 입력과 제출 흐름을 점검한다.",
+      "E-013은 E-010 판정 표본 충족과 운영자 승인 두 조건을 모두 만족한 뒤에만 운영 페이지에 병합한다.",
+      "과정별 입금 수가 확인되지 않으면 전체 입금 수를 과정별로 추정하지 않는다."
+    ]
   },
   "stop_and_change_rules": {
     "stop_course_ad_at_paid_confirmations": 15,
@@ -385,5 +403,37 @@
     "marketing/archive/2026-07-24-to-26-meta-baseline.md",
     "marketing-history.md",
     "marketing/snapshots.jsonl"
-  ]
+  ],
+  "goal_risk": {
+    "status": "critical",
+    "evaluated_at": "2026-07-28T13:58:57.000Z",
+    "deadline_at": "2026-08-02T14:59:00.000Z",
+    "hours_remaining": 121,
+    "days_remaining": 5.04,
+    "target_paid_total": 12,
+    "paid_confirmed_total": 3,
+    "paid_gap_total": 9,
+    "paid_progress_percent": 25,
+    "required_paid_per_day": 1.79,
+    "course_paid_counts_known": false,
+    "course_targets_met": false,
+    "same_system_ga4_paid_funnel": {
+      "apply_cta_views": 167,
+      "apply_clicks": 5,
+      "view_to_click_percent": 2.99,
+      "note": "GA4 paid-traffic metrics only. Meta landing views are not mixed into this rate."
+    },
+    "e010": {
+      "status": "running",
+      "additional_qualified_apply_clicks": 0,
+      "required_additional_qualified_apply_clicks": 10,
+      "google_form_response_delta": 0
+    },
+    "reasons": [
+      "전체 입금 목표까지 9명이 더 필요함",
+      "과정별 입금 집계가 없어 과정별 6명 달성 여부를 확인할 수 없음",
+      "E-010 적용 후 신규 Google Form 응답이 없음",
+      "E-010 변경 후 검증된 신청 이동이 0/10회로 판정 표본 미달"
+    ]
+  }
 }

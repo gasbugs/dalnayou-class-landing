@@ -48,6 +48,37 @@ const evaluate = (
   ).decisions;
 };
 
+const evaluateResult = (
+  mutate,
+  now = DECISION_TIME,
+  mutateExperiments = () => {},
+) => {
+  const state = structuredClone(BASE_STATE);
+  const experiments = structuredClone(BASE_EXPERIMENTS);
+  mutate(state);
+  mutateExperiments(experiments);
+  const directory = mkdtempSync(resolve(tmpdir(), "dalnayou-risk-test-"));
+  const statePath = resolve(directory, "state.json");
+  const experimentPath = resolve(directory, "experiments.json");
+  writeFileSync(statePath, JSON.stringify(state), "utf8");
+  writeFileSync(experimentPath, JSON.stringify(experiments), "utf8");
+  return JSON.parse(
+    execFileSync(
+      process.execPath,
+      [
+        DECISION_SCRIPT,
+        "--now",
+        now,
+        "--state",
+        statePath,
+        "--experiments",
+        experimentPath,
+      ],
+      { encoding: "utf8" },
+    ),
+  );
+};
+
 const actionFor = (decisions, scope, action) =>
   decisions.some(
     (decision) => decision.scope === scope && decision.action === action,
@@ -111,6 +142,56 @@ test("running form optimization is monitored without reapplying it", () => {
   assert.ok(actionFor(decisions, "google_form", "monitor_e010"));
   assert.ok(actionFor(decisions, "roblox", "hold_e012_during_form_test"));
   assert.ok(!actionFor(decisions, "google_form", "apply_e010_description"));
+});
+
+test("current campaign state is critical without inventing a course payment split", () => {
+  const result = evaluateResult(
+    () => {},
+    "2026-07-28T22:58:57+09:00",
+  );
+
+  assert.equal(result.goal_risk.status, "critical");
+  assert.equal(result.goal_risk.paid_gap_total, 9);
+  assert.equal(result.goal_risk.course_paid_counts_known, false);
+  assert.equal(result.goal_risk.same_system_ga4_paid_funnel.apply_cta_views, 167);
+  assert.equal(result.goal_risk.same_system_ga4_paid_funnel.apply_clicks, 5);
+  assert.ok(
+    actionFor(result.decisions, "operator", "collect_course_paid_counts"),
+  );
+  assert.ok(
+    actionFor(result.decisions, "landing_pages", "hold_e013_preview"),
+  );
+});
+
+test("E-010 at its sample gate distinguishes no response from a response", () => {
+  const noResponse = evaluateResult((state) => {
+    state.courses.notebooklm.qualified_apply_clicks = 7;
+    state.courses.roblox.qualified_apply_clicks = 5;
+    state.applications.google_form_total = 3;
+  });
+  const withResponse = evaluateResult((state) => {
+    state.courses.notebooklm.qualified_apply_clicks = 7;
+    state.courses.roblox.qualified_apply_clicks = 5;
+    state.applications.google_form_total = 4;
+  });
+
+  assert.ok(
+    actionFor(noResponse.decisions, "google_form", "evaluate_e010_no_response"),
+  );
+  assert.ok(
+    actionFor(
+      noResponse.decisions,
+      "landing_pages",
+      "await_e013_user_approval",
+    ),
+  );
+  assert.ok(
+    actionFor(
+      withResponse.decisions,
+      "google_form",
+      "evaluate_e010_with_response",
+    ),
+  );
 });
 
 test("Gemini replacement launches when only its gate is ready", () => {

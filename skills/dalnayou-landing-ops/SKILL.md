@@ -138,6 +138,7 @@ Search for the exact old phrase across the repository before editing. If it occu
 ### 4. Optimize conversion as a measured loop
 
 - Define the current bottleneck before changing the page: advertisement click, landing completion, course selection, trust-section reach, application click, application submission, or payment confirmation.
+- Track course-level payment confirmations and confirmation-message sends as PII-free aggregate counts. Never infer a course split from an aggregate total, and reject a message-send count above the paid count.
 - Capture the current date range, traffic source, spend, and funnel counts in `marketing-history.md` before changing a conversion surface.
 - Change one primary hypothesis at a time. Keep audience, creative, destination, budget, and landing structure stable wherever the experiment requires a fair comparison.
 - Treat enterprise teaching history as proof, not decoration. Show a concise claim near the first CTA, specific institutions and dates in a dedicated trust section, and a tracked CTA immediately after the proof.

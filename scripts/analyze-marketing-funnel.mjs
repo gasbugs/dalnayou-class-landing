@@ -3,10 +3,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { calculateCampaignRisk } from "./campaign-risk.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const SNAPSHOT_PATH = resolve(ROOT, "marketing/snapshots.jsonl");
 const EXPERIMENT_PATH = resolve(ROOT, "marketing/experiments.json");
+const CURRENT_STATE_PATH = resolve(ROOT, "marketing/current-state.json");
 const REPORT_PATH = resolve(ROOT, "marketing-report.md");
 const WRITE_REPORT = process.argv.includes("--write");
 
@@ -32,6 +34,7 @@ const numericFields = [
   "application_submits",
   "form_responses",
   "payment_confirmed",
+  "confirmation_messages_sent",
 ];
 
 const raw = await readFile(SNAPSHOT_PATH, "utf8");
@@ -78,6 +81,22 @@ if (!Array.isArray(experimentConfig.experiments)) {
   throw new Error("marketing/experiments.json must contain an experiments array");
 }
 const experiments = experimentConfig.experiments;
+const currentState = JSON.parse(await readFile(CURRENT_STATE_PATH, "utf8"));
+const latestObservedAt = new Date(records.at(-1).recorded_at);
+const goalRisk = calculateCampaignRisk(
+  currentState,
+  experimentConfig,
+  Number.isNaN(latestObservedAt.getTime()) ? new Date() : latestObservedAt,
+);
+const confirmationCounts = Object.values(
+  currentState.applications?.confirmation_messages_sent_by_course ?? {},
+);
+const confirmationCountsKnown =
+  confirmationCounts.length > 0 &&
+  confirmationCounts.every(Number.isFinite);
+const confirmationTotal = confirmationCountsKnown
+  ? confirmationCounts.reduce((sum, value) => sum + value, 0)
+  : null;
 
 const ratio = (numerator, denominator) =>
   Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
@@ -182,17 +201,40 @@ const lines = [
   "서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.",
   "판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.",
   "",
+  "## 모집 목표 현황",
+  "",
+  `- 위험도: **${goalRisk.status === "critical" ? "긴급" : goalRisk.status}**`,
+  `- 입금: **${count(goalRisk.paid_confirmed_total)} / ${count(goalRisk.target_paid_total)}명** · 추가 필요 **${count(goalRisk.paid_gap_total)}명**`,
+  `- 남은 시간: **${count(goalRisk.hours_remaining)}시간** · 목표 달성에 필요한 일평균 입금 **${count(goalRisk.required_paid_per_day)}명**`,
+  `- 과정별 입금 집계: **${goalRisk.course_paid_counts_known ? "확인됨" : "확인 필요"}**`,
+  `- 확정 메시지 발송: **${confirmationCountsKnown ? `${count(confirmationTotal)}명` : "과정별 확인 필요"}**`,
+  `- E-010 변경 후: 검증된 신청 이동 **${count(goalRisk.e010.additional_qualified_apply_clicks)} / ${count(goalRisk.e010.required_additional_qualified_apply_clicks)}회** · 신규 Form 응답 **${count(goalRisk.e010.google_form_response_delta)}건**`,
+  "",
+  "| 동일 분석 체계 | CTA 노출 | 신청서 열기 | 노출→신청서 열기 |",
+  "| --- | ---: | ---: | ---: |",
+  `| GA4 유료 유입 | ${count(goalRisk.same_system_ga4_paid_funnel.apply_cta_views)} | ${count(goalRisk.same_system_ga4_paid_funnel.apply_clicks)} | ${Number.isFinite(goalRisk.same_system_ga4_paid_funnel.view_to_click_percent) ? `${goalRisk.same_system_ga4_paid_funnel.view_to_click_percent.toFixed(2)}%` : "—"} |`,
+  "",
+  "Meta 랜딩 조회와 GA4 신청 클릭을 나눠 전환율을 만들지 않습니다. `apply_click`은 신청 완료가 아니라 신청서 열기입니다.",
+  "",
+  "## 다음 판단",
+  "",
+  `다음 확인 시각: **${currentState.next_decision?.at ?? "미정"}**`,
+  "",
+  ...(currentState.next_decision?.decision_rules ?? []).map(
+    (rule) => `- ${rule}`,
+  ),
+  "",
   "## 최신 스냅샷",
   "",
-  "| 기간 | 소재 | 지출 | 노출 | 링크 클릭 | CTR | 랜딩 | 클릭→랜딩 | 신청 이동 | 제출 | 입금 |",
-  "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+  "| 기간 | 소재 | 지출 | 노출 | 링크 클릭 | CTR | 랜딩 | 클릭→랜딩 | 신청 이동 | 제출 | 입금 | 확정 발송 |",
+  "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
 ];
 
 for (const record of latestRecords) {
   const ctr = stageRatio(record, "link_clicks", "impressions");
   const clickToLanding = stageRatio(record, "landing_views", "link_clicks");
   lines.push(
-    `| ${record.period_start}~${record.period_end} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${cohortCompatible(record, "link_clicks", "impressions") ? percent(ctr) : "비교 금지"} | ${count(record.landing_views)} | ${cohortCompatible(record, "landing_views", "link_clicks") ? percent(clickToLanding) : "비교 금지"} | ${count(record.apply_clicks)} | ${count(record.application_submits)} | ${count(record.payment_confirmed)} |`
+    `| ${record.period_start}~${record.period_end} | \`${record.content}\` | ${won(record.spend_krw, record.spend_is_estimate)} | ${count(record.impressions)} | ${count(record.link_clicks)} | ${cohortCompatible(record, "link_clicks", "impressions") ? percent(ctr) : "비교 금지"} | ${count(record.landing_views)} | ${cohortCompatible(record, "landing_views", "link_clicks") ? percent(clickToLanding) : "비교 금지"} | ${count(record.apply_clicks)} | ${count(record.application_submits)} | ${count(record.payment_confirmed)} | ${count(record.confirmation_messages_sent)} |`
   );
 }
 

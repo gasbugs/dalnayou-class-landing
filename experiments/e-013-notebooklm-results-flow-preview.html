@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <base href="../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Gemini 노트북 결과물 흐름 전체 페이지 미리보기</title>
+  <meta name="description" content="부천 소사역 힐스에비뉴 달나유 B1 오프라인 Gemini 노트북 4주 클래스. Google NotebookLM으로 내 자료 기반 요약·보고서·마인드맵·업무 및 학습 워크플로우를 만듭니다." />
+  <link rel="canonical" href="https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gemini 노트북 | 내 자료를 내 일에 바로 쓰는 AI 결과물로" />
+  <meta property="og:description" content="Google NotebookLM으로 보고서·요약·마인드맵을 직접 완성하는 클씨랩 오프라인 4주 클래스." />
+  <meta property="og:image" content="https://gasbugs.github.io/dalnayou-class-landing/images/notebooklm.png?v=20260721-work-v2" />
+  <meta property="og:url" content="https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html" />
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KVC6H3SL');</script>
+  <!-- End Google Tag Manager -->
+  <script defer src="./marketing-events.js?v=20260725-course-v2"></script>
+  <script src="./ga4-events.js?v=20260725-v1"></script>
+  <link rel="stylesheet" href="./styles/notebooklm.css?v=20260725-static-v1" />
+  <link rel="stylesheet" href="./experiments/e-013-results-flow-preview.css" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <style>
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body { font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(180deg, #F8FBFF 0%, #EFF6FF 100%); }
+    .mobile-bottom-cta { display: none; }
+    .deadline-chip {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.75), 0 0 26px rgba(250,204,21,.58);
+      animation: deadlinePulse 1.4s ease-in-out infinite;
+    }
+    .deadline-chip::after {
+      content: "";
+      position: absolute;
+      inset: -45% auto -45% -45%;
+      width: 42%;
+      transform: rotate(18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent);
+      animation: deadlineShine 2.2s ease-in-out infinite;
+    }
+    @keyframes deadlinePulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.03); }
+    }
+    @keyframes deadlineShine {
+      0% { left: -50%; }
+      55%, 100% { left: 120%; }
+    }
+    .countdown-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(29, 78, 216, .18);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(239,246,255,.86)),
+        radial-gradient(circle at top right, rgba(250,204,21,.18), transparent 44%);
+      box-shadow: 0 18px 46px -28px rgba(20, 40, 90, .42);
+      backdrop-filter: blur(14px);
+    }
+    .countdown-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #facc15, #22c55e);
+    }
+    .countdown-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(29, 78, 216, .14);
+      background: rgba(255,255,255,.78);
+      color: #1d4ed8;
+    }
+    .countdown-unit {
+      min-width: 74px;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      perspective: 420px;
+    }
+    .countdown-number {
+      position: relative;
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.72);
+      background: linear-gradient(180deg, #050505 0%, #050505 49%, #242424 50%, #171717 100%);
+      color: #fff;
+      font-size: clamp(2.35rem, 8vw, 4.3rem);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0;
+      text-shadow: 0 2px 0 rgba(0,0,0,.45);
+      box-shadow: 0 14px 24px -18px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.08);
+      transition: transform .16s ease, filter .16s ease;
+    }
+    .countdown-number::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 -1px 0 rgba(0,0,0,.82), 0 1px 0 rgba(0,0,0,.65);
+    }
+    .countdown-number::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.12), transparent 36%, rgba(0,0,0,.18) 50%, transparent 52%);
+      pointer-events: none;
+    }
+    .countdown-number.is-ticking {
+      transform: rotateX(-8deg);
+      filter: brightness(1.15);
+    }
+    .countdown-label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 900;
+      color: rgba(42, 29, 20, .7);
+      letter-spacing: 0;
+    }
+    .countdown-progress {
+      position: relative;
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, .16);
+      background: linear-gradient(180deg, rgba(15,23,42,.22), rgba(15,23,42,.1));
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.18), 0 8px 18px -16px rgba(15,23,42,.7);
+    }
+    .countdown-progress span {
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #7f1d1d 0%, #dc2626 42%, #f97316 100%);
+      box-shadow: 0 0 18px rgba(220,38,38,.5);
+      transition: transform .4s ease;
+    }
+    .countdown-progress span::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(120deg, rgba(255,255,255,.32) 0 8px, transparent 8px 16px);
+      opacity: .45;
+      animation: progressRush 1s linear infinite;
+    }
+    @keyframes progressRush {
+      from { transform: translateX(-18px); }
+      to { transform: translateX(18px); }
+    }
+    @media (max-width: 640px) {
+      body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+      .mobile-bottom-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        gap: 8px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(248, 251, 255, .96);
+        border-top: 1px solid #BFDBFE;
+        box-shadow: 0 -12px 28px -20px rgba(20, 40, 90, .35);
+      }
+      .mobile-bottom-cta a,
+      .mobile-bottom-cta button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+      .countdown-unit { min-width: 0; }
+      .countdown-number { min-height: 62px; border-radius: 8px; }
+    }
+    @media (min-width: 641px) {
+      html { font-size: 20px; }
+    }
+  </style>
+</head>
+<body class="bg-cream-50 text-ink-800 antialiased">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVC6H3SL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="bg-blue-700 text-white text-xs py-2 text-center">
+    Gemini 노트북 4주 · 8/16 개강<br />Google NotebookLM 실전 · 매주 일요일 오전 9~12시
+  </div>
+
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="./" class="flex items-center min-w-0">
+        <img src="images/cloud-security-lab-logo.webp?v=20260726-mobile-v1" width="400" height="148" alt="CLOUD SECURITY LAB" class="h-8 w-auto" />
+      </a>
+      <div class="flex items-center gap-2">
+        <button type="button" data-share-button data-track-event="share_click" data-track-label="notebooklm_nav_share" aria-label="친구에게 공유하기" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink-900 border border-primary-100 shadow-sm hover:bg-primary-50">
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2" /><path d="M8.6 13.2 15.4 17.8" /></svg>
+        </button>
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_nav_kakao" class="px-4 py-2 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-sm font-extrabold rounded-full shadow-sm">카톡 문의</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 pt-10 pb-14 sm:pt-16 sm:pb-20 text-center">
+      <div class="flex flex-wrap justify-center gap-2 mb-7">
+        <span class="px-3 py-1 bg-blue-100 border border-blue-200 text-blue-800 text-xs font-bold rounded-full">학생·비전공자·직장인</span>
+        <span class="px-3 py-1 bg-primary-100 border border-primary-200 text-primary-800 text-xs font-bold rounded-full">Google NotebookLM 실전</span>
+        <span class="px-3 py-1 bg-green-100 border border-green-200 text-green-800 text-xs font-bold rounded-full">소사역 오프라인</span>
+      </div>
+
+      <div class="mx-auto mb-6 flex items-center justify-center gap-3">
+        <img src="images/gemini-spark.webp" alt="Gemini Spark" class="h-14 w-14 sm:h-16 sm:w-16" />
+        <div class="text-left">
+          <div class="text-2xl font-extrabold text-ink-900 sm:text-3xl">Gemini 노트북</div>
+          <div class="mt-1 text-xs font-bold text-primary-700 sm:text-sm">Google NotebookLM 실전 4주</div>
+        </div>
+      </div>
+      <h1 class="break-keep text-[2.25rem] sm:text-5xl md:text-6xl font-extrabold text-ink-900 leading-[1.08]">
+        공부·업무 자료를<br />AI로 정리하고,<br /><span class="text-primary-600">내 말로 설명하는 힘</span>을<br />기릅니다
+      </h1>
+      <p class="mt-7 text-base sm:text-lg text-ink-700 leading-relaxed">
+        기업 실무자가 배우는 AI 활용법을 학생·비전공자·직장인 눈높이에 맞춰,<br class="hidden sm:block" />
+        내 자료 기반 요약·퀴즈·마인드맵·학습 워크플로우로 완성합니다.
+      </p>
+      <p class="mt-4 text-sm font-extrabold text-primary-700 sm:text-base">
+        현대자동차·삼성SDS·금융보안원 등 기업·기관 교육 경험 10년+ 클씨랩이 직접 운영합니다.
+      </p>
+      <div class="sm:hidden mx-auto mt-6 mb-5 max-w-md rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-extrabold text-blue-900" data-campaign-mobile-summary>
+        8/1(토) 자정 전 189,000원 · 잔여석 마감 임박
+      </div>
+      <section class="countdown-panel mx-auto mt-10 mb-8 hidden max-w-2xl rounded-3xl p-5 sm:block sm:p-7" aria-label="현재 모집 혜택 마감 카운트다운" data-campaign-panel data-campaign-phase>
+        <div class="countdown-kicker rounded-full px-3 py-1 text-xs font-black" data-campaign-kicker>잔여석 마감 임박 · 1차 얼리버드 종료 카운트다운</div>
+        <div class="mt-3 text-xl sm:text-2xl font-black text-ink-900" data-campaign-countdown-title>189,000원 혜택 마감까지</div>
+        <div class="mt-4 grid grid-cols-4 gap-2 sm:gap-3" data-countdown>
+          <div class="countdown-unit">
+            <div class="countdown-label">DAYS</div>
+            <div class="countdown-number font-black" data-countdown-days>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">HOURS</div>
+            <div class="countdown-number font-black" data-countdown-hours>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">MINUTES</div>
+            <div class="countdown-number font-black" data-countdown-minutes>00</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-label">SECONDS</div>
+            <div class="countdown-number font-black" data-countdown-seconds>00</div>
+          </div>
+        </div>
+        <div class="countdown-progress mt-4" role="progressbar" aria-label="현재 모집 혜택 남은 기간" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span data-countdown-progress></span></div>
+        <p class="mt-3 text-xs sm:text-sm font-bold text-ink-700" data-campaign-status>8/1(토)까지 선착순 1차 얼리버드 혜택이 적용됩니다.</p>
+      </section>
+      <div class="grid sm:inline-grid sm:grid-cols-2 gap-4 w-full sm:w-auto">
+        <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_hero_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">수강 가능 여부 문의</a>
+        <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_hero_form" data-course-selection="notebooklm" data-campaign-apply class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white text-lg font-extrabold rounded-full shadow-lg">잔여석 확인 후 신청</a>
+      </div>
+      <p class="mt-4 text-sm font-bold text-ink-800">신청서 제출 → 24시간 이내 입금 안내 → 입금 확인 후 최종 확정</p>
+      <p class="mt-2 text-xs sm:text-sm text-ink-700">신청서 작성만으로 결제되지 않습니다. 수강 가능 여부를 안내받은 뒤 결정하셔도 됩니다.</p>
+      <div class="mt-6 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-extrabold text-primary-700 border border-primary-200 shadow-card">
+        1기 한정 · 첫 수업 불만족 시 환불
+      </div>
+
+      <div class="mt-12 grid gap-3 sm:grid-cols-2">
+        <img src="images/notebooklm.webp?v=20260723-webp-v1" alt="NotebookLM 업무 프로젝트 마인드맵 결과물" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+        <figure>
+          <img src="images/classroom.webp?v=20260723-webp-v1" alt="소사역 힐스에비뉴 달나유 B1 실제 강의장" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-card" />
+          <figcaption class="mt-2 text-xs text-ink-700/70">실제 강의장 사진입니다.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="enterprise-trust" class="border-y border-white/10 bg-[#111827] py-16 text-white sm:py-20" data-trust-section data-trust-course="notebooklm">
+      <div class="mx-auto max-w-5xl px-4">
+        <p class="text-center text-sm font-extrabold text-blue-200">2015년부터 이어진 기업 교육 경험</p>
+        <h2 class="mx-auto mt-3 max-w-4xl text-center text-3xl font-extrabold leading-tight sm:text-5xl">
+          대기업·금융권·공공기관이<br class="sm:hidden" /> 먼저 선택한 교육
+        </h2>
+        <p class="mx-auto mt-5 max-w-3xl text-center text-base leading-relaxed text-white/75 sm:text-lg">
+          클씨랩은 기업 실무자가 배우는 AI·클라우드·보안 교육 경험을
+          학생·비전공자·직장인도 바로 활용할 수 있는 과정으로 다시 설계했습니다.
+        </p>
+        <div class="mt-10 border-y border-white/15 py-7">
+          <div class="flex flex-wrap justify-center gap-x-7 gap-y-4 text-center text-base font-extrabold text-white/90 sm:text-lg">
+            <span>현대자동차</span><span>삼성SDS</span><span>LG CNS</span><span>금융보안원</span>
+            <span>경찰청</span><span>하나금융</span><span>KISA</span><span>코스콤</span>
+            <span>우리FIS</span><span>넥슨</span>
+          </div>
+        </div>
+        <div class="mt-8 grid gap-7 text-center sm:grid-cols-3 sm:divide-x sm:divide-white/15">
+          <div><strong class="text-3xl font-extrabold text-blue-200">10년+</strong><p class="mt-2 text-sm leading-relaxed text-white/70">기업·기관 대상 B2B 교육 경험</p></div>
+          <div><strong class="text-xl font-extrabold">2019~현재</strong><p class="mt-2 text-sm leading-relaxed text-white/70">멀티캠퍼스·삼성통합보안센터 정기 교육</p></div>
+          <div><strong class="text-xl font-extrabold">2020~현재</strong><p class="mt-2 text-sm leading-relaxed text-white/70">금융보안원 정기 교육</p></div>
+        </div>
+        <div class="mt-9 text-center">
+          <p class="text-base font-bold text-white/80">기업 실무자가 배우는 AI 활용법을 내 업무와 학습에 적용해보세요.</p>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_enterprise_trust_form" data-course-selection="notebooklm" data-campaign-apply class="mt-5 inline-flex w-full items-center justify-center rounded-full bg-blue-500 px-7 py-4 text-lg font-extrabold text-white shadow-lg hover:bg-blue-600 sm:w-auto">잔여석 확인 후 신청</a>
+          <p class="mt-3 text-xs text-white/60">신청서 제출 후 안내를 확인하고 입금하시면 최종 확정됩니다.</p>
+        </div>
+        <p class="mt-8 text-center text-xs leading-relaxed text-white/45">
+          기관명은 클씨랩 또는 강사진의 출강·프로젝트 이력이며, 본 B2C 과정의 직접 수강 기관을 뜻하지 않습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="border-y border-primary-100 bg-white py-20 sm:py-24" aria-labelledby="notebook-final-result-title">
+      <div class="mx-auto max-w-5xl px-4">
+        <p class="text-center text-sm font-extrabold text-primary-700">대표 최종 결과물</p>
+        <h2 id="notebook-final-result-title" class="mx-auto mt-3 max-w-4xl text-center text-3xl font-extrabold leading-tight text-ink-900 sm:text-5xl">
+          내 자료를 실제 업무 결과물로 바꿉니다
+        </h2>
+        <p class="mx-auto mt-5 max-w-3xl text-center text-base leading-relaxed text-ink-700 sm:text-lg">
+          흩어진 회의록·보고서·규정 PDF를 하나의 AI 노트북으로 모으고,
+          출처가 보이는 업무 브리핑·마인드맵·오디오 요약·보고서 초안을 완성합니다.
+        </p>
+        <div class="e013-flow-grid e013-notebook-flow" aria-label="내 자료가 4주 동안 업무 결과물로 발전하는 과정">
+          <div><span>1주차 · 구조화</span><strong>내 자료를 이해하는 업무 AI 노트북</strong><p class="text-ink-700">회의록·보고서·규정 PDF를 프로젝트 단위로 모읍니다.</p></div>
+          <div><span>2주차 · 분석</span><strong>업무 브리핑·마인드맵·오디오 요약</strong><p class="text-ink-700">핵심 내용을 여러 업무 형식으로 변환합니다.</p></div>
+          <div><span>3주차 · 검증</span><strong>출처를 확인할 수 있는 보고서 초안</strong><p class="text-ink-700">질문별 원문 근거를 확인하며 보고서 구조를 만듭니다.</p></div>
+          <div><span>4주차 · 재사용</span><strong>재사용 가능한 업무 분석 워크플로우</strong><p class="text-ink-700">다음 프로젝트에도 반복해서 쓸 흐름으로 정리합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">이런 사람들에게 추천합니다</h2>
+        <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">📚</span><span>보고서·회의자료·PDF는 많은데 필요한 내용을 찾기 어려운 직장인</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">🤖</span><span>AI 답변보다 내 문서에 근거한 정확한 정리가 필요한 실무자</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">📝</span><span>보고서·발표·수행평가 준비 시간을 줄이고 싶은 학생·직장인</span></p></div>
+          <div class="p-4 bg-primary-50 border border-primary-100 rounded-2xl"><p class="flex items-start gap-2 font-bold text-sm"><span class="text-xl leading-none">💼</span><span>AI 업무·학습 도구를 처음부터 차근차근 배우고 싶은 비전공자</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#10233F] py-20 text-white sm:py-28" aria-labelledby="gemini-equation-title">
+      <div class="mx-auto max-w-5xl px-4 text-center">
+        <div class="flex items-center justify-center gap-3">
+          <img src="images/gemini-spark.webp" alt="" class="h-12 w-12 sm:h-16 sm:w-16" />
+          <p class="text-sm font-extrabold text-blue-200 sm:text-base">Gemini 성공 방정식</p>
+        </div>
+        <h2 id="gemini-equation-title" class="mt-5 text-3xl font-extrabold leading-tight sm:text-5xl">
+          AI를 잘 쓰는 힘은<br />도구보다 과정에서 나옵니다
+        </h2>
+        <div class="mt-12 grid gap-6 sm:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1.25fr] sm:items-center sm:gap-3">
+          <div>
+            <div class="text-2xl font-extrabold sm:text-3xl">내 자료</div>
+            <p class="mt-2 text-sm text-blue-100/75">업무 문서·PDF·수업 자료</p>
+          </div>
+          <div class="text-3xl font-black text-blue-300">+</div>
+          <div>
+            <div class="text-2xl font-extrabold sm:text-3xl">좋은 질문</div>
+            <p class="mt-2 text-sm text-blue-100/75">목적과 맥락을 담은 요청</p>
+          </div>
+          <div class="text-3xl font-black text-blue-300">+</div>
+          <div>
+            <div class="text-2xl font-extrabold sm:text-3xl">근거 확인</div>
+            <p class="mt-2 text-sm text-blue-100/75">출처를 읽고 사람이 검증</p>
+          </div>
+          <div class="text-3xl font-black text-yellow-300">=</div>
+          <div>
+            <div class="text-2xl font-extrabold text-yellow-200 sm:text-3xl">바로 쓰는 결과물</div>
+            <p class="mt-2 text-sm text-blue-100/75">보고서·브리핑·마인드맵</p>
+          </div>
+        </div>
+        <p class="mx-auto mt-12 max-w-3xl text-base leading-relaxed text-blue-50/85 sm:text-lg">
+          AI가 아무 답이나 만드는 수업이 아닙니다. 내 자료를 읽히고, 질문하고,
+          근거를 확인해 <b class="text-white">내 업무와 학습에 실제로 쓰는 결과물</b>로 완성합니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-28 bg-[#10233F] text-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <p class="text-sm sm:text-base font-extrabold text-blue-200">내 문서가 업무를 아는 AI가 됩니다</p>
+        <h2 class="mt-4 max-w-4xl text-3xl sm:text-5xl font-extrabold leading-tight break-keep">
+          나도 NotebookLM으로<br class="hidden sm:block" />
+          보고서 준비 시간을 줄일 수 있을까?
+        </h2>
+        <figure class="mt-10">
+          <img src="images/notebooklm-docusign-workplace.webp?v=20260723-official-v1" alt="Docusign 직원들이 문서와 노트북으로 협업하는 업무 공간" loading="lazy" decoding="async" class="w-full aspect-[16/9] object-cover rounded-lg border border-white/15" />
+          <figcaption class="mt-3 text-xs text-blue-100/60">Docusign 업무 환경 · 사진 출처: Google Workspace 공식 고객 사례</figcaption>
+        </figure>
+        <div class="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div>
+            <p class="text-lg sm:text-2xl font-extrabold leading-relaxed break-keep">
+              Docusign은 흩어진 업무 기록과 메모를 NotebookLM으로 정리했습니다.
+            </p>
+            <p class="mt-5 text-base sm:text-lg leading-relaxed text-blue-50/85">
+              한 관리자는 직원별 기존 메모와 업무 기록을 노트북에 모아 질문하고,
+              근거를 확인하며 성과평가 보고서를 준비했습니다.
+              사람의 판단은 그대로 두고, 자료를 찾고 초안을 구성하는 시간을 크게 줄였습니다.
+            </p>
+            <a href="https://workspace.google.com/blog/customer-stories/docusign-rapidly-scales-its-ai-strategy-by-enabling-its-global-workforce-with-gemini" target="_blank" rel="noopener" class="mt-5 inline-flex text-sm font-bold text-blue-200 underline underline-offset-4">
+              Google Workspace 공식 Docusign 사례 보기
+            </a>
+          </div>
+          <div class="border-l-4 border-blue-300 pl-6 sm:pl-8">
+            <p class="text-sm font-extrabold text-blue-200">직원 1명당 성과평가 준비</p>
+            <p class="mt-2 text-4xl sm:text-5xl font-extrabold leading-tight">4~5시간</p>
+            <p class="my-2 text-2xl font-extrabold text-blue-300">↓</p>
+            <p class="text-4xl sm:text-5xl font-extrabold leading-tight">30분 이내</p>
+            <p class="mt-5 text-base sm:text-lg leading-relaxed text-blue-50/85">
+              이번 수업에서는 내 자료로 <b class="text-white">근거 있는 요약, 보고용 브리핑,
+              마인드맵과 오디오 요약</b>을 직접 완성합니다.
+            </p>
+          </div>
+        </div>
+        <p class="mt-10 border-t border-white/15 pt-5 text-xs sm:text-sm leading-relaxed text-blue-100/60">
+          위 수치는 Google Workspace가 공개한 Docusign 고객 사례이며, 절감 시간은 자료의 양과 업무 방식에 따라 달라질 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">수업 정보</h2>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">일정</div><div class="mt-1 font-extrabold">8/16~9/6 매주 일</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">시간</div><div class="mt-1 font-extrabold">09:00~12:00</div></div>
+          <div class="p-5 bg-primary-50 border border-primary-100 rounded-2xl"><div class="text-xs text-ink-700">장소</div><div class="mt-1 font-extrabold">소사역 힐스에비뉴 달나유 B1</div></div>
+          <div class="p-5 bg-blue-50 border border-blue-200 rounded-2xl">
+            <div class="text-xs text-ink-700" data-campaign-label>1차 얼리버드</div>
+            <div class="mt-1 font-extrabold text-primary-700" data-campaign-price>189,000원</div>
+            <div class="mt-1 text-xs text-ink-600"><span class="line-through">정상가 249,000원</span></div>
+            <div class="mt-1 text-xs font-extrabold text-primary-700" data-campaign-discount>6만원 할인 · 약 24% OFF</div>
+          </div>
+        </div>
+        <p class="mt-5 text-center text-sm text-ink-700">학생·직장인·비전공자 추천 · 노트북 지참 또는 사전 대여</p>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">왜 믿고 배울 수 있나요?</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">기업·공공기관 강의 노하우</h3><p class="mt-2 text-sm text-ink-700">대기업과 공공기관에서 검증된 AI 활용 교육 방식을 학생 눈높이에 맞췄습니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">내 자료 기반 학습</h3><p class="mt-2 text-sm text-ink-700">인터넷에서 아무 답이나 찾는 수업이 아니라, 내 자료를 근거로 정리합니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">질문·근거 확인 훈련</h3><p class="mt-2 text-sm text-ink-700">무엇을 물어야 하는지와 AI 답변의 원문 출처를 확인하는 법을 함께 배웁니다.</p></div>
+          <div class="p-5 bg-white border border-primary-100 rounded-2xl shadow-card"><h3 class="font-extrabold">카카오 단톡방 4주 운영</h3><p class="mt-2 text-sm text-ink-700">수업 외 시간의 질문과 결과물 공유도 강사가 직접 확인합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">4주 일정표</h2>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+          <div class="hidden sm:block overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-primary-50 text-ink-900">
+                <tr>
+                  <th class="p-4 text-left font-extrabold">주차</th>
+                  <th class="p-4 text-left font-extrabold">날짜</th>
+                  <th class="p-4 text-left font-extrabold">주제</th>
+                  <th class="p-4 text-left font-extrabold">완성 결과물</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-primary-100">
+                <tr><td class="p-4 font-bold">1주차</td><td class="p-4">8/16(일)</td><td class="p-4">업무 자료 수집·구조화</td><td class="p-4 font-bold text-primary-700">내 자료를 이해하는 업무 AI 노트북</td></tr>
+                <tr><td class="p-4 font-bold">2주차</td><td class="p-4">8/23(일)</td><td class="p-4">핵심 내용 분석·브리핑 제작</td><td class="p-4 font-bold text-primary-700">업무 브리핑·마인드맵·오디오 요약</td></tr>
+                <tr><td class="p-4 font-bold">3주차</td><td class="p-4">8/30(일)</td><td class="p-4">질문·근거 확인·보고서 구성</td><td class="p-4 font-bold text-primary-700">출처를 확인할 수 있는 보고서 초안</td></tr>
+                <tr><td class="p-4 font-bold">4주차</td><td class="p-4">9/6(일)</td><td class="p-4">반복 업무용 템플릿과 흐름 정리</td><td class="p-4 font-bold text-primary-700">재사용 가능한 업무 분석 워크플로우</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="sm:hidden divide-y divide-primary-100">
+            <div class="p-5"><b>1주차 8/16</b><p class="mt-2 text-sm">업무 자료 수집·구조화 · 내 자료를 이해하는 업무 AI 노트북</p></div>
+            <div class="p-5"><b>2주차 8/23</b><p class="mt-2 text-sm">핵심 내용 분석 · 업무 브리핑·마인드맵·오디오 요약</p></div>
+            <div class="p-5"><b>3주차 8/30</b><p class="mt-2 text-sm">질문·근거 확인 · 출처를 확인할 수 있는 보고서 초안</p></div>
+            <div class="p-5"><b>4주차 9/6</b><p class="mt-2 text-sm">반복 업무 흐름 정리 · 재사용 가능한 업무 분석 워크플로우</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="py-20 sm:py-28 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-2">
+            <img src="images/gemini-spark.webp" alt="" class="h-9 w-9" />
+            <span class="text-sm font-extrabold text-primary-700">화면으로 확인하는 수강 결과물</span>
+          </div>
+          <h2 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight text-ink-900">
+            같은 자료가 4주 동안<br /><span class="text-primary-600">업무 결과물로 발전합니다</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-sm sm:text-lg leading-relaxed text-ink-700">
+            각 화면은 따로 끝나는 결과물이 아닙니다. 자료를 구조화하고 분석한 뒤
+            근거가 보이는 보고서와 다음 프로젝트에 다시 쓰는 업무 흐름으로 발전합니다.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2 md:gap-6">
+          <article class="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+            <div class="relative bg-primary-50">
+              <img src="images/notebooklm-w1.png" alt="여러 PDF 자료를 한곳에 모아 출처 기반 답변과 결과물을 만드는 Gemini 노트북 화면" loading="lazy" decoding="async" class="w-full aspect-[8/5] object-cover object-left-top" />
+              <span class="absolute left-4 top-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-extrabold text-white shadow">1주차 · AI 노트북</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-xs font-extrabold text-primary-700">업무 자료를 프로젝트 단위로 모읍니다</p>
+              <h3 class="mt-2 text-xl font-extrabold text-ink-900">내 자료를 이해하는 업무 AI 노트북</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-700">회의록·보고서·규정 PDF를 한곳에 모으고, 답변마다 원문 출처를 확인할 수 있는 업무 노트북을 만듭니다.</p>
+              <div class="mt-4 border-t border-primary-100 pt-4 text-sm font-bold text-ink-900">1주차 결과: 내 자료를 이해하는 업무 AI 노트북</div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+            <div class="relative bg-black">
+              <video class="w-full aspect-[8/5] object-contain bg-black" controls preload="metadata" poster="images/notebooklm-w2-poster.jpg">
+                <source src="images/notebooklm-w2.mp4?v=20260724-mobile-v1" type="video/mp4" />
+              </video>
+              <span class="pointer-events-none absolute left-4 top-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-extrabold text-white shadow">2주차 · 스튜디오</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-xs font-extrabold text-primary-700">핵심 내용을 여러 업무 형식으로 분석합니다</p>
+              <h3 class="mt-2 text-xl font-extrabold text-ink-900">업무 브리핑·마인드맵·오디오 요약</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-700">읽기 어려운 자료를 업무 브리핑과 마인드맵, 오디오 요약으로 바꾸고 목적에 맞는 형식을 고릅니다.</p>
+              <div class="mt-4 border-t border-primary-100 pt-4 text-sm font-bold text-ink-900">2주차 결과: 업무 브리핑 콘텐츠 묶음</div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+            <div class="relative bg-primary-50">
+              <img src="images/notebooklm-w3.png" alt="업로드한 자료만을 근거로 핵심 내용을 구조화한 Gemini 노트북 브리핑 화면" loading="lazy" decoding="async" class="w-full aspect-[8/5] object-cover object-left-top" />
+              <span class="absolute left-4 top-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-extrabold text-white shadow">3주차 · 브리핑</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-xs font-extrabold text-primary-700">AI 답변을 그대로 믿지 않습니다</p>
+              <h3 class="mt-2 text-xl font-extrabold text-ink-900">출처를 확인할 수 있는 보고서 초안</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-700">질문별 원문 출처를 확인하고, 사람이 검토할 수 있는 보고서 구조와 초안을 완성합니다.</p>
+              <div class="mt-4 border-t border-primary-100 pt-4 text-sm font-bold text-ink-900">3주차 결과: 근거가 연결된 보고서 초안</div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-card">
+            <div class="relative bg-primary-50">
+              <img src="images/notebooklm-w4.png" alt="원본 자료와 요약·마인드맵·플래시카드를 단계별 폴더로 정리한 업무 및 학습 워크플로우" loading="lazy" decoding="async" class="w-full aspect-[8/5] object-cover object-left-top" />
+              <span class="absolute left-4 top-4 rounded-full bg-primary-600 px-3 py-1 text-xs font-extrabold text-white shadow">4주차 · 워크플로우</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-xs font-extrabold text-primary-700">한 번 쓰고 버리지 않는 구조를 만듭니다</p>
+              <h3 class="mt-2 text-xl font-extrabold text-ink-900">재사용 가능한 업무 분석 워크플로우</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink-700">자료 수집부터 브리핑·검증·보고서 작성까지 다음 프로젝트에도 다시 쓰는 흐름으로 정리합니다.</p>
+              <div class="mt-4 border-t border-primary-100 pt-4 text-sm font-bold text-ink-900">4주차 결과: 재사용 가능한 업무 분석 워크플로우</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-8 border-y border-primary-200 py-7 text-center">
+          <p class="text-sm font-bold text-ink-700">회의록 · 보고서 · 규정 PDF</p>
+          <p class="mt-2 text-2xl font-extrabold text-primary-700">↓</p>
+          <p class="mt-2 text-lg sm:text-2xl font-extrabold text-ink-900">업무 브리핑 · 마인드맵 · 오디오 요약 · 보고서 초안 · 재사용 워크플로우</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-primary-100 bg-white py-20 sm:py-24" aria-labelledby="notebooklm-instructor-proof-title">
+      <div class="mx-auto max-w-5xl px-4">
+        <div class="text-center">
+          <p class="text-sm font-extrabold text-primary-700">이 과정을 직접 진행하는 강사</p>
+          <h2 id="notebooklm-instructor-proof-title" class="mt-3 text-3xl font-extrabold leading-tight text-ink-900 sm:text-4xl">
+            기업 교육 현장에서 쌓은 경험을<br class="hidden sm:block" />
+            내 자료와 업무에 연결합니다
+          </h2>
+        </div>
+        <article class="e013-instructor-card mx-auto mt-9 max-w-4xl rounded-3xl border border-primary-100 bg-primary-50 p-6 shadow-card">
+          <div class="e013-instructor-grid">
+            <div>
+              <p class="text-sm font-extrabold text-primary-700">Gemini 노트북 강사</p>
+              <h3 class="mt-2 text-3xl font-extrabold text-ink-900">이서진</h3>
+              <p class="mt-2 font-bold text-ink-700">클라우드시큐리티랩 책임연구원</p>
+              <p class="mt-5 text-sm leading-relaxed text-ink-700">
+                클라우드 보안과 AI 활용을 함께 가르쳐온 경험을 바탕으로,
+                도구 사용보다 질문·출처 확인·업무 결과물 완성에 집중합니다.
+              </p>
+            </div>
+            <div class="grid gap-3 text-sm text-ink-800">
+              <div class="rounded-2xl border border-primary-100 bg-white p-4"><b>SK쉴더스</b><br /><span class="text-ink-700">클라우드/AI 보안 활용 과정 보조강사 (2026~현재)</span></div>
+              <div class="rounded-2xl border border-primary-100 bg-white p-4"><b>현대자동차</b><br /><span class="text-ink-700">Azure 인프라 보안 협력강사 (2026)</span></div>
+              <div class="rounded-2xl border border-primary-100 bg-white p-4"><b>금융보안원·삼성SDS·멀티캠퍼스</b><br /><span class="text-ink-700">클라우드 보안·로그 분석·컨테이너 교육 출강</span></div>
+            </div>
+          </div>
+          <div class="mt-7 border-t border-primary-200 pt-6 text-center">
+            <a href="#notebooklm-instructor-details" class="inline-flex items-center rounded-full border border-primary-200 bg-white px-5 py-3 text-sm font-extrabold text-primary-700 transition hover:bg-primary-50">강사 상세 이력 보기 ↓</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="shorts" class="bg-white px-5 py-20 text-ink-900 sm:py-28" data-shorts-section data-shorts-course="notebooklm">
+      <div class="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_360px] md:gap-16">
+        <div>
+          <p class="text-sm font-extrabold text-primary-700">클씨랩 AI 클래스 60초 미리보기</p>
+          <h2 class="mt-3 break-keep text-3xl font-extrabold leading-tight sm:text-5xl">
+            내 자료가 AI 결과물이 되는 과정,<br />영상으로 먼저 확인하세요
+          </h2>
+          <p class="mt-5 max-w-xl break-keep text-base font-medium leading-relaxed text-ink-700 sm:text-lg">
+            오전 Gemini 노트북과 오후 로블록스 AI 수업의 분위기와 결과물을 한 영상에 담았습니다.
+            지금 보고 있는 Gemini 노트북 과정이 자료 정리와 업무 결과물로 이어지는 흐름을 짧게 확인해보세요.
+          </p>
+          <a href="https://www.youtube.com/shorts/yQYwMZ2udaw" target="_blank" rel="noopener" data-track-event="shorts_click" data-track-label="notebooklm_shorts_youtube" class="mt-7 inline-flex items-center rounded-full bg-ink-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-black">
+            YouTube에서 영상 보기
+          </a>
+        </div>
+        <a href="https://www.youtube.com/shorts/yQYwMZ2udaw" target="_blank" rel="noopener" data-track-event="shorts_click" data-track-label="notebooklm_shorts_cover" aria-label="클씨랩 AI 클래스 홍보 영상 재생" class="group relative mx-auto block aspect-[9/16] w-full max-w-[360px] overflow-hidden rounded-lg bg-black shadow-2xl">
+          <img src="images/shorts-cover.jpg" alt="클씨랩 AI 클래스 홍보 영상 미리보기" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]" />
+          <span class="absolute inset-0 bg-black/15 transition group-hover:bg-black/5"></span>
+          <span class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 pl-1 text-3xl text-ink-900 shadow-xl" aria-hidden="true">▶</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="ai-page-reveal" class="flex min-h-[600px] scroll-mt-20 items-center border-y border-primary-100 bg-primary-50 px-6 py-24 text-center sm:min-h-[680px] sm:py-32">
+      <div class="mx-auto w-full max-w-4xl">
+        <p class="text-3xl font-extrabold text-primary-700 sm:text-4xl">그것 아시나요?</p>
+        <h2 class="mt-10 text-3xl font-extrabold leading-tight text-ink-900 sm:text-5xl">
+          지금 이 페이지도<br />
+          <span class="text-primary-700">AI로 만들었다는 사실!</span>
+        </h2>
+        <div class="mx-auto my-12 h-px w-20 bg-primary-200"></div>
+        <p class="text-xl font-extrabold text-ink-900 sm:text-3xl">당신도 <span class="text-primary-700">AI 전문가</span>가 될 수 있습니다!</p>
+      </div>
+    </section>
+
+    <section id="location" class="py-20 sm:py-24 bg-green-50 border-y border-green-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center">
+          <span class="inline-block px-3 py-1 bg-green-700 text-white text-xs font-bold rounded-full mb-4">오시는 길</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-900">소사역 4번 출구<br /><span class="text-green-800">힐스에비뉴 B1층입니다</span></h2>
+          <p class="mt-4 text-sm sm:text-base text-ink-700 leading-relaxed">
+            강의는 <b>소사역 힐스에비뉴 달나유 B1</b>에서 진행됩니다. 소사역 4번 출구 힐스에비뉴 B1층 내부 통로를 따라 이동하면 됩니다.
+          </p>
+        </div>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">강의장</div><p class="mt-1 text-ink-700">소사역 힐스에비뉴 달나유 B1</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">위치</div><p class="mt-1 text-ink-700">소사역 4번 출구 힐스에비뉴 B1층</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">주소</div><p class="mt-1 text-ink-700">경기도 부천시 소사구 경인옛로 37 B107</p></div>
+          <div class="p-4 bg-white rounded-2xl border border-green-100"><div class="font-extrabold text-green-800">주차</div><p class="mt-1 text-ink-700">지하 3층 상가 주차장<br />2시간 무료 (이후 유료)</p></div>
+        </div>
+
+        <div class="mt-8 grid lg:grid-cols-2 gap-5 items-start">
+          <article class="bg-white rounded-3xl p-5 border border-green-200 shadow-card">
+            <div class="text-sm font-bold text-green-800">외부 위치 안내</div>
+            <h3 class="mt-2 text-xl font-extrabold text-ink-900">소사역 주변 위치</h3>
+            <img src="images/sosa-station-location.svg" alt="소사역 주변 힐스에비뉴 달나유 B1 위치 안내도" class="mt-5 w-full rounded-2xl border border-green-100 bg-cream-50" />
+            <div class="mt-5 grid sm:grid-cols-2 gap-3">
+              <a href="https://kko.to/w-prbfnEld" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="notebooklm_location_kakao_map" class="w-full px-5 py-3 bg-green-700 hover:bg-green-800 text-white text-center font-extrabold rounded-full transition">카카오지도로 위치 보기</a>
+              <a href="https://naver.me/5t7cTZjX" target="_blank" rel="noopener" data-track-event="map_click" data-track-label="notebooklm_location_naver_map" class="w-full px-5 py-3 bg-white hover:bg-green-50 text-green-800 text-center font-extrabold rounded-full border border-green-300 transition">네이버지도에서 보기</a>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-3xl p-5 border border-green-200 shadow-card">
+            <div class="text-sm font-bold text-green-800">내부 이동 약도</div>
+            <h3 class="mt-2 text-xl font-extrabold text-ink-900">4번 출구에서 센터 입구까지</h3>
+            <img src="images/dalnayou-b1-route.webp?v=20260723-webp-v1" alt="소사역 4번 출구에서 힐스에비뉴 달나유 B1까지 내부 이동 약도" loading="lazy" decoding="async" class="mt-5 w-full rounded-2xl border border-green-100 bg-white" />
+            <p class="mt-4 text-sm text-ink-700 leading-relaxed">힐스에비뉴 B1층 내부 통로를 따라 이동하면 센터 입구에 도착합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="notebooklm-instructor-details" class="scroll-mt-20 py-20 sm:py-24 bg-white border-y border-primary-100">
+      <div class="max-w-5xl mx-auto px-4">
+        <p class="text-center text-sm font-extrabold text-primary-700">강사 상세 이력</p>
+        <h2 class="mt-3 text-2xl sm:text-3xl font-extrabold text-center text-ink-900">Gemini 노트북 강사</h2>
+        <article class="mt-8 bg-primary-50 border border-primary-100 rounded-3xl p-6 shadow-card">
+          <div class="text-sm font-extrabold text-primary-700">이서진 · 클라우드시큐리티랩 책임연구원</div>
+          <h3 class="mt-2 text-2xl font-extrabold text-ink-900">클라우드 보안과 AI 활용을 연결해 가르치는 강사</h3>
+          <div class="mt-5 grid gap-5 sm:grid-cols-2 text-sm text-ink-700">
+            <div>
+              <h4 class="font-bold text-ink-900">경력</h4>
+              <ul class="mt-2 space-y-1.5">
+                <li>· 클라우드시큐리티랩 책임연구원 (2026~)</li>
+                <li>· 공군 제10전투비행단 사이버/보안체계 통제실 보안체계관리병 (2024~2026)</li>
+                <li>· 보안프로젝트 보안팀 연구원 (2022~2024)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-ink-900">협력강사 출강</h4>
+              <ul class="mt-2 space-y-1.5">
+                <li>· SK 쉴더스 클라우드/AI 보안 활용 과정 보조강사 (2026~현재)</li>
+                <li>· 현대자동차 Azure 인프라 보안 협력강사 (2026)</li>
+                <li>· 금융보안원 AWS 클라우드 보안·엘라스틱서치 보안 로그 수집·분석 (2022~2023)</li>
+                <li>· 삼성SDS 도커와 쿠버네티스 (2022~2023)</li>
+                <li>· 멀티캠퍼스 DevOps를 위한 도커와 쿠버네티스 (2022~2023)</li>
+                <li>· 오픈이지 SK쉴더스 루키즈 클라우드 기반 스마트 융합보안 양성과정 보조강사 (2024)</li>
+                <li>· 경북소프트웨어고등학교 사이버 보안 전국 대회 멘토 (2023)</li>
+              </ul>
+            </div>
+            <div class="sm:col-span-2">
+              <h4 class="font-bold text-ink-900">강의 전문 분야</h4>
+              <p class="mt-2">클라우드 보안 (AWS·Azure) · 도커·쿠버네티스 · 엘라스틱서치 기반 보안 로그 분석 · 사이버 보안 경진대회 코칭 · AI를 활용한 자료 정리와 학습 워크플로우</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-24 bg-cream-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-center text-ink-900">주관사 소개</h2>
+        <div class="mt-8 grid gap-5 lg:grid-cols-[1fr_1.5fr]">
+          <div class="bg-white border border-primary-100 rounded-3xl p-6 shadow-card">
+            <img src="images/cloud-security-lab-logo.webp?v=20260726-mobile-v1" width="400" height="148" alt="CLOUD SECURITY LAB" class="h-14 w-auto mb-4" />
+            <h3 class="text-2xl font-extrabold">CLOUD SECURITY LAB</h3>
+            <p class="mt-3 text-sm text-ink-700">클라우드 보안·DevOps·AI/빅데이터 활용 보안 교육을 진행하는 전문 교육 기관입니다.</p>
+            <p class="mt-4 text-sm font-bold text-primary-700">"기술을 나누다, 세상을 바꾸다."</p>
+            <div class="mt-4 p-4 rounded-2xl bg-primary-50 border border-primary-100 text-sm text-ink-800">
+              <b>재즐보프 유튜브 채널</b><br />
+              <span>구독자 1.4만 명 규모의 교육·기술 콘텐츠 운영 경험</span>
+            </div>
+          </div>
+          <div class="bg-white border border-primary-100 rounded-3xl p-6 shadow-card">
+            <h3 class="font-extrabold text-ink-900">대기업·공공기관 출강 이력</h3>
+            <p class="mt-3 text-sm text-ink-700 leading-relaxed">현대자동차, 금융보안원, 삼성SDS, LG CNS, 경찰청, 하나금융, KISIA, 코스콤, 우리FIS, 넥슨 등 기업·공공기관 대상 IT·AI·보안 교육 경험을 바탕으로 수업을 설계했습니다.</p>
+            <ul class="mt-4 space-y-1.5 text-sm text-ink-700">
+              <li>· 클라우드시큐리티랩 보안·AI 교육 운영 (2024~)</li>
+              <li>· 금융보안원 외부 전문 강의 (2020~)</li>
+              <li>· 멀티캠퍼스 외부 전문 강의 (2017~)</li>
+              <li>· 인프런 회사 명의 온라인 강의 3종 운영</li>
+              <li>· SK루키즈 애플리케이션 보안 + 생성형 AI 활용 악성코드 분석 교육 완료 (2026)</li>
+            </ul>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2 text-sm">
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>Golden Kubestronaut</b><br /><span class="text-ink-700">CNCF 클라우드 네이티브 전 인증 보유 마스터 등급</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>AI 기반 보안 연구</b><br /><span class="text-ink-700">실제 CVE 3건 인정·책임 공시 경험</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>저서 4권</b><br /><span class="text-ink-700">마인크래프트와 함께 파이썬 등 IT 실습 도서 집필</span></div>
+              <div class="p-4 bg-primary-50 rounded-2xl border border-primary-100"><b>보유 자격 20여 종</b><br /><span class="text-ink-700">CNCF·AWS·Azure·보안·네트워크 분야 인증</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="py-20 sm:py-24 bg-primary-600 text-white text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">AI 공부 도구가 맞을지<br />먼저 물어보세요</h2>
+        <p class="mt-4 text-sm sm:text-base opacity-90">신청 전 상담 가능합니다. 수강 가능 여부와 준비물을 안내받은 뒤 결정하셔도 됩니다.</p>
+        <p class="mt-3 text-sm sm:text-base font-extrabold text-yellow-200">1기 한정 · 첫 수업을 들어보고 맞지 않으면 환불 가능합니다.</p>
+        <div class="mt-8 grid sm:inline-grid sm:grid-cols-2 gap-3 w-full sm:w-auto">
+          <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_final_kakao" class="px-8 py-4 bg-yellow-300 hover:bg-yellow-400 text-ink-900 text-lg font-extrabold rounded-full shadow-lg">카톡 문의</a>
+          <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_final_form" data-course-selection="notebooklm" data-campaign-apply class="px-8 py-4 bg-white hover:bg-cream-100 text-primary-700 text-lg font-extrabold rounded-full shadow-lg">잔여석 확인 후 신청</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 bg-ink-900 text-cream-100 text-sm">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col gap-2">
+      <div class="font-extrabold text-white">CLOUD SECURITY LAB</div>
+      <div>소사역 힐스에비뉴 달나유 B1 · 소사역 4번 출구 힐스에비뉴 B1층</div>
+      <div class="text-xs text-cream-100/70">© 2026 클라우드시큐리티랩 · 대표 최일선</div>
+      <div class="text-xs text-cream-100/70">사업자등록번호: 181-31-01637</div>
+      <div class="text-xs text-cream-100/70">사업장: 경기도 부천시 소사구 경인옛로 37 B107</div>
+      <div class="text-xs text-cream-100/50">Gemini Spark 로고 출처: Google</div>
+      <div><a href="./" class="underline">통합 페이지 보기</a> · <a href="./refund.html" class="underline">환불 정책</a> · <a href="./privacy.html" class="underline">개인정보 안내</a></div>
+    </div>
+  </footer>
+
+  <div class="mobile-bottom-cta" aria-label="모바일 빠른 문의">
+    <button type="button" data-share-button data-track-event="share_click" data-track-label="notebooklm_mobile_share" aria-label="친구에게 공유하기" class="bg-white text-primary-700 border border-primary-200">
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="M8.6 10.8 15.4 6.2" /><path d="M8.6 13.2 15.4 17.8" /></svg>
+    </button>
+    <a href="http://pf.kakao.com/_xeKJxen/chat" target="_blank" rel="noopener" data-track-event="contact_click" data-track-label="notebooklm_mobile_kakao" class="bg-yellow-300 text-ink-900">카톡 문의</a>
+    <a href="https://forms.gle/A4P2EbSHa1Jv8P467" target="_blank" rel="noopener" data-track-event="apply_click" data-track-label="notebooklm_mobile_form" data-course-selection="notebooklm" data-campaign-apply class="bg-primary-600 text-white">잔여석 확인</a>
+  </div>
+  <script>
+    (() => {
+      window.dataLayer = window.dataLayer || [];
+
+      const clean = (value, fallback = '') =>
+        String(value || fallback).trim().replace(/\s+/g, ' ').slice(0, 120);
+
+      const searchParams = new URLSearchParams(window.location.search);
+      const sourceKeys = [
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'source',
+        'src',
+        'ref',
+        'channel',
+        'campaign',
+      ];
+
+      const readStoredSource = () => {
+        try {
+          return JSON.parse(window.sessionStorage.getItem('dalnayou_landing_source') || '{}');
+        } catch (_) {
+          return {};
+        }
+      };
+
+      const sourceContext = sourceKeys.reduce((acc, key) => {
+        const value = searchParams.get(key);
+        if (value) acc[key] = clean(value, value);
+        return acc;
+      }, {
+        ...readStoredSource(),
+        landing_path: window.location.pathname,
+        landing_query: window.location.search.replace(/^\?/, ''),
+        landing_referrer: clean(document.referrer, 'direct'),
+      });
+
+      const track = (eventName, params = {}) => {
+        if (!eventName) return;
+        const eventParams = {
+          ...sourceContext,
+          ...params,
+        };
+        window.dataLayer.push({
+          event: eventName,
+          ...eventParams,
+        });
+        window.dalnayouSendGa4?.(eventName, eventParams);
+      };
+
+      window.dalnayouSource = sourceContext;
+      window.dalnayouTrack = track;
+
+      track('course_landing_view', {
+        course_selection: 'notebooklm',
+        page_type: 'course_detail',
+      });
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('[data-track-event]');
+        if (!target) return;
+
+        const targetUrl = target.href || '';
+        let outbound = false;
+        try {
+          outbound = targetUrl ? new URL(targetUrl, window.location.href).hostname !== window.location.hostname : false;
+        } catch (_) {
+          outbound = false;
+        }
+
+        track(target.dataset.trackEvent, {
+          link_position: target.dataset.trackLabel || 'unknown',
+          course_selection: target.dataset.courseSelection || 'notebooklm',
+          link_text: clean(target.textContent, target.getAttribute('aria-label')),
+          link_url: targetUrl,
+          outbound,
+        });
+      });
+
+      const applyCtas = document.querySelectorAll(
+        '[data-track-event="apply_click"][data-track-label]'
+      );
+      if (applyCtas.length && 'IntersectionObserver' in window) {
+        const applyCtaObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const target = entry.target;
+            track('apply_cta_view', {
+              link_position: target.dataset.trackLabel,
+              course_selection: 'notebooklm',
+            });
+            applyCtaObserver.unobserve(target);
+          });
+        }, { threshold: 0.6 });
+        applyCtas.forEach((target) => applyCtaObserver.observe(target));
+      }
+
+      const shortsSection = document.querySelector('[data-shorts-section]');
+      if (shortsSection && 'IntersectionObserver' in window) {
+        const shortsObserver = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          track('shorts_section_view', {
+            section_id: shortsSection.id,
+            course: shortsSection.dataset.shortsCourse || 'unknown',
+          });
+          shortsObserver.disconnect();
+        }, { threshold: 0.35 });
+        shortsObserver.observe(shortsSection);
+      }
+
+      const trustSection = document.querySelector('[data-trust-section]');
+      if (trustSection && 'IntersectionObserver' in window) {
+        const trustObserver = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          track('enterprise_trust_view', {
+            section_id: trustSection.id,
+            course: trustSection.dataset.trustCourse || 'unknown',
+          });
+          trustObserver.disconnect();
+        }, { threshold: 0.35 });
+        trustObserver.observe(trustSection);
+      }
+    })();
+
+    const shareUrl = 'https://gasbugs.github.io/dalnayou-class-landing/';
+    const shareData = {
+      title: '클씨랩 AI·코딩 4주 클래스',
+      text: '클씨랩에서 진행하는 로블록스 AI와 Gemini 노트북 중 맞는 수업을 선택해보세요.',
+      url: shareUrl
+    };
+    document.querySelectorAll('[data-share-button]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(shareUrl);
+        alert('공유 링크를 복사했습니다.');
+      });
+    });
+
+    window.addEventListener('load', () => {
+      if (window.location.hash !== '#ai-page-reveal') return;
+      window.setTimeout(() => {
+        document.querySelector('#ai-page-reveal')?.scrollIntoView({ block: 'start' });
+      }, 1000);
+    });
+  </script>
+  <script src="campaign-pricing.js?v=20260725-attribution-v2"></script>
+</body>
+</html>

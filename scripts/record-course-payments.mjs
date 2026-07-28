@@ -19,20 +19,23 @@ if (args.includes("--help")) {
   process.stdout.write(
     [
       "Usage:",
-      "  npm run marketing:payments -- --notebooklm 2 --roblox 1",
+      "  npm run marketing:payments -- --notebooklm 2 --notebooklm-confirmations 2 --roblox 1 --roblox-confirmations 1",
       "",
       "Options:",
-      "  --notebooklm <0-15>  Gemini Notebook paid count",
-      "  --roblox <0-15>      Roblox AI paid count",
-      "  --dry-run            Validate and print without writing",
-      "  --allow-decrease      Allow a lower count for refunds or corrections",
+      "  --notebooklm <0-15>                Gemini Notebook paid count",
+      "  --notebooklm-confirmations <0-15>  Gemini confirmation messages sent",
+      "  --roblox <0-15>                    Roblox AI paid count",
+      "  --roblox-confirmations <0-15>      Roblox confirmation messages sent",
+      "  --dry-run                          Validate and print without writing",
+      "  --allow-decrease                    Allow a lower count for refunds or corrections",
       "",
     ].join("\n"),
   );
   process.exit(0);
 }
 
-const values = new Map();
+const paymentValues = new Map();
+const confirmationValues = new Map();
 for (let index = 0; index < args.length; index += 1) {
   const arg = args[index];
   if (arg === "--dry-run" || arg === "--allow-decrease") {
@@ -41,7 +44,12 @@ for (let index = 0; index < args.length; index += 1) {
   if (!arg.startsWith("--")) {
     throw new Error(`Unexpected argument: ${arg}`);
   }
-  const key = arg.slice(2);
+  const optionKey = arg.slice(2);
+  const confirmationSuffix = "-confirmations";
+  const isConfirmation = optionKey.endsWith(confirmationSuffix);
+  const key = isConfirmation
+    ? optionKey.slice(0, -confirmationSuffix.length)
+    : optionKey;
   const rawValue = args[index + 1];
   if (rawValue === undefined || rawValue.startsWith("--")) {
     throw new Error(`Missing value for ${arg}`);
@@ -50,11 +58,11 @@ for (let index = 0; index < args.length; index += 1) {
   if (!Number.isInteger(value) || value < 0) {
     throw new Error(`${arg} must be a non-negative integer`);
   }
-  values.set(key, value);
+  (isConfirmation ? confirmationValues : paymentValues).set(key, value);
   index += 1;
 }
 
-if (values.size === 0) {
+if (paymentValues.size === 0 && confirmationValues.size === 0) {
   throw new Error("Provide at least one course count. Run with --help for usage.");
 }
 
@@ -71,14 +79,20 @@ if (!experiment) {
 const segments = new Map(
   experiment.course_segments.map((segment) => [segment.key, segment]),
 );
-for (const key of values.keys()) {
+for (const key of new Set([
+  ...paymentValues.keys(),
+  ...confirmationValues.keys(),
+])) {
   if (!segments.has(key)) {
     throw new Error(`Unknown course option: --${key}`);
   }
 }
 
 const capacity = experiment.capacity_per_course;
-for (const [key, value] of values) {
+for (const [key, value] of [
+  ...paymentValues,
+  ...confirmationValues,
+]) {
   if (Number.isFinite(capacity) && value > capacity) {
     throw new Error(`--${key} cannot exceed course capacity ${capacity}`);
   }
@@ -91,9 +105,13 @@ const existing = rawSnapshots
   .filter(Boolean)
   .map((line) => JSON.parse(line));
 const latestPayments = new Map();
+const latestConfirmations = new Map();
 for (const record of existing) {
   if (Number.isFinite(record.payment_confirmed)) {
     latestPayments.set(record.content, record.payment_confirmed);
+  }
+  if (Number.isFinite(record.confirmation_messages_sent)) {
+    latestConfirmations.set(record.content, record.confirmation_messages_sent);
   }
 }
 
@@ -108,7 +126,7 @@ const localIso =
 const localDate = localIso.slice(0, 10);
 
 const records = [];
-for (const [key, value] of values) {
+for (const [key, value] of paymentValues) {
   const segment = segments.get(key);
   const previous = latestPayments.get(segment.payment_content);
   if (previous === value) {
@@ -146,6 +164,61 @@ for (const [key, value] of values) {
   });
 }
 
+for (const [key, value] of confirmationValues) {
+  const segment = segments.get(key);
+  const content = `${segment.payment_content}_confirmation_messages`;
+  const previous = latestConfirmations.get(content);
+  const paidCount = paymentValues.has(key)
+    ? paymentValues.get(key)
+    : latestPayments.get(segment.payment_content);
+  if (!Number.isFinite(paidCount)) {
+    throw new Error(
+      `--${key}-confirmations requires a known paid count; include --${key} in the same command`,
+    );
+  }
+  if (value > paidCount) {
+    throw new Error(
+      `--${key}-confirmations cannot exceed the paid count ${paidCount}`,
+    );
+  }
+  if (previous === value) {
+    process.stdout.write(
+      `${segment.name} confirmations: unchanged at ${value}; skipped\n`,
+    );
+    continue;
+  }
+  if (Number.isFinite(previous) && value < previous && !allowDecrease) {
+    throw new Error(
+      `${segment.name} confirmations would decrease from ${previous} to ${value}; ` +
+      "use --allow-decrease for a correction",
+    );
+  }
+  records.push({
+    recorded_at: localIso,
+    period_start: "unknown",
+    period_end: localDate,
+    channel: "all",
+    medium: "operator_report",
+    campaign: "dalnayou_2026_08",
+    content,
+    spend_krw: null,
+    spend_is_estimate: false,
+    impressions: null,
+    link_clicks: null,
+    landing_views: null,
+    course_clicks: null,
+    trust_views: null,
+    apply_clicks: null,
+    application_submits: null,
+    payment_confirmed: null,
+    confirmation_messages_sent: value,
+    source_systems: ["operator_report"],
+    notes:
+      `Operator-reported confirmation-message send count for ${segment.name}. ` +
+      "Applicant PII is intentionally excluded.",
+  });
+}
+
 if (records.length === 0) {
   process.exit(0);
 }
@@ -179,5 +252,10 @@ if (state.status !== 0) {
   process.exit(state.status ?? 1);
 }
 process.stdout.write(
-  `${records.map((record) => `${record.content}: ${record.payment_confirmed}`).join("\n")}\n`,
+  `${records.map((record) => {
+    const value = Number.isFinite(record.payment_confirmed)
+      ? record.payment_confirmed
+      : record.confirmation_messages_sent;
+    return `${record.content}: ${value}`;
+  }).join("\n")}\n`,
 );

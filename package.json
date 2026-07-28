@@ -7,7 +7,7 @@
     "marketing:report": "node scripts/analyze-marketing-funnel.mjs --write",
     "marketing:state": "node scripts/update-current-state.mjs",
     "marketing:decide": "node scripts/evaluate-campaign-actions.mjs",
-    "marketing:test": "node --test scripts/campaign-reference-consistency.test.mjs scripts/evaluate-campaign-actions.test.mjs scripts/update-current-state.test.mjs"
+    "marketing:test": "node --test scripts/analyze-marketing-funnel.test.mjs scripts/campaign-reference-consistency.test.mjs scripts/evaluate-campaign-actions.test.mjs scripts/record-course-payments.test.mjs scripts/update-current-state.test.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"

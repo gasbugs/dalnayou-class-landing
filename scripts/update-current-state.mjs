@@ -3,6 +3,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { calculateCampaignRisk } from "./campaign-risk.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const STATE_PATH = resolve(ROOT, "marketing/current-state.json");
@@ -127,6 +128,12 @@ for (const [key, course] of Object.entries(state.courses)) {
         ? Math.round(landingCost)
         : null,
     };
+    if (
+      Object.hasOwn(course.meta_today, "candidate_landing_views") &&
+      Number.isFinite(metaRecord.landing_views)
+    ) {
+      course.meta_today.candidate_landing_views = metaRecord.landing_views;
+    }
     if (Number.isFinite(metaRecord.apply_clicks)) {
       course.processed_apply_clicks = metaRecord.apply_clicks;
     }
@@ -151,6 +158,11 @@ for (const [key, course] of Object.entries(state.courses)) {
   const paymentRecord = segment
     ? latestByContent.get(segment.payment_content)
     : undefined;
+  const confirmationRecord = segment
+    ? latestByContent.get(
+      `${segment.payment_content}_confirmation_messages`,
+    )
+    : undefined;
   if (Number.isFinite(paymentRecord?.payment_confirmed)) {
     course.paid_confirmed = paymentRecord.payment_confirmed;
     course.remaining_to_target = Math.max(
@@ -166,6 +178,21 @@ for (const [key, course] of Object.entries(state.courses)) {
         ? "stop"
         : "keep";
     paidByCourse[key] = course.paid_confirmed;
+  }
+  if (Number.isFinite(confirmationRecord?.confirmation_messages_sent)) {
+    course.confirmation_messages_sent =
+      confirmationRecord.confirmation_messages_sent;
+    course.confirmation_messages_remaining = Number.isFinite(
+      course.paid_confirmed,
+    )
+      ? Math.max(
+        0,
+        course.paid_confirmed - course.confirmation_messages_sent,
+      )
+      : null;
+  } else {
+    course.confirmation_messages_sent = null;
+    course.confirmation_messages_remaining = null;
   }
 }
 
@@ -278,6 +305,62 @@ if (ga4TodayRecord) {
   };
 }
 
+const paidCtaFunnelRecords = Object.fromEntries(
+  Object.keys(state.courses)
+    .map((key) => [
+      key,
+      latestByContent.get(`paid_cta_funnel_${key}`),
+    ])
+    .filter(([, record]) => record),
+);
+if (Object.keys(paidCtaFunnelRecords).length > 0) {
+  const funnelTimestamps = Object.values(paidCtaFunnelRecords)
+    .map((record) => record.recorded_at)
+    .filter(Boolean)
+    .sort();
+  const funnelPeriodStarts = Object.values(paidCtaFunnelRecords)
+    .map((record) => record.period_start)
+    .filter(Boolean)
+    .sort();
+  const funnelPeriodEnds = Object.values(paidCtaFunnelRecords)
+    .map((record) => record.period_end)
+    .filter(Boolean)
+    .sort();
+  state.ga4_paid_cta_funnel = {
+    ...state.ga4_paid_cta_funnel,
+    observed_at: funnelTimestamps.at(-1),
+    period_start: funnelPeriodStarts.at(0),
+    period_end: funnelPeriodEnds.at(-1),
+    segment: "paid_traffic",
+  };
+  for (const [key, record] of Object.entries(paidCtaFunnelRecords)) {
+    const viewToClick =
+      Number.isFinite(record.apply_cta_views) &&
+      record.apply_cta_views > 0 &&
+      Number.isFinite(record.apply_clicks)
+        ? (record.apply_clicks / record.apply_cta_views) * 100
+        : null;
+    state.ga4_paid_cta_funnel[key] = {
+      apply_cta_views: Number.isFinite(record.apply_cta_views)
+        ? record.apply_cta_views
+        : null,
+      apply_clicks: Number.isFinite(record.apply_clicks)
+        ? record.apply_clicks
+        : null,
+      view_to_click_percent: Number.isFinite(viewToClick)
+        ? Number(viewToClick.toFixed(2))
+        : null,
+      qualified_non_us_course_tagged_clicks: Number.isFinite(
+        record.qualified_apply_clicks,
+      )
+        ? record.qualified_apply_clicks
+        : null,
+    };
+  }
+  state.ga4_paid_cta_funnel.note =
+    "Latest course-specific CTA views and form-open clicks from the same GA4 paid-traffic segment. Apply clicks are not completed applications.";
+}
+
 if (Object.keys(paidByCourse).length > 0) {
   state.applications.paid_confirmed_by_course = Object.fromEntries(
     Object.keys(state.courses).map((key) => [
@@ -299,6 +382,23 @@ if (Object.keys(paidByCourse).length > 0) {
       "Only some course-level paid counts are known. Do not infer the missing course count.";
   }
 }
+
+const confirmationCounts = Object.fromEntries(
+  Object.entries(state.courses).map(([key, course]) => [
+    key,
+    Number.isFinite(course.confirmation_messages_sent)
+      ? course.confirmation_messages_sent
+      : null,
+  ]),
+);
+state.applications.confirmation_messages_sent_by_course = confirmationCounts;
+state.applications.confirmation_messages_complete =
+  Object.entries(state.courses).every(
+    ([key, course]) =>
+      Number.isFinite(course.paid_confirmed) &&
+      Number.isFinite(confirmationCounts[key]) &&
+      confirmationCounts[key] >= course.paid_confirmed,
+  );
 
 const accountSpend = integerOption("--account-spend");
 const accountLimit = integerOption("--account-limit");
@@ -331,6 +431,21 @@ if (nextDecision !== undefined) {
       `Meta, GA4 and Google Form counts at the next scheduled review on ${nextDecision}.`;
   }
 }
+
+const riskEvaluatedAt = new Date(state.updated_at);
+state.goal_risk = calculateCampaignRisk(
+  state,
+  experimentConfig,
+  Number.isNaN(riskEvaluatedAt.getTime()) ? new Date() : riskEvaluatedAt,
+);
+state.next_decision.decision_rules = [
+  "과정별 입금 15명이 확인되면 해당 광고를 즉시 중단한다. 6명은 개강 최소 인원이며 광고 중단 기준이 아니다.",
+  "E-010 변경 후 검증된 신청 이동이 10회 미만이면 신청서와 운영 랜딩을 유지하고 E-013은 미리보기로만 둔다.",
+  "E-010 변경 후 검증된 신청 이동 10회 전에 신규 Form 응답이 생기면 먼저 입금 요청과 24시간 내 확정 안내를 실행하고 실험은 계속 측정한다.",
+  "E-010 변경 후 검증된 신청 이동이 10회에 도달했는데 신규 Form 응답이 없으면 남은 필수 입력과 제출 흐름을 점검한다.",
+  "E-013은 E-010 판정 표본 충족과 운영자 승인 두 조건을 모두 만족한 뒤에만 운영 페이지에 병합한다.",
+  "과정별 입금 수가 확인되지 않으면 전체 입금 수를 과정별로 추정하지 않는다.",
+];
 
 const output = `${JSON.stringify(state, null, 2)}\n`;
 if (dryRun) {

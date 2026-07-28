@@ -303,6 +303,35 @@
         "application_form",
         "refund_policy"
       ]
+    },
+    {
+      "id": "E-013",
+      "status": "preview_waiting_for_e010",
+      "name": "상세 페이지 결과물·강사 신뢰 흐름",
+      "change": "운영 페이지의 사례와 B2B 이력을 유지하면서 대표 최종 결과물을 과정 초반에 선명하게 제시하고, 주차별 결과물 갤러리 직후에 담당 강사의 과정 연관 경력을 연결",
+      "depends_on": "E-010",
+      "preview_files": [
+        "experiments/e-013-notebooklm-results-flow-preview.html",
+        "experiments/e-013-roblox-results-flow-preview.html"
+      ],
+      "hypothesis": "광고에서 유입된 방문자가 4주 결과물과 이를 직접 가르치는 강사의 신뢰 근거를 더 빠르게 이해하면 유료 랜딩 대비 신청 이동률이 현재 5% 미만에서 개선된다.",
+      "primary_metric": "qualified_non_us_paid_course_apply_click_rate",
+      "secondary_metric": "google_form_responses",
+      "launch_condition": "E-010의 변경 후 검증된 신청 이동 표본이 판정 기준에 도달하고, 운영자가 두 미리보기를 승인한 뒤에만 운영 상세 페이지에 병합",
+      "rollback": "신청 이동률이 개선되지 않거나 모바일에서 결과물·강사·CTA 흐름이 길어지면 운영 페이지의 기존 섹션 순서로 복구",
+      "keep_stable": [
+        "ad_campaign",
+        "ad_creative",
+        "ad_audience",
+        "ad_budget",
+        "application_form",
+        "price",
+        "schedule",
+        "location",
+        "refund_policy",
+        "campaign_apply_links",
+        "ga4_events"
+      ]
     }
   ]
 }
