@@ -273,6 +273,7 @@ if (ga4TodayRecord) {
     ...state.ga4_today_processed,
     observed_at: ga4TodayRecord.recorded_at,
     status:
+      ga4TodayRecord.period_end_is_partial === true ||
       ga4TodayRecord.period_start === ga4TodayRecord.period_end
         ? "partial_day"
         : "processed_period",

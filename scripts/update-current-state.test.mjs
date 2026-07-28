@@ -38,9 +38,9 @@ test("latest active-ad landing views replace stale candidate detail", () => {
   );
   const state = JSON.parse(output);
 
-  assert.equal(state.courses.notebooklm.meta_today.landing_views, 48);
-  assert.equal(state.courses.notebooklm.meta_today.candidate_landing_views, 16);
-  assert.equal(state.courses.roblox.meta_today.landing_views, 49);
+  assert.equal(state.courses.notebooklm.meta_today.landing_views, 49);
+  assert.equal(state.courses.notebooklm.meta_today.candidate_landing_views, 17);
+  assert.equal(state.courses.roblox.meta_today.landing_views, 51);
 });
 
 test("latest paid CTA funnel replaces the earlier checkpoint", () => {
@@ -54,17 +54,18 @@ test("latest paid CTA funnel replaces the earlier checkpoint", () => {
   );
   const state = JSON.parse(output);
 
-  assert.equal(state.ga4_paid_cta_funnel.observed_at, "2026-07-28T23:28:42+09:00");
+  assert.equal(state.ga4_today_processed.status, "partial_day");
+  assert.equal(state.ga4_paid_cta_funnel.observed_at, "2026-07-29T00:02:59+09:00");
   assert.deepEqual(state.ga4_paid_cta_funnel.notebooklm, {
-    apply_cta_views: 76,
+    apply_cta_views: 82,
     apply_clicks: 2,
-    view_to_click_percent: 2.63,
+    view_to_click_percent: 2.44,
     qualified_non_us_course_tagged_clicks: 1,
   });
   assert.deepEqual(state.ga4_paid_cta_funnel.roblox, {
-    apply_cta_views: 91,
+    apply_cta_views: 101,
     apply_clicks: 3,
-    view_to_click_percent: 3.3,
+    view_to_click_percent: 2.97,
     qualified_non_us_course_tagged_clicks: 1,
   });
 });

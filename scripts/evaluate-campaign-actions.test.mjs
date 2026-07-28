@@ -153,7 +153,7 @@ test("current campaign state is critical without inventing a course payment spli
   assert.equal(result.goal_risk.status, "critical");
   assert.equal(result.goal_risk.paid_gap_total, 9);
   assert.equal(result.goal_risk.course_paid_counts_known, false);
-  assert.equal(result.goal_risk.same_system_ga4_paid_funnel.apply_cta_views, 167);
+  assert.equal(result.goal_risk.same_system_ga4_paid_funnel.apply_cta_views, 183);
   assert.equal(result.goal_risk.same_system_ga4_paid_funnel.apply_clicks, 5);
   assert.ok(
     actionFor(result.decisions, "operator", "collect_course_paid_counts"),
