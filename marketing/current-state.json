@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T22:58:57+09:00",
+  "updated_at": "2026-07-28T23:28:42+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -12,8 +12,8 @@
     "optimization": "landing_page_views",
     "daily_budget_total_krw": 40000,
     "account_spend_limit_krw": 350000,
-    "account_spend_to_date_krw": 71999,
-    "account_spend_remaining_krw": 278001,
+    "account_spend_to_date_krw": 73625,
+    "account_spend_remaining_krw": 276375,
     "schedule_end_time": {
       "current_at": "2026-08-02T23:59:00+09:00",
       "intended_at": "2026-08-02T23:59:00+09:00",
@@ -68,12 +68,12 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": 35311,
-        "impressions": 9350,
+        "spend_krw": 36259,
+        "impressions": 9609,
         "link_clicks": 61,
         "landing_views": 48,
-        "link_ctr_percent": 0.65,
-        "cost_per_landing_view_krw": 736,
+        "link_ctr_percent": 0.63,
+        "cost_per_landing_view_krw": 755,
         "candidate_landing_views": 16,
         "superseded_landing_views": 32
       },
@@ -85,7 +85,7 @@
       "qualified_apply_clicks": 1,
       "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment",
+      "apply_click_qualification": "One course-tagged click is in GA4 paid traffic and excluded from the US segment.",
       "confirmation_messages_sent": null,
       "confirmation_messages_remaining": null
     },
@@ -115,12 +115,12 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": 36688,
-        "impressions": 10805,
+        "spend_krw": 37366,
+        "impressions": 11016,
         "link_clicks": 57,
         "landing_views": 49,
-        "link_ctr_percent": 0.53,
-        "cost_per_landing_view_krw": 749
+        "link_ctr_percent": 0.52,
+        "cost_per_landing_view_krw": 763
       },
       "minimum_enrollment": 6,
       "capacity": 15,
@@ -130,7 +130,7 @@
       "qualified_apply_clicks": 1,
       "pending_qualification_apply_clicks": 0,
       "course_tagged_apply_clicks": 1,
-      "apply_click_qualification": "one course-tagged click is in GA4 paid traffic and excluded from the US segment",
+      "apply_click_qualification": "One course-tagged click is in GA4 paid traffic and excluded from the US segment.",
       "confirmation_messages_sent": null,
       "confirmation_messages_remaining": null
     }
@@ -163,7 +163,7 @@
     "note": "GA4 apply_click is a form-open action, not a completed application."
   },
   "ga4_today_processed": {
-    "observed_at": "2026-07-28T22:41:00+09:00",
+    "observed_at": "2026-07-28T23:28:42+09:00",
     "status": "processed_period",
     "period_start": "2026-07-26",
     "period_end": "2026-07-28",
@@ -185,7 +185,7 @@
       "notebooklm": 1,
       "roblox": 1
     },
-    "note": "At 22:41 KST, the GA4 paid-traffic exploration shows 167 application CTA views and five paid apply clicks. The full exploration still contains six apply clicks, including one qualified paid non-US course-tagged click per course, and no application_submit. Google Form responses remain three. E-010 has accumulated zero additional qualified apply clicks after launch."
+    "note": "At 23:28 KST, the GA4 paid-traffic exploration remains at 167 application CTA views and five paid form-open clicks. The full exploration still contains six apply clicks, one qualified paid non-US course-tagged click per course, and no application_submit. Google Form responses remain three, split two NotebookLM and one Roblox. E-010 remains at zero additional qualified clicks after launch. Applicant PII is intentionally excluded."
   },
   "ga4_custom_dimensions": {
     "verified_at": "2026-07-27T16:45:52+09:00",
@@ -223,7 +223,7 @@
     "note": "Historical apply_click rows still have course_selection=(not set), while one newly tagged click appears for NotebookLM final and one for Roblox mobile. GA4 segment comparison now confirms both new clicks are paid traffic and both are zero in the US segment."
   },
   "ga4_paid_cta_funnel": {
-    "observed_at": "2026-07-28T22:41:00+09:00",
+    "observed_at": "2026-07-28T23:28:42+09:00",
     "period_start": "2026-07-26",
     "period_end": "2026-07-28",
     "segment": "paid_traffic",
@@ -406,10 +406,10 @@
   ],
   "goal_risk": {
     "status": "critical",
-    "evaluated_at": "2026-07-28T13:58:57.000Z",
+    "evaluated_at": "2026-07-28T14:28:42.000Z",
     "deadline_at": "2026-08-02T14:59:00.000Z",
-    "hours_remaining": 121,
-    "days_remaining": 5.04,
+    "hours_remaining": 120.5,
+    "days_remaining": 5.02,
     "target_paid_total": 12,
     "paid_confirmed_total": 3,
     "paid_gap_total": 9,

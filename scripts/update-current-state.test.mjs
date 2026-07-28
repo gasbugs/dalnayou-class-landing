@@ -54,7 +54,7 @@ test("latest paid CTA funnel replaces the earlier checkpoint", () => {
   );
   const state = JSON.parse(output);
 
-  assert.equal(state.ga4_paid_cta_funnel.observed_at, "2026-07-28T22:41:00+09:00");
+  assert.equal(state.ga4_paid_cta_funnel.observed_at, "2026-07-28T23:28:42+09:00");
   assert.deepEqual(state.ga4_paid_cta_funnel.notebooklm, {
     apply_cta_views: 76,
     apply_clicks: 2,
