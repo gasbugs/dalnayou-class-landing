@@ -120,13 +120,18 @@
         "📍 소사역 힐스에비뉴 달나유 B1",
         "만 14세 미만 수강생은 법정대리인이 작성해주세요. 가격·환불·상세 안내: https://gasbugs.github.io/dalnayou-class-landing/"
       ],
-      "change_scope": "Replace only the Google Form description. Keep the privacy consent text, all questions, required states, options, response destination and Apps Script trigger unchanged.",
+      "change_scope": "Replace only the Google Form description. Keep the remaining questions, required states, options, response destination and Apps Script trigger unchanged. The Roblox grade question was removed separately on 2026-07-28.",
       "rollback": {
         "restore": "baseline_form_description",
         "immediate_if": "The published form omits the date, course times, venue, minor-applicant notice or detailed landing link, or response collection stops working.",
         "evaluation": "Do not judge submission impact before at least 10 additional qualified apply clicks have been processed after the change."
       },
-      "follow_up_candidate": "If form submissions still remain 0 after the first-screen test, evaluate a course-branching form so Notebook applicants do not have to select a Roblox grade.",
+      "resolved_form_friction": {
+        "resolved_at": "2026-07-28T10:05:00+09:00",
+        "change": "Removed the required Roblox grade question and its empty section, reducing required actions after course prefill from five to four.",
+        "verification": "Both NotebookLM and Roblox prefill links still select the intended course, the public form no longer shows the grade field, and the existing response count remains three."
+      },
+      "follow_up_candidate": "If form submissions still remain 0 after the first-screen test, inspect the remaining four required actions without reintroducing a grade field.",
       "keep_stable": [
         "course_options",
         "required_contact_fields",

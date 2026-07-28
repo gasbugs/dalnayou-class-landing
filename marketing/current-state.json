@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T09:10:00+09:00",
+  "updated_at": "2026-07-28T10:05:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -233,23 +233,21 @@
     "note": "Same GA4 paid-traffic segment and July 26-28 period. CTA views and clicks are not mixed with Meta landing-page counts. The two newly course-tagged clicks are excluded from the US segment."
   },
   "google_form_mobile_audit": {
-    "audited_at": "2026-07-26T13:58:29+09:00",
+    "audited_at": "2026-07-28T10:05:00+09:00",
     "status": "working",
     "course_prefill": "verified",
     "attribution_prefill": "verified",
-    "required_user_actions_after_course_prefill": 5,
+    "required_user_actions_after_course_prefill": 4,
     "required_actions": [
       "privacy consent",
       "applicant name",
       "mobile phone",
-      "application type",
-      "Roblox grade or Notebook not-applicable choice"
+      "application type"
     ],
     "friction_candidates": [
-      "The mobile introduction pushes the first required question below the initial viewport.",
-      "Notebook applicants must explicitly select a not-applicable answer for the required Roblox grade question."
+      "The mobile introduction pushes the first required question below the initial viewport."
     ],
-    "decision": "Do not change the live form at only 3 tracked apply clicks. E-010 queues a first-screen copy reduction after 10 apply clicks if completed submissions remain 0."
+    "decision": "Removed the required Roblox grade question and its now-empty section. Both course-prefill links remain verified, existing response count remains 3, and E-010's separate first-screen copy gate remains queued."
   },
   "completion_audit": {
     "audited_at": "2026-07-26T15:06:58+09:00",
