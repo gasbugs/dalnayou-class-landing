@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T08:54:00+09:00",
+  "updated_at": "2026-07-28T09:10:00+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
@@ -68,12 +68,12 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": null,
-        "impressions": null,
-        "link_clicks": null,
+        "spend_krw": 24765,
+        "impressions": 6504,
+        "link_clicks": 44,
         "landing_views": 35,
-        "link_ctr_percent": null,
-        "cost_per_landing_view_krw": null,
+        "link_ctr_percent": 0.68,
+        "cost_per_landing_view_krw": 709,
         "candidate_landing_views": 3,
         "superseded_landing_views": 32
       },
@@ -113,12 +113,12 @@
         "period_start": "2026-07-27",
         "period_end": "2026-07-28",
         "window": "today_and_yesterday",
-        "spend_krw": null,
-        "impressions": null,
-        "link_clicks": null,
+        "spend_krw": 25737,
+        "impressions": 7514,
+        "link_clicks": 38,
         "landing_views": 31,
-        "link_ctr_percent": null,
-        "cost_per_landing_view_krw": null
+        "link_ctr_percent": 0.51,
+        "cost_per_landing_view_krw": 831
       },
       "minimum_enrollment": 6,
       "capacity": 15,

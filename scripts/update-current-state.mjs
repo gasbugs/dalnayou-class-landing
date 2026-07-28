@@ -176,17 +176,39 @@ if (courseAdsetRecord?.course_breakdown) {
   )) {
     const course = state.courses[key];
     if (!course || !Number.isFinite(metrics?.landing_views)) continue;
+    const ctr =
+      Number.isFinite(metrics.link_clicks) &&
+      Number.isFinite(metrics.impressions) &&
+      metrics.impressions > 0
+        ? (metrics.link_clicks / metrics.impressions) * 100
+        : null;
+    const landingCost =
+      Number.isFinite(metrics.spend_krw) && metrics.landing_views > 0
+        ? metrics.spend_krw / metrics.landing_views
+        : null;
     course.meta_today = {
       ...course.meta_today,
       period_start: courseAdsetRecord.period_start,
       period_end: courseAdsetRecord.period_end,
       window: "today_and_yesterday",
-      spend_krw: null,
-      impressions: null,
-      link_clicks: null,
+      spend_krw: Number.isFinite(metrics.spend_krw)
+        ? metrics.spend_krw
+        : null,
+      impressions: Number.isFinite(metrics.impressions)
+        ? metrics.impressions
+        : null,
+      link_clicks: Number.isFinite(metrics.link_clicks)
+        ? metrics.link_clicks
+        : null,
       landing_views: metrics.landing_views,
-      link_ctr_percent: null,
-      cost_per_landing_view_krw: null,
+      link_ctr_percent: Number.isFinite(ctr) ? Number(ctr.toFixed(2)) : null,
+      cost_per_landing_view_krw: Number.isFinite(
+        metrics.cost_per_landing_view_krw,
+      )
+        ? metrics.cost_per_landing_view_krw
+        : Number.isFinite(landingCost)
+          ? Math.round(landingCost)
+          : null,
     };
   }
 }

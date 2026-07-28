@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-28T08:54:00+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-28T09:10:00+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -30,7 +30,7 @@
 | 2026-07-26~2026-07-27 | `e011_launch_checkpoint` | — | — | — | 비교 금지 | 101 | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `post_e011_launch_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
 | 2026-07-26~2026-07-27 | `overnight_checkpoint` | — | — | — | 비교 금지 | — | 비교 금지 | 4 | 0 | 3 |
-| 2026-07-27~2026-07-28 | `course_adset_checkpoint` | — | — | — | — | 66 | — | — | — | — |
+| 2026-07-27~2026-07-28 | `course_adset_checkpoint` | 50,502원 | 14,018 | 82 | 0.6% | 66 | 80.5% | — | — | — |
 | 2026-07-26~2026-07-28 | `accelerated_roblox_gate_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
 | 2026-07-26~2026-07-28 | `qualified_paid_apply_checkpoint` | — | — | — | 비교 금지 | 66 | 비교 금지 | 6 | 0 | 3 |
 | 2026-07-26~2026-07-28 | `paid_cta_funnel_notebooklm` | — | — | — | — | — | — | 2 | 0 | — |
@@ -148,6 +148,7 @@
 | 2026-07-28T08:54:00+09:00 | `qualified_paid_apply_checkpoint` | — | — | — | 66 | meta + ga4 + google_forms + operator_report |
 | 2026-07-28T08:54:00+09:00 | `paid_cta_funnel_notebooklm` | — | — | — | — | ga4 |
 | 2026-07-28T08:54:00+09:00 | `paid_cta_funnel_roblox` | — | — | — | — | ga4 |
+| 2026-07-28T09:10:00+09:00 | `course_adset_checkpoint` | 50,502원 | 14,018 | 82 | 66 | meta |
 
 ## 최신 병목 판정
 
@@ -346,13 +347,13 @@
 
 ### course_adset_checkpoint
 
-- 광고 클릭: **자료 부족** (노출 1,000회)
-- 랜딩 완료: **자료 부족** (링크 클릭 20회)
+- 광고 클릭: **개선 필요** (0.6%)
+- 랜딩 완료: **관찰 양호** (80.5%)
 - 신청서 이동: **자료 부족** (유료 랜딩 30회)
 - 신청서 제출: **자료 부족** (신청서 이동 10회)
 - 입금 확정: **자료 부족** (신청서 제출 3회)
-- 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
-- 기록: Meta ad-set view for July 27-28 showed 35 Gemini and 31 Roblox landing-page views. Both course ad sets remained active. No daily budget change was made.
+- 현재 첫 개선 후보: 광고의 첫 문장·대표 이미지·대상 문제를 우선 점검
+- 기록: Exact Meta ad-set report for July 27-28 after temporarily reducing the visible report columns. Gemini link CTR is 0.68%, click-to-landing rate is 79.55% and Meta reports 709 KRW per landing-page view. Roblox link CTR is 0.51%, click-to-landing rate is 81.58% and Meta reports 831 KRW per landing-page view. Both course ad sets remain active at 20,000 KRW/day. No creative, audience, budget, destination or schedule setting was changed because each course has one qualified paid non-US course-tagged apply click and neither has verified 15-person paid capacity.
 
 ### accelerated_roblox_gate_checkpoint
 
