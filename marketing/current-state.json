@@ -278,7 +278,7 @@
     "next_required_evidence": [
       "Course-specific paid counts from the operator without applicant PII.",
       "Course-specific confirmation-message send completion.",
-      "Meta, GA4 and Google Form counts at the next scheduled review on 2026-07-27 at 20:00 KST."
+      "Meta, GA4 and Google Form counts at the next scheduled review on 2026-07-28T14:00:00+09:00."
     ]
   },
   "latest_actions": [
@@ -323,7 +323,8 @@
     "Published and verified a free public Roblox creator follow-up post with a distinct organic UTM. It keeps the paid campaign unchanged and explicitly states that earnings are not guaranteed.",
     "At the user-accelerated 08:40 checkpoint, verified E-011 active with three landing-page views and paused only the superseded Gemini ad after confirming the candidate was live. The report window was July 27-28; the superseded ad had 32 landing-page views.",
     "Held E-012 unpublished because GA4 now shows one newly course-tagged Roblox apply click whose source and country attribution are not yet processed. Roblox remains active at the existing 20,000 KRW/day budget.",
-    "At 08:54 KST, confirmed the new NotebookLM and Roblox course-tagged clicks are both in GA4 paid traffic and both excluded from the US segment. E-012 remains unpublished because Roblox now has qualified paid application movement."
+    "At 08:54 KST, confirmed the new NotebookLM and Roblox course-tagged clicks are both in GA4 paid traffic and both excluded from the US segment. E-012 remains unpublished because Roblox now has qualified paid application movement.",
+    "At 09:10 KST, recorded exact July 27-28 Meta ad-set results: Gemini 24,765 KRW / 6,504 impressions / 44 link clicks / 35 landing views / 709 KRW per landing view; Roblox 25,737 KRW / 7,514 impressions / 38 link clicks / 31 landing views / 831 KRW per landing view. Both ads remain active at 20,000 KRW/day because each has one qualified paid non-US course-tagged apply click and neither has verified 15-person paid capacity."
   ],
   "facebook_page_post": {
     "status": "published",

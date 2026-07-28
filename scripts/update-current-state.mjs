@@ -322,6 +322,14 @@ if (accountRemaining !== undefined) {
 const nextDecision = option("--next-decision");
 if (nextDecision !== undefined) {
   state.next_decision.at = nextDecision;
+  const nextEvidence =
+    state.completion_audit?.next_required_evidence?.findIndex((item) =>
+      item.startsWith("Meta, GA4 and Google Form counts at"),
+    ) ?? -1;
+  if (nextEvidence >= 0) {
+    state.completion_audit.next_required_evidence[nextEvidence] =
+      `Meta, GA4 and Google Form counts at the next scheduled review on ${nextDecision}.`;
+  }
 }
 
 const output = `${JSON.stringify(state, null, 2)}\n`;
