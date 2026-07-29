@@ -1,10 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T00:02:59+09:00",
+  "updated_at": "2026-07-29T19:13:33+09:00",
   "purpose": "Read this file first. Open detailed history only when investigating an older decision.",
   "campaign": {
     "name": "[Codex] 2026-08_AI클래스_모집",
-    "status": "active",
+    "status": "paused_by_operator",
+    "paused_at": "2026-07-29T19:13:33+09:00",
+    "pause_reason": "The operator requested that all current course advertising be stopped. The Codex recruitment campaign and the pre-existing campaign are both off in Meta Ads Manager.",
     "start_date": "2026-07-26",
     "end_date": "2026-08-02",
     "region": "소사역 +8km",
@@ -49,6 +51,7 @@
       "remaining_to_target": null,
       "ad_set": "[Codex] Gemini노트북_소사역_18-44",
       "ad": "[Codex] Gemini노트북_업무문서문제_v2",
+      "ad_status": "paused_with_campaign",
       "daily_budget_krw": 20000,
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/notebooklm.html",
       "utm_content": "notebooklm_workload_candidate_v2",
@@ -97,6 +100,7 @@
       "remaining_to_target": null,
       "ad_set": "[Codex] 로블록스AI_소사역_18-44",
       "ad": "[Codex] 로블록스AI_기업교육신뢰_v1",
+      "ad_status": "paused_with_campaign",
       "daily_budget_krw": 20000,
       "destination": "https://gasbugs.github.io/dalnayou-class-landing/roblox.html",
       "utm_content": "roblox_enterprise_emergency",
@@ -287,6 +291,7 @@
     ]
   },
   "latest_actions": [
+    "At 2026-07-29 19:13 KST, paused the entire [Codex] 2026-08_AI클래스_모집 campaign at the operator's request. Meta confirmed the campaign update, and both campaigns in the ad account are now off.",
     "Paused the superseded Roblox campaign.",
     "Confirmed both course ad sets are active at 20,000 KRW/day each.",
     "Corrected the Roblox ad destination from notebooklm.html to roblox.html and verified no unpublished draft remains.",
@@ -407,15 +412,15 @@
   ],
   "goal_risk": {
     "status": "critical",
-    "evaluated_at": "2026-07-28T15:02:59.000Z",
+    "evaluated_at": "2026-07-29T10:13:33.000Z",
     "deadline_at": "2026-08-02T14:59:00.000Z",
-    "hours_remaining": 119.9,
-    "days_remaining": 5,
+    "hours_remaining": 100.8,
+    "days_remaining": 4.2,
     "target_paid_total": 12,
     "paid_confirmed_total": 3,
     "paid_gap_total": 9,
     "paid_progress_percent": 25,
-    "required_paid_per_day": 1.8,
+    "required_paid_per_day": 2.14,
     "course_paid_counts_known": false,
     "course_targets_met": false,
     "same_system_ga4_paid_funnel": {

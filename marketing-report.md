@@ -1,6 +1,6 @@
 # 클씨랩 AI 클래스 퍼널 보고서
 
-원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-29T00:02:59+09:00
+원본: `marketing/snapshots.jsonl` · 최신 기록: 2026-07-29T19:13:33+09:00
 
 서로 다른 분석 시스템의 수치는 동일 코호트가 아니므로 서로 나눠 전환율을 만들지 않습니다.
 판정 기준은 초기 모집용 운영 휴리스틱이며 보편적인 업계 기준이 아닙니다.
@@ -9,7 +9,7 @@
 
 - 위험도: **긴급**
 - 입금: **3 / 12명** · 추가 필요 **9명**
-- 남은 시간: **119.9시간** · 목표 달성에 필요한 일평균 입금 **1.8명**
+- 남은 시간: **100.8시간** · 목표 달성에 필요한 일평균 입금 **2.14명**
 - 과정별 입금 집계: **확인 필요**
 - 확정 메시지 발송: **과정별 확인 필요**
 - E-010 변경 후: 검증된 신청 이동 **0 / 10회** · 신규 Form 응답 **0건**
@@ -65,6 +65,7 @@ Meta 랜딩 조회와 GA4 신청 클릭을 나눠 전환율을 만들지 않습�
 | 2026-07-27~2026-07-28 | `notebooklm_workload_organic_20260727` | 0원 | — | — | — | — | — | — | — | — | — |
 | 2026-07-26~2026-07-28 | `combined_launch_post` | 0원 | — | — | — | — | — | — | — | — | — |
 | 2026-07-26~2026-07-27 | `kakao_channel_inquiry_checkpoint` | 0원 | — | — | — | — | — | — | — | — | — |
+| 2026-07-29~2026-07-29 | `campaign_paused_by_operator` | — | — | — | 비교 금지 | — | 비교 금지 | — | — | — | — |
 
 ## CTA 위치별 성과
 
@@ -204,6 +205,7 @@ Meta 랜딩 조회와 GA4 신청 클릭을 나눠 전환율을 만들지 않습�
 | 2026-07-29T00:02:59+09:00 | `paid_cta_funnel_notebooklm` | — | — | — | — | ga4 |
 | 2026-07-29T00:02:59+09:00 | `paid_cta_funnel_roblox` | — | — | — | — | ga4 |
 | 2026-07-29T00:02:59+09:00 | `all_form_responses` | — | — | — | — | google_forms + operator_report |
+| 2026-07-29T19:13:33+09:00 | `campaign_paused_by_operator` | — | — | — | — | meta + operator_request |
 
 ## 최신 병목 판정
 
@@ -481,6 +483,17 @@ Meta 랜딩 조회와 GA4 신청 클릭을 나눠 전환율을 만들지 않습�
 - 입금 확정: **자료 부족** (신청서 제출 3회)
 - 현재 판단: 노출 1,000회까지 관찰을 계속합니다.
 - 기록: Kakao Business processed statistics show zero profile visitors and zero profile views on both July 26 and July 27, with no new campaign-period chat. The channel has three total friends. July 28 data is not yet processed and is intentionally not recorded as zero. Chat is enabled daily from 09:00 to 18:00 and accepts an away message outside those hours.
+
+### campaign_paused_by_operator
+
+- 광고 클릭: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 랜딩 완료: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 이동: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 신청서 제출: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 입금 확정: **비교 금지** (서로 다른 집계 시스템 또는 출처 불명)
+- 현재 판단: 다음 퍼널 단계의 절대 전환 수와 입금 확정을 확인합니다.
+- 데이터 한계: meta + operator_request 혼합 집계이므로 동일 사용자 코호트가 아닙니다.
+- 기록: At 19:13 KST, the operator requested that all current advertising be stopped. The [Codex] recruitment campaign was switched off in Meta Ads Manager, Meta confirmed the campaign update, and both campaigns in ad account 1661899158952556 were verified off. No applicant PII is stored.
 
 ## 실험 실행 게이트
 
