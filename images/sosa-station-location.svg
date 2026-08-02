@@ -1,62 +1,74 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
-  <title id="title">소사역 4번 출구 방면 달나유 이음센터 위치 안내도</title>
-  <desc id="desc">소사역, 4번 출구 방면, 경인로, 힐스테이트소사역 상가 B1층 달나유 이음센터를 단순화해 보여주는 안내도</desc>
+  <title id="title">소사역 4번 출구에서 B107 클라우드시큐리티랩까지 가는 같은 층 안내도</title>
+  <desc id="desc">소사역 1호선과 서해선, 4번 출구 위치, 그리고 4번 출구와 같은 층 레벨에서 경인옛로 37 B107 클라우드시큐리티랩까지 약 1분 이동하는 상가 내부 동선을 보여주는 약식 안내도</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1f1410" flood-opacity=".18"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1f1410" flood-opacity=".16"/>
     </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
     </marker>
   </defs>
 
   <rect width="960" height="600" rx="36" fill="#fffaf3"/>
-  <path d="M-40 300 C160 285 370 300 570 315 C730 327 870 324 1000 314 L1000 395 C790 410 600 392 410 382 C250 374 108 378 -40 392 Z" fill="#fff0b8"/>
-  <path d="M-40 340 C185 326 345 337 560 352 C740 365 862 358 1000 352" fill="none" stroke="#f5d889" stroke-width="5"/>
-  <text x="55" y="365" fill="#9a6a17" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="28" font-weight="800">경인로</text>
-
-  <path d="M-30 160 C200 150 430 148 690 146 C810 145 905 148 990 154" fill="none" stroke="#1f3a9d" stroke-width="40" stroke-linecap="round"/>
-  <path d="M-30 160 C200 150 430 148 690 146 C810 145 905 148 990 154" fill="none" stroke="#2947b5" stroke-width="3"/>
-  <text x="510" y="137" fill="#ffffff" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="800">1호선(경인선)</text>
-
-  <path d="M350 -40 C370 85 395 198 430 310 C465 420 500 510 536 640" fill="none" stroke="#84c341" stroke-width="34" stroke-linecap="round"/>
-  <path d="M350 -40 C370 85 395 198 430 310 C465 420 500 510 536 640" fill="none" stroke="#52a315" stroke-width="4"/>
-  <text x="438" y="448" transform="rotate(72 438 448)" fill="#2f7d16" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="800">서해선</text>
 
   <g filter="url(#shadow)">
-    <rect x="350" y="112" width="190" height="108" rx="22" fill="#ffffff"/>
-    <text x="445" y="154" text-anchor="middle" fill="#1f1410" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="34" font-weight="900">소사역</text>
-    <text x="445" y="188" text-anchor="middle" fill="#2947b5" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="20" font-weight="800">1호선 · 서해선</text>
+    <rect x="42" y="42" width="176" height="92" rx="18" fill="#111827"/>
+    <rect x="42" y="124" width="176" height="10" fill="#c2410c"/>
+    <text x="130" y="99" text-anchor="middle" fill="#ffffff" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="52" font-weight="900">B1F</text>
+  </g>
+  <text x="250" y="70" fill="#1f1410" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="31" font-weight="900">소사역 4번 출구와 같은 층</text>
+  <text x="250" y="106" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="27" font-weight="900">도보 약 1분 · 상가 연결 동선</text>
+
+  <!-- 소사역 라인 약식 지도 -->
+  <g filter="url(#shadow)">
+    <rect x="78" y="154" width="804" height="126" rx="28" fill="#ffffff" stroke="#e8dccf" stroke-width="4"/>
+    <path d="M112 214 C270 208 430 207 620 206 C725 205 810 208 858 212" fill="none" stroke="#1f3a9d" stroke-width="30" stroke-linecap="round"/>
+    <text x="728" y="199" fill="#ffffff" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="900">1호선(경인선)</text>
+    <path d="M360 160 C376 194 392 234 412 276" fill="none" stroke="#84c341" stroke-width="28" stroke-linecap="round"/>
+    <path d="M360 160 C376 194 392 234 412 276" fill="none" stroke="#52a315" stroke-width="4"/>
+    <text x="423" y="255" transform="rotate(68 423 255)" fill="#2f7d16" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="17" font-weight="900">서해선</text>
+    <rect x="344" y="178" width="156" height="74" rx="18" fill="#ffffff" stroke="#d9d3c8" stroke-width="3"/>
+    <text x="422" y="211" text-anchor="middle" fill="#1f1410" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="28" font-weight="900">소사역</text>
+    <text x="422" y="238" text-anchor="middle" fill="#2947b5" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="900">1호선 · 서해선</text>
+    <circle cx="498" cy="255" r="28" fill="#15803d" stroke="#ffffff" stroke-width="6"/>
+    <text x="498" y="265" text-anchor="middle" fill="#ffffff" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="28" font-weight="900">4</text>
+    <text x="542" y="263" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="23" font-weight="900">4번 출구</text>
+    <text x="542" y="291" fill="#6f5a49" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="800">같은 층 레벨로 상가 연결</text>
   </g>
 
-  <g font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-weight="900">
-    <circle cx="525" cy="210" r="24" fill="#fff4bf" stroke="#d7a600" stroke-width="4"/>
-    <text x="525" y="219" text-anchor="middle" fill="#1f1410" font-size="24">1</text>
-    <circle cx="375" cy="210" r="24" fill="#fff4bf" stroke="#d7a600" stroke-width="4"/>
-    <text x="375" y="219" text-anchor="middle" fill="#1f1410" font-size="24">2</text>
-    <circle cx="300" cy="116" r="24" fill="#fff4bf" stroke="#d7a600" stroke-width="4"/>
-    <text x="300" y="125" text-anchor="middle" fill="#1f1410" font-size="24">3</text>
-    <circle cx="505" cy="418" r="28" fill="#15803d" stroke="#ffffff" stroke-width="6"/>
-    <text x="505" y="428" text-anchor="middle" fill="#ffffff" font-size="28">4</text>
-    <circle cx="280" cy="335" r="24" fill="#fff4bf" stroke="#d7a600" stroke-width="4"/>
-    <text x="280" y="344" text-anchor="middle" fill="#1f1410" font-size="24">5</text>
+  <!-- B1F 평면도 약식 안내 -->
+  <g opacity=".94">
+    <path d="M104 318 L790 320 L858 548 L158 552 Z" fill="#f7f5ef" stroke="#ded8ca" stroke-width="5"/>
+    <path d="M200 350 L404 344 L380 416 L162 414 Z" fill="#d9eef2" stroke="#9ab6bf" stroke-width="3"/>
+    <path d="M442 344 L810 350 L806 430 L432 424 Z" fill="#d9eef2" stroke="#9ab6bf" stroke-width="3"/>
+    <path d="M160 442 L306 452 L308 530 L130 520 Z" fill="#d7a765" stroke="#b9853f" stroke-width="3"/>
+    <path d="M326 436 L424 446 L424 534 L322 528 Z" fill="#d7a765" stroke="#b9853f" stroke-width="3"/>
+    <path d="M456 442 L818 448 L844 528 L454 532 Z" fill="#d9eef2" stroke="#9ab6bf" stroke-width="3"/>
+    <path d="M210 330 L150 386 L232 452 L426 548 L536 532 L342 430 L390 368 L410 340 Z" fill="#ffffff" stroke="#d8d3c8" stroke-width="4"/>
+    <path d="M430 335 L424 532" fill="none" stroke="#d8d3c8" stroke-width="7"/>
+    <path d="M528 352 L520 528" fill="none" stroke="#d8d3c8" stroke-width="7"/>
   </g>
 
-  <path d="M525 418 C590 410 635 398 690 370" fill="none" stroke="#15803d" stroke-width="8" stroke-linecap="round" stroke-dasharray="18 14" marker-end="url(#arrow)"/>
-  <text x="545" y="388" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="26" font-weight="900">4번 출구 방면</text>
+  <path d="M498 284 C455 314 382 344 322 392 C274 430 302 466 394 508 C456 536 518 540 590 520" fill="none" stroke="#15803d" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <path d="M498 284 C455 314 382 344 322 392 C274 430 302 466 394 508 C456 536 518 540 590 520" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
 
   <g filter="url(#shadow)">
-    <rect x="655" y="286" width="260" height="150" rx="28" fill="#ffffff" stroke="#b7e0c2" stroke-width="4"/>
-    <path d="M785 246 C745 246 713 278 713 318 C713 368 785 426 785 426 C785 426 857 368 857 318 C857 278 825 246 785 246 Z" fill="#15803d"/>
-    <circle cx="785" cy="318" r="28" fill="#ffffff"/>
-    <text x="785" y="326" text-anchor="middle" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="24" font-weight="900">B1</text>
-    <text x="785" y="468" text-anchor="middle" fill="#1f1410" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="30" font-weight="900">달나유 이음센터</text>
-    <text x="785" y="504" text-anchor="middle" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="900">힐스테이트소사역 상가 B1층</text>
+    <rect x="616" y="454" width="322" height="88" rx="26" fill="#ffffff" stroke="#b7e0c2" stroke-width="5"/>
+    <path d="M590 386 C556 386 530 413 530 447 C530 490 590 542 590 542 C590 542 650 490 650 447 C650 413 624 386 590 386 Z" fill="#15803d"/>
+    <circle cx="590" cy="447" r="26" fill="#ffffff"/>
+    <text x="590" y="456" text-anchor="middle" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="900">B1</text>
+    <text x="780" y="489" text-anchor="middle" fill="#1f1410" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="26" font-weight="900">클라우드시큐리티랩</text>
+    <text x="780" y="522" text-anchor="middle" fill="#15803d" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="19" font-weight="900">경인옛로 37 B107</text>
   </g>
 
-  <g>
-    <rect x="54" y="464" width="420" height="72" rx="24" fill="#1f1410" opacity=".9"/>
-    <text x="84" y="493" fill="#ffffff" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="20" font-weight="800">정확한 길찾기는 카카오맵·네이버지도 버튼에서 확인</text>
-    <text x="84" y="522" fill="#fde68a" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="800">소사역 4번 출구 방면 안내용 약식 지도</text>
+  <g font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-weight="800">
+    <rect x="76" y="500" width="350" height="64" rx="22" fill="#1f1410" opacity=".9"/>
+    <text x="106" y="526" fill="#ffffff" font-size="19">정확한 길찾기는 지도 버튼에서 확인</text>
+    <text x="106" y="552" fill="#fde68a" font-size="17">내려가는 안내가 아닌 같은 층 이동 안내</text>
+    <rect x="684" y="334" width="150" height="42" rx="14" fill="#d9eef2" stroke="#9ab6bf" stroke-width="3"/>
+    <text x="759" y="362" text-anchor="middle" fill="#46606a" font-size="16">판매시설</text>
+    <rect x="684" y="386" width="150" height="42" rx="14" fill="#d7a765" stroke="#b9853f" stroke-width="3"/>
+    <text x="759" y="414" text-anchor="middle" fill="#7c4f16" font-size="16">커뮤니티 시설</text>
   </g>
 </svg>
