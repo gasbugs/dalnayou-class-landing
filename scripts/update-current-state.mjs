@@ -78,7 +78,12 @@ const newestTimestamp = records
   .filter(Boolean)
   .sort()
   .at(-1);
-if (newestTimestamp) state.updated_at = newestTimestamp;
+if (
+  newestTimestamp &&
+  (!state.updated_at || newestTimestamp > state.updated_at)
+) {
+  state.updated_at = newestTimestamp;
+}
 
 const paidByCourse = {};
 for (const [key, course] of Object.entries(state.courses)) {

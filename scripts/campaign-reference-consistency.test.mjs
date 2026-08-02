@@ -24,13 +24,13 @@ for (const [courseKey, course] of Object.entries(state.courses)) {
 }
 
 test("operating references preserve the approved budget and stop rule", () => {
-  assert.equal(state.campaign.daily_budget_total_krw, 40000);
+  assert.equal(state.campaign.daily_budget_total_krw, 10000);
   assert.equal(state.campaign.account_spend_limit_krw, 350000);
   assert.equal(
     state.stop_and_change_rules.stop_course_ad_at_paid_confirmations,
     15,
   );
-  assert.match(metaPlan, /전체 일 예산 `40,000원`/);
+  assert.match(metaPlan, /일 예산 합계는 `10,000원`/);
   assert.match(metaPlan, /계정 지출 한도: `350,000원`/);
   assert.match(metaPlan, /정원 15명에 도달한 과정의 광고 세트만 중단/);
 });
